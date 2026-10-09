@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+</script>
 <title>MakeSiteFor.me</title>
 <meta name="description" content="Sajtovi i CRM za mali biznis u Crnoj Gori. Websites and CRM for small business in Montenegro. Сайты и CRM для малого бизнеса в Черногории.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%277%27 y=%274%27 width=%2718%27 height=%2724%27 rx=%273%27 fill=%27%2307141B%27 stroke=%27%23E7EFF1%27 stroke-width=%272.5%27/%3E%3Crect x=%2711.5%27 y=%279.5%27 width=%279%27 height=%2713%27 rx=%271%27 fill=%27%23FFB43C%27/%3E%3C/svg%3E">
@@ -1304,7 +1312,9 @@ $("#form").addEventListener("submit", async e => {
     const r = await fetch(CONFIG.formEndpoint, { method:"POST", headers:{ "Content-Type":"application/json", Accept:"application/json" },
       body: JSON.stringify({ access_key: CONFIG.formKey, subject: u.req[0] + " · " + CONFIG.brand, from_name: CONFIG.brand, name, business: opt("#f-type"), package: opt("#f-pkg"), channel, contact, message: msg, language: lang }) });
     if (!r.ok) throw new Error(r.status);
-    show("ok", u.ok, false); $("#form").reset();
+    show("ok", u.ok, false);
+    if (window.gtag) gtag("event", "generate_lead", { language: lang, package: opt("#f-pkg") }); // counted as a lead in Google Analytics
+    $("#form").reset();
   } catch(ex) { show("", u.fail, true); }
   finally { btn.disabled = false; btn.innerHTML = label; }
 });
