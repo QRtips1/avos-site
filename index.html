@@ -15,7 +15,7 @@
 <meta name="description" content="Sajtovi i CRM za mali biznis u Crnoj Gori. Websites and CRM for small business in Montenegro. Сайты и CRM для малого бизнеса в Черногории.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%277%27 y=%274%27 width=%2718%27 height=%2724%27 rx=%273%27 fill=%27%2307141B%27 stroke=%27%23E7EFF1%27 stroke-width=%272.5%27/%3E%3Crect x=%2711.5%27 y=%279.5%27 width=%279%27 height=%2713%27 rx=%271%27 fill=%27%23FFB43C%27/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="MakeSiteFor.me · AVOS">
+<meta property="og:title" content="MakeSiteFor.me">
 <meta property="og:description" content="Sajtovi + CRM za mali biznis u Crnoj Gori. Websites + CRM for small business. Сайты + CRM для малого бизнеса.">
 <meta name="theme-color" content="#07141B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,10 +152,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 @keyframes blink{50%{opacity:0}}
 .ph-btn{margin-top:3px;text-align:center;padding:8px;border-radius:9px;background:var(--ph-ac);color:var(--d-white);font-size:.74rem;font-weight:600;transition:transform .15s,filter .15s}
 .ph-btn.press{transform:scale(.95);filter:brightness(1.15)}
-.phone[data-niche="rest"]{--ph-bg:var(--d-rest-bg);--ph-fg:var(--d-rest-fg);--ph-ac:var(--d-rest-ac);--ph-img:radial-gradient(circle at 70% 75%,#FFD9A8 0 9%,transparent 10%),linear-gradient(180deg,#F2B880 0%,#D9774F 48%,#3E5C68 49%,#22343C 100%)}
-.phone[data-niche="apt"]{--ph-bg:var(--d-apt-bg);--ph-fg:var(--d-apt-fg);--ph-ac:var(--d-apt-ac);--ph-img:linear-gradient(180deg,#A8DAF0 0%,#D6EEF7 52%,#2C8EBF 53%,#1A6893 100%)}
-.phone[data-niche="car"]{--ph-bg:var(--d-car-bg);--ph-fg:var(--d-car-fg);--ph-ac:var(--d-car-ac);--ph-img:linear-gradient(160deg,#3A3F46 0%,#1D2025 55%,#FF5A45 56%,#B8382B 100%)}
-.phone[data-niche="cln"]{--ph-bg:var(--d-cln-bg);--ph-fg:var(--d-cln-fg);--ph-ac:var(--d-cln-ac);--ph-img:linear-gradient(135deg,#D8F3EA 0%,#A9E3D1 50%,#6CC9AE 100%)}
+.phone[data-niche="rest"]{--ph-bg:var(--d-rest-bg);--ph-fg:var(--d-rest-fg);--ph-ac:var(--d-rest-ac);--ph-img:url('https://images.unsplash.com/photo-1607195395719-3dc0d7b8cc16?auto=format&fit=crop&w=600&h=240&q=70') center/cover no-repeat,radial-gradient(circle at 70% 75%,#FFD9A8 0 9%,transparent 10%),linear-gradient(180deg,#F2B880 0%,#D9774F 48%,#3E5C68 49%,#22343C 100%)}
+.phone[data-niche="apt"]{--ph-bg:var(--d-apt-bg);--ph-fg:var(--d-apt-fg);--ph-ac:var(--d-apt-ac);--ph-img:url('https://images.unsplash.com/photo-1757415555332-bb1775394bab?auto=format&fit=crop&w=600&h=240&q=70') center/cover no-repeat,linear-gradient(180deg,#A8DAF0 0%,#D6EEF7 52%,#2C8EBF 53%,#1A6893 100%)}
+.phone[data-niche="car"]{--ph-bg:var(--d-car-bg);--ph-fg:var(--d-car-fg);--ph-ac:var(--d-car-ac);--ph-img:url('https://images.unsplash.com/photo-1579090814807-60808035e1cb?auto=format&fit=crop&w=600&h=240&q=70') center/cover no-repeat,linear-gradient(160deg,#3A3F46 0%,#1D2025 55%,#FF5A45 56%,#B8382B 100%)}
+.phone[data-niche="cln"]{--ph-bg:var(--d-cln-bg);--ph-fg:var(--d-cln-fg);--ph-ac:var(--d-cln-ac);--ph-img:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&h=240&q=70') center/cover no-repeat,linear-gradient(135deg,#D8F3EA 0%,#A9E3D1 50%,#6CC9AE 100%)}
 
 .flow-side{display:grid;gap:12px;min-width:0}
 .notif{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line-2);min-width:0}
@@ -226,74 +226,129 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:1px solid var(--line-2);background:transparent;padding:10px 18px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:500;white-space:nowrap}
 .tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.demo{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.55fr);gap:clamp(24px,4vw,48px);align-items:center}
+.demo{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr);gap:clamp(24px,4vw,48px);align-items:center}
 .browser{border-radius:18px;border:1px solid var(--line-2);background:var(--surface);overflow:hidden;box-shadow:var(--shadow);min-width:0}
 .b-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line)}
 .b-bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2);flex:none}
 .b-url{flex:1;min-width:0;margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--bg-2);color:var(--faint);font-family:var(--f-mono);font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .b-badge{flex:none;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;color:var(--accent-text);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent)}
-.m{padding:18px;display:grid;gap:16px;min-height:340px}
-.m-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.78rem;flex-wrap:wrap}
-.m-nav b{font-size:.95rem}
-.m-nav span{opacity:.7}
-.m-btn{display:inline-block;padding:9px 16px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--d-white);justify-self:start}
-.m-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid currentColor;border-color:color-mix(in srgb,currentColor 14%,transparent);font-size:.85rem}
-.m-row:last-child{border-bottom:0}
 
-.m-rest{background:var(--d-rest-bg);color:var(--d-rest-fg)}
-.m-rest .m-hero{position:relative;border-radius:12px;padding:26px 22px;min-height:150px;display:grid;align-content:end;gap:12px;background:radial-gradient(circle at 78% 62%,#FFDDAE 0 7%,transparent 8%),linear-gradient(180deg,#F2B880 0%,#D9774F 55%,#3E5C68 56%,#22343C 100%)}
-.m-rest h4{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.1;color:var(--d-white);max-width:14ch}
-.m-rest .m-btn{background:var(--d-rest-ac)}
+/* mini-sites: each keeps its own palette in both themes */
+.m{display:grid;gap:0;font-size:.82rem;line-height:1.45;min-width:0}
+.m h4{margin:0}
+.ph-i{position:relative}
+.ph-i img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.mx-nav{display:flex;align-items:center;gap:16px;padding:13px 20px;font-size:.74rem;min-width:0}
+.mx-nav b{font-size:.98rem;letter-spacing:.01em;white-space:nowrap}
+.mx-nav span{margin-left:auto;opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mx-photo{position:relative;background:var(--shade,linear-gradient(transparent,transparent)),var(--img,none) center/cover no-repeat,var(--fb,#333)}
+.mx-kick{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.m-btn{display:inline-flex;align-items:center;justify-content:center;padding:9px 16px;border-radius:999px;font-size:.78rem;font-weight:600;color:var(--d-white);white-space:nowrap;justify-self:start}
 .m-menu-h{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--f-serif);font-style:italic;font-size:1.1rem}
-.m-qr{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-style:normal;font-size:.66rem;letter-spacing:.06em;color:var(--d-rest-mu)}
-.qr{width:22px;height:22px;border-radius:3px;background:conic-gradient(var(--d-rest-fg) 25%,transparent 0 50%,var(--d-rest-fg) 0 75%,transparent 0) 0 0/7px 7px;border:2px solid var(--d-rest-fg)}
-.m-rest .m-row span:last-child{color:var(--d-rest-mu);font-variant-numeric:tabular-nums}
+.m-qr{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-style:normal;font-size:.64rem;letter-spacing:.06em;color:var(--d-rest-mu)}
+.qr{width:20px;height:20px;border-radius:3px;background:conic-gradient(var(--d-rest-fg) 25%,transparent 0 50%,var(--d-rest-fg) 0 75%,transparent 0) 0 0/7px 7px;border:2px solid var(--d-rest-fg)}
 
+/* restaurant */
+.m-rest{background:var(--d-rest-bg);color:var(--d-rest-fg)}
+.rx-hero{--shade:linear-gradient(180deg,rgba(10,16,12,.12) 0%,rgba(10,16,12,.35) 45%,rgba(10,16,12,.86) 100%);--fb:linear-gradient(160deg,#5B6E5F,#22302A);display:grid;align-content:end;gap:8px;min-height:250px;margin:0 14px;padding:24px 24px 44px;border-radius:14px;color:#fff}
+.rx-hero h4{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.05;max-width:15ch}
+.rx-hero p{max-width:40ch;opacity:.88}
+.rx-book{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:center;gap:6px 14px;margin:-26px 28px 0;position:relative;padding:10px 10px 10px 18px;border-radius:14px;background:#F6EFE3;color:#1E2A23;box-shadow:0 14px 34px -14px rgba(0,0,0,.55)}
+.rx-book div{display:grid;gap:1px;min-width:0}
+.rx-book small{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.rx-book b{font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-rest .m-btn{background:var(--d-rest-ac)}
+.rx-menu{display:grid;gap:12px;padding:18px 20px 20px}
+.rx-dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rx-dishes figure{margin:0;display:grid;gap:8px;min-width:0}
+.rx-dishes .ph-i{aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:#2E3C33}
+.rx-dishes figcaption{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;min-width:0}
+.rx-dishes figcaption span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rx-dishes figcaption b{color:var(--d-rest-mu);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* apartments */
 .m-apt{background:var(--d-apt-bg);color:var(--d-apt-fg)}
-.apt-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
-.apt-img{border-radius:12px;min-height:150px;padding:18px;display:grid;align-content:end;background:linear-gradient(180deg,#A8DAF0 0%,#D6EEF7 48%,#2C8EBF 49%,#1A6893 100%)}
-.apt-img h4{font-family:var(--f-body);font-weight:600;font-size:clamp(1.2rem,2.2vw,1.6rem);color:var(--d-white);text-shadow:0 1px 12px rgba(0,0,0,.25)}
+.ax-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;padding:0 16px 18px}
+.ax-gal{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;min-width:0}
+.ax-main{--shade:linear-gradient(180deg,rgba(6,30,45,0) 35%,rgba(6,30,45,.78) 100%);--fb:linear-gradient(180deg,#A8DAF0,#2C8EBF);display:grid;align-content:end;gap:6px;min-height:210px;padding:18px;border-radius:12px;color:#fff}
+.ax-main h4{font-weight:600;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.15;max-width:16ch}
+.ax-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ax-thumbs .ph-i{aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#CFE3EC}
+.ax-side{display:grid;gap:12px;align-content:start;min-width:0}
+.ax-price{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-bottom:10px;border-bottom:1px solid color-mix(in srgb,var(--d-apt-fg) 12%,transparent)}
+.ax-price b{font-size:1.05rem}
+.ax-price span{color:var(--d-apt-mu);font-size:.72rem}
 .cal{display:grid;gap:8px}
-.cal-h{display:flex;justify-content:space-between;font-weight:600;font-size:.85rem}
-.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:.66rem;text-align:center;font-variant-numeric:tabular-nums}
+.cal-h{display:flex;justify-content:space-between;font-weight:600;font-size:.82rem}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:.64rem;text-align:center;font-variant-numeric:tabular-nums}
 .cal-g span{padding:4px 0;border-radius:5px}
 .cal-g .wd{color:var(--d-apt-mu);font-weight:600}
 .cal-g .bk{color:var(--d-apt-mu);text-decoration:line-through;opacity:.55}
 .cal-g .sel{background:var(--d-apt-ac);color:var(--d-white)}
-.cal-leg{display:flex;gap:12px;flex-wrap:wrap;font-size:.68rem;color:var(--d-apt-mu)}
+.cal-leg{display:flex;gap:12px;flex-wrap:wrap;font-size:.66rem;color:var(--d-apt-mu)}
 .cal-leg i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--d-apt-ac)}
 .cal-leg i.b{background:color-mix(in srgb,var(--d-apt-mu) 40%,transparent)}
-.m-apt .m-btn{background:var(--d-apt-ac)}
-.m-apt small{color:var(--d-apt-mu);font-size:.72rem}
+.m-apt .m-btn{background:var(--d-apt-ac);justify-self:stretch}
+.m-apt small{color:var(--d-apt-mu);font-size:.7rem;text-align:center}
 
+/* car rental */
 .m-car{background:var(--d-car-bg);color:var(--d-car-fg)}
-.m-car h4{font-family:var(--f-display);font-weight:600;font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:1.15;max-width:18ch}
-.car-pick{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--d-car-fg) 18%,transparent);font-size:.8rem}
+.cx-hero{--shade:linear-gradient(90deg,rgba(12,13,15,.88) 0%,rgba(12,13,15,.55) 50%,rgba(12,13,15,.1) 100%);--fb:linear-gradient(160deg,#3A3F46,#1D2025);display:grid;align-content:center;gap:12px;min-height:220px;margin:0 14px;padding:24px;border-radius:14px}
+.cx-hero h4{font-family:var(--f-display);font-weight:600;font-size:clamp(1.15rem,2.2vw,1.6rem);line-height:1.15;max-width:15ch}
+.car-pick{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:290px;padding:10px 12px;border-radius:10px;background:rgba(20,22,25,.72);border:1px solid rgba(242,242,240,.18);font-size:.78rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .car-pick span{color:var(--d-car-mu)}
-.car-list{display:grid;gap:8px}
-.car{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--d-car-fg) 6%,transparent)}
-.car-ic{width:44px;height:22px;border-radius:10px 14px 5px 5px;background:var(--d-car-ac);position:relative;flex:none}
-.car-ic::before,.car-ic::after{content:"";position:absolute;bottom:-4px;width:9px;height:9px;border-radius:50%;background:var(--d-car-fg)}
-.car-ic::before{left:6px}.car-ic::after{right:6px}
-.car b{display:block;font-size:.85rem}
-.car small{color:var(--d-car-mu);font-size:.72rem}
-.car-price{font-weight:600;font-size:.85rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.car-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:16px 14px 18px}
+.car{display:grid;gap:8px;padding:10px;border-radius:12px;background:rgba(242,242,240,.05);border:1px solid rgba(242,242,240,.09);min-width:0}
+.car .ph-i{aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:#24272C}
+.car b{display:block;font-size:.84rem}
+.car small{color:var(--d-car-mu);font-size:.7rem}
+.car-price{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-weight:600;font-size:.84rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 .car-price small{font-weight:400}
 .m-car .m-btn{background:var(--d-car-ac)}
 
+/* cleaning */
 .m-cln{background:var(--d-cln-bg);color:var(--d-cln-fg)}
-.m-cln h4{font-family:var(--f-body);font-weight:600;font-size:clamp(1.2rem,2.2vw,1.6rem);max-width:16ch}
-.calc{display:grid;gap:12px;padding:16px;border-radius:12px;background:var(--d-white);border:1px solid color-mix(in srgb,var(--d-cln-fg) 12%,transparent)}
-.calc label{display:grid;gap:6px;font-size:.78rem;font-weight:500}
+.kx-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;padding:0 16px 18px}
+.kx-hero{--shade:linear-gradient(180deg,rgba(8,40,32,0) 30%,rgba(8,40,32,.8) 100%);--fb:linear-gradient(135deg,#D8F3EA,#6CC9AE);display:grid;align-content:end;gap:6px;min-height:250px;padding:18px;border-radius:12px;color:#fff}
+.kx-hero h4{font-weight:600;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.15;max-width:15ch}
+.kx-hero p{opacity:.9;max-width:30ch}
+.calc{display:grid;gap:12px;align-content:start;padding:16px;border-radius:12px;background:var(--d-white);border:1px solid color-mix(in srgb,var(--d-cln-fg) 12%,transparent)}
+.calc label{display:grid;gap:6px;font-size:.76rem;font-weight:500}
 .calc select{padding:8px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--d-cln-fg) 20%,transparent);background:var(--d-cln-bg);color:var(--d-cln-fg)}
 .calc input[type=range]{width:100%;accent-color:var(--d-cln-ac)}
 .calc .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.calc .chk{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.8rem}
+.calc .chk{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.78rem}
 .calc .chk input{accent-color:var(--d-cln-ac);width:16px;height:16px}
 .calc-out{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-top:12px;border-top:1px dashed color-mix(in srgb,var(--d-cln-fg) 20%,transparent)}
-.calc-out b{font-family:var(--f-display);font-size:1.5rem;color:var(--d-cln-ac);font-variant-numeric:tabular-nums}
-.calc-out small{color:var(--d-cln-mu);font-size:.72rem}
-.m-cln .m-btn{background:var(--d-cln-ac)}
+.calc-out b{font-family:var(--f-display);font-size:1.45rem;color:var(--d-cln-ac);font-variant-numeric:tabular-nums}
+.calc-out small{color:var(--d-cln-mu);font-size:.7rem}
+.m-cln .m-btn{background:var(--d-cln-ac);justify-self:stretch}
+
+/* QR menu */
+.m-qrm{--shade:linear-gradient(180deg,rgba(20,14,8,.25),rgba(20,14,8,.45));--fb:linear-gradient(135deg,#8C6A4F,#3B2A1E);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(16px,3vw,36px);align-items:center;justify-items:center;padding:clamp(20px,3vw,36px);min-height:470px}
+.qx-tent{display:grid;justify-items:center;gap:10px;padding:18px 18px 16px;border-radius:12px 12px 4px 4px;background:#FBF7F0;color:#2A1D12;box-shadow:0 24px 40px -18px rgba(0,0,0,.6);transform:rotate(-3deg);max-width:190px;text-align:center}
+.qx-tent svg{width:118px;height:118px;display:block}
+.qx-tent b{font-size:.84rem;line-height:1.25}
+.qx-tent small{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.qx-phone{width:min(100%,262px);padding:8px;border-radius:32px;background:#0B0B0C;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),inset 0 0 0 1.5px #2A2A2D}
+.qx-screen{display:grid;gap:10px;align-content:start;min-height:430px;padding:14px 12px;border-radius:25px;background:#FBF7F0;color:#2A1D12;overflow:hidden}
+.qx-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qx-top b{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.qx-langs{display:inline-flex;gap:2px;padding:2px;border-radius:999px;background:#EFE6D8;flex:none}
+.qx-langs button{border:0;background:transparent;padding:3px 7px;border-radius:999px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.04em;color:#7A6552;cursor:pointer}
+.qx-langs button[aria-pressed="true"]{background:#2A1D12;color:#FBF7F0}
+.qx-cats{display:flex;gap:6px;overflow:hidden}
+.qx-cats span{flex:none;padding:4px 10px;border-radius:999px;border:1px solid #E3D6C3;font-size:.68rem;color:#7A6552}
+.qx-cats span.on{background:#C8643B;border-color:#C8643B;color:#fff}
+.qx-items{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.qx-items li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px;border-radius:12px;background:#fff;box-shadow:0 4px 14px -8px rgba(60,40,20,.35)}
+.qx-items .ph-i{width:52px;height:52px;border-radius:9px;overflow:hidden;background:#EFE6D8}
+.qx-items b{display:block;font-size:.76rem;line-height:1.25}
+.qx-items small{display:block;font-size:.64rem;color:#8A7562;line-height:1.3}
+.qx-items .tag{display:inline-block;margin-top:3px;padding:1px 6px;border-radius:999px;background:#E5F2E2;color:#2F6B2A;font-size:.58rem;font-weight:600;letter-spacing:.02em}
+.qx-items .tag.hot{background:#FBE3D9;color:#A2401C}
+.qx-items em{font-style:normal;font-weight:600;font-size:.76rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.qx-upd{font-size:.62rem;color:#8A7562;text-align:center}
 
 .d-info{display:grid;gap:18px;min-width:0}
 .d-info h3{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
@@ -325,20 +380,33 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- pricing ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
-.plan{display:grid;grid-template-rows:auto auto auto 1fr auto auto;gap:16px;padding:26px;border-radius:20px;border:1px solid var(--line);background:var(--bg-2);min-width:0}
+.plan{display:grid;grid-template-rows:auto auto auto 1fr auto auto;gap:18px;padding:26px;border-radius:20px;border:1px solid var(--line);background:var(--bg-2);min-width:0}
 .plan.hot{border-color:color-mix(in srgb,var(--accent) 70%,transparent);background:var(--surface);box-shadow:0 30px 80px -40px var(--glow)}
 .plan-h{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:26px}
 .plan-h b{font-family:var(--f-display);font-weight:500;font-size:1.05rem}
 .badge{padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-size:.72rem;font-weight:600}
 .price{font-family:var(--f-display);font-weight:600;font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .plan > p{color:var(--muted)}
-.plan .ticks{align-content:start}
+.feat{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;align-content:start;font-size:var(--t-sm);line-height:1.4}
+.feat li{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:10px;align-items:start}
+.feat li::before{content:"";width:16px;height:16px;margin-top:1px;background:var(--ok);-webkit-mask:var(--ic) center/16px no-repeat;mask:var(--ic) center/16px no-repeat}
+.feat li.y,.feat li.v{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.feat li.n{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 5l6 6M11 5l-6 6' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");color:var(--faint)}
+.feat li.n::before{background:var(--faint);opacity:.7}
+.feat li.n span:first-of-type{text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--faint) 45%,transparent)}
+.feat b{font-weight:600;white-space:nowrap;text-align:right}
+.tl{margin:0;display:grid;gap:8px;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--sea) 8%,transparent);border:1px solid color-mix(in srgb,var(--sea) 24%,transparent)}
+.tl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tl dt{color:var(--muted);font-size:var(--t-sm);line-height:1.35}
+.tl dd{margin:0;font-weight:600;font-size:var(--t-sm);white-space:nowrap;color:var(--fg)}
 .term{color:var(--sea)}
 .plan .btn{width:100%}
+.tl-note{margin-top:16px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
 .support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:16px;padding:22px 26px;border-radius:20px;border:1px dashed var(--line-2)}
 .support b{font-family:var(--f-display);font-weight:500}
 .support p{color:var(--muted);margin-top:4px}
 .extra{margin-top:20px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ---------- faq ---------- */
 .faq{display:grid;gap:0;max-width:880px}
@@ -411,7 +479,7 @@ fieldset.field{border:0;margin:0;padding:0}
   .top .logo b{white-space:nowrap}
   .flow{grid-template-columns:minmax(0,1fr);padding:18px 14px 14px}
   .phone{max-width:300px;width:100%;justify-self:center}
-  .apt-grid,.f-row{grid-template-columns:minmax(0,1fr)}
+  .f-row{grid-template-columns:minmax(0,1fr)}
   .plans{grid-template-columns:minmax(0,1fr)}
   .plan.hot{grid-column:auto}
   .support{grid-template-columns:minmax(0,1fr)}
@@ -420,7 +488,21 @@ fieldset.field{border:0;margin:0;padding:0}
   .c-item{grid-template-columns:minmax(0,1fr) auto}
   .c-item span{grid-column:1 / -1}
   .foot .wrap{grid-template-columns:minmax(0,1fr)}
-  .m{padding:14px;min-height:0}
+  .rx-hero{min-height:230px;margin:0 10px;padding:18px 18px 42px}
+  .rx-book{grid-template-columns:repeat(3,minmax(0,1fr));margin:-26px 18px 0;padding:10px 12px}
+  .rx-book .m-btn{grid-column:1 / -1;justify-self:stretch}
+  .rx-menu{padding:16px 12px 16px}
+  .rx-dishes{gap:8px}
+  .rx-dishes figcaption{flex-direction:column;gap:0}
+  .ax-grid,.kx-grid{grid-template-columns:minmax(0,1fr);padding:0 10px 14px}
+  .cx-hero{min-height:210px;margin:0 10px;padding:18px}
+  .car-list{grid-template-columns:minmax(0,1fr);padding:12px 10px 14px}
+  .car{grid-template-columns:104px minmax(0,1fr);align-items:center}
+  .car .ph-i{grid-row:span 2}
+  .m-qrm{grid-template-columns:minmax(0,1fr);padding:22px 14px;min-height:0}
+  .qx-tent{display:none}
+  .mx-nav{padding:12px 14px}
+  .mx-nav span{display:none}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -430,7 +512,7 @@ fieldset.field{border:0;margin:0;padding:0}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="MakeSiteFor.me"><span class="mark"></span><b class="brand-name">MakeSiteFor.me</b><small class="mono">by AVOS</small></a>
+    <a class="logo" href="#top" aria-label="MakeSiteFor.me"><span class="mark"></span><b class="brand-name">MakeSiteFor.me</b></a>
     <nav class="nav" aria-label="Menu">
       <a href="#how" data-i18n="nav_how">Kako radimo</a>
       <a href="#demos" data-i18n="nav_demos">Primjeri</a>
@@ -453,8 +535,8 @@ fieldset.field{border:0;margin:0;padding:0}
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="mono eyebrow" data-i18n="h_eye">Sajtovi + CRM za mali biznis · Podgorica</span>
-          <h1 data-i18n="h_t">Sajt koji donosi upite. <em>I ne gubi nijedan.</em></h1>
-          <p class="hero-sub" data-i18n="h_s">Pravimo sajt i povezujemo CRM i poslovnu poštu. Vi nam samo kažete šta želite. Ne morate znati šta su domen, hosting ili CRM: sve tehničko radimo mi.</p>
+          <h1 data-i18n="h_t">Sajt za vaš posao. <em>A brige prepustite nama.</em></h1>
+          <p class="hero-sub" data-i18n="h_s">Pravimo sajt i povezujemo CRM i poslovni e-mail. Vi nam samo kažete šta vam treba, a domen, hosting i podešavanja sređujemo mi.</p>
           <div class="hero-cta">
             <a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a>
             <a class="btn btn-ghost" href="#demos" data-i18n="h_c2">Pogledajte primjere</a>
@@ -499,10 +581,10 @@ fieldset.field{border:0;margin:0;padding:0}
       </div>
 
       <div class="facts">
-        <div class="fact"><b data-i18n="f1v">od 3 dana</b><span data-i18n="f1l">do prve verzije sajta</span></div>
+        <div class="fact"><b data-i18n="f1v">od 2 dana</b><span data-i18n="f1l">do prve verzije sajta</span></div>
         <div class="fact"><b>ME · EN · RU</b><span data-i18n="f2l">tri jezika za vaše goste</span></div>
-        <div class="fact"><b data-i18n="f3v">100 % vaše</b><span data-i18n="f3l">domen, pošta i CRM na vaše ime</span></div>
-        <div class="fact"><b data-i18n="f4v">AI + čovjek</b><span data-i18n="f4l">brža izrada, ručna provjera</span></div>
+        <div class="fact"><b data-i18n="f3v">Vi ste vlasnik</b><span data-i18n="f3l">sajta, domena, e-maila i CRM-a</span></div>
+        <div class="fact"><b data-i18n="f4v">Fiksna cijena</b><span data-i18n="f4l">poznata prije početka rada</span></div>
       </div>
     </div>
   </section>
@@ -512,8 +594,8 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="wrap">
       <div class="sec-head">
         <span class="mono eyebrow" data-i18n="g_eye">Gdje se gube klijenti</span>
-        <h2 data-i18n="g_t">Klijenti se rijetko gube zbog cijene. Češće zbog poruke na koju niko nije odgovorio.</h2>
-        <p data-i18n="g_s">AVOS prvo pronađe gdje vaš proces ima rupe, a onda ih zatvori jednostavnim digitalnim alatima.</p>
+        <h2 data-i18n="g_t">Klijenti odlaze tiho: nisu vas dobili na telefon, nisu dočekali odgovor ili vas jednostavno nisu našli.</h2>
+        <p data-i18n="g_s">Pogledamo gdje se tačno gube vaši upiti i napravimo red jednostavnim rješenjima: sajtom, formom i CRM-om.</p>
       </div>
       <div class="gaps">
         <article class="gap">
@@ -582,11 +664,12 @@ fieldset.field{border:0;margin:0;padding:0}
       <div class="sec-head">
         <span class="mono eyebrow" data-i18n="d_eye">Primjeri</span>
         <h2 data-i18n="d_t">Sajt za vašu branšu</h2>
-        <p data-i18n="d_s">Demo koncepti za lokalne biznise. Svaki sajt pravimo za vas, ali već znamo šta u vašoj branši donosi upite.</p>
+        <p data-i18n="d_s">Demo koncepti za lokalne biznise. Svaki sajt pravimo po mjeri, ali već znamo šta je obično potrebno u vašoj branši.</p>
       </div>
 
       <div class="tabs" role="tablist" aria-label="Demo">
         <button class="tab" role="tab" id="tab-rest" aria-controls="pan-rest" aria-selected="true" data-i18n="t1">Restoran i kafić</button>
+        <button class="tab" role="tab" id="tab-qr" aria-controls="pan-qr" aria-selected="false" tabindex="-1" data-i18n="t5">QR meni</button>
         <button class="tab" role="tab" id="tab-apt" aria-controls="pan-apt" aria-selected="false" tabindex="-1" data-i18n="t2">Apartmani</button>
         <button class="tab" role="tab" id="tab-car" aria-controls="pan-car" aria-selected="false" tabindex="-1" data-i18n="t3">Rent-a-car</button>
         <button class="tab" role="tab" id="tab-cln" aria-controls="pan-cln" aria-selected="false" tabindex="-1" data-i18n="t4">Čišćenje</button>
@@ -597,13 +680,25 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="browser">
           <div class="b-bar"><i></i><i></i><i></i><span class="b-url" data-i18n="rest_url">demo / restoran</span><span class="b-badge" data-i18n="demo_badge">Demo koncept</span></div>
           <div class="m m-rest">
-            <div class="m-nav"><b data-i18n="rest_name">Vaša konoba</b><span data-i18n="rest_nav">Meni · Rezervacija · Kontakt</span></div>
-            <div class="m-hero"><h4 data-i18n="rest_h">Domaća kuhinja na obali</h4><span class="m-btn" data-i18n="rest_btn">Rezerviši sto</span></div>
-            <div>
-              <div class="m-menu-h"><span data-i18n="rest_menu">Meni</span><span class="m-qr"><i class="qr"></i>QR · ME · EN · RU</span></div>
-              <div class="m-row"><span data-i18n="rest_i1">Riblja čorba</span><span>7 €</span></div>
-              <div class="m-row"><span data-i18n="rest_i2">Crni rižoto</span><span>14 €</span></div>
-              <div class="m-row"><span data-i18n="rest_i3">Njeguški pršut</span><span>12 €</span></div>
+            <div class="mx-nav"><b data-i18n="rest_name">Vaša konoba</b><span data-i18n="rest_nav">Meni · Rezervacija · Kontakt</span></div>
+            <div class="rx-hero mx-photo" style="--img:url('https://images.unsplash.com/photo-1607195395719-3dc0d7b8cc16?auto=format&fit=crop&w=1200&q=70')">
+              <span class="mx-kick" data-i18n="rest_kick">Budva · Stari grad</span>
+              <h4 data-i18n="rest_h">Svježa riba svakog jutra</h4>
+              <p data-i18n="rest_s">Terasa sa pogledom na Stari grad. Sto rezervišete za 30 sekundi.</p>
+            </div>
+            <div class="rx-book">
+              <div><small data-i18n="rest_b1">Gosti</small><b>4</b></div>
+              <div><small data-i18n="rest_b2">Datum</small><b data-i18n="rest_b2v">Subota</b></div>
+              <div><small data-i18n="rest_b3">Vrijeme</small><b>20:00</b></div>
+              <span class="m-btn" data-i18n="rest_btn">Rezerviši sto</span>
+            </div>
+            <div class="rx-menu">
+              <div class="m-menu-h"><span data-i18n="rest_menu">Iz menija</span><span class="m-qr"><i class="qr"></i>QR · ME · EN · RU</span></div>
+              <div class="rx-dishes">
+                <figure><div class="ph-i"><img src="https://images.unsplash.com/photo-1600699899970-b1c9fadd8f9e?auto=format&fit=crop&w=480&q=70&h=320&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><figcaption><span data-i18n="rest_i1">Riba sa gradela</span><b>18 €</b></figcaption></figure>
+                <figure><div class="ph-i"><img src="https://images.unsplash.com/photo-1790958722202-81083e1de5e2?auto=format&fit=crop&w=480&q=70&h=320&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><figcaption><span data-i18n="rest_i2">Crni rižoto</span><b>14 €</b></figcaption></figure>
+                <figure><div class="ph-i"><img src="https://images.unsplash.com/photo-1616631124348-c63521eb484c?auto=format&fit=crop&w=480&q=70&h=320&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><figcaption><span data-i18n="rest_i3">Njeguški pršut i sir</span><b>12 €</b></figcaption></figure>
+              </div>
             </div>
           </div>
         </div>
@@ -619,21 +714,62 @@ fieldset.field{border:0;margin:0;padding:0}
         </aside>
       </div>
 
+      <!-- QR menu -->
+      <div class="demo" role="tabpanel" id="pan-qr" aria-labelledby="tab-qr" hidden>
+        <div class="browser">
+          <div class="b-bar"><i></i><i></i><i></i><span class="b-url" data-i18n="qr_url">demo / qr-meni</span><span class="b-badge" data-i18n="demo_badge">Demo koncept</span></div>
+          <div class="m m-qrm mx-photo" style="--img:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=70')">
+            <div class="qx-tent"><svg viewBox="-1 -1 31 31" role="img" aria-label="QR" shape-rendering="crispEdges"><rect x="-1" y="-1" width="31" height="31" fill="#fff"/><path fill="#2A1D12" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM11 0h1v1h-1zM14 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM17 2h1v1h-1zM20 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM19 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM18 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM12 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM19 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM16 7h1v1h-1zM17 7h1v1h-1zM18 7h1v1h-1zM20 7h1v1h-1zM0 8h1v1h-1zM3 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM19 8h1v1h-1zM21 8h1v1h-1zM23 8h1v1h-1zM3 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM20 9h1v1h-1zM22 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM3 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM9 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM19 10h1v1h-1zM20 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM25 10h1v1h-1zM26 10h1v1h-1zM27 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM9 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM16 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM2 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM19 12h1v1h-1zM20 12h1v1h-1zM21 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM19 13h1v1h-1zM21 13h1v1h-1zM0 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM17 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM27 14h1v1h-1zM28 14h1v1h-1zM4 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM15 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM1 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM17 16h1v1h-1zM19 16h1v1h-1zM21 16h1v1h-1zM27 16h1v1h-1zM2 17h1v1h-1zM7 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM17 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM25 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM9 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM24 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM2 19h1v1h-1zM4 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM14 19h1v1h-1zM17 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM23 19h1v1h-1zM27 19h1v1h-1zM28 19h1v1h-1zM0 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM9 20h1v1h-1zM10 20h1v1h-1zM15 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM26 20h1v1h-1zM8 21h1v1h-1zM10 21h1v1h-1zM11 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM28 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM27 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM11 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM15 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM10 24h1v1h-1zM12 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM6 25h1v1h-1zM8 25h1v1h-1zM9 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM18 25h1v1h-1zM20 25h1v1h-1zM22 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM26 25h1v1h-1zM28 25h1v1h-1zM0 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM9 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM14 26h1v1h-1zM15 26h1v1h-1zM16 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM9 27h1v1h-1zM12 27h1v1h-1zM14 27h1v1h-1zM16 27h1v1h-1zM17 27h1v1h-1zM18 27h1v1h-1zM19 27h1v1h-1zM20 27h1v1h-1zM27 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM18 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM25 28h1v1h-1zM27 28h1v1h-1z"/></svg><b data-i18n="qr_scan">Skenirajte za meni</b><small data-i18n="qr_table">Sto 7</small></div>
+            <div class="qx-phone">
+              <div class="qx-screen">
+                <div class="qx-top"><b data-i18n="qr_name">Vaš kafić</b>
+                  <div class="qx-langs" role="group" aria-label="Menu language"><button type="button" data-ql="me" aria-pressed="true">ME</button><button type="button" data-ql="en" aria-pressed="false">EN</button><button type="button" data-ql="ru" aria-pressed="false">RU</button></div>
+                </div>
+                <div class="qx-cats"><span class="on" data-qk="c1">Doručak</span><span data-qk="c2">Pasta</span><span data-qk="c3">Salate</span><span data-qk="c4">Kafa</span></div>
+                <ul class="qx-items">
+                  <li><div class="ph-i"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=160&q=70&h=160&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b data-qk="i1">Pasta pesto</b><small data-qk="d1">Bosiljak, čeri paradajz, parmezan</small></div><em>13 €</em></li>
+                  <li><div class="ph-i"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=160&q=70&h=160&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b data-qk="i2">Salata sa avokadom</b><small data-qk="d2">Leblebija, avokado, svježe povrće</small><span class="tag" data-qk="veg">vegetarijansko</span></div><em>8 €</em></li>
+                  <li><div class="ph-i"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=160&q=70&h=160&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b data-qk="i3">Kapućino</b><small data-qk="d3">Kravlje ili ovseno mlijeko</small></div><em>2,5 €</em></li>
+                </ul>
+                <small class="qx-upd" data-qk="upd">Meni ažuriran danas u 09:12</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="d-info">
+          <h3 data-i18n="t5">QR meni</h3>
+          <ul class="ticks">
+            <li data-i18n="qf1">Jedan QR kod na stolu, meni na tri jezika</li>
+            <li data-i18n="qf2">Cijene i jela mijenjate za minut, bez štampe</li>
+            <li data-i18n="qf3">Slike jela i oznake: ljuto, vegetarijansko</li>
+            <li data-i18n="qf4">Otvara se na svakom telefonu, bez aplikacije</li>
+          </ul>
+          <div class="d-meta"><span data-i18n="pkg_l">Preporučeni paket</span><b>Pro</b></div>
+        </aside>
+      </div>
+
       <!-- apartments -->
       <div class="demo" role="tabpanel" id="pan-apt" aria-labelledby="tab-apt" hidden>
         <div class="browser">
           <div class="b-bar"><i></i><i></i><i></i><span class="b-url" data-i18n="apt_url">demo / apartmani</span><span class="b-badge" data-i18n="demo_badge">Demo koncept</span></div>
           <div class="m m-apt">
-            <div class="m-nav"><b data-i18n="apt_name">Vaši apartmani</b><span data-i18n="apt_nav">Sobe · Galerija · Lokacija</span></div>
-            <div class="apt-grid">
-              <div class="apt-img"><h4 data-i18n="apt_h">50 m od plaže</h4></div>
-              <div class="cal">
-                <div class="cal-h"><span data-i18n="apt_month">Jul</span><span>2 + 1</span></div>
-                <div class="cal-g" id="cal"></div>
-                <div class="cal-leg"><span><i></i><span data-i18n="apt_sel">vaši datumi</span></span><span><i class="b"></i><span data-i18n="apt_bk">zauzeto</span></span></div>
+            <div class="mx-nav"><b data-i18n="apt_name">Vaši apartmani</b><span data-i18n="apt_nav">Sobe · Galerija · Lokacija</span></div>
+            <div class="ax-grid">
+              <div class="ax-gal">
+                <div class="ax-main mx-photo" style="--img:url('https://images.unsplash.com/photo-1757415555332-bb1775394bab?auto=format&fit=crop&w=1000&q=70')"><span class="mx-kick" data-i18n="apt_kick">50 m od plaže · Budva</span><h4 data-i18n="apt_h">Apartmani sa pogledom na more</h4></div>
+                <div class="ax-thumbs"><div class="ph-i"><img src="https://images.unsplash.com/photo-1600210491305-7396500b5b31?auto=format&fit=crop&w=480&q=70&h=300&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div class="ph-i"><img src="https://images.unsplash.com/photo-1613545325268-9265e1609167?auto=format&fit=crop&w=480&q=70&h=300&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div></div>
+              </div>
+              <div class="ax-side">
+                <div class="ax-price"><b data-i18n="apt_price">od 65 € / noć</b><span>2 + 1</span></div>
+                <div class="cal">
+                  <div class="cal-h"><span data-i18n="apt_month">Jul</span></div>
+                  <div class="cal-g" id="cal"></div>
+                  <div class="cal-leg"><span><i></i><span data-i18n="apt_sel">vaši datumi</span></span><span><i class="b"></i><span data-i18n="apt_bk">zauzeto</span></span></div>
+                </div>
+                <span class="m-btn" data-i18n="apt_btn">Rezervišite direktno</span>
+                <small data-i18n="apt_note">Bez provizije platformi</small>
               </div>
             </div>
-            <div class="m-nav"><span class="m-btn" data-i18n="apt_btn">Rezervišite direktno</span><small data-i18n="apt_note">Bez provizije platformi</small></div>
           </div>
         </div>
         <aside class="d-info">
@@ -653,15 +789,18 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="browser">
           <div class="b-bar"><i></i><i></i><i></i><span class="b-url" data-i18n="car_url">demo / rent-a-car</span><span class="b-badge" data-i18n="demo_badge">Demo koncept</span></div>
           <div class="m m-car">
-            <div class="m-nav"><b data-i18n="car_name">Vaš rent-a-car</b><span data-i18n="car_nav">Vozila · Uslovi · Kontakt</span></div>
-            <h4 data-i18n="car_h">Rezervišite auto za 2 minuta</h4>
-            <div class="car-pick"><span data-i18n="car_pick">Preuzimanje</span><b data-i18n="car_pick_v">Aerodrom Podgorica</b></div>
-            <div class="car-list">
-              <div class="car"><i class="car-ic"></i><div><b data-i18n="car1">Gradski</b><small data-i18n="car1d">5 sjedišta, klima</small></div><span class="car-price"><span data-i18n="from">od</span> 25 €<small data-i18n="per_day"> / dan</small></span></div>
-              <div class="car"><i class="car-ic"></i><div><b>SUV</b><small data-i18n="car2d">5 sjedišta, 4x4</small></div><span class="car-price"><span data-i18n="from">od</span> 45 €<small data-i18n="per_day"> / dan</small></span></div>
-              <div class="car"><i class="car-ic"></i><div><b data-i18n="car3">Kombi</b><small data-i18n="car3d">9 sjedišta</small></div><span class="car-price"><span data-i18n="from">od</span> 70 €<small data-i18n="per_day"> / dan</small></span></div>
+            <div class="mx-nav"><b data-i18n="car_name">Vaš rent-a-car</b><span data-i18n="car_nav">Vozila · Uslovi · Kontakt</span></div>
+            <div class="cx-hero mx-photo" style="--img:url('https://images.unsplash.com/photo-1579090814807-60808035e1cb?auto=format&fit=crop&w=1200&q=70')">
+              <span class="mx-kick" data-i18n="car_kick">Podgorica · Budva · Tivat</span>
+              <h4 data-i18n="car_h">Rezervišite auto za 2 minuta</h4>
+              <div class="car-pick"><span data-i18n="car_pick">Preuzimanje</span><b data-i18n="car_pick_v">Aerodrom Podgorica</b></div>
+              <span class="m-btn" data-i18n="car_btn">Upit na WhatsApp</span>
             </div>
-            <span class="m-btn" data-i18n="car_btn">Upit na WhatsApp</span>
+            <div class="car-list">
+              <div class="car"><div class="ph-i"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=420&q=70&h=262&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b data-i18n="car1">Gradski</b><small data-i18n="car1d">5 sjedišta, klima</small></div><span class="car-price"><span><span data-i18n="from">od</span> 25 €<small data-i18n="per_day"> / dan</small></span></span></div>
+              <div class="car"><div class="ph-i"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=420&q=70&h=262&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b>SUV</b><small data-i18n="car2d">5 sjedišta, 4x4</small></div><span class="car-price"><span><span data-i18n="from">od</span> 45 €<small data-i18n="per_day"> / dan</small></span></span></div>
+              <div class="car"><div class="ph-i"><img src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?auto=format&fit=crop&w=420&q=70&h=262&crop=entropy" alt="" loading="lazy" onerror="this.remove()"></div><div><b data-i18n="car3">Kombi</b><small data-i18n="car3d">9 sjedišta</small></div><span class="car-price"><span><span data-i18n="from">od</span> 70 €<small data-i18n="per_day"> / dan</small></span></span></div>
+            </div>
           </div>
         </div>
         <aside class="d-info">
@@ -681,23 +820,25 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="browser">
           <div class="b-bar"><i></i><i></i><i></i><span class="b-url" data-i18n="cln_url">demo / čišćenje</span><span class="b-badge" data-i18n="demo_badge">Demo koncept</span></div>
           <div class="m m-cln">
-            <div class="m-nav"><b data-i18n="cln_name">Vaš servis čišćenja</b><span data-i18n="cln_nav">Usluge · Cijene · Termini</span></div>
-            <h4 data-i18n="cln_h">Čist stan bez telefoniranja</h4>
-            <div class="calc">
-              <label for="calc-type"><span data-i18n="cln_space">Prostor</span>
-                <select id="calc-type">
-                  <option value="flat" data-i18n="cln_o1">Stan</option>
-                  <option value="house" data-i18n="cln_o2">Kuća</option>
-                  <option value="office" data-i18n="cln_o3">Kancelarija</option>
-                </select>
-              </label>
-              <label for="calc-area"><span class="row"><span data-i18n="cln_area">Površina</span><b id="calc-area-v">70 m²</b></span>
-                <input id="calc-area" type="range" min="20" max="200" step="5" value="70">
-              </label>
-              <label class="chk" for="calc-deep"><input id="calc-deep" type="checkbox"><span data-i18n="cln_deep">Dubinsko čišćenje</span></label>
-              <div class="calc-out"><span><span data-i18n="cln_est">Okvirna cijena</span><br><small data-i18n="cln_demo">demo cijene</small></span><b id="calc-out">≈ 65 €</b></div>
+            <div class="mx-nav"><b data-i18n="cln_name">Vaš servis čišćenja</b><span data-i18n="cln_nav">Usluge · Cijene · Termini</span></div>
+            <div class="kx-grid">
+              <div class="kx-hero mx-photo" style="--img:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=70')"><h4 data-i18n="cln_h">Čist stan bez telefoniranja</h4><p data-i18n="cln_s">Izračunajte cijenu i izaberite termin na sajtu.</p></div>
+              <div class="calc">
+                <label for="calc-type"><span data-i18n="cln_space">Prostor</span>
+                  <select id="calc-type">
+                    <option value="flat" data-i18n="cln_o1">Stan</option>
+                    <option value="house" data-i18n="cln_o2">Kuća</option>
+                    <option value="office" data-i18n="cln_o3">Kancelarija</option>
+                  </select>
+                </label>
+                <label for="calc-area"><span class="row"><span data-i18n="cln_area">Površina</span><b id="calc-area-v">70 m²</b></span>
+                  <input id="calc-area" type="range" min="20" max="200" step="5" value="70">
+                </label>
+                <label class="chk" for="calc-deep"><input id="calc-deep" type="checkbox"><span data-i18n="cln_deep">Dubinsko čišćenje</span></label>
+                <div class="calc-out"><span><span data-i18n="cln_est">Okvirna cijena</span><br><small data-i18n="cln_demo">demo cijene</small></span><b id="calc-out">≈ 65 €</b></div>
+                <span class="m-btn" data-i18n="cln_btn">Zakaži termin</span>
+              </div>
             </div>
-            <span class="m-btn" data-i18n="cln_btn">Zakaži termin</span>
           </div>
         </div>
         <aside class="d-info">
@@ -721,9 +862,9 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="wrap own">
       <div>
         <div class="sec-head">
-          <span class="mono eyebrow" data-i18n="o_eye">Sve je vaše</span>
-          <h2 data-i18n="o_t">Ne zavisite od nas. Sve je registrovano na vaše ime.</h2>
-          <p data-i18n="o_s">Domen, hosting, poštu i CRM otvaramo na vašu e-mail adresu i vašu karticu. Mi dobijamo pristup kao pozvani korisnik, a ne kao vlasnik. Ako jednog dana prestanete da radite s nama, sajt, pošta i upiti rade dalje.</p>
+          <span class="mono eyebrow" data-i18n="o_eye">Sve ostaje vaše</span>
+          <h2 data-i18n="o_t">Vi ste jedini vlasnik svog sajta i svih njegovih sistema.</h2>
+          <p data-i18n="o_s">Naloge za domen, hosting, poslovni e-mail i CRM otvaramo na vašu e-mail adresu i povezujemo s vašom karticom. Pristup dobijamo na vaš poziv, kao pomoćnici, a ne kao vlasnici. Ako jednog dana odlučite da nastavite bez nas, sajt, e-mail i CRM radiće kao i do sada.</p>
         </div>
         <ul class="own-list">
           <li data-i18n="o1">Lozinke ostaju kod vas, u menadžeru lozinki.</li>
@@ -751,51 +892,78 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="wrap">
       <div class="sec-head">
         <span class="mono eyebrow" data-i18n="pr_eye">Cijene</span>
-        <h2 data-i18n="pr_t">Cijena i rok poznati su prije početka</h2>
-        <p data-i18n="pr_s">Izradu plaćate jednom. Mjesečna podrška nije obavezna.</p>
+        <h2 data-i18n="pr_t">Šta je uključeno u svaki paket</h2>
+        <p data-i18n="pr_s">Izradu plaćate jednom, a cijenu i rok vam kažemo prije nego što počnemo. Podrška je po želji.</p>
       </div>
       <div class="plans">
         <article class="plan">
           <div class="plan-h"><b>Start</b></div>
           <div class="price" data-i18n="pr1">99 €</div>
-          <p data-i18n="pl1d">Jedna stranica koja prima upite.</p>
-          <ul class="ticks">
-            <li data-i18n="pl1a">Sajt od jedne stranice</li>
-            <li data-i18n="pl1b">1–2 jezika</li>
-            <li data-i18n="pl1c">Forma → Telegram ili WhatsApp + CRM</li>
-            <li data-i18n="pl1e">Domen i hosting na vaše ime</li>
+          <p data-i18n="pl1d">Jedna stranica preko koje vam pišu.</p>
+          <ul class="feat">
+            <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv1">1</b></li>
+            <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv1">1–2</b></li>
+            <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="n"><span data-i18n="row_mail">Poslovni e-mail</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
-          <span class="term mono" data-i18n="pl1t">Rok: 3–7 dana</span>
+          <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl1f">od 2 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl1u">5–10 dana</dd></div></dl>
           <a class="btn btn-ghost" href="#order" data-pkg="start" data-i18n="choose">Izaberi</a>
         </article>
         <article class="plan hot">
           <div class="plan-h"><b data-i18n="pkg_biz">Biznis</b><span class="badge" data-i18n="rec">Preporučujemo</span></div>
           <div class="price" data-i18n="pr2">249 €</div>
-          <p data-i18n="pl2d">Pun sajt sa CRM-om i poslovnom poštom.</p>
-          <ul class="ticks">
-            <li data-i18n="pl2a">Do 6 stranica</li>
-            <li data-i18n="pl2b">Tri jezika: ME, EN, RU</li>
-            <li data-i18n="pl2c">CRM i poslovni e-mail (do 3 adrese)</li>
-            <li data-i18n="pl2e">Google profil i mapa</li>
-            <li data-i18n="pl2f">Osnovni SEO</li>
+          <p data-i18n="pl2d">Kompletan sajt na tri jezika, sa poslovnim e-mailom i Google profilom.</p>
+          <ul class="feat">
+            <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv2">do 6</b></li>
+            <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
+            <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="v"><span data-i18n="row_mail">Poslovni e-mail</span><b data-i18n="mv">do 3 adrese</b></li>
+            <li class="y"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="n"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
-          <span class="term mono" data-i18n="pl2t">Rok: 1–2 sedmice</span>
+          <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl2f">od 5 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl2u">2–3 sedmice</dd></div></dl>
           <a class="btn btn-main" href="#order" data-pkg="biz" data-i18n="choose">Izaberi</a>
         </article>
         <article class="plan">
           <div class="plan-h"><b>Pro</b></div>
           <div class="price" data-i18n="pr3">od 490 €</div>
-          <p data-i18n="pl3d">Kad sajt treba da radi umjesto vas.</p>
-          <ul class="ticks">
-            <li data-i18n="pl3a">Sve iz paketa Biznis</li>
-            <li data-i18n="pl3b">Online rezervacije ili kalendar</li>
-            <li data-i18n="pl3c">Katalog, meni sa QR kodom ili kalkulator</li>
-            <li data-i18n="pl3e">Automatske poruke klijentima</li>
+          <p data-i18n="pl3d">Sve iz paketa Biznis, a sajt uz to sam prima rezervacije i šalje poruke klijentima.</p>
+          <ul class="feat">
+            <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv3">do 10</b></li>
+            <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
+            <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="v"><span data-i18n="row_mail">Poslovni e-mail</span><b data-i18n="mv">do 3 adrese</b></li>
+            <li class="y"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="inc">uključeno</span></li>
           </ul>
-          <span class="term mono" data-i18n="pl3t">Rok: 3–4 sedmice</span>
+          <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl3f">od 10 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl3u">3–5 sedmica</dd></div></dl>
           <a class="btn btn-ghost" href="#order" data-pkg="pro" data-i18n="choose">Izaberi</a>
         </article>
       </div>
+      <p class="tl-note" data-i18n="tl_note">Kraći rok važi ako nam odmah pošaljete sve informacije, fotografije i logo ili pokažete sajt kakav želite, da napravimo isti takav; puni rok računamo od prve poruke do pokretanja, uključujući i vaše izmjene.</p>
       <div class="support">
         <div><b data-i18n="sup_t">Podrška · 15 € mjesečno</b><p data-i18n="sup_d">Izmjene teksta i cijena, ažuriranje menija, praćenje rada sajta. Otkazujete kad želite.</p></div>
         <span class="mono term" data-i18n="sup_opt">nije obavezno</span>
@@ -815,9 +983,9 @@ fieldset.field{border:0;margin:0;padding:0}
         <details open><summary data-i18n="q1">Moram li da se razumijem u tehnologiju?</summary><p data-i18n="a1">Ne. Pitamo jednostavnim riječima i sve podešavamo mi. Vi kažete šta želite i odobrite rezultat.</p></details>
         <details><summary data-i18n="q2">Nemam tekstove ni fotografije. Šta sad?</summary><p data-i18n="a2">Tekstove pišemo mi, na sva tri jezika, na osnovu vaših odgovora. Fotografije mogu biti sa telefona: reći ćemo vam šta i kako da snimite.</p></details>
         <details><summary data-i18n="q3">Šta je CRM i zašto mi treba?</summary><p data-i18n="a3">To je jedna lista svih upita: ko je pisao, šta želi i da li mu je neko odgovorio. Nijedan klijent se ne zaboravi. Koristimo besplatne verzije poznatih CRM sistema.</p></details>
-        <details><summary data-i18n="q4">Šta ako poželim da odem od vas?</summary><p data-i18n="a4">Ništa se ne kvari. Sve je već na vaše ime. Uklonite naš pristup prema pasošu sajta, a sajt, pošta i CRM rade dalje.</p></details>
+        <details><summary data-i18n="q4">Šta ako poželim da odem od vas?</summary><p data-i18n="a4">Ništa se neće pokvariti. Sajt, e-mail i CRM su od početka vaši, a mi imamo samo pristup koji ste nam vi dali. Uklonite ga po uputstvu iz pasoša sajta i sve će raditi kao i do sada.</p></details>
         <details><summary data-i18n="q5">Mogu li kasnije mijenjati sajt?</summary><p data-i18n="a5">Male izmjene radimo u okviru podrške za 15 € mjesečno. Ako želite, pokažemo vam kako da ih radite sami, a sajt može preuzeti i bilo koji drugi programer.</p></details>
-        <details><summary data-i18n="q6">Zašto je brže i povoljnije nego u agenciji?</summary><p data-i18n="a6">Rutinski dio posla radimo uz AI alate, a vrijeme trošimo na ono što je važno: vaše upite, tekstove i provjeru. Svaki sajt prije pokretanja pregleda čovjek.</p></details>
+        <details><summary data-i18n="q6">Zašto je to brže i povoljnije nego u agenciji?</summary><p data-i18n="a6">Mi smo mali studio bez kancelarije i menadžera, pa u cijeni nema ništa suvišno. Za svaku branšu već imamo razrađenu strukturu sajta, tako da ne krećemo od nule. Proces je kratak, bez dugih sastanaka, a izradu plaćate jednom.</p></details>
       </div>
     </div>
   </section>
@@ -893,10 +1061,10 @@ fieldset.field{border:0;margin:0;padding:0}
 <footer class="foot">
   <div class="wrap">
     <div>
-      <a class="logo" href="#top"><span class="mark"></span><b class="brand-name">MakeSiteFor.me</b><small class="mono">by AVOS</small></a>
-      <p data-i18n="foot"><span class="brand-name">MakeSiteFor.me</span> je studio kompanije AVOS iz Podgorice. AVOS pokazuje biznisu gdje gubi klijente i zatvara te rupe digitalnim alatima.</p>
+      <a class="logo" href="#top"><span class="mark"></span><b class="brand-name">MakeSiteFor.me</b></a>
+      <p data-i18n="foot"><span class="brand-name"></span> je mali studio iz Podgorice koji pravi sajtove sa CRM-om i poslovnim e-mailom za lokalne biznise.</p>
     </div>
-    <small>© 2026 AVOS · Podgorica</small>
+    <small data-i18n="copy_r">© 2026 MakeSiteFor.me · Podgorica</small>
   </div>
 </footer>
 
@@ -919,16 +1087,16 @@ const T = {
 en: {
   nav_how:"How it works", nav_demos:"Examples", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Order a site",
   h_eye:"Websites + CRM for small business · Podgorica",
-  h_t:"A website that brings in requests. <em>And never loses one.</em>",
-  h_s:"We build the site and connect a CRM and business email. You just tell us what you want. No need to know what a domain, hosting or CRM is: we handle everything technical.",
+  h_t:"A website for your business. <em>Leave the hassle to us.</em>",
+  h_s:"We build your website and connect a CRM and business email. Just tell us what you need, and we'll take care of the domain, hosting and everything technical.",
   h_c1:"Message us", h_c2:"See examples",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
   flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
-  f1v:"from 3 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
-  f3v:"100% yours", f3l:"domain, email and CRM in your name", f4v:"AI + human", f4l:"faster build, human review",
+  f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
+  f3v:"You're the owner", f3l:"of the site, domain, email and CRM", f4v:"Fixed price", f4l:"agreed before we start",
   g_eye:"Where customers get lost",
-  g_t:"Customers are rarely lost over price. More often it is a message nobody answered.",
-  g_s:"AVOS first finds the gaps in your process, then closes them with simple digital tools.",
+  g_t:"Customers leave quietly: they couldn't get through, didn't get a reply, or simply couldn't find you.",
+  g_s:"We find exactly where customer requests get lost and fix that with a few simple things: a website, a form and a CRM.",
   k_bad:"Problem", k_good:"Fix",
   g1p:"An Instagram message at 23:40 sits unanswered until morning.",
   g1f:"The site form works 24/7, and the request lands in Telegram instantly.",
@@ -953,18 +1121,18 @@ en: {
   c4:"WhatsApp, to my number.",
   c5:"Which languages do your guests speak?",
   c6:"Voice · 0:24",
-  c7:"Thanks, that is all we need. We will send the first version in 3 days.",
+  c7:"Thanks, that's all we need. We'll send you the first version in 3 days.",
   d_eye:"Examples", d_t:"A site for your line of business",
-  d_s:"Demo concepts for local businesses. We build every site for you, but we already know what brings requests in your field.",
+  d_s:"Demo concepts for local businesses. Every site is built around you, but we already know what businesses like yours usually need.",
   t1:"Restaurant & café", t2:"Apartments", t3:"Car rental", t4:"Cleaning",
   demo_badge:"Demo concept",
   rest_url:"demo / restaurant", rest_name:"Your restaurant", rest_nav:"Menu · Booking · Contact",
-  rest_h:"Local food by the sea", rest_btn:"Book a table", rest_menu:"Menu",
-  rest_i1:"Fish soup", rest_i2:"Black risotto", rest_i3:"Njeguši prosciutto",
+  rest_h:"Fresh fish every morning", rest_btn:"Book a table", rest_menu:"From the menu",
+  rest_i1:"Grilled fish", rest_i2:"Black risotto", rest_i3:"Njeguši prosciutto & cheese",
   rf1:"QR menu in three languages", rf2:"Table booking in 30 seconds", rf3:"Bookings go to WhatsApp and the CRM", rf4:"Google map, opening hours and photos",
   pkg_l:"Suggested package", pkg_biz:"Business", pkg_biz_pro:"Business or Pro",
   apt_url:"demo / apartments", apt_name:"Your apartments", apt_nav:"Rooms · Gallery · Location",
-  apt_h:"50 m from the beach", apt_month:"July", apt_sel:"your dates", apt_bk:"booked",
+  apt_h:"Apartments with a sea view", apt_month:"July", apt_sel:"your dates", apt_bk:"booked",
   apt_btn:"Book direct", apt_note:"No platform commission",
   af1:"Availability calendar", af2:"Direct bookings, no commission", af3:"Gallery and description in three languages", af4:"Instant reply to guests",
   car_url:"demo / car-rental", car_name:"Your car rental", car_nav:"Cars · Terms · Contact",
@@ -977,9 +1145,9 @@ en: {
   cln_area:"Area", cln_deep:"Deep cleaning", cln_est:"Estimated price", cln_demo:"demo prices", cln_btn:"Book a slot",
   kf1:"Price calculator on the site", kf2:"Pick a time without calling", kf3:"Reminder to the client a day before", kf4:"Regular clients in the CRM",
   d_note:"These are demo concepts, not sites of real clients.",
-  o_eye:"Everything is yours",
-  o_t:"You don't depend on us. Everything is registered in your name.",
-  o_s:"We open the domain, hosting, email and CRM on your email address and your card. We get access as an invited user, never as the owner. If you ever stop working with us, the site, email and requests keep working.",
+  o_eye:"Yours to keep",
+  o_t:"You are the sole owner of your website and all its systems.",
+  o_s:"We set up the domain, hosting, business email and CRM accounts with your email address and your card. You invite us in as helpers, not as owners. If you ever decide to carry on without us, your site, email and CRM keep working just as before.",
   o1:"Passwords stay with you, in a password manager.",
   o2:"Hosting is free, and you pay for the domain directly to the registrar.",
   o3:"At handover you get a site passport: what is where and how to remove our access.",
@@ -987,22 +1155,19 @@ en: {
   pp_own:"owner: you", pp_with:"with you",
   pp_n1:"auto-renewal", pp_n2:"€0 a month", pp_n3:"you are the main admin", pp_n4:"we are an invited user", pp_n5:"map and reviews", pp_n6:"Bitwarden, free",
   pp_stamp:"Handed over",
-  pr_eye:"Pricing", pr_t:"Price and deadline agreed before we start", pr_s:"You pay for the build once. Monthly support is optional.",
+  pr_eye:"Pricing", pr_t:"What each package includes", pr_s:"You pay for the build once, and we tell you the price and timeline before we start. Support is optional.",
   pr1:"€99", pr2:"€249", pr3:"from €490",
-  pl1d:"One page that collects requests.", pl1a:"One-page website", pl1b:"1–2 languages", pl1c:"Form → Telegram or WhatsApp + CRM", pl1e:"Domain and hosting in your name", pl1t:"Time: 3–7 days",
-  rec:"Recommended",
-  pl2d:"A full site with CRM and business email.", pl2a:"Up to 6 pages", pl2b:"Three languages: ME, EN, RU", pl2c:"CRM and business email (up to 3 addresses)", pl2e:"Google profile and map", pl2f:"Basic SEO", pl2t:"Time: 1–2 weeks",
-  pl3d:"When the site should do the work for you.", pl3a:"Everything in Business", pl3b:"Online booking or calendar", pl3c:"Catalog, QR menu or calculator", pl3e:"Automatic messages to clients", pl3t:"Time: 3–4 weeks",
-  choose:"Choose",
+  pl1d:"A single page where customers get in touch.",   rec:"Recommended",
+  pl2d:"A full site in three languages, with business email and a Google profile.",   pl3d:"Everything in Business, plus the site takes bookings and messages your clients on its own.",   choose:"Choose",
   sup_t:"Support · €15 a month", sup_d:"Text and price edits, menu updates, monitoring that the site works. Cancel any time.", sup_opt:"optional",
   extra:"Paid directly to providers, in your name: the domain (about €15–30 a year) and business email (from about €1 a month per address). Hosting is €0.",
   q_eye:"FAQ", q_t:"What people ask us most",
   q1:"Do I need to understand technology?", a1:"No. We ask in plain words and set everything up ourselves. You tell us what you want and approve the result.",
   q2:"I have no texts or photos. What now?", a2:"We write the texts in all three languages from your answers. Photos can come from your phone: we will tell you what and how to shoot.",
   q3:"What is a CRM and why do I need one?", a3:"It is one list of all requests: who wrote, what they want and whether anyone replied. No customer gets forgotten. We use free plans of well-known CRM systems.",
-  q4:"What if I want to leave?", a4:"Nothing breaks. Everything is already in your name. Remove our access using the site passport, and the site, email and CRM keep working.",
+  q4:"What if I want to leave?", a4:"Nothing will break. The site, email and CRM are yours from day one; we only have the access you gave us. Remove it by following the site passport, and everything keeps working as before.",
   q5:"Can I change the site later?", a5:"Small edits are covered by support at €15 a month. If you prefer, we show you how to make them yourself, and any other developer can take the site over.",
-  q6:"Why is it faster and cheaper than an agency?", a6:"We do the routine part with AI tools and spend our time on what matters: your requests, texts and testing. A person reviews every site before launch.",
+  q6:"Why is it faster and cheaper than an agency?", a6:"We're a small studio with no office and no managers, so you don't pay for overheads. We already have a site structure worked out for each type of business, so we don't start from scratch. The process is short, with no long meetings, and you pay for the build once.",
   or_eye:"Order a site", or_t:"Send us one sentence. We will ask the rest.",
   or_s:"We get back to you, ask a few questions and tell you the price and deadline before we start.",
   fl_name:"Your name", fl_type:"Your business", ft1:"Restaurant or café", ft5:"Something else",
@@ -1011,22 +1176,72 @@ en: {
   fl_contact:"Phone number or username", fl_msg:"What would you like? (optional)",
   f_send:"Send request", f_priv:"We only use your details to reply to you.",
   copy:"Copy", ct_t:"Or message us directly", ct_city:"Podgorica, Montenegro", ct_lang:"We speak Montenegrin, English and Russian.",
-  foot:B+" is a studio by AVOS, Podgorica. AVOS shows businesses where they lose customers and closes those gaps with digital tools.",
+  foot:"<span class=\"brand-name\"></span> is a small studio in Podgorica that builds websites with a CRM and business email for local businesses.",
   ph_contact:"+382 … or @username", ph_msg:"E.g. a site for my tavern with bookings in three languages",
+  t5:"QR menu",
+  qf1:"One QR code on the table, menu in 3 languages",
+  qf2:"Update the menu in a minute, no reprinting",
+  qf3:"Dish photos and tags: spicy, vegetarian",
+  qf4:"Opens on any phone, no app needed",
+  row_pages:"Number of pages",
+  row_lang:"Site languages",
+  row_texts:"We write the texts in all site languages",
+  row_form:"Request form → Telegram or WhatsApp",
+  row_crm:"CRM: all requests in one list",
+  row_mail:"Business email",
+  row_google:"Google profile and map listing",
+  row_seo:"Basic SEO, so people find you in search",
+  row_book:"Online booking or calendar",
+  row_cat:"Catalog, QR menu or calculator",
+  row_auto:"Automatic messages to clients",
+  row_own:"Domain and hosting belong to you",
+  row_pass:"Site passport at handover",
+  tl_fast:"If you send everything at once",
+  tl_full:"From first message to launch",
+  tl1f:"from 2 days",
+  tl1u:"5–10 days",
+  tl2f:"from 5 days",
+  tl2u:"2–3 weeks",
+  tl3f:"from 10 days",
+  tl3u:"3–5 weeks",
+  tl_note:"The shorter timeline applies if you send all the details, photos and logo up front, or show us a site you want yours to match exactly; the full timeline runs from your first message to launch, including your edits.",
+  inc:"included",
+  exc:"not included",
+  copy_r:"© 2026 MakeSiteFor.me · Podgorica",
+  rest_kick:"Budva · Old Town",
+  rest_s:"A terrace overlooking the Old Town. Book a table in 30 seconds.",
+  rest_b1:"Guests",
+  rest_b2:"Date",
+  rest_b2v:"Saturday",
+  rest_b3:"Time",
+  apt_kick:"50 m from the beach · Budva",
+  apt_price:"from €65 / night",
+  car_kick:"Podgorica · Budva · Tivat",
+  cln_s:"Get a price and pick a time right on the site.",
+  qr_url:"demo / qr-menu",
+  qr_scan:"Scan for the menu",
+  qr_table:"Table 7",
+  qr_name:"Your café",
+  pv1:"1",
+  pv2:"up to 6",
+  pv3:"up to 10",
+  lv1:"1–2",
+  lv2:"ME · EN · RU",
+  mv:"up to 3",
 },
 ru: {
   nav_how:"Как работаем", nav_demos:"Примеры", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Заказать сайт",
   h_eye:"Сайты + CRM для малого бизнеса · Подгорица",
-  h_t:"Сайт, который приносит заявки. <em>И не теряет ни одной.</em>",
-  h_s:"Делаем сайт и подключаем CRM и корпоративную почту. Вы просто говорите, что хотите. Не нужно разбираться, что такое домен, хостинг или CRM: всё техническое делаем мы.",
+  h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
+  h_s:"Делаем сайт, подключаем CRM и корпоративную почту. Вам остаётся рассказать, что нужно, а с доменом, хостингом и настройками разберёмся мы.",
   h_c1:"Написать нам", h_c2:"Смотреть примеры",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
-  f1v:"от 3 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
-  f3v:"100% ваше", f3l:"домен, почта и CRM на ваше имя", f4v:"AI + человек", f4l:"быстрее делаем, проверяем вручную",
+  f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
+  f3v:"Вы владелец", f3l:"сайта, домена, почты и CRM", f4v:"Фиксированная цена", f4l:"известна до начала работ",
   g_eye:"Где теряются клиенты",
-  g_t:"Клиентов редко теряют из-за цены. Чаще из-за сообщения, на которое никто не ответил.",
-  g_s:"AVOS сначала находит дыры в вашем процессе, а потом закрывает их простыми цифровыми инструментами.",
+  g_t:"Клиенты уходят тихо: не дозвонились, не дождались ответа или просто не нашли вас.",
+  g_s:"Мы смотрим, где именно у вас теряются заявки, и наводим порядок простыми вещами: сайтом, формой и CRM.",
   k_bad:"Проблема", k_good:"Решение",
   g1p:"Сообщение в Instagram в 23:40 висит без ответа до утра.",
   g1f:"Форма на сайте работает 24/7, а заявка сразу приходит в Telegram.",
@@ -1053,16 +1268,16 @@ ru: {
   c6:"Голосовое · 0:24",
   c7:"Спасибо, этого достаточно. Первую версию пришлём через 3 дня.",
   d_eye:"Примеры", d_t:"Сайт под вашу нишу",
-  d_s:"Демо-концепты для местного бизнеса. Каждый сайт делаем под вас, но уже знаем, что в вашей нише приносит заявки.",
+  d_s:"Демо-концепты для местного бизнеса. Каждый сайт делаем под вас, но уже знаем, что обычно нужно в вашей сфере.",
   t1:"Ресторан и кафе", t2:"Апартаменты", t3:"Прокат авто", t4:"Клининг",
   demo_badge:"Демо-концепт",
   rest_url:"demo / restoran", rest_name:"Ваш ресторан", rest_nav:"Меню · Бронь · Контакты",
-  rest_h:"Домашняя кухня у моря", rest_btn:"Забронировать стол", rest_menu:"Меню",
-  rest_i1:"Рыбный суп", rest_i2:"Чёрное ризотто", rest_i3:"Негушский пршут",
+  rest_h:"Свежая рыба каждое утро", rest_btn:"Забронировать стол", rest_menu:"Из меню",
+  rest_i1:"Рыба на гриле", rest_i2:"Чёрное ризотто", rest_i3:"Негушский пршут и сыр",
   rf1:"QR-меню на трёх языках", rf2:"Бронь стола за 30 секунд", rf3:"Брони приходят в WhatsApp и CRM", rf4:"Карта Google, часы работы и фото",
   pkg_l:"Рекомендуемый пакет", pkg_biz:"Бизнес", pkg_biz_pro:"Бизнес или Pro",
   apt_url:"demo / apartmani", apt_name:"Ваши апартаменты", apt_nav:"Номера · Галерея · Как добраться",
-  apt_h:"50 м от пляжа", apt_month:"Июль", apt_sel:"ваши даты", apt_bk:"занято",
+  apt_h:"Апартаменты с видом на море", apt_month:"Июль", apt_sel:"ваши даты", apt_bk:"занято",
   apt_btn:"Забронировать напрямую", apt_note:"Без комиссии площадок",
   af1:"Календарь свободных дат", af2:"Прямые брони без комиссии", af3:"Галерея и описание на трёх языках", af4:"Автоответ гостю",
   car_url:"demo / rent-a-car", car_name:"Ваш прокат авто", car_nav:"Авто · Условия · Контакты",
@@ -1075,9 +1290,9 @@ ru: {
   cln_area:"Площадь", cln_deep:"Генеральная уборка", cln_est:"Примерная цена", cln_demo:"демо-цены", cln_btn:"Записаться",
   kf1:"Калькулятор цены на сайте", kf2:"Выбор времени без звонка", kf3:"Напоминание клиенту за день", kf4:"Постоянные клиенты в CRM",
   d_note:"Это демо-концепты, а не сайты реальных клиентов.",
-  o_eye:"Всё ваше",
-  o_t:"Вы не зависите от нас. Всё оформлено на вас.",
-  o_s:"Домен, хостинг, почту и CRM открываем на вашу почту и вашу карту. Мы получаем доступ как приглашённый пользователь, а не владелец. Если однажды перестанете с нами работать, сайт, почта и заявки продолжат работать.",
+  o_eye:"Всё остаётся вашим",
+  o_t:"Вы единственный владелец своего сайта и всех его систем.",
+  o_s:"Домен, хостинг, корпоративную почту и CRM открываем на ваш e-mail и вашу карту. Мы получаем доступ по вашему приглашению, как помощники, а не как владельцы. Если однажды решите обойтись без нас, сайт, почта и CRM продолжат работать как прежде.",
   o1:"Пароли остаются у вас, в менеджере паролей.",
   o2:"Хостинг бесплатный, а домен вы оплачиваете напрямую регистратору.",
   o3:"При сдаче получаете паспорт сайта: где что лежит и как отключить наш доступ.",
@@ -1085,22 +1300,19 @@ ru: {
   pp_own:"владелец: вы", pp_with:"у вас",
   pp_n1:"автопродление", pp_n2:"0 € в месяц", pp_n3:"вы главный админ", pp_n4:"мы приглашённый пользователь", pp_n5:"карта и отзывы", pp_n6:"Bitwarden, бесплатно",
   pp_stamp:"Передано клиенту",
-  pr_eye:"Цены", pr_t:"Цена и срок известны до начала работ", pr_s:"Разработку оплачиваете один раз. Ежемесячная поддержка по желанию.",
+  pr_eye:"Цены", pr_t:"Что входит в каждый пакет", pr_s:"Разработку оплачиваете один раз, цену и срок называем до начала работ. Поддержка по желанию.",
   pr1:"99 €", pr2:"249 €", pr3:"от 490 €",
-  pl1d:"Одна страница, которая собирает заявки.", pl1a:"Одностраничный сайт", pl1b:"1–2 языка", pl1c:"Форма → Telegram или WhatsApp + CRM", pl1e:"Домен и хостинг на ваше имя", pl1t:"Срок: 3–7 дней",
-  rec:"Рекомендуем",
-  pl2d:"Полноценный сайт с CRM и корпоративной почтой.", pl2a:"До 6 страниц", pl2b:"Три языка: ME, EN, RU", pl2c:"CRM и корпоративная почта (до 3 адресов)", pl2e:"Карточка Google и карта", pl2f:"Базовое SEO", pl2t:"Срок: 1–2 недели",
-  pl3d:"Когда сайт должен работать за вас.", pl3a:"Всё из пакета Бизнес", pl3b:"Онлайн-бронирование или календарь", pl3c:"Каталог, QR-меню или калькулятор", pl3e:"Автосообщения клиентам", pl3t:"Срок: 3–4 недели",
-  choose:"Выбрать",
+  pl1d:"Одна страница, через которую вам пишут.",   rec:"Рекомендуем",
+  pl2d:"Полноценный сайт на трёх языках, с корпоративной почтой и карточкой в Google.",   pl3d:"Всё из пакета Бизнес, а ещё сайт сам принимает брони и пишет клиентам.",   choose:"Выбрать",
   sup_t:"Поддержка · 15 € в месяц", sup_d:"Правки текстов и цен, обновление меню, контроль работы сайта. Отменяется в любой момент.", sup_opt:"по желанию",
   extra:"Напрямую провайдерам, на ваше имя, вы оплачиваете домен (около 15–30 € в год) и корпоративную почту (от ~1 € в месяц за адрес). Хостинг: 0 €.",
   q_eye:"Вопросы", q_t:"Что у нас спрашивают чаще всего",
   q1:"Нужно ли разбираться в технологиях?", a1:"Нет. Мы спрашиваем простыми словами и всё настраиваем сами. Вы говорите, что хотите, и принимаете результат.",
   q2:"У меня нет текстов и фото. Что делать?", a2:"Тексты пишем мы, на всех трёх языках, по вашим ответам. Фото можно снять на телефон: подскажем, что и как снять.",
   q3:"Что такое CRM и зачем она мне?", a3:"Это один список всех заявок: кто написал, что хочет и ответил ли ему кто-то. Ни один клиент не забыт. Используем бесплатные тарифы известных CRM.",
-  q4:"Что если я захочу уйти?", a4:"Ничего не ломается. Всё уже оформлено на вас. Удаляете наш доступ по паспорту сайта, а сайт, почта и CRM работают дальше.",
+  q4:"Что если я захочу уйти?", a4:"Ничего не сломается. Сайт, почта и CRM с самого начала ваши, а у нас только доступ по вашему приглашению. Отключите его по паспорту сайта, и всё будет работать, как работало.",
   q5:"Можно ли потом менять сайт?", a5:"Небольшие правки входят в поддержку за 15 € в месяц. Если хотите, покажем, как делать их самому, а сайт сможет подхватить и любой другой разработчик.",
-  q6:"Почему быстрее и дешевле, чем в агентстве?", a6:"Рутину делаем с помощью AI-инструментов, а время тратим на важное: ваши заявки, тексты и проверку. Каждый сайт перед запуском проверяет человек.",
+  q6:"Почему это быстрее и дешевле, чем в агентстве?", a6:"Мы небольшая студия без офиса и менеджеров, так что в цене нет лишнего. Для каждой сферы у нас уже есть продуманная структура сайта, поэтому мы не начинаем с нуля. Процесс короткий и без долгих встреч, а за разработку вы платите один раз.",
   or_eye:"Заказать сайт", or_t:"Напишите одно предложение. Остальное спросим мы.",
   or_s:"Мы свяжемся, зададим несколько вопросов и назовём цену и срок до начала работ.",
   fl_name:"Ваше имя", fl_type:"Ваш бизнес", ft1:"Ресторан или кафе", ft5:"Другое",
@@ -1109,8 +1321,58 @@ ru: {
   fl_contact:"Телефон или ник", fl_msg:"Что хотите? (необязательно)",
   f_send:"Отправить заявку", f_priv:"Используем ваши данные только чтобы ответить вам.",
   copy:"Копировать", ct_t:"Или напишите напрямую", ct_city:"Подгорица, Черногория", ct_lang:"Говорим на черногорском, английском и русском.",
-  foot:B+" — студия компании AVOS из Подгорицы. AVOS показывает бизнесу, где он теряет клиентов, и закрывает эти дыры цифровыми инструментами.",
+  foot:"<span class=\"brand-name\"></span> — небольшая студия из Подгорицы, которая делает сайты с CRM и корпоративной почтой для местного бизнеса.",
   ph_contact:"+382 … или @ник", ph_msg:"Например: сайт для ресторана с бронью на трёх языках",
+  t5:"QR-меню",
+  qf1:"Один QR-код на столе, меню на трёх языках",
+  qf2:"Цены и блюда меняются за минуту, без печати",
+  qf3:"Фото блюд и пометки: острое, вегетарианское",
+  qf4:"Открывается на любом телефоне без приложения",
+  row_pages:"Количество страниц",
+  row_lang:"Языки сайта",
+  row_texts:"Тексты пишем мы, на всех языках сайта",
+  row_form:"Форма заявки → Telegram или WhatsApp",
+  row_crm:"CRM: все заявки в одном списке",
+  row_mail:"Корпоративная почта",
+  row_google:"Карточка в Google и на карте",
+  row_seo:"Базовое SEO: чтобы вас находили в поиске",
+  row_book:"Онлайн-бронь или календарь",
+  row_cat:"Каталог, QR-меню или калькулятор",
+  row_auto:"Автоматические сообщения клиентам",
+  row_own:"Домен и хостинг принадлежат вам",
+  row_pass:"Паспорт сайта при сдаче",
+  tl_fast:"Если всё прислали сразу",
+  tl_full:"От первого сообщения до запуска",
+  tl1f:"от 2 дней",
+  tl1u:"5–10 дней",
+  tl2f:"от 5 дней",
+  tl2u:"2–3 недели",
+  tl3f:"от 10 дней",
+  tl3u:"3–5 недель",
+  tl_note:"Короткий срок действует, если вы сразу присылаете всю информацию, фото и логотип или показываете сайт, который хотите один в один; полный считаем от первого сообщения до запуска, вместе с вашими правками.",
+  inc:"входит",
+  exc:"не входит",
+  copy_r:"© 2026 MakeSiteFor.me · Подгорица",
+  rest_kick:"Будва · Старый город",
+  rest_s:"Терраса с видом на Старый город. Стол бронируется за 30 секунд.",
+  rest_b1:"Гостей",
+  rest_b2:"Дата",
+  rest_b2v:"Суббота",
+  rest_b3:"Время",
+  apt_kick:"50 м от пляжа · Будва",
+  apt_price:"от 65 € / ночь",
+  car_kick:"Подгорица · Будва · Тиват",
+  cln_s:"Узнайте цену и выберите время прямо на сайте.",
+  qr_url:"demo / qr-menu",
+  qr_scan:"Сканируйте, чтобы открыть меню",
+  qr_table:"Стол 7",
+  qr_name:"Ваше кафе",
+  pv1:"1",
+  pv2:"до 6",
+  pv3:"до 10",
+  lv1:"1–2",
+  lv2:"ME · EN · RU",
+  mv:"до 3 адресов",
 }};
 
 /* UI strings used only by script */
@@ -1191,7 +1453,7 @@ function applyLang(l){
   $$("[data-i18n-ph]").forEach(n => { const k = n.dataset.i18nPh; n.setAttribute("placeholder", lang === "me" ? ME_PH[k] : (T[lang][k] ?? ME_PH[k])); });
   $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
   document.documentElement.lang = LANG_CODE[lang];
-  fillBrand(); fillContacts(); buildCalendar(); updateCalc(); startFlow();
+  fillBrand(); fillContacts(); buildCalendar(); updateCalc(); setQR(lang); startFlow();
   $("#f-result").hidden = true; $("#f-err").hidden = true;
   store.set("vitrina-lang", lang);
 }
@@ -1318,6 +1580,18 @@ $("#form").addEventListener("submit", async e => {
   } catch(ex) { show("", u.fail, true); }
   finally { btn.disabled = false; btn.innerHTML = label; }
 });
+
+/* ---------- QR menu demo: the menu has its own language switch ---------- */
+const QRM = {
+  me:{ c1:"Doručak", c2:"Pasta", c3:"Salate", c4:"Kafa", i1:"Pasta pesto", d1:"Bosiljak, čeri paradajz, parmezan", i2:"Salata sa avokadom", d2:"Leblebija, avokado, svježe povrće", veg:"vegetarijansko", i3:"Kapućino", d3:"Kravlje ili ovseno mlijeko", upd:"Meni ažuriran danas u 09:12" },
+  en:{ c1:"Breakfast", c2:"Pasta", c3:"Salads", c4:"Coffee", i1:"Pesto pasta", d1:"Basil, cherry tomatoes, parmesan", i2:"Avocado salad bowl", d2:"Chickpeas, avocado, fresh vegetables", veg:"vegetarian", i3:"Cappuccino", d3:"Cow's or oat milk", upd:"Menu updated today at 09:12" },
+  ru:{ c1:"Завтраки", c2:"Паста", c3:"Салаты", c4:"Кофе", i1:"Паста песто", d1:"Базилик, черри, пармезан", i2:"Салат с авокадо", d2:"Нут, авокадо, свежие овощи", veg:"вегетарианское", i3:"Капучино", d3:"Обычное или овсяное молоко", upd:"Меню обновлено сегодня в 09:12" },
+};
+function setQR(l){
+  $$("[data-qk]").forEach(n => { n.textContent = QRM[l][n.dataset.qk]; });
+  $$(".qx-langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.ql === l)));
+}
+$$(".qx-langs button").forEach(b => b.addEventListener("click", () => setQR(b.dataset.ql)));
 
 /* ---------- language switch + start ---------- */
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
