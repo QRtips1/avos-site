@@ -122,6 +122,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero h1 em{font-style:normal;color:var(--accent-text)}
 .hero-sub{font-size:var(--t-md);color:var(--muted);max-width:54ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.does-box{grid-column:1 / -1;position:relative;z-index:1;padding:22px 24px 24px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 42%,transparent);background:color-mix(in srgb,var(--accent) 7%,var(--bg-2));box-shadow:0 30px 80px -50px var(--glow)}
+.does-t{font-family:var(--f-display);font-weight:500;font-size:1.15rem;letter-spacing:-.01em;margin:0 0 16px}
+.does{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 22px}
+.does li{display:flex;align-items:flex-start;gap:10px;font-size:var(--t-sm);font-weight:500;line-height:1.35;min-width:0}
+.does li::before{content:"";flex:none;width:20px;height:20px;margin-top:-1px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='%231B1100' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--line);position:relative;z-index:1}
 .fact{padding:18px 18px 0 0;display:grid;gap:4px;min-width:0}
 .fact + .fact{padding-left:18px;border-left:1px solid var(--line)}
@@ -401,6 +406,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tl dd{margin:0;font-weight:600;font-size:var(--t-sm);white-space:nowrap;color:var(--fg)}
 .term{color:var(--sea)}
 .plan .btn{width:100%}
+.plan-wide{grid-column:1 / -1;grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr);grid-template-rows:none;gap:28px;align-items:start}
+.pw-main{display:grid;gap:18px;align-content:start;min-width:0}
+.pw-main > p{color:var(--muted)}
+.plan-wide .feat{border-top:0;padding:0 0 0 28px;border-left:1px solid var(--line);grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:12px}
+.badge-sea{background:color-mix(in srgb,var(--sea) 16%,transparent);color:var(--sea)}
+.feat li.gift b{color:var(--accent-text)}
 .tl-note{margin-top:16px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
 .support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:16px;padding:22px 26px;border-radius:20px;border:1px dashed var(--line-2)}
 .support b{font-family:var(--f-display);font-weight:500}
@@ -462,7 +473,15 @@ fieldset.field{border:0;margin:0;padding:0}
   .demo{grid-template-columns:minmax(0,1fr)}
   .chat{position:static}
   .plans{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .does{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-copy{order:0}
+  .does-box{order:1}
+  .flow-wrap{order:2}
   .plan.hot{order:-1;grid-column:1 / -1}
+}
+@media (max-width: 860px){
+  .plan-wide{grid-template-columns:minmax(0,1fr);gap:18px}
+  .plan-wide .feat{padding:16px 0 0;border-left:0;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width: 860px){
   .nav{display:none}
@@ -481,6 +500,8 @@ fieldset.field{border:0;margin:0;padding:0}
   .phone{max-width:300px;width:100%;justify-self:center}
   .f-row{grid-template-columns:minmax(0,1fr)}
   .plans{grid-template-columns:minmax(0,1fr)}
+  .does{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+  .does-box{padding:18px 16px 20px}
   .plan.hot{grid-column:auto}
   .support{grid-template-columns:minmax(0,1fr)}
   .pp-rows > div{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -536,7 +557,7 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="hero-copy">
           <span class="mono eyebrow" data-i18n="h_eye">Sajtovi + CRM za mali biznis · Podgorica</span>
           <h1 data-i18n="h_t">Sajt za vaš posao. <em>A brige prepustite nama.</em></h1>
-          <p class="hero-sub" data-i18n="h_s">Pravimo sajt i povezujemo CRM i poslovni e-mail. Vi nam samo kažete šta vam treba, a domen, hosting i podešavanja sređujemo mi.</p>
+          <p class="hero-sub" data-i18n="h_s">Vama ostaje samo da nam kažete šta vam treba. Sav tehnički posao preuzimamo mi: bez iskustva u njemu se lako izgubiti i potrošiti sedmice.</p>
           <div class="hero-cta">
             <a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a>
             <a class="btn btn-ghost" href="#demos" data-i18n="h_c2">Pogledajte primjere</a>
@@ -578,6 +599,23 @@ fieldset.field{border:0;margin:0;padding:0}
           </div>
           <p class="flow-cap" data-i18n="flow_cap">Demo: gost ostavi upit na sajtu, a vi ga odmah vidite u Telegramu i u CRM-u.</p>
         </div>
+        <div class="does-box">
+          <h2 class="does-t" data-i18n="do_t">Sve ovo radimo umjesto vas</h2>
+          <ul class="does">
+            <li data-i18n="do1">Domen i DNS zapisi</li>
+            <li data-i18n="do2">Hosting i SSL sertifikat</li>
+            <li data-i18n="do3">Dizajn za telefon i računar</li>
+            <li data-i18n="do4">Tekstovi na tri jezika</li>
+            <li data-i18n="do5">Priprema fotografija za sajt</li>
+            <li data-i18n="do6">Upiti u Telegram ili WhatsApp</li>
+            <li data-i18n="do7">CRM za upite</li>
+            <li data-i18n="do8">E-mail na vašem domenu</li>
+            <li data-i18n="do9">Zaštita e-maila: SPF, DKIM, DMARC</li>
+            <li data-i18n="do10">Google profil i lokacija na mapi</li>
+            <li data-i18n="do11">Osnovni SEO za pretragu na Googlu</li>
+            <li data-i18n="do12">Online rezervacija ili kalendar</li>
+          </ul>
+        </div>
       </div>
 
       <div class="facts">
@@ -593,9 +631,9 @@ fieldset.field{border:0;margin:0;padding:0}
   <section class="sec" id="gaps">
     <div class="wrap">
       <div class="sec-head">
-        <span class="mono eyebrow" data-i18n="g_eye">Gdje se gube klijenti</span>
-        <h2 data-i18n="g_t">Klijenti odlaze tiho: nisu vas dobili na telefon, nisu dočekali odgovor ili vas jednostavno nisu našli.</h2>
-        <p data-i18n="g_s">Pogledamo gdje se tačno gube vaši upiti i napravimo red jednostavnim rješenjima: sajtom, formom i CRM-om.</p>
+        <span class="mono eyebrow" data-i18n="g_eye">Česti problemi</span>
+        <h2 data-i18n="g_t">Zašto gubite klijente</h2>
+        <p data-i18n="g_s">Evo četiri česta razloga i kako to rješavamo.</p>
       </div>
       <div class="gaps">
         <article class="gap">
@@ -636,7 +674,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="step"><span class="s-n">1</span><div><h3 data-i18n="s1t">Pišete nam</h3><p data-i18n="s1d">WhatsApp, Telegram, Viber ili forma na sajtu. Dovoljna je jedna rečenica.</p><span class="s-m mono" data-i18n="s1m">Vaše vrijeme: 1 min</span></div></li>
             <li class="step"><span class="s-n">2</span><div><h3 data-i18n="s2t">Kratak razgovor</h3><p data-i18n="s2d">Postavimo 10–15 jednostavnih pitanja: čime se bavite, ko su vaši klijenti, gdje da stižu upiti. Cijenu i rok znate prije početka.</p><span class="s-m mono" data-i18n="s2m">Vaše vrijeme: ~15 min</span></div></li>
             <li class="step"><span class="s-n">3</span><div><h3 data-i18n="s3t">Prva verzija</h3><p data-i18n="s3d">Pošaljemo vam link sajta. Pogledate ga na telefonu i kažete šta da promijenimo, svojim riječima.</p><span class="s-m mono" data-i18n="s3m">Vaše vrijeme: ~10 min</span></div></li>
-            <li class="step"><span class="s-n">4</span><div><h3 data-i18n="s4t">Pokretanje</h3><p data-i18n="s4d">Podesimo domen, poštu i CRM na vaše ime i za 20 minuta pokažemo kako da vidite i vodite upite.</p><span class="s-m mono" data-i18n="s4m">Vaše vrijeme: ~20 min</span></div></li>
+            <li class="step"><span class="s-n">4</span><div><h3 data-i18n="s4t">Pokretanje</h3><p data-i18n="s4d">Podesimo domen, poštu i CRM i za 20 minuta pokažemo kako da vidite i vodite upite.</p><span class="s-m mono" data-i18n="s4m">Vaše vrijeme: ~20 min</span></div></li>
           </ol>
           <p class="total"><span class="mark"></span><span data-i18n="p_total">Ukupno od vas: manje od sat vremena.</span></p>
         </div>
@@ -646,7 +684,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <div class="msgs">
             <p class="msg us" data-i18n="c1">Zdravo! Kako se zove vaš biznis i čime se bavite?</p>
             <p class="msg them" data-i18n="c2">Konoba u Budvi. Riba i domaća kuhinja.</p>
-            <p class="msg us" data-i18n="c3">Gdje želite da vam stižu rezervacije: WhatsApp, Telegram ili e-mail?</p>
+            <p class="msg us" data-i18n="c3">Gdje vam je najlakše da primate online rezervacije: WhatsApp, Telegram ili e-mail?</p>
             <p class="msg them" data-i18n="c4">Na WhatsApp, na moj broj.</p>
             <p class="msg us" data-i18n="c5">Na kojim jezicima govore vaši gosti?</p>
             <p class="msg them voice"><span class="play"></span><span class="wave"></span><small data-i18n="c6">Glasovna · 0:24</small></p>
@@ -664,7 +702,7 @@ fieldset.field{border:0;margin:0;padding:0}
       <div class="sec-head">
         <span class="mono eyebrow" data-i18n="d_eye">Primjeri</span>
         <h2 data-i18n="d_t">Sajt za vašu branšu</h2>
-        <p data-i18n="d_s">Demo koncepti za lokalne biznise. Svaki sajt pravimo po mjeri, ali već znamo šta je obično potrebno u vašoj branši.</p>
+        <p data-i18n="d_s">Demo koncepti za biznis. Svaki sajt pravimo po mjeri. Ako ne znate šta vam tačno treba, preporučićemo: znamo šta je najčešće potrebno u vašoj branši.</p>
       </div>
 
       <div class="tabs" role="tablist" aria-label="Demo">
@@ -706,11 +744,11 @@ fieldset.field{border:0;margin:0;padding:0}
           <h3 data-i18n="t1">Restoran i kafić</h3>
           <ul class="ticks">
             <li data-i18n="rf1">Meni sa QR kodom na tri jezika</li>
-            <li data-i18n="rf2">Rezervacija stola za 30 sekundi</li>
+            <li data-i18n="rf2">Upit za rezervaciju stola za 30 sekundi</li>
             <li data-i18n="rf3">Rezervacije stižu u WhatsApp i CRM</li>
             <li data-i18n="rf4">Google mapa, radno vrijeme i fotografije</li>
           </ul>
-          <div class="d-meta"><span data-i18n="pkg_l">Preporučeni paket</span><b data-i18n="pkg_biz">Biznis</b></div>
+          <div class="d-meta"><span data-i18n="pkg_l">Preporučeni paket</span><b data-i18n="pkg_biz_qr">Biznis + QR meni</b></div>
         </aside>
       </div>
 
@@ -740,11 +778,11 @@ fieldset.field{border:0;margin:0;padding:0}
           <h3 data-i18n="t5">QR meni</h3>
           <ul class="ticks">
             <li data-i18n="qf1">Jedan QR kod na stolu, meni na tri jezika</li>
-            <li data-i18n="qf2">Cijene i jela mijenjate za minut, bez štampe</li>
+            <li data-i18n="qf2">Cijene i jela mijenjate za minut, bez ponovne štampe</li>
             <li data-i18n="qf3">Slike jela i oznake: ljuto, vegetarijansko</li>
             <li data-i18n="qf4">Otvara se na svakom telefonu, bez aplikacije</li>
           </ul>
-          <div class="d-meta"><span data-i18n="pkg_l">Preporučeni paket</span><b>Pro</b></div>
+          <div class="d-meta"><span data-i18n="pkg_l">Preporučeni paket</span><b data-i18n="pkg_qr_pro">QR meni ili Pro</b></div>
         </aside>
       </div>
 
@@ -912,7 +950,8 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="n"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
             <li class="n"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
             <li class="n"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
-            <li class="n"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_cat">Katalog ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_qr">Online meni sa QR kodom</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
             <li class="n"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
           <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl1f">od 2 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl1u">5–10 dana</dd></div></dl>
@@ -934,7 +973,8 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="y"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="n"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
-            <li class="n"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_cat">Katalog ili kalkulator</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_qr">Online meni sa QR kodom</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
             <li class="n"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
           <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl2f">od 5 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl2u">2–3 sedmice</dd></div></dl>
@@ -956,11 +996,34 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="y"><span data-i18n="row_google">Google profil i lokacija na mapi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_seo">Osnovni SEO: da vas nađu u pretrazi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_book">Online rezervacija ili kalendar</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_cat">Katalog, QR meni ili kalkulator</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_cat">Katalog ili kalkulator</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="v gift"><span data-i18n="row_qr">Online meni sa QR kodom</span><b data-i18n="gift">na poklon</b></li>
             <li class="y"><span data-i18n="row_auto">Automatske poruke klijentima</span><span class="sr" data-i18n="inc">uključeno</span></li>
           </ul>
           <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl3f">od 10 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl3u">3–5 sedmica</dd></div></dl>
           <a class="btn btn-ghost" href="#order" data-pkg="pro" data-i18n="choose">Izaberi</a>
+        </article>
+        <article class="plan plan-wide" id="plan-qr">
+          <div class="pw-main">
+            <div class="plan-h"><b data-i18n="t5">QR meni</b><span class="badge badge-sea" data-i18n="qr_for">Za kafiće i restorane</span></div>
+            <div class="price" data-i18n="pr4">79 €</div>
+            <p data-i18n="pl4d">Gost skenira QR kod na stolu i otvara meni na svom jeziku. Plaćate jednom, bez mjesečne pretplate.</p>
+            <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl4f">od 1 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl4u">3–7 dana</dd></div></dl>
+            <a class="btn btn-ghost" href="#order" data-pkg="qr" data-i18n="choose">Izaberi</a>
+          </div>
+          <ul class="feat">
+            <li class="v"><span data-i18n="row_items">Broj stavki u meniju</span><b data-i18n="qv1">do 80</b></li>
+            <li class="v"><span data-i18n="row_mlang">Jezici menija</span><b data-i18n="lv2">ME · EN · RU</b></li>
+            <li class="y"><span data-i18n="row_mtext">Meni prevodimo i pripremamo mi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_mphoto">Slike, cijene i oznake: ljuto, vegetarijansko</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_medit">Cijene i jela mijenjate sami, u jednostavnoj tabeli</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_mqr">QR kod i dizajn kartica za stolove</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_mown">Meni i nalozi pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_nofee">Bez mjesečne pretplate</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="n"><span data-i18n="row_order">Naručivanje i plaćanje preko menija</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_site">Sajt lokala, CRM i e-mail</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_print">Štampa kartica za stolove</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+          </ul>
         </article>
       </div>
       <p class="tl-note" data-i18n="tl_note">Kraći rok važi ako nam odmah pošaljete sve informacije, fotografije i logo ili pokažete sajt kakav želite, da napravimo isti takav; puni rok računamo od prve poruke do pokretanja, uključujući i vaše izmjene.</p>
@@ -968,7 +1031,7 @@ fieldset.field{border:0;margin:0;padding:0}
         <div><b data-i18n="sup_t">Podrška · 15 € mjesečno</b><p data-i18n="sup_d">Izmjene teksta i cijena, ažuriranje menija, praćenje rada sajta. Otkazujete kad želite.</p></div>
         <span class="mono term" data-i18n="sup_opt">nije obavezno</span>
       </div>
-      <p class="extra" data-i18n="extra">Direktno provajderima, na vaše ime, plaćate domen (oko 15–30 € godišnje) i poslovni e-mail (od oko 1 € mjesečno po adresi). Hosting je 0 €.</p>
+      <p class="extra" data-i18n="extra">Domen (oko 15–30 € godišnje) i poslovni e-mail (od oko 1 € mjesečno po adresi) plaćate direktno provajderima. Hosting je 0 €. QR meni radi i bez domena.</p>
     </div>
   </section>
 
@@ -1018,6 +1081,7 @@ fieldset.field{border:0;margin:0;padding:0}
               <option value="start" data-i18n="fp1">Start · 99 €</option>
               <option value="biz" data-i18n="fp2">Biznis · 249 €</option>
               <option value="pro" data-i18n="fp3">Pro · od 490 €</option>
+              <option value="qr" data-i18n="fp4">QR meni · 79 €</option>
             </select>
           </label>
           <fieldset class="field">
@@ -1088,15 +1152,15 @@ en: {
   nav_how:"How it works", nav_demos:"Examples", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Order a site",
   h_eye:"Websites + CRM for small business · Podgorica",
   h_t:"A website for your business. <em>Leave the hassle to us.</em>",
-  h_s:"We build your website and connect a CRM and business email. Just tell us what you need, and we'll take care of the domain, hosting and everything technical.",
+  h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
   h_c1:"Message us", h_c2:"See examples",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
   flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
   f3v:"You're the owner", f3l:"of the site, domain, email and CRM", f4v:"Fixed price", f4l:"agreed before we start",
-  g_eye:"Where customers get lost",
-  g_t:"Customers leave quietly: they couldn't get through, didn't get a reply, or simply couldn't find you.",
-  g_s:"We find exactly where customer requests get lost and fix that with a few simple things: a website, a form and a CRM.",
+  g_eye:"Common problems",
+  g_t:"Why you lose customers",
+  g_s:"Here are four common reasons and how we fix them.",
   k_bad:"Problem", k_good:"Fix",
   g1p:"An Instagram message at 23:40 sits unanswered until morning.",
   g1f:"The site form works 24/7, and the request lands in Telegram instantly.",
@@ -1112,24 +1176,24 @@ en: {
   s1t:"You message us", s1d:"WhatsApp, Telegram, Viber or the form on this site. One sentence is enough.", s1m:"Your time: 1 min",
   s2t:"A short chat", s2d:"We ask 10–15 simple questions: what you do, who your customers are, where requests should go. You know the price and deadline before we start.", s2m:"Your time: ~15 min",
   s3t:"First version", s3d:"We send you a link to the site. You look at it on your phone and tell us what to change, in your own words.", s3m:"Your time: ~10 min",
-  s4t:"Launch", s4d:"We set up the domain, email and CRM in your name and show you in 20 minutes how to see and manage requests.", s4m:"Your time: ~20 min",
+  s4t:"Launch", s4d:"We set up the domain, email and CRM and show you in 20 minutes how to see and manage requests.", s4m:"Your time: ~20 min",
   p_total:"Total from you: under an hour.",
   chat_h:"· example chat",
   c1:"Hi! What is your business called and what do you do?",
   c2:"A tavern in Budva. Fish and local food.",
-  c3:"Where should bookings go: WhatsApp, Telegram or email?",
+  c3:"Where would you like to receive online bookings: WhatsApp, Telegram or email?",
   c4:"WhatsApp, to my number.",
   c5:"Which languages do your guests speak?",
   c6:"Voice · 0:24",
   c7:"Thanks, that's all we need. We'll send you the first version in 3 days.",
   d_eye:"Examples", d_t:"A site for your line of business",
-  d_s:"Demo concepts for local businesses. Every site is built around you, but we already know what businesses like yours usually need.",
+  d_s:"Demo concepts for businesses. We build every site around you. If you're not sure what you need, we'll recommend it: we know what businesses like yours need most often.",
   t1:"Restaurant & café", t2:"Apartments", t3:"Car rental", t4:"Cleaning",
   demo_badge:"Demo concept",
   rest_url:"demo / restaurant", rest_name:"Your restaurant", rest_nav:"Menu · Booking · Contact",
   rest_h:"Fresh fish every morning", rest_btn:"Book a table", rest_menu:"From the menu",
   rest_i1:"Grilled fish", rest_i2:"Black risotto", rest_i3:"Njeguši prosciutto & cheese",
-  rf1:"QR menu in three languages", rf2:"Table booking in 30 seconds", rf3:"Bookings go to WhatsApp and the CRM", rf4:"Google map, opening hours and photos",
+  rf1:"QR menu in three languages", rf2:"Table booking request in 30 seconds", rf3:"Bookings go to WhatsApp and the CRM", rf4:"Google map, opening hours and photos",
   pkg_l:"Suggested package", pkg_biz:"Business", pkg_biz_pro:"Business or Pro",
   apt_url:"demo / apartments", apt_name:"Your apartments", apt_nav:"Rooms · Gallery · Location",
   apt_h:"Apartments with a sea view", apt_month:"July", apt_sel:"your dates", apt_bk:"booked",
@@ -1160,7 +1224,7 @@ en: {
   pl1d:"A single page where customers get in touch.",   rec:"Recommended",
   pl2d:"A full site in three languages, with business email and a Google profile.",   pl3d:"Everything in Business, plus the site takes bookings and messages your clients on its own.",   choose:"Choose",
   sup_t:"Support · €15 a month", sup_d:"Text and price edits, menu updates, monitoring that the site works. Cancel any time.", sup_opt:"optional",
-  extra:"Paid directly to providers, in your name: the domain (about €15–30 a year) and business email (from about €1 a month per address). Hosting is €0.",
+  extra:"You pay for the domain (about €15–30 a year) and business email (from about €1 a month per address) directly to the providers. Hosting is €0. The QR menu works without a domain.",
   q_eye:"FAQ", q_t:"What people ask us most",
   q1:"Do I need to understand technology?", a1:"No. We ask in plain words and set everything up ourselves. You tell us what you want and approve the result.",
   q2:"I have no texts or photos. What now?", a2:"We write the texts in all three languages from your answers. Photos can come from your phone: we will tell you what and how to shoot.",
@@ -1192,7 +1256,7 @@ en: {
   row_google:"Google profile and map listing",
   row_seo:"Basic SEO, so people find you in search",
   row_book:"Online booking or calendar",
-  row_cat:"Catalog, QR menu or calculator",
+  row_cat:"Catalog or calculator",
   row_auto:"Automatic messages to clients",
   row_own:"Domain and hosting belong to you",
   row_pass:"Site passport at handover",
@@ -1228,20 +1292,55 @@ en: {
   lv1:"1–2",
   lv2:"ME · EN · RU",
   mv:"up to 3",
+  row_qr:"Online QR menu",
+  gift:"free bonus",
+  qr_for:"For cafés and restaurants",
+  pr4:"€79",
+  pl4d:"Guests scan the QR code on the table and open the menu in their own language. You pay once, with no monthly fee.",
+  tl4f:"from 1 day",
+  tl4u:"3–7 days",
+  row_items:"Menu items",
+  qv1:"up to 80",
+  row_mlang:"Menu languages",
+  row_mtext:"We translate and lay out the menu",
+  row_mphoto:"Photos, prices and tags: spicy, vegetarian",
+  row_medit:"You change prices and dishes yourself in a simple spreadsheet",
+  row_mqr:"QR code and table card design",
+  row_mown:"Menu and accounts belong to you",
+  row_nofee:"No monthly fee",
+  row_order:"Ordering and payment through the menu",
+  row_site:"Venue website, CRM and email",
+  row_print:"Printing the table cards",
+  fp4:"QR menu · €79",
+  pkg_qr_pro:"QR menu or Pro",
+  pkg_biz_qr:"Business + QR menu",
+  do_t:"We do all of this for you",
+  do1:"Domain and DNS records",
+  do2:"Hosting and SSL certificate",
+  do3:"Design for phone and desktop",
+  do4:"Texts in three languages",
+  do5:"Photo preparation for the site",
+  do6:"Requests to Telegram or WhatsApp",
+  do7:"CRM for requests",
+  do8:"Email on your own domain",
+  do9:"Email protection: SPF, DKIM, DMARC",
+  do10:"Google profile and map pin",
+  do11:"Basic SEO for Google search",
+  do12:"Online booking or calendar",
 },
 ru: {
   nav_how:"Как работаем", nav_demos:"Примеры", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Заказать сайт",
   h_eye:"Сайты + CRM для малого бизнеса · Подгорица",
   h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
-  h_s:"Делаем сайт, подключаем CRM и корпоративную почту. Вам остаётся рассказать, что нужно, а с доменом, хостингом и настройками разберёмся мы.",
+  h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
   h_c1:"Написать нам", h_c2:"Смотреть примеры",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
   f3v:"Вы владелец", f3l:"сайта, домена, почты и CRM", f4v:"Фиксированная цена", f4l:"известна до начала работ",
-  g_eye:"Где теряются клиенты",
-  g_t:"Клиенты уходят тихо: не дозвонились, не дождались ответа или просто не нашли вас.",
-  g_s:"Мы смотрим, где именно у вас теряются заявки, и наводим порядок простыми вещами: сайтом, формой и CRM.",
+  g_eye:"Частые проблемы",
+  g_t:"Почему вы теряете клиентов",
+  g_s:"Вот четыре частые причины и как мы это решаем.",
   k_bad:"Проблема", k_good:"Решение",
   g1p:"Сообщение в Instagram в 23:40 висит без ответа до утра.",
   g1f:"Форма на сайте работает 24/7, а заявка сразу приходит в Telegram.",
@@ -1257,24 +1356,24 @@ ru: {
   s1t:"Вы пишете нам", s1d:"WhatsApp, Telegram, Viber или форма на сайте. Достаточно одного предложения.", s1m:"Ваше время: 1 мин",
   s2t:"Короткий разговор", s2d:"Задаём 10–15 простых вопросов: чем занимаетесь, кто ваши клиенты, куда присылать заявки. Цену и срок вы знаете до начала работ.", s2m:"Ваше время: ~15 мин",
   s3t:"Первая версия", s3d:"Присылаем ссылку на сайт. Вы смотрите его с телефона и говорите, что поменять, своими словами.", s3m:"Ваше время: ~10 мин",
-  s4t:"Запуск", s4d:"Настраиваем домен, почту и CRM на ваше имя и за 20 минут показываем, как видеть и вести заявки.", s4m:"Ваше время: ~20 мин",
+  s4t:"Запуск", s4d:"Настраиваем домен, почту и CRM и за 20 минут показываем, как видеть и вести заявки.", s4m:"Ваше время: ~20 мин",
   p_total:"Всего от вас: меньше часа.",
   chat_h:"· пример переписки",
   c1:"Здравствуйте! Как называется ваш бизнес и чем занимаетесь?",
   c2:"Ресторанчик в Будве. Рыба и домашняя кухня.",
-  c3:"Куда присылать брони: WhatsApp, Telegram или почта?",
+  c3:"Куда вам удобно принимать онлайн-бронирования: WhatsApp, Telegram или почта?",
   c4:"В WhatsApp, на мой номер.",
   c5:"На каких языках говорят ваши гости?",
   c6:"Голосовое · 0:24",
   c7:"Спасибо, этого достаточно. Первую версию пришлём через 3 дня.",
   d_eye:"Примеры", d_t:"Сайт под вашу нишу",
-  d_s:"Демо-концепты для местного бизнеса. Каждый сайт делаем под вас, но уже знаем, что обычно нужно в вашей сфере.",
+  d_s:"Демо-концепты для бизнеса. Каждый сайт делаем под вас. Если не знаете, что именно нужно, порекомендуем: мы знаем, что чаще всего нужно в вашей сфере.",
   t1:"Ресторан и кафе", t2:"Апартаменты", t3:"Прокат авто", t4:"Клининг",
   demo_badge:"Демо-концепт",
   rest_url:"demo / restoran", rest_name:"Ваш ресторан", rest_nav:"Меню · Бронь · Контакты",
   rest_h:"Свежая рыба каждое утро", rest_btn:"Забронировать стол", rest_menu:"Из меню",
   rest_i1:"Рыба на гриле", rest_i2:"Чёрное ризотто", rest_i3:"Негушский пршут и сыр",
-  rf1:"QR-меню на трёх языках", rf2:"Бронь стола за 30 секунд", rf3:"Брони приходят в WhatsApp и CRM", rf4:"Карта Google, часы работы и фото",
+  rf1:"QR-меню на трёх языках", rf2:"Заявка на бронь стола за 30 секунд", rf3:"Брони приходят в WhatsApp и CRM", rf4:"Карта Google, часы работы и фото",
   pkg_l:"Рекомендуемый пакет", pkg_biz:"Бизнес", pkg_biz_pro:"Бизнес или Pro",
   apt_url:"demo / apartmani", apt_name:"Ваши апартаменты", apt_nav:"Номера · Галерея · Как добраться",
   apt_h:"Апартаменты с видом на море", apt_month:"Июль", apt_sel:"ваши даты", apt_bk:"занято",
@@ -1305,7 +1404,7 @@ ru: {
   pl1d:"Одна страница, через которую вам пишут.",   rec:"Рекомендуем",
   pl2d:"Полноценный сайт на трёх языках, с корпоративной почтой и карточкой в Google.",   pl3d:"Всё из пакета Бизнес, а ещё сайт сам принимает брони и пишет клиентам.",   choose:"Выбрать",
   sup_t:"Поддержка · 15 € в месяц", sup_d:"Правки текстов и цен, обновление меню, контроль работы сайта. Отменяется в любой момент.", sup_opt:"по желанию",
-  extra:"Напрямую провайдерам, на ваше имя, вы оплачиваете домен (около 15–30 € в год) и корпоративную почту (от ~1 € в месяц за адрес). Хостинг: 0 €.",
+  extra:"Домен (около 15–30 € в год) и корпоративную почту (от ~1 € в месяц за адрес) вы оплачиваете напрямую провайдерам. Хостинг: 0 €. QR-меню работает и без домена.",
   q_eye:"Вопросы", q_t:"Что у нас спрашивают чаще всего",
   q1:"Нужно ли разбираться в технологиях?", a1:"Нет. Мы спрашиваем простыми словами и всё настраиваем сами. Вы говорите, что хотите, и принимаете результат.",
   q2:"У меня нет текстов и фото. Что делать?", a2:"Тексты пишем мы, на всех трёх языках, по вашим ответам. Фото можно снять на телефон: подскажем, что и как снять.",
@@ -1325,7 +1424,7 @@ ru: {
   ph_contact:"+382 … или @ник", ph_msg:"Например: сайт для ресторана с бронью на трёх языках",
   t5:"QR-меню",
   qf1:"Один QR-код на столе, меню на трёх языках",
-  qf2:"Цены и блюда меняются за минуту, без печати",
+  qf2:"Цены и блюда меняются за минуту, без перепечатки",
   qf3:"Фото блюд и пометки: острое, вегетарианское",
   qf4:"Открывается на любом телефоне без приложения",
   row_pages:"Количество страниц",
@@ -1337,7 +1436,7 @@ ru: {
   row_google:"Карточка в Google и на карте",
   row_seo:"Базовое SEO: чтобы вас находили в поиске",
   row_book:"Онлайн-бронь или календарь",
-  row_cat:"Каталог, QR-меню или калькулятор",
+  row_cat:"Каталог или калькулятор",
   row_auto:"Автоматические сообщения клиентам",
   row_own:"Домен и хостинг принадлежат вам",
   row_pass:"Паспорт сайта при сдаче",
@@ -1373,6 +1472,41 @@ ru: {
   lv1:"1–2",
   lv2:"ME · EN · RU",
   mv:"до 3 адресов",
+  row_qr:"Онлайн-меню по QR-коду",
+  gift:"в подарок",
+  qr_for:"Для кафе и ресторанов",
+  pr4:"79 €",
+  pl4d:"Гость сканирует QR-код на столе и открывает меню на своём языке. Платите один раз, без абонентской платы.",
+  tl4f:"от 1 дня",
+  tl4u:"3–7 дней",
+  row_items:"Позиций в меню",
+  qv1:"до 80",
+  row_mlang:"Языки меню",
+  row_mtext:"Переводим и оформляем меню мы",
+  row_mphoto:"Фото, цены и пометки: острое, вегетарианское",
+  row_medit:"Цены и блюда меняете сами, в простой таблице",
+  row_mqr:"QR-код и макет табличек на столы",
+  row_mown:"Меню и аккаунты принадлежат вам",
+  row_nofee:"Без абонентской платы",
+  row_order:"Заказ и оплата прямо из меню",
+  row_site:"Сайт заведения, CRM и почта",
+  row_print:"Печать табличек",
+  fp4:"QR-меню · 79 €",
+  pkg_qr_pro:"QR-меню или Pro",
+  pkg_biz_qr:"Бизнес + QR-меню",
+  do_t:"Всё это мы делаем за вас",
+  do1:"Домен и DNS-записи",
+  do2:"Хостинг и SSL-сертификат",
+  do3:"Дизайн под телефон и компьютер",
+  do4:"Тексты на трёх языках",
+  do5:"Подготовка фото для сайта",
+  do6:"Заявки в Telegram или WhatsApp",
+  do7:"CRM для заявок",
+  do8:"Почта на вашем домене",
+  do9:"Защита почты: SPF, DKIM, DMARC",
+  do10:"Google-профиль и метка на карте",
+  do11:"Базовое SEO для поиска в Google",
+  do12:"Онлайн-бронь или календарь",
 }};
 
 /* UI strings used only by script */
