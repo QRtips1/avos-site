@@ -460,6 +460,13 @@ fieldset.field{border:0;margin:0;padding:0}
 .copy{border:1px solid var(--line-2);background:transparent;border-radius:8px;padding:6px 10px;font-size:var(--t-xs);cursor:pointer;color:var(--muted)}
 .copy:hover{color:var(--fg)}
 .c-note{color:var(--muted);font-size:var(--t-sm);display:grid;gap:4px}
+.wa-ico{width:20px;height:20px;flex:none}
+.contacts .btn{justify-self:start}
+.hero-wa{margin-top:16px;color:var(--muted);font-size:var(--t-sm);display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.hero-wa a{display:inline-flex;align-items:center;gap:6px;color:var(--fg);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line-2)}
+.hero-wa a:hover{border-color:var(--fg)}
+.foot-ct{display:flex;flex-wrap:wrap;gap:4px 16px}
+.foot-ct a{color:var(--fg);text-decoration:none}
 
 /* ---------- footer ---------- */
 .foot{border-top:1px solid var(--line);padding-block:40px}
@@ -562,6 +569,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a>
             <a class="btn btn-ghost" href="#demos" data-i18n="h_c2">Pogledajte primjere</a>
           </div>
+          <p class="hero-wa" data-show="phone"><span data-i18n="h_wa">Ili odmah pišite na WhatsApp:</span> <a data-wa data-wa-num><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span>+382 67 065 707</span></a></p>
         </div>
 
         <div class="flow-wrap">
@@ -1110,8 +1118,9 @@ fieldset.field{border:0;margin:0;padding:0}
 
         <aside class="contacts">
           <h3 data-i18n="ct_t">Ili pišite direktno</h3>
+          <a class="btn btn-ghost" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
           <ul class="c-list">
-            <li class="c-item"><span>WhatsApp · Viber</span><a data-contact="phone" class="ph">+382 __ ___ ___</a><button class="copy" type="button" data-copy="phone" data-i18n="copy">Kopiraj</button></li>
+            <li class="c-item"><span data-i18n="ct_ph">Telefon · WhatsApp</span><a data-contact="phone" class="ph">+382 __ ___ ___</a><button class="copy" type="button" data-copy="phone" data-i18n="copy">Kopiraj</button></li>
             <li class="c-item"><span>Telegram</span><a data-contact="telegram" class="ph">@username</a><button class="copy" type="button" data-copy="telegram" data-i18n="copy">Kopiraj</button></li>
             <li class="c-item"><span data-i18n="ch_em">E-mail</span><a data-contact="email" class="ph">hello@makesitefor.me</a><button class="copy" type="button" data-copy="email" data-i18n="copy">Kopiraj</button></li>
           </ul>
@@ -1127,6 +1136,7 @@ fieldset.field{border:0;margin:0;padding:0}
     <div>
       <a class="logo" href="#top"><span class="mark"></span><b class="brand-name">MakeSiteFor.me</b></a>
       <p data-i18n="foot"><span class="brand-name"></span> je mali studio iz Podgorice koji pravi sajtove sa CRM-om i poslovnim e-mailom za lokalne biznise.</p>
+      <p class="foot-ct"><a data-contact="phone">+382 67 065 707</a><a data-contact="email">hello@makesitefor.me</a></p>
     </div>
     <small data-i18n="copy_r">© 2026 MakeSiteFor.me · Podgorica</small>
   </div>
@@ -1136,7 +1146,7 @@ fieldset.field{border:0;margin:0;padding:0}
 /* ===== Settings: change here before launch ===== */
 const CONFIG = {
   brand: "MakeSiteFor.me",       // service name
-  phone: "+382 __ ___ ___",      // WhatsApp / Viber number
+  phone: "+382 67 065 707",      // phone and WhatsApp number
   telegram: "@username",         // Telegram username
   email: "hello@makesitefor.me", // business email
   formEndpoint: "https://api.web3forms.com/submit", // order form posts here
@@ -1144,6 +1154,11 @@ const CONFIG = {
 };
 const PLACEHOLDERS = ["+382 __ ___ ___", "@username", "hello@domen.me", ""];
 const IS_PLACEHOLDER = v => PLACEHOLDERS.includes(v);
+const WA_TEXT = {
+  me: "Zdravo! Zanima me sajt za moj biznis.",
+  en: "Hello! I'm interested in a website for my business.",
+  ru: "Здравствуйте! Интересует сайт для моего бизнеса.",
+};
 
 /* ===== Translations (ME text lives in the HTML) ===== */
 const B = '<span class="brand-name"></span>';
@@ -1153,7 +1168,7 @@ en: {
   h_eye:"Websites + CRM for small business · Podgorica",
   h_t:"A website for your business. <em>Leave the hassle to us.</em>",
   h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
-  h_c1:"Message us", h_c2:"See examples",
+  h_c1:"Message us", h_c2:"See examples", h_wa:"Or message us on WhatsApp right away:",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
   flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
@@ -1239,7 +1254,7 @@ en: {
   fl_ch:"How should we contact you?", ch_em:"Email", ch_call:"Call",
   fl_contact:"Phone number or username", fl_msg:"What would you like? (optional)",
   f_send:"Send request", f_priv:"We only use your details to reply to you.",
-  copy:"Copy", ct_t:"Or message us directly", ct_city:"Podgorica, Montenegro", ct_lang:"We speak Montenegrin, English and Russian.",
+  copy:"Copy", ct_t:"Or message us directly", ct_wa:"Message us on WhatsApp", ct_ph:"Phone · WhatsApp", ct_city:"Podgorica, Montenegro", ct_lang:"We speak Montenegrin, English and Russian.",
   foot:"<span class=\"brand-name\"></span> is a small studio in Podgorica that builds websites with a CRM and business email for local businesses.",
   ph_contact:"+382 … or @username", ph_msg:"E.g. a site for my tavern with bookings in three languages",
   t5:"QR menu",
@@ -1333,7 +1348,7 @@ ru: {
   h_eye:"Сайты + CRM для малого бизнеса · Подгорица",
   h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
   h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
-  h_c1:"Написать нам", h_c2:"Смотреть примеры",
+  h_c1:"Написать нам", h_c2:"Смотреть примеры", h_wa:"Или сразу напишите в WhatsApp:",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
@@ -1419,7 +1434,7 @@ ru: {
   fl_ch:"Как с вами связаться?", ch_em:"Почта", ch_call:"Звонок",
   fl_contact:"Телефон или ник", fl_msg:"Что хотите? (необязательно)",
   f_send:"Отправить заявку", f_priv:"Используем ваши данные только чтобы ответить вам.",
-  copy:"Копировать", ct_t:"Или напишите напрямую", ct_city:"Подгорица, Черногория", ct_lang:"Говорим на черногорском, английском и русском.",
+  copy:"Копировать", ct_t:"Или напишите напрямую", ct_wa:"Написать в WhatsApp", ct_ph:"Телефон · WhatsApp", ct_city:"Подгорица, Черногория", ct_lang:"Говорим на черногорском, английском и русском.",
   foot:"<span class=\"brand-name\"></span> — небольшая студия из Подгорицы, которая делает сайты с CRM и корпоративной почтой для местного бизнеса.",
   ph_contact:"+382 … или @ник", ph_msg:"Например: сайт для ресторана с бронью на трёх языках",
   t5:"QR-меню",
@@ -1568,7 +1583,7 @@ function fillBrand(){ $$(".brand-name").forEach(n => n.textContent = CONFIG.bran
 function fillContacts(){
   const digits = CONFIG.phone.replace(/\D/g, "");
   const map = {
-    phone:   { text: CONFIG.phone,    href: "https://wa.me/" + digits },
+    phone:   { text: CONFIG.phone,    href: "tel:+" + digits },
     telegram:{ text: CONFIG.telegram, href: "https://t.me/" + CONFIG.telegram.replace(/^@/, "") },
     email:   { text: CONFIG.email,    href: "mailto:" + CONFIG.email },
   };
@@ -1576,8 +1591,13 @@ function fillContacts(){
     const c = map[a.dataset.contact]; a.textContent = c.text;
     const row = a.closest(".c-item"); if (row) row.style.display = IS_PLACEHOLDER(c.text) ? "none" : "";
     if (IS_PLACEHOLDER(c.text)) { a.classList.add("ph"); a.removeAttribute("href"); }
-    else { a.classList.remove("ph"); a.href = c.href; if (!c.href.startsWith("mailto")) { a.target = "_blank"; a.rel = "noopener"; } }
+    else { a.classList.remove("ph"); a.href = c.href; if (c.href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; } }
   });
+  // WhatsApp buttons open a chat with a greeting in the current language
+  const wa = "https://wa.me/" + digits + "?text=" + encodeURIComponent(WA_TEXT[lang] || WA_TEXT.me);
+  $$("[data-wa]").forEach(a => { a.href = wa; a.target = "_blank"; a.rel = "noopener"; });
+  $$("[data-wa-num] span").forEach(n => { n.textContent = CONFIG.phone; });
+  $$("[data-show=phone]").forEach(n => { n.hidden = IS_PLACEHOLDER(CONFIG.phone); });
 }
 
 function applyLang(l){
