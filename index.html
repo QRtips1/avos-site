@@ -679,7 +679,7 @@ fieldset.field{border:0;margin:0;padding:0}
       <div class="proc">
         <div>
           <ol class="steps">
-            <li class="step"><span class="s-n">1</span><div><h3 data-i18n="s1t">Pišete nam</h3><p data-i18n="s1d">WhatsApp, Telegram, Viber ili forma na sajtu. Dovoljna je jedna rečenica.</p><span class="s-m mono" data-i18n="s1m">Vaše vrijeme: 1 min</span></div></li>
+            <li class="step"><span class="s-n">1</span><div><h3 data-i18n="s1t">Pišete nam</h3><p data-i18n="s1d">WhatsApp ili forma na sajtu. Dovoljna je jedna rečenica.</p><span class="s-m mono" data-i18n="s1m">Vaše vrijeme: 1 min</span></div></li>
             <li class="step"><span class="s-n">2</span><div><h3 data-i18n="s2t">Kratak razgovor</h3><p data-i18n="s2d">Postavimo 10–15 jednostavnih pitanja: čime se bavite, ko su vaši klijenti, gdje da stižu upiti. Cijenu i rok znate prije početka.</p><span class="s-m mono" data-i18n="s2m">Vaše vrijeme: ~15 min</span></div></li>
             <li class="step"><span class="s-n">3</span><div><h3 data-i18n="s3t">Prva verzija</h3><p data-i18n="s3d">Pošaljemo vam link sajta. Pogledate ga na telefonu i kažete šta da promijenimo, svojim riječima.</p><span class="s-m mono" data-i18n="s3m">Vaše vrijeme: ~10 min</span></div></li>
             <li class="step"><span class="s-n">4</span><div><h3 data-i18n="s4t">Pokretanje</h3><p data-i18n="s4d">Podesimo domen, poštu i CRM i za 20 minuta pokažemo kako da vidite i vodite upite.</p><span class="s-m mono" data-i18n="s4m">Vaše vrijeme: ~20 min</span></div></li>
@@ -1188,7 +1188,7 @@ en: {
   p_eye:"How it works",
   p_t:"All we need from you is what you want. We do everything technical.",
   p_s:"No technical knowledge and no long meetings. We ask in plain words, and you answer when it suits you, even by voice message.",
-  s1t:"You message us", s1d:"WhatsApp, Telegram, Viber or the form on this site. One sentence is enough.", s1m:"Your time: 1 min",
+  s1t:"You message us", s1d:"WhatsApp or the form on this site. One sentence is enough.", s1m:"Your time: 1 min",
   s2t:"A short chat", s2d:"We ask 10–15 simple questions: what you do, who your customers are, where requests should go. You know the price and deadline before we start.", s2m:"Your time: ~15 min",
   s3t:"First version", s3d:"We send you a link to the site. You look at it on your phone and tell us what to change, in your own words.", s3m:"Your time: ~10 min",
   s4t:"Launch", s4d:"We set up the domain, email and CRM and show you in 20 minutes how to see and manage requests.", s4m:"Your time: ~20 min",
@@ -1368,7 +1368,7 @@ ru: {
   p_eye:"Как мы работаем",
   p_t:"От вас нужны только пожелания. Всё техническое делаем мы.",
   p_s:"Не нужны ни технические знания, ни долгие встречи. Мы спрашиваем простыми словами, а вы отвечаете, когда удобно, можно голосовым.",
-  s1t:"Вы пишете нам", s1d:"WhatsApp, Telegram, Viber или форма на сайте. Достаточно одного предложения.", s1m:"Ваше время: 1 мин",
+  s1t:"Вы пишете нам", s1d:"WhatsApp или форма на сайте. Достаточно одного предложения.", s1m:"Ваше время: 1 мин",
   s2t:"Короткий разговор", s2d:"Задаём 10–15 простых вопросов: чем занимаетесь, кто ваши клиенты, куда присылать заявки. Цену и срок вы знаете до начала работ.", s2m:"Ваше время: ~15 мин",
   s3t:"Первая версия", s3d:"Присылаем ссылку на сайт. Вы смотрите его с телефона и говорите, что поменять, своими словами.", s3m:"Ваше время: ~10 мин",
   s4t:"Запуск", s4d:"Настраиваем домен, почту и CRM и за 20 минут показываем, как видеть и вести заявки.", s4m:"Ваше время: ~20 мин",
@@ -1599,6 +1599,11 @@ function fillContacts(){
   $$("[data-wa-num] span").forEach(n => { n.textContent = CONFIG.phone; });
   $$("[data-show=phone]").forEach(n => { n.hidden = IS_PLACEHOLDER(CONFIG.phone); });
 }
+// WhatsApp and phone taps count as leads in Google Analytics, like a sent form
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="https://wa.me/"], a[href^="tel:"]');
+  if (a && window.gtag) gtag("event", a.href.startsWith("tel:") ? "contact_phone" : "contact_whatsapp", { language: lang, link_url: a.href.split("?")[0] });
+});
 
 function applyLang(l){
   lang = l in T || l === "me" ? l : "me";
