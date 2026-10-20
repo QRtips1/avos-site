@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Konoba Ćatovića Mlini · Morinj, Boka Kotorska (demo)</title>
-<meta name="description" content="Konoba Ćatovića Mlini u Morinju: porodična konoba u starom mlinu na obali Boke Kotorske. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="description" content="Konoba Ćatovića Mlini u Morinju: riba i bokeška kuhinja u starom mlinu na obali Boke Kotorske. Demo koncept sajta, MakeSiteFor.me.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#24382B">
 <!-- Google tag (gtag.js) -->
@@ -17,128 +17,90 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
 <style>
 :root{
   --ink:#1D2A21; --green:#24382B; --green-2:#2F4A38; --moss:#62775A;
   --paper:#F5F1E8; --paper-2:#ECE5D6; --stone:#D9CFBC; --card:#FBF8F2;
   --muted:#58625A; --faint:#7D857B; --line:rgba(29,42,33,.14); --line-2:rgba(29,42,33,.26);
-  --gold:#9A6F2C; --on-dark:#F2EEE4; --on-dark-2:rgba(242,238,228,.72);
+  --gold:#9A6F2C; --sand:#E9D7B4; --on-dark:#F2EEE4; --on-dark-2:rgba(242,238,228,.74);
   --f-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --wrap:1160px; --gut:20px; --r:14px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.65}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
 img{display:block;max-width:100%}
 a{color:inherit}
 [hidden]{display:none!important}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
 .caps{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
-h1,h2,h3{font-family:var(--f-serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:.005em}
-h2{font-size:clamp(2.1rem,5.2vw,3.3rem)}
-h3{font-size:1.6rem}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(2.1rem,5.2vw,3.2rem)}
 p{margin:0}
-.eyebrow{color:var(--gold);display:inline-flex;align-items:center;gap:12px;margin-bottom:16px}
+.eyebrow{color:var(--gold);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.center .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
 .ph{background:var(--stone) linear-gradient(135deg,var(--paper-2),var(--stone))}
+.ico{width:19px;height:19px;flex:none}
 
 /* demo strip */
-.demo{background:var(--ink);color:var(--on-dark-2);font-size:.78rem;text-align:center;padding:7px var(--gut)}
+.demo{background:var(--ink);color:var(--on-dark-2);font-size:.76rem;text-align:center;padding:6px var(--gut);line-height:1.45}
 .demo a{color:var(--on-dark);text-decoration:underline;text-underline-offset:2px}
 
 /* header */
-.top{position:sticky;top:0;z-index:30;background:rgba(245,241,232,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:20px;min-height:68px}
+.top{position:sticky;top:0;z-index:30;background:rgba(245,241,232,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px}
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1;min-width:0}
-.brand small{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
-.brand b{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.brand small{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+.brand b{font-family:var(--f-serif);font-weight:600;font-size:1.3rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .nav{display:flex;gap:26px;margin-left:auto}
 .nav a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--muted)}
 .nav a:hover{color:var(--ink)}
 .langs{display:flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
 .langs button{border:0;background:none;font:600 .72rem/1 var(--f-sans);letter-spacing:.08em;padding:8px 10px;border-radius:999px;color:var(--muted);cursor:pointer}
 .langs button[aria-pressed=true]{background:var(--green);color:var(--on-dark)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .2s,color .2s,border-color .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:.96rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .2s,color .2s,border-color .2s}
 .btn-main{background:var(--green);color:var(--on-dark)}
 .btn-main:hover{background:var(--ink)}
 .btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
 .btn-line:hover{border-color:var(--ink)}
-.btn-light{background:var(--paper);color:var(--ink)}
-.btn-light:hover{background:#fff}
-.btn-ghost-light{border-color:rgba(242,238,228,.5);color:var(--on-dark)}
-.btn-ghost-light:hover{border-color:var(--on-dark)}
 .top .btn{min-height:40px;padding:0 18px;font-size:.85rem}
 
-/* hero */
-.hero{position:relative;color:var(--on-dark);background:var(--green)}
+/* hero: photo, short line, buttons in the middle */
+.hero{position:relative;color:var(--on-dark);background:var(--green);overflow:hidden}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,23,.25) 0%,rgba(20,30,23,.35) 45%,rgba(20,30,23,.82) 100%)}
-.hero .wrap{position:relative;z-index:1;min-height:min(88vh,760px);display:flex;flex-direction:column;justify-content:flex-end;padding-block:120px 48px}
-.hero .eyebrow{color:#E9D7B4}
-.hero h1{font-size:clamp(3rem,10vw,6.4rem);font-weight:500;letter-spacing:.01em}
-.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.3rem,3vw,1.75rem);margin-top:12px;max-width:34ch;color:var(--on-dark)}
-.hero-sub{margin-top:18px;max-width:52ch;color:var(--on-dark-2);font-size:1.02rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.facts-bar{position:relative;z-index:1;background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line)}
-.facts-bar .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
-.fb-item{padding:18px 20px 18px 0;display:flex;flex-direction:column;gap:2px}
-.fb-item+.fb-item{border-left:1px solid var(--line);padding-left:20px}
-.fb-item span{color:var(--faint)}
-.fb-item a,.fb-item b{font-weight:600;text-decoration:none;font-size:1rem}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,18,.5) 0%,rgba(16,24,18,.38) 45%,rgba(16,24,18,.72) 100%)}
+.hero-in{position:relative;z-index:1;min-height:calc(100vh - 92px);min-height:calc(100svh - 92px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:48px}
+.hero .eyebrow{color:var(--sand)}
+.hero h1{font-size:clamp(3.1rem,11vw,6.6rem);font-weight:500}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.3rem,3.6vw,1.85rem);line-height:1.3;margin-top:10px;max-width:28ch}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:480px;margin-top:30px}
+.hb{display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 12px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;color:var(--on-dark);background:rgba(18,26,20,.4);border:1px solid rgba(242,238,228,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s}
+.hb:hover{background:rgba(18,26,20,.62)}
+.hb-main{grid-column:1 / -1;min-height:60px;font-size:1.1rem;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hb-main:hover{background:#fff}
+.hero-hours{margin-top:22px;font-size:.86rem;color:var(--on-dark-2);letter-spacing:.03em}
 
-/* sections */
-.sec{padding-block:clamp(72px,10vw,120px)}
-.sec-head{max-width:640px;margin-bottom:40px}
-.sec-head p{margin-top:16px;color:var(--muted);font-size:1.05rem}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,80px);align-items:center}
-.about-text p{color:var(--muted);font-size:1.06rem;margin-top:18px}
-.about-text p:first-of-type{color:var(--ink);font-size:1.14rem}
-.about-photos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
-.about-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r)}
-.about-photos img:nth-child(2){margin-top:48px}
-.numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.num{padding:26px 16px 26px 0}
-.num+.num{border-left:1px solid var(--line);padding-left:20px}
-.num b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1;color:var(--green)}
-.num span{display:block;margin-top:8px;color:var(--muted);font-size:.9rem;line-height:1.4}
-
-/* menu */
-.menu{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.m-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gut)) 28px;padding:0 var(--gut) 4px}
-.m-tabs::-webkit-scrollbar{display:none}
-.m-tabs button{flex:none;font:500 .92rem/1 var(--f-sans);color:var(--muted);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
-.m-tabs button small{margin-left:6px;font-size:.78rem;color:var(--faint)}
-.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
-.m-tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:var(--on-dark)}
-.m-tabs button[aria-selected=true] small{color:var(--on-dark-2)}
-.m-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
-.m-card{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:zoom-in}
-.m-ph{display:block;width:100%;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden}
-.m-ph img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
-.m-card:hover .m-ph img{opacity:.9}
-.m-name{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;line-height:1.15;margin-top:14px}
-.m-orig{font-size:.86rem;color:var(--faint);margin-top:4px}
-.m-tag{color:var(--gold);margin-top:8px}
-.menu-note{margin-top:28px;color:var(--faint);font-size:.92rem}
-.wine{margin-top:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:var(--r);overflow:hidden;background:var(--green);color:var(--on-dark)}
-.wine img{width:100%;height:100%;min-height:280px;object-fit:cover}
-.wine-text{padding:clamp(28px,5vw,56px);display:flex;flex-direction:column;justify-content:center}
-.wine-text .eyebrow{color:#E9D7B4}
-.wine-text h3{font-size:clamp(1.9rem,4vw,2.6rem)}
-.wine-text p{color:var(--on-dark-2);margin-top:14px;font-size:1.04rem}
+/* short intro */
+.sec{padding-block:clamp(56px,9vw,104px)}
+.head{max-width:640px;margin:0 auto 36px;text-align:center}
+.head p{margin-top:14px;color:var(--muted);font-size:1.04rem}
+.hl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.hl figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.hl img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hl figcaption{padding:18px 20px 22px}
+.hl h3{font-size:1.55rem}
+.hl p{margin-top:6px;color:var(--muted);font-size:.96rem;line-height:1.5}
+.intro-cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:32px}
 
 /* guests */
-.guests-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
-.guests-grid .lead{color:var(--muted);font-size:1.08rem;margin-top:18px}
-blockquote{margin:0;padding:32px 0 0;border-top:1px solid var(--line-2)}
-blockquote p{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.3}
-blockquote footer{margin-top:18px;color:var(--muted);font-size:.92rem}
-blockquote footer b{color:var(--ink);font-weight:600}
+.guests{background:var(--green);color:var(--on-dark);text-align:center;padding-block:44px}
+.guests .caps{color:var(--sand)}
+.guests .names{font-family:var(--f-serif);font-size:clamp(1.35rem,3.4vw,1.95rem);line-height:1.35;margin-top:10px}
 
 /* gallery */
 .gallery{background:var(--paper-2)}
@@ -148,6 +110,92 @@ blockquote footer b{color:var(--ink);font-weight:600}
 .g-grid button:hover img{opacity:.88}
 .g-grid button:first-child{grid-column:span 2;grid-row:span 2;position:relative;min-height:200px}
 .g-grid button:first-child img{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:center}
+.c-list{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 24px}
+.c-list dt{color:var(--faint)}
+.c-list dd{margin:4px 0 0;font-size:1.02rem}
+.c-list dd a{font-weight:600;text-decoration:none}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:26px}
+.c-btns .btn-main{grid-column:1 / -1}
+.c-note{margin-top:14px;color:var(--faint);font-size:.9rem}
+.c-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+
+/* footer */
+.foot{background:var(--ink);color:var(--on-dark-2);padding-block:44px 36px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand b{color:var(--on-dark)}
+.foot p{margin-top:14px}
+.social{display:flex;gap:18px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:600}
+.social a:hover{text-decoration:underline}
+.foot .made{grid-column:1 / -1;border-top:1px solid rgba(242,238,228,.14);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--on-dark)}
+
+/* full-screen windows: menu, story, booking */
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--paper);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--paper)}
+.sheet-top{display:flex;align-items:center;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid var(--line);background:var(--paper)}
+.sheet-top h2{font-size:1.75rem;margin-right:auto}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line-2);background:var(--card);color:var(--ink);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--ink)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);font-size:1rem;padding-top:18px}
+
+/* menu */
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--paper);margin:0 calc(-1 * var(--gut)) 18px;padding:14px var(--gut)}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:500 .92rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.78rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--on-dark-2)}
+.m-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px}
+.m-card{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:zoom-in}
+.m-ph{display:block;width:100%;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden}
+.m-ph img{width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity .2s}
+.m-card:hover .m-ph img{opacity:.9}
+.m-name{font-family:var(--f-serif);font-weight:600;font-size:1.38rem;line-height:1.15;margin-top:12px}
+.m-orig{font-size:.86rem;color:var(--faint);margin-top:3px}
+.menu-note{margin-top:30px;color:var(--faint);font-size:.92rem}
+.wine-mini{margin-top:36px;border-radius:var(--r);background:var(--green);color:var(--on-dark);padding:26px 24px}
+.wine-mini h3{font-size:1.7rem}
+.wine-mini p{margin-top:8px;color:var(--on-dark-2)}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+
+/* story */
+.story{max-width:720px;margin-inline:auto;padding-top:24px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.9rem,5vw,2.5rem);margin-top:28px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.04rem;line-height:1.7}
+.numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.num{padding:20px 12px 20px 0}
+.num+.num{border-left:1px solid var(--line);padding-left:16px}
+.num b{display:block;font-family:var(--f-serif);font-weight:500;font-size:2.4rem;line-height:1;color:var(--green)}
+.num span{display:block;margin-top:6px;color:var(--muted);font-size:.86rem;line-height:1.35}
+blockquote{margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.6rem!important;line-height:1.3!important;color:var(--ink)!important;margin:0!important}
+blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
+blockquote footer b{color:var(--ink);font-weight:600}
+
+/* booking */
+.book{max-width:640px;margin-inline:auto;padding-top:20px}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;border-radius:999px;background:var(--green);color:var(--on-dark);text-decoration:none;font-weight:700;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:600}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+
+/* photo viewer */
 dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#121A14;color:var(--on-dark)}
 dialog.viewer[open]{display:flex;flex-direction:column}
 dialog.viewer::backdrop{background:#121A14}
@@ -159,56 +207,59 @@ dialog.viewer::backdrop{background:#121A14}
 .v-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,238,228,.3);background:rgba(18,26,20,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
 .v-prev{left:12px}.v-next{right:12px}
 .v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
-.v-cap .v-cat{color:#E9D7B4}
-.v-cap h4{margin:8px 0 0;font-family:var(--f-serif);font-weight:500;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1}
+.v-cap .caps{color:var(--sand)}
+.v-cap h4{margin-top:8px;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1}
 .v-cap .v-orig{color:var(--on-dark-2);font-size:.9rem;margin-top:4px}
-.v-cap .v-tag{color:#E9D7B4;margin-top:10px}
-body.v-open{overflow:hidden}
+body.locked{overflow:hidden}
 
 /* mobile bar */
 .mbar{display:none}
 
 @media (max-width:900px){
   .nav{display:none}
-  .about-grid,.guests-grid,.res-grid,.wine{grid-template-columns:minmax(0,1fr)}
-  .wine img{min-height:220px;max-height:300px}
-  .numbers{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .num:nth-child(3){border-left:0;padding-left:0}
-  .num:nth-child(n+3){border-top:1px solid var(--line)}
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .m-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:640px){
   :root{--gut:16px}
-  .top .wrap{gap:12px;min-height:60px}
-  .brand b{font-size:1.08rem;letter-spacing:.08em}
-  .brand small{font-size:.56rem}
+  .top .wrap{gap:12px;min-height:58px}
+  .brand b{font-size:1.06rem;letter-spacing:.08em}
+  .brand small{font-size:.54rem}
   .top .btn{display:none}
   .langs{margin-left:auto}
-  .langs button{padding:8px 8px}
-  .hero .wrap{min-height:78vh;padding-block:96px 36px}
-  .hero-cta .btn{flex:1 1 100%}
-  .facts-bar .wrap{grid-template-columns:minmax(0,1fr)}
-  .fb-item{padding:12px 0;flex-direction:row;justify-content:space-between;gap:12px}
-  .fb-item+.fb-item{border-left:0;border-top:1px solid var(--line);padding-left:0}
-  .about-photos img:nth-child(2){margin-top:28px}
+  .langs button{padding:8px}
+  .hero-in{min-height:calc(100svh - 150px);padding-block:36px 40px}
+  .hb{font-size:.92rem}
+  .hl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 6px;scrollbar-width:none}
+  .hl::-webkit-scrollbar{display:none}
+  .hl figure{flex:0 0 82%;scroll-snap-align:center}
   .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .m-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
-  .m-name{font-size:1.14rem;margin-top:10px}
-  .m-tag{font-size:.64rem;letter-spacing:.16em}
+  .c-photo{display:none}
+  .m-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .numbers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .num:nth-child(3){border-left:0;padding-left:0}
+  .num:nth-child(n+3){border-top:1px solid var(--line)}
   .v-stage{padding:0}
   .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
-  .row2,.row3{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .row3 label:first-child{grid-column:1 / -1}
-  .res-form .btn{justify-self:stretch}
   .foot .wrap{grid-template-columns:minmax(0,1fr)}
-  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
   .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
-  .mbar a{display:flex;align-items:center;justify-content:center;min-height:56px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.92rem}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:56px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.92rem}
   .mbar a+a{border-left:1px solid rgba(242,238,228,.14)}
   .mbar a:first-child{background:var(--green-2)}
+  .mbar .ico{width:17px;height:17px}
 }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+</svg>
 
 <div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt konobe.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
 
@@ -216,10 +267,10 @@ body.v-open{overflow:hidden}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Konoba Ćatovića Mlini"><small>Konoba</small><b>Ćatovića Mlini</b></a>
     <nav class="nav" aria-label="Meni">
-      <a href="#jelovnik" data-i18n="nav_menu">Jelovnik</a>
-      <a href="#o-nama" data-i18n="nav_about">O nama</a>
-      <a href="#galerija" data-i18n="nav_gallery">Galerija</a>
-      <a href="#kontakt" data-i18n="nav_contact">Kontakt</a>
+      <a href="#jelovnik" data-i18n="b_menu">Jelovnik</a>
+      <a href="#prica" data-i18n="b_story">Naša priča</a>
+      <a href="#galerija" data-i18n="gal_eye">Galerija</a>
+      <a href="#kontakt" data-i18n="k_eye">Kontakt</a>
     </nav>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="me" aria-pressed="true">ME</button>
@@ -231,112 +282,179 @@ body.v-open{overflow:hidden}
 </header>
 
 <main id="top">
+  <!-- FIRST SCREEN -->
   <section class="hero">
     <img class="hero-img ph" data-p="wp-content/themes/catovic/assets/img/cm-terasa(1).jpg" data-w="1920" alt="" fetchpriority="high">
-    <div class="wrap">
-      <span class="eyebrow caps" data-i18n="h_eye">Konoba · Morinj, Boka Kotorska</span>
+    <div class="hero-in wrap center">
+      <p class="eyebrow caps" data-i18n="h_eye">Konoba · Morinj, Boka Kotorska</p>
       <h1>Ćatovića Mlini</h1>
-      <p class="hero-lead" data-i18n="h_lead">Porodična konoba u starom mlinu na obali Boke Kotorske, već trideset godina.</p>
-      <p class="hero-sub" data-i18n="h_sub">Riba iz mora, a ne iz zamrzivača. Domaći pršut i sir, više od 600 vrsta vina i hlad pored potoka, tik uz more.</p>
-      <div class="hero-cta">
-        <a class="btn btn-light" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
-        <a class="btn btn-ghost-light" href="#jelovnik" data-i18n="h_menu">Pogledajte jelovnik</a>
+      <p class="hero-lead" data-i18n="h_lead">Riba i bokeška kuhinja u starom mlinu, tik uz more.</p>
+      <div class="hero-btns">
+        <a class="hb hb-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+        <a class="hb" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="hb" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="hb" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="hb" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
       </div>
-    </div>
-  </section>
-  <div class="facts-bar">
-    <div class="wrap">
-      <div class="fb-item"><span class="caps" data-i18n="l_hours">Radno vrijeme</span><b>12:00 – 21:00</b></div>
-      <div class="fb-item"><span class="caps" data-i18n="l_where">Gdje smo</span><a href="#kontakt" data-i18n="where_short">Morinj, Boka Kotorska</a></div>
-      <div class="fb-item"><span class="caps" data-i18n="l_book">Rezervacije</span><a href="tel:+38268333444">+382 68 333 444</a></div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="sec" id="o-nama">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="eyebrow caps" data-i18n="a_eye">O nama</span>
-          <h2 data-i18n="a_t">Boka na usta ulazi</h2>
-          <p data-i18n="a_p1">U Morinju, na zelenoj livadi tik uz more, gdje iz podnožja planine izviru potoci, više od dvjesta godina radili su mlinovi porodice Ćatović. Od žita se pravilo brašno, od maslina ulje, a oko mlina se okupljalo cijelo mjesto.</p>
-          <p data-i18n="a_p2">Sredinom devedesetih Lazar Ćatović je u porodičnom mlinu otvorio konobu. Spojio je bokešku tradiciju sa iskustvom najboljih mediteranskih kuhinja, i tako je već trideset godina.</p>
-          <p data-i18n="a_p3">Ovdje se ne žuri. Sjedite u hladu, slušate potok, livadom šetaju patke i guske, a iz kuhinje stižu riba, pršut i vino. Vrijeme kao da stane.</p>
-        </div>
-        <div class="about-photos">
-          <img class="ph" data-p="wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" data-w="800" alt="" loading="lazy">
-          <img class="ph" data-p="wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" data-w="800" alt="" loading="lazy">
-        </div>
-      </div>
-      <div class="numbers">
-        <div class="num"><b>200+</b><span data-i18n="n1">godina su ovdje radili mlinovi</span></div>
-        <div class="num"><b>30</b><span data-i18n="n2">godina konobe</span></div>
-        <div class="num"><b>611</b><span data-i18n="n3">vrsta vina u podrumu</span></div>
-        <div class="num"><b>42</b><span data-i18n="n4">vrste maslinovog ulja</span></div>
-      </div>
+      <p class="hero-hours" data-i18n="h_hours">Radno vrijeme 12:00 – 21:00</p>
     </div>
   </section>
 
-  <!-- MENU -->
-  <section class="sec menu" id="jelovnik">
+  <!-- IN SHORT -->
+  <section class="sec" id="ukratko">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow caps" data-i18n="m_eye">Jelovnik</span>
-        <h2 data-i18n="m_t">Iće i piće</h2>
-        <p data-i18n="m_p">Naša jela izgledaju jednostavno, a svako je zaslužilo svoje mjesto na jelovniku. Zažmurite, pokažite prstom bilo koje jelo i bilo koje vino, i nećete pogriješiti.</p>
+      <div class="head center">
+        <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
+        <h2 data-i18n="i_t">Bokeška kuhinja na obali mora</h2>
+        <p data-i18n="i_p">Već trideset godina ovdje se služi ono što Boka najbolje zna: svježa riba, domaći pršut i sir, uz dobro vino i mir.</p>
       </div>
-      <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Jelovnik"></div>
-      <ul class="m-grid" id="m-grid"></ul>
-      <p class="menu-note" data-i18n="menu_note">Za cijene i preporuku vina pitajte konobara.</p>
-
-      <div class="wine">
-        <img class="ph" data-p="wp-content/uploads/2024/06/LINK-NA-ICE-I-PICE-1.jpg" data-w="1200" alt="" loading="lazy">
-        <div class="wine-text">
-          <span class="eyebrow caps" data-i18n="w_eye">Vinski podrum</span>
-          <h3 data-i18n="w_t">Dobro jesti i dobro zaliti</h3>
-          <p data-i18n="w_p">U podrumu čuvamo 611 vrsta vina iz cijelog svijeta, biranih uz preporuke vrhunskih somelijera, a uz njih 42 vrste maslinovog ulja i 14 vrsta sirćeta.</p>
-        </div>
+      <div class="hl">
+        <figure><img class="ph" data-p="wp-content/uploads/2024/06/GAMBORI-NA-ZARU.jpg" data-w="900" data-h="675" alt="" loading="lazy">
+          <figcaption><h3 data-i18n="c1_t">Riba iz mora</h3><p data-i18n="c1_p">A ne iz zamrzivača. Brancin, hobotnica, gambori i riblja supa.</p></figcaption></figure>
+        <figure><img class="ph" data-p="wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" data-w="900" data-h="675" alt="" loading="lazy">
+          <figcaption><h3 data-i18n="c2_t">Mlin, potok i livada</h3><p data-i18n="c2_p">Stolovi u hladu pored potoka, a livadom šetaju patke i guske.</p></figcaption></figure>
+        <figure><img class="ph" data-p="wp-content/uploads/2024/06/LINK-NA-ICE-I-PICE-1.jpg" data-w="900" data-h="675" alt="" loading="lazy">
+          <figcaption><h3 data-i18n="c3_t">611 vrsta vina</h3><p data-i18n="c3_p">Podrum biran uz savjete somelijera, i 42 vrste maslinovog ulja.</p></figcaption></figure>
+      </div>
+      <div class="intro-cta">
+        <a class="btn btn-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+        <a class="btn btn-line" href="#prica"><span data-i18n="b_story">Naša priča</span></a>
       </div>
     </div>
   </section>
 
   <!-- GUESTS -->
-  <section class="sec" id="gosti">
-    <div class="wrap guests-grid">
-      <div>
-        <span class="eyebrow caps" data-i18n="g_eye">Naši gosti</span>
-        <h2 data-i18n="g_t">Kod nas ste vi zvijezda</h2>
-        <p class="lead" data-i18n="g_p">Za trideset godina kod nas su bili Novak Đoković, Pep Guardiola, Gerard Butler, Ralph Fiennes, Goran Bregović, Zdravko Čolić i mnogi drugi. Svako od njih dobio je isto što i svaki naš gost: dobru hranu, dobro vino i mir.</p>
-      </div>
-      <blockquote>
-        <p data-i18n="q">„Od tada pa do danas, kako tu uđem, primam tajnu frekvenciju i ostajem obogaćen i zahvalan za tu ljepotu.“</p>
-        <footer><b>Jagoš Marković</b>, <span data-i18n="q_who">reditelj</span></footer>
-      </blockquote>
+  <section class="guests">
+    <div class="wrap">
+      <p class="caps" data-i18n="gs_t">Kod nas su bili</p>
+      <p class="names" data-i18n="gs_names">Novak Đoković · Pep Guardiola · Gerard Butler · Ralph Fiennes · Goran Bregović · Zdravko Čolić</p>
     </div>
   </section>
 
   <!-- GALLERY -->
   <section class="sec gallery" id="galerija">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow caps" data-i18n="gal_eye">Galerija</span>
+      <div class="head center">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
         <h2 data-i18n="gal_t">Danju i noću</h2>
-        <p data-i18n="gal_p">Livada, potok, kamen i more.</p>
       </div>
       <div class="g-grid" id="g-grid"></div>
     </div>
   </section>
 
-  <!-- RESERVATIONS + CONTACT -->
+  <!-- CONTACT -->
   <section class="sec" id="kontakt">
-    <div class="wrap res-grid">
-      <div id="rezervacija">
-        <span class="eyebrow caps" data-i18n="r_eye">Rezervacije</span>
-        <h2 data-i18n="r_t">Rezervišite sto</h2>
-        <p class="lead" style="color:var(--muted);margin-top:16px;font-size:1.05rem" data-i18n="r_p">Rezervaciju dogovorite direktno sa nama, telefonom ili e-mailom. Najbrže je da nas pozovete.</p>
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="k_t">Dođite kod nas</h2>
+        <dl class="c-list" style="margin-top:26px">
+          <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</dd></div>
+          <div><dt class="caps" data-i18n="c_mob">Mobilni</dt><dd><a href="tel:+38268333444">+382 68 333 444</a></dd></div>
+          <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38232373030">+382 32 373 030</a></dd></div>
+          <div><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd>12:00 – 21:00</dd></div>
+          <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:catovicamlini@t-com.me">catovicamlini@t-com.me</a></dd></div>
+        </dl>
+        <div class="c-btns">
+          <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="tel:+38268333444" data-i18n="b_call">Pozovite</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="b_map">Mapa</a>
+        </div>
+        <p class="c-note" data-i18n="c_how">Do nas se stiže autom ili barkom. Plaćanje karticama: Visa, Mastercard, American Express, Maestro.</p>
+      </div>
+      <img class="c-photo ph" data-p="wp-content/uploads/2024/06/DSC04272X.jpg" data-w="1000" alt="" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><small>Konoba</small><b>Ćatovića Mlini</b></a>
+      <p data-i18n="addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</p>
+      <p style="margin-top:6px">Larry and Brother's Company d.o.o. · PIB 02057760</p>
+    </div>
+    <div class="social">
+      <a href="https://www.facebook.com/CatovicaMlini" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/catovica.mlini/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g2183284-d2166617-Reviews-Konoba_Catovica_Mlini-Morinj_Kotor_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
+    </div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt konobe.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Brze akcije">
+  <a href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+  <a href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a>
+</nav>
+
+<!-- MENU WINDOW -->
+<dialog class="sheet" id="s-jelovnik">
+  <div class="sheet-top"><h2 data-i18n="m_t">Jelovnik</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <p class="sheet-lead" data-i18n="m_p">Zažmurite, pokažite prstom bilo koje jelo i nećete pogriješiti.</p>
+      <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Jelovnik"></div>
+      <ul class="m-grid" id="m-grid"></ul>
+      <p class="menu-note" data-i18n="menu_note">Za cijene i preporuku vina pitajte konobara.</p>
+      <div class="wine-mini">
+        <h3 data-i18n="w_t">Dobro jesti i dobro zaliti</h3>
+        <p data-i18n="w_p">U podrumu čuvamo 611 vrsta vina iz cijelog svijeta, biranih uz preporuke vrhunskih somelijera, a uz njih 42 vrste maslinovog ulja i 14 vrsta sirćeta.</p>
+      </div>
+      <div class="sheet-cta">
+        <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-line" href="tel:+38268333444" data-i18n="b_call">Pozovite</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- STORY WINDOW -->
+<dialog class="sheet" id="s-prica">
+  <div class="sheet-top"><h2 data-i18n="b_story">Naša priča</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <article class="story">
+        <img class="ph" data-p="wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" data-w="1400" alt="" loading="lazy">
+        <h3 data-i18n="a_t">Boka na usta ulazi</h3>
+        <p data-i18n="a_p1">U Morinju, na zelenoj livadi tik uz more, gdje iz podnožja planine izviru potoci, više od dvjesta godina radili su mlinovi porodice Ćatović. Od žita se pravilo brašno, od maslina ulje, a oko mlina se okupljalo cijelo mjesto.</p>
+        <p data-i18n="a_p2">Sredinom devedesetih Lazar Ćatović je u porodičnom mlinu otvorio konobu. Spojio je bokešku tradiciju sa iskustvom najboljih mediteranskih kuhinja, i tako je već trideset godina.</p>
+        <p data-i18n="a_p3">Ovdje se ne žuri. Sjedite u hladu, slušate potok, livadom šetaju patke i guske, a iz kuhinje stižu riba, pršut i vino. Vrijeme kao da stane.</p>
+        <div class="numbers">
+          <div class="num"><b>200+</b><span data-i18n="n1">godina su ovdje radili mlinovi</span></div>
+          <div class="num"><b>30</b><span data-i18n="n2">godina konobe</span></div>
+          <div class="num"><b>611</b><span data-i18n="n3">vrsta vina u podrumu</span></div>
+          <div class="num"><b>42</b><span data-i18n="n4">vrste maslinovog ulja</span></div>
+        </div>
+        <h3 data-i18n="g_t">Kod nas ste vi zvijezda</h3>
+        <p data-i18n="g_p">Za trideset godina kod nas su bili Novak Đoković, Pep Guardiola, Gerard Butler, Ralph Fiennes, Goran Bregović, Zdravko Čolić i mnogi drugi. Svako od njih dobio je isto što i svaki naš gost: dobru hranu, dobro vino i mir.</p>
+        <blockquote>
+          <p data-i18n="q">„Od tada pa do danas, kako tu uđem, primam tajnu frekvenciju i ostajem obogaćen i zahvalan za tu ljepotu.“</p>
+          <footer><b>Jagoš Marković</b>, <span data-i18n="q_who">reditelj</span></footer>
+        </blockquote>
+        <div class="sheet-cta">
+          <a class="btn btn-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+          <a class="btn btn-line" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<!-- BOOKING WINDOW -->
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><h2 data-i18n="book">Rezervišite sto</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <div class="book">
+        <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
+        <a class="call-big" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg>+382 68 333 444</a>
+        <p class="call-2"><span data-i18n="c_tel">Telefon</span>: <a href="tel:+38232373030">+382 32 373 030</a></p>
+        <p class="or" data-i18n="r_or">ili</p>
         <form class="res-form" id="res-form" novalidate>
-          <div class="row3">
-            <label><span data-i18n="f_name">Ime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <label><span data-i18n="f_name">Ime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <div class="row2">
             <label><span data-i18n="f_date">Datum</span><input id="f-date" name="date" type="date" required></label>
             <label><span data-i18n="f_time">Vrijeme</span><input id="f-time" name="time" type="time" min="12:00" max="21:00" step="900" value="19:00" required></label>
           </div>
@@ -350,50 +468,14 @@ body.v-open{overflow:hidden}
           <p class="hint" id="f-err" hidden style="color:#9C3A28" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
         </form>
       </div>
-      <aside>
-        <div class="contact-card">
-          <dl>
-            <div><dt class="caps" data-i18n="c_mob">Mobilni</dt><dd><a href="tel:+38268333444">+382 68 333 444</a></dd></div>
-            <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38232373030">+382 32 373 030</a></dd></div>
-            <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:catovicamlini@t-com.me">catovicamlini@t-com.me</a></dd></div>
-            <div><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</dd></div>
-            <div><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd>12:00 – 21:00</dd></div>
-            <div><dt class="caps" data-i18n="c_pay">Plaćanje karticama</dt><dd>Visa, Mastercard, American Express, Maestro</dd></div>
-          </dl>
-          <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="c_map">Otvorite u Google mapama</a>
-          <p class="note" data-i18n="c_how">Do nas se stiže autom ili barkom.</p>
-        </div>
-        <img class="contact-photo ph" data-p="wp-content/uploads/2024/06/DSC04272X.jpg" data-w="1000" alt="" loading="lazy">
-      </aside>
     </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="wrap">
-    <div>
-      <a class="brand" href="#top"><small>Konoba</small><b>Ćatovića Mlini</b></a>
-      <p data-i18n="f_addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</p>
-      <p style="margin-top:6px">Larry and Brother's Company d.o.o. · PIB 02057760</p>
-    </div>
-    <div class="social">
-      <a href="https://www.facebook.com/CatovicaMlini" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/catovica.mlini/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tripadvisor.com/Restaurant_Review-g2183284-d2166617-Reviews-Konoba_Catovica_Mlini-Morinj_Kotor_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
-    </div>
-    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt konobe.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
   </div>
-</footer>
+</dialog>
 
-<nav class="mbar" aria-label="Brze akcije">
-  <a href="tel:+38268333444" data-i18n="b_call">Pozovite</a>
-  <a href="#jelovnik" data-i18n="b_menu">Jelovnik</a>
-  <a href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="b_map">Mapa</a>
-</nav>
-
+<!-- PHOTO VIEWER -->
 <dialog class="viewer" id="viewer">
-  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" aria-label="Zatvori">×</button></div>
-  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" aria-label="Sljedeća">›</button></div>
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
   <div class="v-cap" id="v-cap"></div>
 </dialog>
 
@@ -402,49 +484,49 @@ body.v-open{overflow:hidden}
    when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
 const SITE = "www.catovica-mlini.com/", UP = "wp-content/uploads/2024/06/";
 const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-const photo = (path, w) => "https://wsrv.nl/?url=" + encodeURIComponent(SITE + path) + "&w=" + w + "&q=80";
+const photo = (path, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(SITE + path) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=80";
 const direct = path => "https://" + SITE + path;
 document.addEventListener("error", e => {
   const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
   if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
   else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
 }, true);
-const setPhoto = (img, path, w) => { img.dataset.p = path; delete img.dataset.step; img.src = photo(path, w); };
+const setPhoto = (img, path, w, h) => { img.dataset.p = path; delete img.dataset.step; img.src = photo(path, w, h); };
 
-/* Menu: dishes and taglines as on catovica-mlini.com (ME, EN), grouped; RU translated */
+/* Menu: the 23 dishes on catovica-mlini.com (ME, EN names from their site, EN polished), grouped; RU translated */
 const MENU = [
-  { id:"start", t:{me:"Za početak", en:"To start", ru:"Для начала"}, items:[
-    { img:"SIR-1.jpg", n:{me:"Domaći sir", en:"Homemade cheese", ru:"Домашний сыр"}, tag:{me:"Fešta", en:"Party", ru:"Праздник"} },
-    { img:"PRSUT-1.jpg", n:{me:"Domaći pršut", en:"Homemade prosciutto", ru:"Домашний пршут"}, tag:{me:"Mnogo svega", en:"Classic", ru:"Классика"} },
-    { img:"KOMBINOVANO.jpg", n:{me:"Riblje predjelo", en:"Fish starter", ru:"Рыбная закуска"}, tag:{me:"Po bokun od svega", en:"A bite of everything", ru:"Всего по кусочку"} },
-    { img:"SALATA-ANANAS-KOZICE.jpg", n:{me:"Salata od kozica sa ananasom i tikvicama", en:"Prawn salad with pineapple and zucchini", ru:"Салат с креветками, ананасом и цукини"}, tag:{me:"I slatko i slano", en:"Sweet and salty", ru:"И сладко, и солоно"} },
-    { img:"PRSUT-I-SIR.jpg", n:{me:"Domaći pršut i sir", en:"Homemade prosciutto and cheese", ru:"Домашний пршут и сыр"}, tag:{me:"Mnogo svega", en:"A lot of everything", ru:"Всего много"} },
-    { img:"RIBLJA-PASTETA-1.jpg", n:{me:"Riblja pašteta", en:"Fish pâté", ru:"Рыбный паштет"}, tag:{me:"Freška", en:"Fresh", ru:"Свежо"} },
-    { img:"SUPA.jpg", n:{me:"Riblja supa", en:"Fish soup", ru:"Рыбный суп"}, tag:{me:"Buć", en:"Splash", ru:"Плюх"} },
-    { img:"MIRAKUL.jpg", n:{me:"Mirakul", en:"Mirakul", ru:"Миракул"}, tag:{me:"Magic", en:"Magic", ru:"Магия"} },
-    { img:"KARPACO.jpg", n:{me:"Karpaćo od brancina", en:"Sea bass carpaccio", ru:"Карпаччо из сибаса"}, tag:{me:"Bravura", en:"Bravura", ru:"Виртуозно"} },
+  { id:"start", t:{me:"Za početak", en:"To start", ru:"Закуски"}, items:[
+    { img:"SIR-1.jpg", n:{me:"Domaći sir", en:"Homemade cheese", ru:"Домашний сыр"} },
+    { img:"PRSUT-1.jpg", n:{me:"Domaći pršut", en:"Homemade prosciutto", ru:"Домашний пршут"} },
+    { img:"KOMBINOVANO.jpg", n:{me:"Riblje predjelo", en:"Fish starter", ru:"Рыбная закуска"} },
+    { img:"SALATA-ANANAS-KOZICE.jpg", n:{me:"Salata od kozica sa ananasom i tikvicama", en:"Prawn salad with pineapple and zucchini", ru:"Салат с креветками, ананасом и цукини"} },
+    { img:"PRSUT-I-SIR.jpg", n:{me:"Domaći pršut i sir", en:"Homemade prosciutto and cheese", ru:"Домашний пршут и сыр"} },
+    { img:"RIBLJA-PASTETA-1.jpg", n:{me:"Riblja pašteta", en:"Fish pâté", ru:"Рыбный паштет"} },
+    { img:"SUPA.jpg", n:{me:"Riblja supa", en:"Fish soup", ru:"Рыбный суп"} },
+    { img:"MIRAKUL.jpg", n:{me:"Mirakul", en:"Mirakul", ru:"Миракул"} },
+    { img:"KARPACO.jpg", n:{me:"Karpaćo od brancina", en:"Sea bass carpaccio", ru:"Карпаччо из сибаса"} },
   ]},
   { id:"sea", t:{me:"Iz mora", en:"From the sea", ru:"Из моря"}, items:[
-    { img:"GRASPANA-HOBOTNIC.jpg", n:{me:"Grašpana hobotnica", en:"Octopus tentacles fried in a polenta crust", ru:"Щупальца осьминога, жаренные в кукурузной панировке"}, tag:{me:"Pipciiiii!", en:"Tentacleees!", ru:"Щупальцааа!"} },
-    { img:"GAMBORI-NA-ZARU.jpg", n:{me:"Gambori na žaru", en:"Grilled prawns", ru:"Креветки на гриле"}, tag:{me:"Apsolutno fantastično", en:"Absolutely fantastic", ru:"Просто фантастика"} },
-    { img:"GAMBORI-TIKVICE-1.jpg", n:{me:"Gambori sa tikvicama", en:"Prawns with zucchini", ru:"Креветки с цукини"}, tag:{me:"Zen", en:"Zen", ru:"Дзен"} },
-    { img:"PRZENA-RIBA-1.jpg", n:{me:"Pržena riba", en:"Fried fish", ru:"Жареная рыба"}, tag:{me:"Aš kupa", en:"Aš kupa", ru:"Аш купа"} },
-    { img:"RAZNJIcI.jpg", n:{me:"Riblji ražnjići", en:"Fish skewers", ru:"Рыбные шашлычки"}, tag:{me:"Tempo", en:"Tempo", ru:"Темп"} },
-    { img:"ZAPECENI-FILETI-BRANCINA.jpg", n:{me:"Zapečeni fileti brancina", en:"Baked sea bass fillets", ru:"Запечённое филе сибаса"}, tag:{me:"Masters", en:"Masters", ru:"Мастер-класс"} },
-    { img:"BRANCIN-TARTUFI.jpg", n:{me:"Brancin sa tartufima", en:"Sea bass with truffles", ru:"Сибас с трюфелями"}, tag:{me:"Pompa", en:"Pomp", ru:"С размахом"} },
+    { img:"GRASPANA-HOBOTNIC.jpg", n:{me:"Grašpana hobotnica", en:"Octopus tentacles fried in a polenta crust", ru:"Щупальца осьминога, жаренные в кукурузной панировке"} },
+    { img:"GAMBORI-NA-ZARU.jpg", n:{me:"Gambori na žaru", en:"Grilled prawns", ru:"Креветки на гриле"} },
+    { img:"GAMBORI-TIKVICE-1.jpg", n:{me:"Gambori sa tikvicama", en:"Prawns with zucchini", ru:"Креветки с цукини"} },
+    { img:"PRZENA-RIBA-1.jpg", n:{me:"Pržena riba", en:"Fried fish", ru:"Жареная рыба"} },
+    { img:"RAZNJIcI.jpg", n:{me:"Riblji ražnjići", en:"Fish skewers", ru:"Рыбные шашлычки"} },
+    { img:"ZAPECENI-FILETI-BRANCINA.jpg", n:{me:"Zapečeni fileti brancina", en:"Baked sea bass fillets", ru:"Запечённое филе сибаса"} },
+    { img:"BRANCIN-TARTUFI.jpg", n:{me:"Brancin sa tartufima", en:"Sea bass with truffles", ru:"Сибас с трюфелями"} },
   ]},
   { id:"pasta", t:{me:"Pasta i rižoto", en:"Pasta and risotto", ru:"Паста и ризотто"}, items:[
-    { img:"SPAGETI.jpg", n:{me:"Špageti", en:"Spaghetti", ru:"Спагетти"}, tag:{me:"Sezona žuto žuto", en:"Yellow, yellow season", ru:"Жёлтый-жёлтый сезон"} },
-    { img:"ZUTI-RIZOTO.jpg", n:{me:"Žuti rižoto", en:"Yellow saffron risotto", ru:"Жёлтое ризотто с шафраном"}, tag:{me:"Solo žuti", en:"Solo yellow", ru:"Только жёлтый"} },
+    { img:"SPAGETI.jpg", n:{me:"Špageti", en:"Spaghetti", ru:"Спагетти"} },
+    { img:"ZUTI-RIZOTO.jpg", n:{me:"Žuti rižoto", en:"Yellow saffron risotto", ru:"Жёлтое ризотто с шафраном"} },
   ]},
   { id:"meat", t:{me:"Meso", en:"Meat", ru:"Мясо"}, items:[
-    { img:"KOTLET-1.jpg", n:{me:"Tagliatelle od bifteka", en:"Beef tenderloin tagliatelle", ru:"Тальятелле из говяжьей вырезки"}, tag:{me:"Fešta", en:"Party", ru:"Праздник"} },
-    { img:"STEK.jpg", n:{me:"Ramstek", en:"Rump steak", ru:"Рамп-стейк"}, tag:{me:"Grande", en:"Grande", ru:"Гранде"} },
+    { img:"KOTLET-1.jpg", n:{me:"Tagliatelle od bifteka", en:"Beef tenderloin tagliatelle", ru:"Тальятелле из говяжьей вырезки"} },
+    { img:"STEK.jpg", n:{me:"Ramstek", en:"Rump steak", ru:"Рамп-стейк"} },
   ]},
-  { id:"sweet", t:{me:"Za kraj", en:"To finish", ru:"На десерт"}, items:[
-    { img:"KOLAC.jpg", n:{me:"Bokeški kolač", en:"Boka cake", ru:"Бокельский торт"}, tag:{me:"Gospodar", en:"The master", ru:"Хозяин"} },
-    { img:"SORBE.jpg", n:{me:"Sorbe", en:"Sorbet", ru:"Сорбет"}, tag:{me:"Čisto bijelo", en:"Pure white", ru:"Белоснежный"} },
-    { img:"STRUDLA.jpg", n:{me:"Štrudla", en:"Strudel", ru:"Штрудель"}, tag:{me:"I na kraju… štrudla", en:"And finally… strudel", ru:"И напоследок… штрудель"} },
+  { id:"sweet", t:{me:"Za kraj", en:"Desserts", ru:"Десерты"}, items:[
+    { img:"KOLAC.jpg", n:{me:"Bokeški kolač", en:"Boka cake", ru:"Бокельский торт"} },
+    { img:"SORBE.jpg", n:{me:"Sorbe", en:"Sorbet", ru:"Сорбет"} },
+    { img:"STRUDLA.jpg", n:{me:"Štrudla", en:"Strudel", ru:"Штрудель"} },
   ]},
 ];
 
@@ -453,88 +535,95 @@ const GALLERY = ["DJI_0096.jpg","DSC04171.jpg","10-DSC02239-.jpg","12-7_MG_8487.
 const T = {
   en: {
     demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
-    nav_menu:"Menu", nav_about:"About", nav_gallery:"Gallery", nav_contact:"Contact", book:"Book a table",
-    h_eye:"Konoba · Morinj, Bay of Kotor", h_lead:"A family konoba in an old mill on the shore of the Bay of Kotor, for thirty years now.",
-    h_sub:"Fish from the sea, not from the freezer. Homemade prosciutto and cheese, more than 600 wines, and shade by the stream, right next to the sea.",
-    h_menu:"See the menu", l_hours:"Opening hours", l_where:"Where we are", where_short:"Morinj, Bay of Kotor", l_book:"Reservations",
-    a_eye:"About us", a_t:"A taste of Boka",
+    book:"Book a table", b_book:"Book a table", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"Our story", b_map:"Map",
+    h_eye:"Konoba · Morinj, Bay of Kotor", h_lead:"Fish and Boka cooking in an old mill, right by the sea.", h_hours:"Open 12:00 – 21:00",
+    i_eye:"In short", i_t:"Boka cooking on the shore of the bay",
+    i_p:"For thirty years we have served what Boka does best: fresh fish, homemade prosciutto and cheese, good wine, and peace and quiet.",
+    c1_t:"Fish from the sea", c1_p:"Not from the freezer. Sea bass, octopus, prawns and fish soup.",
+    c2_t:"A mill, a stream and a meadow", c2_p:"Tables in the shade by the stream, with ducks and geese on the meadow.",
+    c3_t:"611 kinds of wine", c3_p:"A cellar chosen with sommeliers, plus 42 kinds of olive oil.",
+    gs_t:"Our guests have included", gs_names:"Novak Đoković · Pep Guardiola · Gerard Butler · Ralph Fiennes · Goran Bregović · Zdravko Čolić",
+    gal_eye:"Gallery", gal_t:"By day and by night",
+    k_eye:"Contact", k_t:"Come and see us",
+    c_addr:"Address", addr:"Polje b.b., 85338 Morinj, Bay of Kotor, Montenegro", l_hours:"Opening hours", c_mob:"Mobile", c_tel:"Phone", c_mail:"Email",
+    c_how:"You can reach us by car or by boat. We accept Visa, Mastercard, American Express and Maestro.",
+    m_t:"Menu", m_p:"Close your eyes, point at any dish, and you won't go wrong.",
+    menu_note:"Ask your waiter about prices and wine pairings.",
+    w_t:"Eat well, drink well", w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
+    a_t:"A taste of Boka",
     a_p1:"In Morinj, on a green meadow right by the sea, where streams spring from the foot of the mountain, the Ćatović family mills worked for more than two hundred years. Grain was ground into flour, olives were pressed into oil, and the whole village gathered around the mill.",
     a_p2:"In the mid-1990s Lazar Ćatović opened a konoba in the family mill. He brought together the traditions of Boka and the experience of the best Mediterranean kitchens, and it has stayed that way for thirty years.",
     a_p3:"Nobody hurries here. You sit in the shade and listen to the stream, ducks and geese stroll across the meadow, and fish, prosciutto and wine arrive from the kitchen. Time seems to stand still.",
     n1:"years the mills worked here", n2:"years of the konoba", n3:"kinds of wine in the cellar", n4:"kinds of olive oil",
-    m_eye:"Menu", m_t:"Food and drink",
-    m_p:"Our dishes look simple, yet each one has earned its place on the menu. Close your eyes, point at any dish and any wine, and you won't go wrong.",
-    menu_note:"Ask your waiter about prices and wine pairings.",
-    w_eye:"Wine cellar", w_t:"Eat well, drink well",
-    w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
-    g_eye:"Our guests", g_t:"Here, you are the star",
+    g_t:"Here, you are the star",
     g_p:"Over thirty years our guests have included Novak Đoković, Pep Guardiola, Gerard Butler, Ralph Fiennes, Goran Bregović, Zdravko Čolić and many more. Each of them got what every guest gets: good food, good wine, and peace and quiet.",
     q:"“Ever since, whenever I step inside, I tune into a secret frequency and am left enriched and grateful for that beauty.”", q_who:"theatre director",
-    gal_eye:"Gallery", gal_t:"By day and by night", gal_p:"Meadow, stream, stone and sea.",
-    r_eye:"Reservations", r_t:"Book a table", r_p:"Book directly with us, by phone or email. Calling is the fastest way.",
+    r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
     f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_note:"Note (optional)",
     f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
-    c_mob:"Mobile", c_tel:"Phone", c_mail:"Email", c_addr:"Address", c_pay:"Cards accepted",
-    addr:"Polje b.b., 85338 Morinj, Bay of Kotor, Montenegro", f_addr:"Polje b.b., 85338 Morinj, Bay of Kotor, Montenegro",
-    c_map:"Open in Google Maps", c_how:"You can reach us by car or by boat.",
-    b_call:"Call", b_menu:"Menu", b_map:"Map",
+    x_close:"Close", x_prev:"Previous", x_next:"Next",
     mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to book a table:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_phone:"Phone", m_note:"Note", mail_bye:"Thank you!",
   },
   ru: {
     demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
-    nav_menu:"Меню", nav_about:"О нас", nav_gallery:"Галерея", nav_contact:"Контакты", book:"Забронировать столик",
-    h_eye:"Коноба · Моринь, Которский залив", h_lead:"Семейная коноба в старой мельнице на берегу Которского залива, уже тридцать лет.",
-    h_sub:"Рыба из моря, а не из морозилки. Домашний пршут и сыр, больше 600 вин и тень у ручья, в двух шагах от моря.",
-    h_menu:"Смотреть меню", l_hours:"Часы работы", l_where:"Где мы", where_short:"Моринь, Которский залив", l_book:"Бронирование",
-    a_eye:"О нас", a_t:"Вкус Боки",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Как добраться", b_story:"Наша история", b_map:"Карта",
+    h_eye:"Коноба · Моринь, Которский залив", h_lead:"Рыба и бокельская кухня в старой мельнице у самого моря.", h_hours:"Работаем с 12:00 до 21:00",
+    i_eye:"Коротко о нас", i_t:"Бокельская кухня на берегу моря",
+    i_p:"Уже тридцать лет мы подаём то, что Бока умеет лучше всего: свежую рыбу, домашний пршут и сыр, хорошее вино и тишину.",
+    c1_t:"Рыба из моря", c1_p:"А не из морозилки. Сибас, осьминог, креветки и рыбный суп.",
+    c2_t:"Мельница, ручей и луг", c2_p:"Столы в тени у ручья, а по лугу гуляют утки и гуси.",
+    c3_t:"611 вин в погребе", c3_p:"Погреб, подобранный вместе с сомелье, и 42 сорта оливкового масла.",
+    gs_t:"У нас бывали", gs_names:"Новак Джокович · Пеп Гвардиола · Джерард Батлер · Рэйф Файнс · Горан Брегович · Здравко Чолич",
+    gal_eye:"Галерея", gal_t:"Днём и ночью",
+    k_eye:"Контакты", k_t:"Приезжайте к нам",
+    c_addr:"Адрес", addr:"Polje b.b., 85338 Моринь, Которский залив, Черногория", l_hours:"Часы работы", c_mob:"Мобильный", c_tel:"Телефон", c_mail:"E-mail",
+    c_how:"До нас можно добраться на машине или на лодке. Принимаем Visa, Mastercard, American Express и Maestro.",
+    m_t:"Меню", m_p:"Закройте глаза, укажите на любое блюдо, и вы не ошибётесь.",
+    menu_note:"Цены и подходящее вино подскажет официант.",
+    w_t:"Хорошо поесть и хорошо запить", w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
+    a_t:"Вкус Боки",
     a_p1:"В посёлке Моринь, на зелёном лугу у самого моря, где у подножия горы бьют ручьи, больше двухсот лет работали мельницы семьи Чатович. Из зерна мололи муку, из оливок давили масло, и вокруг мельницы собиралась вся деревня.",
     a_p2:"В середине девяностых Лазар Чатович открыл в семейной мельнице конобу. Он соединил традиции Боки с опытом лучших средиземноморских кухонь, и так уже тридцать лет.",
     a_p3:"Здесь никто не спешит. Вы сидите в тени и слушаете ручей, по лугу гуляют утки и гуси, а с кухни несут рыбу, пршут и вино. Время будто останавливается.",
     n1:"лет здесь работали мельницы", n2:"лет конобе", n3:"вин в погребе", n4:"сорта оливкового масла",
-    m_eye:"Меню", m_t:"Еда и напитки",
-    m_p:"Наши блюда выглядят просто, но каждое заслужило место в меню. Закройте глаза, укажите пальцем на любое блюдо и любое вино, и вы не ошибётесь.",
-    menu_note:"Цены и подходящее вино подскажет официант.",
-    w_eye:"Винный погреб", w_t:"Хорошо поесть и хорошо запить",
-    w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
-    g_eye:"Наши гости", g_t:"Каждый гость у нас звезда",
+    g_t:"Каждый гость у нас звезда",
     g_p:"За тридцать лет у нас бывали Новак Джокович, Пеп Гвардиола, Джерард Батлер, Рэйф Файнс, Горан Брегович, Здравко Чолич и многие другие. Каждый получил то же, что и любой наш гость: хорошую еду, хорошее вино и покой.",
     q:"«С тех пор каждый раз, когда я сюда вхожу, я ловлю тайную частоту и остаюсь обогащённым и благодарным за эту красоту».", q_who:"театральный режиссёр",
-    gal_eye:"Галерея", gal_t:"Днём и ночью", gal_p:"Луг, ручей, камень и море.",
-    r_eye:"Бронирование", r_t:"Забронировать столик", r_p:"Бронируйте напрямую у нас, по телефону или по электронной почте. Быстрее всего позвонить.",
+    r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
     f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
     f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
-    c_mob:"Мобильный", c_tel:"Телефон", c_mail:"E-mail", c_addr:"Адрес", c_pay:"Оплата картами",
-    addr:"Polje b.b., 85338 Моринь, Которский залив, Черногория", f_addr:"Polje b.b., 85338 Моринь, Которский залив, Черногория",
-    c_map:"Открыть в Google Картах", c_how:"До нас можно добраться на машине или на лодке.",
-    b_call:"Позвонить", b_menu:"Меню", b_map:"Карта",
+    x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше",
     mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать столик:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_phone:"Телефон", m_note:"Комментарий", mail_bye:"Спасибо!",
   },
 };
-const ME_MAIL = { mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_note:"Napomena", mail_bye:"Hvala!" };
+/* Montenegrin texts that are not in the page itself */
+const ME_EXTRA = { x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća",
+  mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_note:"Napomena", mail_bye:"Hvala!" };
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const ME = {}; $$("[data-i18n]").forEach(n => { if (!(n.dataset.i18n in ME)) ME[n.dataset.i18n] = n.innerHTML; });
-Object.assign(ME, ME_MAIL);
+Object.assign(ME, ME_EXTRA);
 const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
 let lang = "me";
 const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
 
+/* menu: one tab per section, dish photos 16:9 cropped around the plate */
 let tab = MENU[0].id;
 const DISHES = MENU.flatMap(g => g.items.map(d => ({ ...d, g })));
-const img = (path, w, cls) => `<img class="ph${cls ? " " + cls : ""}" data-p="${path}" src="${photo(path, w)}" alt="" loading="lazy">`;
+const img = (path, w, h) => `<img class="ph" data-p="${path}" src="${photo(path, w, h)}" alt="" loading="lazy">`;
 function renderMenu(){
   $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("");
   $("#m-grid").innerHTML = DISHES.filter(d => d.g.id === tab).map(d => `
     <li><button type="button" class="m-card" data-dish="${DISHES.indexOf(d)}">
-      <span class="m-ph ph">${img(UP + d.img, 640)}</span>
+      <span class="m-ph ph">${img(UP + d.img, 960, 540)}</span>
       <span class="m-name">${d.n[lang]}</span>
       ${lang !== "me" ? `<span class="m-orig">${d.n.me}</span>` : ""}
-      <span class="m-tag caps">${d.tag[lang]}</span>
     </button></li>`).join("");
 }
 $("#m-tabs").addEventListener("click", e => {
   const b = e.target.closest("button[data-tab]"); if (!b) return;
   tab = b.dataset.tab; renderMenu();
+  $("#s-jelovnik .sheet-body").scrollTop = 0;
 });
 function renderGallery(){
   $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}">${img(UP + f, i ? 700 : 1400)}</button>`).join("");
@@ -542,6 +631,7 @@ function renderGallery(){
 function applyLang(l){
   lang = ["me","en","ru"].includes(l) ? l : "me";
   $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
   $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
   document.documentElement.lang = LANG_CODE[lang];
   renderMenu();
@@ -550,24 +640,60 @@ function applyLang(l){
   sel.value = cur;
   const u = new URL(location.href);
   if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
-  history.replaceState(null, "", u);
+  history.replaceState(history.state, "", u);
   try { localStorage.setItem("cm-lang", lang); } catch(e) {}
 }
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
 
-/* full-screen photo viewer for dishes and the gallery: arrows, swipe, Esc */
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows (menu, story, booking) live at #jelovnik, #prica, #rezervacija,
+   so the phone's back button closes them and the links can be shared */
+const SHEETS = ["jelovnik", "prica", "rezervacija"];
+function syncSheets(){
+  const id = location.hash.slice(1);
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k);
+    if (k === id && !d.open) {
+      d.showModal(); d.querySelector(".sheet-body").scrollTop = 0;
+      if (window.gtag) gtag("event", "demo_open_" + k, { language: lang });
+    }
+    if (k !== id && d.open) d.close();
+  });
+  lockScroll();
+}
+function openSheet(id){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
+  syncSheets();
+}
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (SHEETS.includes(id)) { e.preventDefault(); openSheet(id); }
+});
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer for dishes and the gallery: arrows, swipe, Esc */
 const V = { list: [], i: 0 }, viewer = $("#viewer");
 function showShot(){
   const it = V.list[V.i];
   setPhoto($("#v-img"), it.p, 1600);
   $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
-  $("#v-cap").innerHTML = it.d ? `<p class="caps v-cat">${it.d.g.t[lang]}</p><h4>${it.d.n[lang]}</h4>${lang !== "me" ? `<p class="v-orig">${it.d.n.me}</p>` : ""}<p class="caps v-tag">${it.d.tag[lang]}</p>` : "";
+  $("#v-cap").innerHTML = it.d ? `<p class="caps">${it.d.g.t[lang]}</p><h4>${it.d.n[lang]}</h4>${lang !== "me" ? `<p class="v-orig">${it.d.n.me}</p>` : ""}` : "";
   const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
 }
 function openViewer(list, i){
   V.list = list; V.i = i; showShot();
-  document.body.classList.add("v-open");
   if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
 }
 const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
 $("#m-grid").addEventListener("click", e => {
@@ -581,7 +707,7 @@ $("#g-grid").addEventListener("click", e => {
 $("#v-prev").addEventListener("click", () => step(-1));
 $("#v-next").addEventListener("click", () => step(1));
 $("#v-x").addEventListener("click", () => viewer.close());
-viewer.addEventListener("close", () => document.body.classList.remove("v-open"));
+viewer.addEventListener("close", lockScroll);
 viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
 let tx = null;
 $("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
@@ -608,11 +734,12 @@ $("#res-form").addEventListener("submit", e => {
   location.href = "mailto:catovicamlini@t-com.me?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
 });
 
-$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200));
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0));
 renderGallery();
 let start = new URLSearchParams(location.search).get("lang");
 if (!start) { try { start = localStorage.getItem("cm-lang"); } catch(e) {} }
 applyLang(start || "me");
+syncSheets();
 </script>
 </body>
 </html>
