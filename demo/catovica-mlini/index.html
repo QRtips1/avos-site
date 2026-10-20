@@ -6,7 +6,7 @@
 <title>Konoba Ćatovića Mlini · Morinj, Boka Kotorska (demo)</title>
 <meta name="description" content="Konoba Ćatovića Mlini u Morinju: riba i bokeška kuhinja u starom mlinu na obali Boke Kotorske. Demo koncept sajta, MakeSiteFor.me.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#24382B">
+<meta name="theme-color" content="#0E3B2C">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
 <script>
@@ -14,240 +14,329 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://wsrv.nl">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
 <style>
 :root{
-  --ink:#1D2A21; --green:#24382B; --green-2:#2F4A38; --moss:#62775A;
-  --paper:#F5F1E8; --paper-2:#ECE5D6; --stone:#D9CFBC; --card:#FBF8F2;
-  --muted:#58625A; --faint:#7D857B; --line:rgba(29,42,33,.14); --line-2:rgba(29,42,33,.26);
-  --gold:#9A6F2C; --sand:#E9D7B4; --on-dark:#F2EEE4; --on-dark-2:rgba(242,238,228,.74);
+  --emerald:#0E3B2C; --emerald-2:#165440; --emerald-3:#0A2C21; --gold:#C6A15B; --gold-2:#E4C98F; --gold-ink:#8C6A2C;
+  --ivory:#FBF7EF; --sand:#F2EADB; --stone:#DED3BF; --card:#FFFDF8;
+  --ink:#13201A; --muted:#56615A; --faint:#7B847D; --line:rgba(19,32,26,.12); --line-2:rgba(19,32,26,.24);
+  --on-dark:#F7F2E7; --on-dark-2:rgba(247,242,231,.76); --on-dark-line:rgba(247,242,231,.2);
   --f-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --wrap:1160px; --gut:20px; --r:14px;
+  --wrap:1200px; --gut:24px; --r:18px; --hh:72px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
 img{display:block;max-width:100%}
 a{color:inherit}
 [hidden]{display:none!important}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
-.caps{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
-h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:.005em}
-h2{font-size:clamp(2.1rem,5.2vw,3.2rem)}
+.caps{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.04;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--gold-ink)}
 p{margin:0}
-.eyebrow{color:var(--gold);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
-.center .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
-.ph{background:var(--stone) linear-gradient(135deg,var(--paper-2),var(--stone))}
+.eyebrow{color:var(--gold-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--gold-2)}
+.ph{background:#2a3a31 linear-gradient(135deg,#31473a,#1c2a22)}
 .ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 
-/* demo strip */
-.demo{background:var(--ink);color:var(--on-dark-2);font-size:.76rem;text-align:center;padding:6px var(--gut);line-height:1.45}
-.demo a{color:var(--on-dark);text-decoration:underline;text-underline-offset:2px}
-
-/* header */
-.top{position:sticky;top:0;z-index:30;background:rgba(245,241,232,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px}
-.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1;min-width:0}
-.brand small{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
-.brand b{font-family:var(--f-serif);font-weight:600;font-size:1.3rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
-.nav{display:flex;gap:26px;margin-left:auto}
-.nav a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--muted)}
-.nav a:hover{color:var(--ink)}
-.langs{display:flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
-.langs button{border:0;background:none;font:600 .72rem/1 var(--f-sans);letter-spacing:.08em;padding:8px 10px;border-radius:999px;color:var(--muted);cursor:pointer}
-.langs button[aria-pressed=true]{background:var(--green);color:var(--on-dark)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:.96rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .2s,color .2s,border-color .2s}
-.btn-main{background:var(--green);color:var(--on-dark)}
-.btn-main:hover{background:var(--ink)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.btn-gold{background:linear-gradient(135deg,#D9B977,#B88C42);color:#1A140A;box-shadow:0 10px 30px -12px rgba(184,140,66,.7)}
+.btn-gold:hover{box-shadow:0 14px 34px -10px rgba(184,140,66,.9)}
+.btn-em{background:var(--emerald);color:var(--on-dark)}
+.btn-em:hover{background:var(--emerald-3)}
 .btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
 .btn-line:hover{border-color:var(--ink)}
-.top .btn{min-height:40px;padding:0 18px;font-size:.85rem}
+.btn-glass{background:rgba(10,24,18,.38);color:var(--on-dark);border-color:rgba(247,242,231,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(10,24,18,.6)}
 
-/* hero: photo, short line, buttons in the middle */
-.hero{position:relative;color:var(--on-dark);background:var(--green);overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,18,.5) 0%,rgba(16,24,18,.38) 45%,rgba(16,24,18,.72) 100%)}
-.hero-in{position:relative;z-index:1;min-height:calc(100vh - 92px);min-height:calc(100svh - 92px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:48px}
-.hero .eyebrow{color:var(--sand)}
-.hero h1{font-size:clamp(3.1rem,11vw,6.6rem);font-weight:500}
-.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.3rem,3.6vw,1.85rem);line-height:1.3;margin-top:10px;max-width:28ch}
-.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:480px;margin-top:30px}
-.hb{display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 12px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;color:var(--on-dark);background:rgba(18,26,20,.4);border:1px solid rgba(242,238,228,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s}
-.hb:hover{background:rgba(18,26,20,.62)}
-.hb-main{grid-column:1 / -1;min-height:60px;font-size:1.1rem;background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.hb-main:hover{background:#fff}
-.hero-hours{margin-top:22px;font-size:.86rem;color:var(--on-dark-2);letter-spacing:.03em}
+/* demo strip */
+.demo{position:relative;z-index:31;background:#07170F;color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--gold-2);text-decoration:underline;text-underline-offset:2px}
 
-/* short intro */
-.sec{padding-block:clamp(56px,9vw,104px)}
-.head{max-width:640px;margin:0 auto 36px;text-align:center}
-.head p{margin-top:14px;color:var(--muted);font-size:1.04rem}
-.hl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.hl figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.hl img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.hl figcaption{padding:18px 20px 22px}
-.hl h3{font-size:1.55rem}
-.hl p{margin-top:6px;color:var(--muted);font-size:.96rem;line-height:1.5}
-.intro-cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:32px}
+/* header: see-through over the photo, solid once you scroll */
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:rgba(251,247,239,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-weight:600;font-size:1.05rem;letter-spacing:.02em}
+.brand-t{display:flex;flex-direction:column;line-height:1}
+.brand-t small{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-2);font-weight:700;margin-bottom:5px}
+.top.solid .brand-t small{color:var(--gold-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:inherit;font:700 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--gold);color:#1A140A}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+/* hero */
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--emerald-3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,20,14,.62) 0%,rgba(6,20,14,.18) 34%,rgba(6,20,14,.28) 62%,rgba(6,20,14,.86) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--gold-2)}
+.hero h1{font-size:clamp(3.4rem,12.5vw,8.4rem);font-weight:500;line-height:.95;text-shadow:0 2px 40px rgba(0,0,0,.25)}
+.hero h1 em{color:var(--gold-2)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.35rem,3.4vw,1.9rem);line-height:1.3;margin-top:16px;max-width:30ch;color:#FFF9EE}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-gold{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.84rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(247,242,231,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--gold-2)}
+
+/* numbers strip */
+.stats{background:var(--emerald);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.6rem,6vw,3.8rem);line-height:1;color:var(--gold-2)}
+.stat span{display:block;margin-top:8px;font-size:.84rem;color:var(--on-dark-2);line-height:1.35}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,140px)}
+.head{max-width:700px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--emerald-3);color:var(--on-dark)}
+
+/* intro: text and a photo collage */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:46ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--gold-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.5rem;font-weight:600}
+.feats p{margin-top:2px;color:var(--muted);font-size:.97rem}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(19,32,26,.55)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--ivory);box-shadow:0 30px 60px -30px rgba(19,32,26,.6)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:linear-gradient(135deg,#D9B977,#B88C42);color:#1A140A;display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{display:block;font-size:2.4rem;font-weight:600}
+.badge span{display:block;font-family:var(--f-sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-top:4px}
+
+/* signature dishes */
+.sig{background:var(--sand)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.dcard{display:flex;flex-direction:column;align-items:stretch;width:100%;height:100%;padding:0;border:0;background:var(--card);color:inherit;font:inherit;text-align:left;cursor:zoom-in;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -36px rgba(19,32,26,.6);transition:transform .35s ease,box-shadow .35s ease}
+.dcard:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(19,32,26,.7)}
+.dcard .dph{display:block;aspect-ratio:16/10;overflow:hidden}
+.dcard img{width:100%;height:100%;object-fit:cover}
+.dcard .dtx{display:block;flex:1;padding:18px 20px 22px}
+.dcard .dcat{display:block;color:var(--gold-ink)}
+.dcard .dname{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.55rem;line-height:1.1;margin-top:6px}
+.dcard .dorig{display:block;font-size:.85rem;color:var(--faint);margin-top:4px}
+.sig-cta{display:flex;justify-content:center;margin-top:44px}
+
+/* the place: full photo with text */
+.place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,20,14,.8) 0%,rgba(6,20,14,.38) 55%,rgba(6,20,14,.1) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--gold-2)}
+.place-card h2 em{color:var(--gold-2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
 
 /* guests */
-.guests{background:var(--green);color:var(--on-dark);text-align:center;padding-block:44px}
-.guests .caps{color:var(--sand)}
-.guests .names{font-family:var(--f-serif);font-size:clamp(1.35rem,3.4vw,1.95rem);line-height:1.35;margin-top:10px}
+.guests{text-align:center}
+.names{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 28px;max-width:1080px}
+.names li{font-family:var(--f-serif);font-size:clamp(1.3rem,3.2vw,2.15rem);line-height:1.15;color:var(--on-dark);padding-top:16px;border-top:1px solid rgba(198,161,91,.4)}
+.guests blockquote{margin:56px auto 0;max-width:760px}
+.guests blockquote p{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.4rem,3vw,1.95rem);line-height:1.35;color:var(--gold-2)}
+.guests blockquote footer{margin-top:16px;color:var(--on-dark-2);font-size:.92rem}
+.guests blockquote footer b{color:var(--on-dark)}
 
-/* gallery */
-.gallery{background:var(--paper-2)}
-.g-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden}
-.g-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:opacity .2s}
-.g-grid button:hover img{opacity:.88}
-.g-grid button:first-child{grid-column:span 2;grid-row:span 2;position:relative;min-height:200px}
-.g-grid button:first-child img{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+/* gallery: mosaic */
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* booking band */
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(6,20,14,.66)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--gold-2)}
+.bookband h2 em{color:var(--gold-2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:44ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
 
 /* contact */
-.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:center}
-.c-list{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 24px}
-.c-list dt{color:var(--faint)}
-.c-list dd{margin:4px 0 0;font-size:1.02rem}
-.c-list dd a{font-weight:600;text-decoration:none}
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--gold-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem}
+.c-list dd a{font-weight:700;text-decoration:none}
 .c-list .wide{grid-column:1 / -1}
-.c-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:26px}
-.c-btns .btn-main{grid-column:1 / -1}
-.c-note{margin-top:14px;color:var(--faint);font-size:.9rem}
-.c-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.9rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--sand)}
 
 /* footer */
-.foot{background:var(--ink);color:var(--on-dark-2);padding-block:44px 36px;font-size:.88rem}
+.foot{background:#07170F;color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
 .foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
-.foot .brand b{color:var(--on-dark)}
-.foot p{margin-top:14px}
-.social{display:flex;gap:18px;flex-wrap:wrap}
-.social a{color:var(--on-dark);text-decoration:none;font-weight:600}
-.social a:hover{text-decoration:underline}
-.foot .made{grid-column:1 / -1;border-top:1px solid rgba(242,238,228,.14);padding-top:18px;font-size:.78rem}
-.foot .made a{color:var(--on-dark)}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--gold-2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:700}
+.social a:hover{color:var(--gold-2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--gold-2)}
 
 /* full-screen windows: menu, story, booking */
-dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--paper);color:var(--ink)}
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ivory);color:var(--ink)}
 dialog.sheet[open]{display:flex;flex-direction:column}
-dialog.sheet::backdrop{background:var(--paper)}
-.sheet-top{display:flex;align-items:center;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid var(--line);background:var(--paper)}
-.sheet-top h2{font-size:1.75rem;margin-right:auto}
-.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line-2);background:var(--card);color:var(--ink);font-size:1.45rem;line-height:1;cursor:pointer}
-.x:hover{border-color:var(--ink)}
-.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
-.sheet-lead{color:var(--muted);font-size:1rem;padding-top:18px}
-
-/* menu */
-.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--paper);margin:0 calc(-1 * var(--gut)) 18px;padding:14px var(--gut)}
+dialog.sheet::backdrop{background:var(--ivory)}
+.sheet-top{display:flex;align-items:center;gap:12px;padding:12px var(--gut);padding-top:max(12px,env(safe-area-inset-top));background:var(--emerald);color:var(--on-dark)}
+.sheet-top h2{font-size:1.9rem;margin-right:auto}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(247,242,231,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--gold-2)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);padding-top:20px;font-family:var(--f-serif);font-style:italic;font-size:1.3rem;line-height:1.35}
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--ivory);margin:0 calc(-1 * var(--gut)) 20px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
 .m-tabs::-webkit-scrollbar{display:none}
-.m-tabs button{flex:none;font:500 .92rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
-.m-tabs button small{margin-left:6px;font-size:.78rem;color:var(--faint)}
+.m-tabs button{flex:none;font:600 .9rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.76rem;color:var(--faint)}
 .m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
-.m-tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:var(--on-dark)}
-.m-tabs button[aria-selected=true] small{color:var(--on-dark-2)}
-.m-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px}
-.m-card{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:zoom-in}
-.m-ph{display:block;width:100%;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden}
-.m-ph img{width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity .2s}
-.m-card:hover .m-ph img{opacity:.9}
-.m-name{font-family:var(--f-serif);font-weight:600;font-size:1.38rem;line-height:1.15;margin-top:12px}
-.m-orig{font-size:.86rem;color:var(--faint);margin-top:3px}
+.m-tabs button[aria-selected=true]{background:var(--emerald);border-color:var(--emerald);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--gold-2)}
+.m-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.m-grid .dcard .dname{font-size:1.4rem}
 .menu-note{margin-top:30px;color:var(--faint);font-size:.92rem}
-.wine-mini{margin-top:36px;border-radius:var(--r);background:var(--green);color:var(--on-dark);padding:26px 24px}
-.wine-mini h3{font-size:1.7rem}
+.wine-mini{margin-top:36px;border-radius:var(--r);background:var(--emerald);color:var(--on-dark);padding:28px 26px}
+.wine-mini h3{font-size:1.9rem}
+.wine-mini h3 em{color:var(--gold-2)}
 .wine-mini p{margin-top:8px;color:var(--on-dark-2)}
 .sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-
-/* story */
-.story{max-width:720px;margin-inline:auto;padding-top:24px}
+.story{max-width:740px;margin-inline:auto;padding-top:28px}
 .story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
-.story h3{font-size:clamp(1.9rem,5vw,2.5rem);margin-top:28px}
-.story p{margin-top:14px;color:var(--muted);font-size:1.04rem;line-height:1.7}
-.numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.num{padding:20px 12px 20px 0}
-.num+.num{border-left:1px solid var(--line);padding-left:16px}
-.num b{display:block;font-family:var(--f-serif);font-weight:500;font-size:2.4rem;line-height:1;color:var(--green)}
-.num span{display:block;margin-top:6px;color:var(--muted);font-size:.86rem;line-height:1.35}
-blockquote{margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
-blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.6rem!important;line-height:1.3!important;color:var(--ink)!important;margin:0!important}
-blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
-blockquote footer b{color:var(--ink);font-weight:600}
-
-/* booking */
-.book{max-width:640px;margin-inline:auto;padding-top:20px}
-.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;border-radius:999px;background:var(--green);color:var(--on-dark);text-decoration:none;font-weight:700;font-size:1.15rem;margin-top:18px}
+.story h3{font-size:clamp(2rem,5vw,2.7rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+.story blockquote{margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+.story blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.6rem;line-height:1.3;color:var(--ink);margin:0}
+.story blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
+.book{max-width:640px;margin-inline:auto;padding-top:8px}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
 .call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
-.call-2 a{font-weight:600}
+.call-2 a{font-weight:700}
 .or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 .res-form{display:grid;gap:14px;margin-top:14px}
 .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
 label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
-input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0}
 textarea{min-height:80px;resize:vertical}
 .hint{color:var(--faint);font-size:.84rem}
 
 /* photo viewer */
-dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#121A14;color:var(--on-dark)}
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#08130E;color:var(--on-dark)}
 dialog.viewer[open]{display:flex;flex-direction:column}
-dialog.viewer::backdrop{background:#121A14}
+dialog.viewer::backdrop{background:#08130E}
 .v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
 .v-count{font-size:.85rem;color:var(--on-dark-2);letter-spacing:.08em}
-.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(242,238,228,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(247,242,231,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
 .v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
-.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
-.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,238,228,.3);background:rgba(18,26,20,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(247,242,231,.3);background:rgba(8,19,14,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
 .v-prev{left:12px}.v-next{right:12px}
 .v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
-.v-cap .caps{color:var(--sand)}
-.v-cap h4{margin-top:8px;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1}
+.v-cap .caps{color:var(--gold-2)}
+.v-cap h4{margin-top:8px;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1}
 .v-cap .v-orig{color:var(--on-dark-2);font-size:.9rem;margin-top:4px}
 body.locked{overflow:hidden}
 
 /* mobile bar */
 .mbar{display:none}
 
-@media (max-width:900px){
+@media (max-width:980px){
   .nav{display:none}
-  .contact-grid{grid-template-columns:minmax(0,1fr)}
-  .m-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .sig-grid,.m-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
 }
 @media (max-width:640px){
-  :root{--gut:16px}
-  .top .wrap{gap:12px;min-height:58px}
-  .brand b{font-size:1.06rem;letter-spacing:.08em}
-  .brand small{font-size:.54rem}
+  :root{--gut:18px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:.92rem}
+  .brand-t b{font-size:1.04rem;letter-spacing:.08em}
+  .brand-t small{font-size:.52rem}
   .top .btn{display:none}
   .langs{margin-left:auto}
   .langs button{padding:8px}
-  .hero-in{min-height:calc(100svh - 150px);padding-block:36px 40px}
-  .hb{font-size:.92rem}
-  .hl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 6px;scrollbar-width:none}
-  .hl::-webkit-scrollbar{display:none}
-  .hl figure{flex:0 0 82%;scroll-snap-align:center}
-  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .c-photo{display:none}
-  .m-grid{grid-template-columns:minmax(0,1fr);gap:24px}
-  .numbers{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .num:nth-child(3){border-left:0;padding-left:0}
-  .num:nth-child(n+3){border-top:1px solid var(--line)}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.84rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .names{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+  .stat{padding:24px 10px}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--on-dark-line)}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:92px;height:92px;right:-6px;top:16px}
+  .badge b{font-size:1.9rem}
+  .sig-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .sig-grid::-webkit-scrollbar{display:none}
+  .sig-grid > *{flex:0 0 84%;scroll-snap-align:center}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(6,20,14,.05) 0%,rgba(6,20,14,.55) 45%,rgba(6,20,14,.9) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .m-grid{grid-template-columns:minmax(0,1fr)}
+  .map{min-height:260px}
   .v-stage{padding:0}
   .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
   .foot .wrap{grid-template-columns:minmax(0,1fr)}
-  body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
-  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
-  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:56px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.92rem}
-  .mbar a+a{border-left:1px solid rgba(242,238,228,.14)}
-  .mbar a:first-child{background:var(--green-2)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:#07170F;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:700;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,#D9B977,#B88C42);color:#1A140A}
   .mbar .ico{width:17px;height:17px}
+}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.84rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.92rem;letter-spacing:.05em}
+  .langs button{padding:7px 6px}
 }
 </style>
 </head>
@@ -259,13 +348,16 @@ body.locked{overflow:hidden}
   <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
   <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-4.5 7.5-6 11-4.5 2 .8 3.6 2.4 4.5 4.5-.9 2.1-2.5 3.7-4.5 4.5C10.5 18 6 16.5 3 12z"/><path d="M18.5 12 22 9v6z"/><circle cx="8" cy="11" r=".8" fill="currentColor"/></g></symbol>
+  <symbol id="i-wheel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2"/><path d="M12 3.5v6.5M12 14v6.5M3.5 12H10M14 12h6.5M6 6l4.6 4.6M13.4 13.4 18 18M18 6l-4.6 4.6M10.6 13.4 6 18"/></g></symbol>
+  <symbol id="i-wine" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.5V20M8.5 21h7M7.4 7.5h9.2"/></g></symbol>
 </svg>
 
 <div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt konobe.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
 
-<header class="top">
+<header class="top" id="hdr">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Konoba Ćatovića Mlini"><small>Konoba</small><b>Ćatovića Mlini</b></a>
+    <a class="brand" href="#top" aria-label="Konoba Ćatovića Mlini"><span class="seal">ĆM</span><span class="brand-t"><small>Konoba</small><b>Ćatovića Mlini</b></span></a>
     <nav class="nav" aria-label="Meni">
       <a href="#jelovnik" data-i18n="b_menu">Jelovnik</a>
       <a href="#prica" data-i18n="b_story">Naša priča</a>
@@ -277,92 +369,153 @@ body.locked{overflow:hidden}
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
       <button type="button" data-lang="ru" aria-pressed="false">RU</button>
     </div>
-    <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+    <a class="btn btn-gold" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
   </div>
 </header>
 
 <main id="top">
   <!-- FIRST SCREEN -->
   <section class="hero">
-    <img class="hero-img ph" data-p="wp-content/themes/catovic/assets/img/cm-terasa(1).jpg" data-w="1920" alt="" fetchpriority="high">
-    <div class="hero-in wrap center">
-      <p class="eyebrow caps" data-i18n="h_eye">Konoba · Morinj, Boka Kotorska</p>
-      <h1>Ćatovića Mlini</h1>
+    <div class="slides" id="slides">
+      <img class="on" data-p="wp-content/themes/catovic/assets/img/cm-terasa(1).jpg" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="wp-content/uploads/2024/06/DJI_0096.jpg" alt="">
+      <img data-lazy="wp-content/uploads/2024/06/DSC04171.jpg" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="h_eye">Konoba · Morinj, Boka Kotorska</p>
+      <h1>Ćatovića <em>Mlini</em></h1>
       <p class="hero-lead" data-i18n="h_lead">Riba i bokeška kuhinja u starom mlinu, tik uz more.</p>
       <div class="hero-btns">
-        <a class="hb hb-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
-        <a class="hb" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
-        <a class="hb" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
-        <a class="hb" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
-        <a class="hb" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+        <a class="btn btn-gold" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="btn btn-glass" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
       </div>
-      <p class="hero-hours" data-i18n="h_hours">Radno vrijeme 12:00 – 21:00</p>
+      <p class="hero-meta"><span data-i18n="h_hours">Radno vrijeme 12:00 – 21:00</span><span>+382 68 333 444</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" aria-label="Fotografije"></div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="stats" aria-label="Brojke">
+    <div class="wrap">
+      <div class="stat"><b>200+</b><span data-i18n="n1">godina su ovdje radili mlinovi</span></div>
+      <div class="stat"><b>30</b><span data-i18n="n2">godina konobe</span></div>
+      <div class="stat"><b>611</b><span data-i18n="n3">vrsta vina u podrumu</span></div>
+      <div class="stat"><b>42</b><span data-i18n="n4">vrste maslinovog ulja</span></div>
     </div>
   </section>
 
   <!-- IN SHORT -->
   <section class="sec" id="ukratko">
-    <div class="wrap">
-      <div class="head center">
+    <div class="wrap intro">
+      <div class="intro-text rv">
         <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
-        <h2 data-i18n="i_t">Bokeška kuhinja na obali mora</h2>
-        <p data-i18n="i_p">Već trideset godina ovdje se služi ono što Boka najbolje zna: svježa riba, domaći pršut i sir, uz dobro vino i mir.</p>
+        <h2 data-i18n="i_t">Bokeška kuhinja <em>na obali mora</em></h2>
+        <p class="lead" data-i18n="i_p">Već trideset godina ovdje se služi ono što Boka najbolje zna: svježa riba, domaći pršut i sir, uz dobro vino i mir.</p>
+        <ul class="feats">
+          <li><span class="fi"><svg><use href="#i-fish"/></svg></span><div><h3 data-i18n="c1_t">Riba iz mora</h3><p data-i18n="c1_p">A ne iz zamrzivača. Brancin, hobotnica, gambori i riblja supa.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-wheel"/></svg></span><div><h3 data-i18n="c2_t">Mlin, potok i livada</h3><p data-i18n="c2_p">Stolovi u hladu pored potoka, a livadom šetaju patke i guske.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-wine"/></svg></span><div><h3 data-i18n="c3_t">611 vrsta vina</h3><p data-i18n="c3_p">Podrum biran uz savjete somelijera, i 42 vrste maslinovog ulja.</p></div></li>
+        </ul>
+        <div class="intro-cta">
+          <a class="btn btn-em" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+          <a class="btn btn-line" href="#prica" data-i18n="b_story">Naša priča</a>
+        </div>
       </div>
-      <div class="hl">
-        <figure><img class="ph" data-p="wp-content/uploads/2024/06/GAMBORI-NA-ZARU.jpg" data-w="900" data-h="675" alt="" loading="lazy">
-          <figcaption><h3 data-i18n="c1_t">Riba iz mora</h3><p data-i18n="c1_p">A ne iz zamrzivača. Brancin, hobotnica, gambori i riblja supa.</p></figcaption></figure>
-        <figure><img class="ph" data-p="wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" data-w="900" data-h="675" alt="" loading="lazy">
-          <figcaption><h3 data-i18n="c2_t">Mlin, potok i livada</h3><p data-i18n="c2_p">Stolovi u hladu pored potoka, a livadom šetaju patke i guske.</p></figcaption></figure>
-        <figure><img class="ph" data-p="wp-content/uploads/2024/06/LINK-NA-ICE-I-PICE-1.jpg" data-w="900" data-h="675" alt="" loading="lazy">
-          <figcaption><h3 data-i18n="c3_t">611 vrsta vina</h3><p data-i18n="c3_p">Podrum biran uz savjete somelijera, i 42 vrste maslinovog ulja.</p></figcaption></figure>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="wp-content/uploads/2024/06/O-HRANI-23-DSC04177.jpg" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><b>30</b><span data-i18n="badge">godina</span></div></div>
       </div>
-      <div class="intro-cta">
-        <a class="btn btn-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
-        <a class="btn btn-line" href="#prica"><span data-i18n="b_story">Naša priča</span></a>
+    </div>
+  </section>
+
+  <!-- SIGNATURE DISHES -->
+  <section class="sec sig" id="specijaliteti">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="sig_eye">Iz našeg jelovnika</p>
+        <h2 data-i18n="sig_t">Ukusi <em>Boke</em></h2>
+      </div>
+      <div class="sig-grid" id="sig-grid"></div>
+      <div class="sig-cta"><a class="btn btn-em" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli jelovnik</span></a></div>
+    </div>
+  </section>
+
+  <!-- THE PLACE -->
+  <section class="place">
+    <img class="ph" data-p="wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="pl_eye">Mjesto</p>
+        <h2 data-i18n="pl_t">Svijet <em>za sebe</em></h2>
+        <p data-i18n="pl_p">Stari mlin, potok koji izvire ispod planine i zelena livada tik uz more. Do nas se stiže autom ili barkom.</p>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
       </div>
     </div>
   </section>
 
   <!-- GUESTS -->
-  <section class="guests">
+  <section class="sec dark guests">
     <div class="wrap">
-      <p class="caps" data-i18n="gs_t">Kod nas su bili</p>
-      <p class="names" data-i18n="gs_names">Novak Đoković · Pep Guardiola · Gerard Butler · Ralph Fiennes · Goran Bregović · Zdravko Čolić</p>
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gs_t">Kod nas su bili</p>
+      </div>
+      <ul class="names rv" id="names"></ul>
+      <blockquote class="rv">
+        <p data-i18n="q">„Od tada pa do danas, kako tu uđem, primam tajnu frekvenciju i ostajem obogaćen i zahvalan za tu ljepotu.“</p>
+        <footer><b>Jagoš Marković</b>, <span data-i18n="q_who">reditelj</span></footer>
+      </blockquote>
     </div>
   </section>
 
   <!-- GALLERY -->
-  <section class="sec gallery" id="galerija">
+  <section class="sec" id="galerija">
     <div class="wrap">
-      <div class="head center">
+      <div class="head center rv">
         <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
-        <h2 data-i18n="gal_t">Danju i noću</h2>
+        <h2 data-i18n="gal_t">Danju <em>i noću</em></h2>
       </div>
       <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAND -->
+  <section class="bookband">
+    <img class="ph" data-p="wp-content/uploads/2024/06/DSC00741E-1.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="bk_eye">Rezervacije</p>
+      <h2 data-i18n="bk_t">Sačuvajte <em>sto za sebe</em></h2>
+      <p data-i18n="bk_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom, pa ćemo ga potvrditi.</p>
+      <div class="bb-btns">
+        <a class="btn btn-gold" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg>+382 68 333 444</a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_form">Upit e-mailom</span></a>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="sec" id="kontakt">
     <div class="wrap contact-grid">
-      <div>
+      <div class="rv">
         <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
-        <h2 data-i18n="k_t">Dođite kod nas</h2>
-        <dl class="c-list" style="margin-top:26px">
+        <h2 data-i18n="k_t">Dođite <em>kod nas</em></h2>
+        <dl class="c-list">
           <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</dd></div>
           <div><dt class="caps" data-i18n="c_mob">Mobilni</dt><dd><a href="tel:+38268333444">+382 68 333 444</a></dd></div>
           <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38232373030">+382 32 373 030</a></dd></div>
-          <div><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd>12:00 – 21:00</dd></div>
-          <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:catovicamlini@t-com.me">catovicamlini@t-com.me</a></dd></div>
+          <div class="wide"><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd>12:00 – 21:00</dd></div>
+          <div class="wide"><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:catovicamlini@t-com.me">catovicamlini@t-com.me</a></dd></div>
         </dl>
         <div class="c-btns">
-          <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
-          <a class="btn btn-line" href="tel:+38268333444" data-i18n="b_call">Pozovite</a>
-          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="b_map">Mapa</a>
+          <a class="btn btn-em" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
         </div>
-        <p class="c-note" data-i18n="c_how">Do nas se stiže autom ili barkom. Plaćanje karticama: Visa, Mastercard, American Express, Maestro.</p>
+        <p class="c-note" data-i18n="c_how">Plaćanje karticama: Visa, Mastercard, American Express, Maestro.</p>
       </div>
-      <img class="c-photo ph" data-p="wp-content/uploads/2024/06/DSC04272X.jpg" data-w="1000" alt="" loading="lazy">
+      <iframe class="map" data-src="https://maps.google.com/maps?q=42.486272,18.649406&amp;z=14&amp;output=embed" title="Mapa: Konoba Ćatovića Mlini, Morinj" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 </main>
@@ -370,7 +523,7 @@ body.locked{overflow:hidden}
 <footer class="foot">
   <div class="wrap">
     <div>
-      <a class="brand" href="#top"><small>Konoba</small><b>Ćatovića Mlini</b></a>
+      <a class="brand" href="#top"><span class="seal">ĆM</span><span class="brand-t"><small>Konoba</small><b>Ćatovića Mlini</b></span></a>
       <p data-i18n="addr">Polje b.b., 85338 Morinj, Boka Kotorska, Crna Gora</p>
       <p style="margin-top:6px">Larry and Brother's Company d.o.o. · PIB 02057760</p>
     </div>
@@ -391,7 +544,7 @@ body.locked{overflow:hidden}
 
 <!-- MENU WINDOW -->
 <dialog class="sheet" id="s-jelovnik">
-  <div class="sheet-top"><h2 data-i18n="m_t">Jelovnik</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-top"><h2 data-i18n="b_menu">Jelovnik</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
   <div class="sheet-body">
     <div class="wrap">
       <p class="sheet-lead" data-i18n="m_p">Zažmurite, pokažite prstom bilo koje jelo i nećete pogriješiti.</p>
@@ -399,11 +552,11 @@ body.locked{overflow:hidden}
       <ul class="m-grid" id="m-grid"></ul>
       <p class="menu-note" data-i18n="menu_note">Za cijene i preporuku vina pitajte konobara.</p>
       <div class="wine-mini">
-        <h3 data-i18n="w_t">Dobro jesti i dobro zaliti</h3>
+        <h3 data-i18n="w_t">Dobro jesti i <em>dobro zaliti</em></h3>
         <p data-i18n="w_p">U podrumu čuvamo 611 vrsta vina iz cijelog svijeta, biranih uz preporuke vrhunskih somelijera, a uz njih 42 vrste maslinovog ulja i 14 vrsta sirćeta.</p>
       </div>
       <div class="sheet-cta">
-        <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-gold" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
         <a class="btn btn-line" href="tel:+38268333444" data-i18n="b_call">Pozovite</a>
       </div>
     </div>
@@ -416,26 +569,22 @@ body.locked{overflow:hidden}
   <div class="sheet-body">
     <div class="wrap">
       <article class="story">
-        <img class="ph" data-p="wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" data-w="1400" alt="" loading="lazy">
+        <img class="ph" data-p="wp-content/uploads/2024/06/O-30Y-8-DSC01009-3.jpg" data-w="1400" alt="" loading="lazy">
         <h3 data-i18n="a_t">Boka na usta ulazi</h3>
         <p data-i18n="a_p1">U Morinju, na zelenoj livadi tik uz more, gdje iz podnožja planine izviru potoci, više od dvjesta godina radili su mlinovi porodice Ćatović. Od žita se pravilo brašno, od maslina ulje, a oko mlina se okupljalo cijelo mjesto.</p>
         <p data-i18n="a_p2">Sredinom devedesetih Lazar Ćatović je u porodičnom mlinu otvorio konobu. Spojio je bokešku tradiciju sa iskustvom najboljih mediteranskih kuhinja, i tako je već trideset godina.</p>
         <p data-i18n="a_p3">Ovdje se ne žuri. Sjedite u hladu, slušate potok, livadom šetaju patke i guske, a iz kuhinje stižu riba, pršut i vino. Vrijeme kao da stane.</p>
-        <div class="numbers">
-          <div class="num"><b>200+</b><span data-i18n="n1">godina su ovdje radili mlinovi</span></div>
-          <div class="num"><b>30</b><span data-i18n="n2">godina konobe</span></div>
-          <div class="num"><b>611</b><span data-i18n="n3">vrsta vina u podrumu</span></div>
-          <div class="num"><b>42</b><span data-i18n="n4">vrste maslinovog ulja</span></div>
-        </div>
         <h3 data-i18n="g_t">Kod nas ste vi zvijezda</h3>
         <p data-i18n="g_p">Za trideset godina kod nas su bili Novak Đoković, Pep Guardiola, Gerard Butler, Ralph Fiennes, Goran Bregović, Zdravko Čolić i mnogi drugi. Svako od njih dobio je isto što i svaki naš gost: dobru hranu, dobro vino i mir.</p>
+        <h3 data-i18n="w_t">Dobro jesti i <em>dobro zaliti</em></h3>
+        <p data-i18n="w_p">U podrumu čuvamo 611 vrsta vina iz cijelog svijeta, biranih uz preporuke vrhunskih somelijera, a uz njih 42 vrste maslinovog ulja i 14 vrsta sirćeta.</p>
         <blockquote>
           <p data-i18n="q">„Od tada pa do danas, kako tu uđem, primam tajnu frekvenciju i ostajem obogaćen i zahvalan za tu ljepotu.“</p>
           <footer><b>Jagoš Marković</b>, <span data-i18n="q_who">reditelj</span></footer>
         </blockquote>
         <div class="sheet-cta">
-          <a class="btn btn-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
-          <a class="btn btn-line" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-em" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+          <a class="btn btn-gold" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
         </div>
       </article>
     </div>
@@ -449,7 +598,7 @@ body.locked{overflow:hidden}
     <div class="wrap">
       <div class="book">
         <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
-        <a class="call-big" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg>+382 68 333 444</a>
+        <a class="call-big btn-gold" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg>+382 68 333 444</a>
         <p class="call-2"><span data-i18n="c_tel">Telefon</span>: <a href="tel:+38232373030">+382 32 373 030</a></p>
         <p class="or" data-i18n="r_or">ili</p>
         <form class="res-form" id="res-form" novalidate>
@@ -463,7 +612,7 @@ body.locked{overflow:hidden}
             <label><span data-i18n="f_phone">Vaš telefon</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+382 …"></label>
           </div>
           <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="f-note" name="note"></textarea></label>
-          <button class="btn btn-main" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
+          <button class="btn btn-em" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
           <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.</p>
           <p class="hint" id="f-err" hidden style="color:#9C3A28" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
         </form>
@@ -484,7 +633,7 @@ body.locked{overflow:hidden}
    when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
 const SITE = "www.catovica-mlini.com/", UP = "wp-content/uploads/2024/06/";
 const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-const photo = (path, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(SITE + path) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=80";
+const photo = (path, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(SITE + path) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=82";
 const direct = path => "https://" + SITE + path;
 document.addEventListener("error", e => {
   const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
@@ -529,35 +678,43 @@ const MENU = [
     { img:"STRUDLA.jpg", n:{me:"Štrudla", en:"Strudel", ru:"Штрудель"} },
   ]},
 ];
-
+/* six dishes shown on the page itself */
+const SIGNATURE = ["GRASPANA-HOBOTNIC.jpg","BRANCIN-TARTUFI.jpg","GAMBORI-NA-ZARU.jpg","KARPACO.jpg","PRSUT-I-SIR.jpg","KOLAC.jpg"];
 const GALLERY = ["DJI_0096.jpg","DSC04171.jpg","10-DSC02239-.jpg","12-7_MG_8487.jpg","DSC00741E-1.jpg","7-44-CRW_7339.jpg","1-DSC01277-2-copy.jpg","DSC04231.jpg","1-6.jpg"];
+/* names as listed on their VIP page */
+const GUESTS = { lat:["Novak Đoković","Pep Guardiola","Gerard Butler","Ralph Fiennes","Goran Bregović","Zdravko Čolić","Gibonni","Rade Šerbedžija"],
+                 ru:["Новак Джокович","Пеп Гвардиола","Джерард Батлер","Рэйф Файнс","Горан Брегович","Здравко Чолич","Гибони","Раде Шербеджия"] };
 
 const T = {
   en: {
     demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
     book:"Book a table", b_book:"Book a table", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"Our story", b_map:"Map",
     h_eye:"Konoba · Morinj, Bay of Kotor", h_lead:"Fish and Boka cooking in an old mill, right by the sea.", h_hours:"Open 12:00 – 21:00",
-    i_eye:"In short", i_t:"Boka cooking on the shore of the bay",
+    n1:"years the mills worked here", n2:"years of the konoba", n3:"kinds of wine in the cellar", n4:"kinds of olive oil",
+    i_eye:"In short", i_t:"Boka cooking <em>by the sea</em>",
     i_p:"For thirty years we have served what Boka does best: fresh fish, homemade prosciutto and cheese, good wine, and peace and quiet.",
     c1_t:"Fish from the sea", c1_p:"Not from the freezer. Sea bass, octopus, prawns and fish soup.",
     c2_t:"A mill, a stream and a meadow", c2_p:"Tables in the shade by the stream, with ducks and geese on the meadow.",
     c3_t:"611 kinds of wine", c3_p:"A cellar chosen with sommeliers, plus 42 kinds of olive oil.",
-    gs_t:"Our guests have included", gs_names:"Novak Đoković · Pep Guardiola · Gerard Butler · Ralph Fiennes · Goran Bregović · Zdravko Čolić",
-    gal_eye:"Gallery", gal_t:"By day and by night",
-    k_eye:"Contact", k_t:"Come and see us",
+    badge:"years",
+    sig_eye:"From our menu", sig_t:"Tastes <em>of Boka</em>", sig_all:"Full menu",
+    pl_eye:"The place", pl_t:"A world <em>of its own</em>", pl_p:"An old mill, a stream that springs from under the mountain and a green meadow right by the sea. You can reach us by car or by boat.",
+    gs_t:"Our guests have included",
+    q:"“Ever since, whenever I step inside, I tune into a secret frequency and am left enriched and grateful for that beauty.”", q_who:"theatre director",
+    gal_eye:"Gallery", gal_t:"By day <em>and by night</em>",
+    bk_eye:"Reservations", bk_t:"Keep a table <em>for yourself</em>", bk_p:"Calling is the fastest way. You can also email us a request and we will confirm it.", bk_form:"Email request",
+    k_eye:"Contact", k_t:"Come <em>and see us</em>",
     c_addr:"Address", addr:"Polje b.b., 85338 Morinj, Bay of Kotor, Montenegro", l_hours:"Opening hours", c_mob:"Mobile", c_tel:"Phone", c_mail:"Email",
-    c_how:"You can reach us by car or by boat. We accept Visa, Mastercard, American Express and Maestro.",
-    m_t:"Menu", m_p:"Close your eyes, point at any dish, and you won't go wrong.",
+    c_how:"We accept Visa, Mastercard, American Express and Maestro.",
+    m_p:"Close your eyes, point at any dish, and you won't go wrong.",
     menu_note:"Ask your waiter about prices and wine pairings.",
-    w_t:"Eat well, drink well", w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
+    w_t:"Eat well, <em>drink well</em>", w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
     a_t:"A taste of Boka",
     a_p1:"In Morinj, on a green meadow right by the sea, where streams spring from the foot of the mountain, the Ćatović family mills worked for more than two hundred years. Grain was ground into flour, olives were pressed into oil, and the whole village gathered around the mill.",
     a_p2:"In the mid-1990s Lazar Ćatović opened a konoba in the family mill. He brought together the traditions of Boka and the experience of the best Mediterranean kitchens, and it has stayed that way for thirty years.",
     a_p3:"Nobody hurries here. You sit in the shade and listen to the stream, ducks and geese stroll across the meadow, and fish, prosciutto and wine arrive from the kitchen. Time seems to stand still.",
-    n1:"years the mills worked here", n2:"years of the konoba", n3:"kinds of wine in the cellar", n4:"kinds of olive oil",
     g_t:"Here, you are the star",
     g_p:"Over thirty years our guests have included Novak Đoković, Pep Guardiola, Gerard Butler, Ralph Fiennes, Goran Bregović, Zdravko Čolić and many more. Each of them got what every guest gets: good food, good wine, and peace and quiet.",
-    q:"“Ever since, whenever I step inside, I tune into a secret frequency and am left enriched and grateful for that beauty.”", q_who:"theatre director",
     r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
     f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_note:"Note (optional)",
     f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
@@ -566,29 +723,33 @@ const T = {
   },
   ru: {
     demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
-    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Как добраться", b_story:"Наша история", b_map:"Карта",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Маршрут", b_story:"Наша история", b_map:"Карта",
     h_eye:"Коноба · Моринь, Которский залив", h_lead:"Рыба и бокельская кухня в старой мельнице у самого моря.", h_hours:"Работаем с 12:00 до 21:00",
-    i_eye:"Коротко о нас", i_t:"Бокельская кухня на берегу моря",
+    n1:"лет здесь работали мельницы", n2:"лет конобе", n3:"вин в погребе", n4:"сорта оливкового масла",
+    i_eye:"Коротко о нас", i_t:"Бокельская кухня <em>у самого моря</em>",
     i_p:"Уже тридцать лет мы подаём то, что Бока умеет лучше всего: свежую рыбу, домашний пршут и сыр, хорошее вино и тишину.",
     c1_t:"Рыба из моря", c1_p:"А не из морозилки. Сибас, осьминог, креветки и рыбный суп.",
     c2_t:"Мельница, ручей и луг", c2_p:"Столы в тени у ручья, а по лугу гуляют утки и гуси.",
     c3_t:"611 вин в погребе", c3_p:"Погреб, подобранный вместе с сомелье, и 42 сорта оливкового масла.",
-    gs_t:"У нас бывали", gs_names:"Новак Джокович · Пеп Гвардиола · Джерард Батлер · Рэйф Файнс · Горан Брегович · Здравко Чолич",
-    gal_eye:"Галерея", gal_t:"Днём и ночью",
-    k_eye:"Контакты", k_t:"Приезжайте к нам",
+    badge:"лет",
+    sig_eye:"Из нашего меню", sig_t:"Вкусы <em>Боки</em>", sig_all:"Всё меню",
+    pl_eye:"Место", pl_t:"Отдельный <em>мир</em>", pl_p:"Старая мельница, ручей, который бьёт из-под горы, и зелёный луг у самого моря. До нас можно добраться на машине или на лодке.",
+    gs_t:"У нас бывали",
+    q:"«С тех пор каждый раз, когда я сюда вхожу, я ловлю тайную частоту и остаюсь обогащённым и благодарным за эту красоту».", q_who:"театральный режиссёр",
+    gal_eye:"Галерея", gal_t:"Днём <em>и ночью</em>",
+    bk_eye:"Бронирование", bk_t:"Оставьте столик <em>за собой</em>", bk_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте, мы его подтвердим.", bk_form:"Запрос по e-mail",
+    k_eye:"Контакты", k_t:"Приезжайте <em>к нам</em>",
     c_addr:"Адрес", addr:"Polje b.b., 85338 Моринь, Которский залив, Черногория", l_hours:"Часы работы", c_mob:"Мобильный", c_tel:"Телефон", c_mail:"E-mail",
-    c_how:"До нас можно добраться на машине или на лодке. Принимаем Visa, Mastercard, American Express и Maestro.",
-    m_t:"Меню", m_p:"Закройте глаза, укажите на любое блюдо, и вы не ошибётесь.",
+    c_how:"Принимаем Visa, Mastercard, American Express и Maestro.",
+    m_p:"Закройте глаза, укажите на любое блюдо, и вы не ошибётесь.",
     menu_note:"Цены и подходящее вино подскажет официант.",
-    w_t:"Хорошо поесть и хорошо запить", w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
+    w_t:"Хорошо поесть <em>и хорошо запить</em>", w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
     a_t:"Вкус Боки",
     a_p1:"В посёлке Моринь, на зелёном лугу у самого моря, где у подножия горы бьют ручьи, больше двухсот лет работали мельницы семьи Чатович. Из зерна мололи муку, из оливок давили масло, и вокруг мельницы собиралась вся деревня.",
     a_p2:"В середине девяностых Лазар Чатович открыл в семейной мельнице конобу. Он соединил традиции Боки с опытом лучших средиземноморских кухонь, и так уже тридцать лет.",
     a_p3:"Здесь никто не спешит. Вы сидите в тени и слушаете ручей, по лугу гуляют утки и гуси, а с кухни несут рыбу, пршут и вино. Время будто останавливается.",
-    n1:"лет здесь работали мельницы", n2:"лет конобе", n3:"вин в погребе", n4:"сорта оливкового масла",
     g_t:"Каждый гость у нас звезда",
     g_p:"За тридцать лет у нас бывали Новак Джокович, Пеп Гвардиола, Джерард Батлер, Рэйф Файнс, Горан Брегович, Здравко Чолич и многие другие. Каждый получил то же, что и любой наш гость: хорошую еду, хорошее вино и покой.",
-    q:"«С тех пор каждый раз, когда я сюда вхожу, я ловлю тайную частоту и остаюсь обогащённым и благодарным за эту красоту».", q_who:"театральный режиссёр",
     r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
     f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
     f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
@@ -607,18 +768,20 @@ const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
 let lang = "me";
 const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
 
-/* menu: one tab per section, dish photos 16:9 cropped around the plate */
-let tab = MENU[0].id;
 const DISHES = MENU.flatMap(g => g.items.map(d => ({ ...d, g })));
 const img = (path, w, h) => `<img class="ph" data-p="${path}" src="${photo(path, w, h)}" alt="" loading="lazy">`;
+const dishCard = d => `<button type="button" class="dcard" data-dish="${DISHES.indexOf(d)}">
+    <span class="dph ph">${img(UP + d.img, 900, 563)}</span>
+    <span class="dtx"><span class="dcat caps">${d.g.t[lang]}</span><span class="dname">${d.n[lang]}</span>${lang !== "me" ? `<span class="dorig">${d.n.me}</span>` : ""}</span>
+  </button>`;
+
+/* menu window (one tab per section), signature dishes and guest names */
+let tab = MENU[0].id;
 function renderMenu(){
   $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("");
-  $("#m-grid").innerHTML = DISHES.filter(d => d.g.id === tab).map(d => `
-    <li><button type="button" class="m-card" data-dish="${DISHES.indexOf(d)}">
-      <span class="m-ph ph">${img(UP + d.img, 960, 540)}</span>
-      <span class="m-name">${d.n[lang]}</span>
-      ${lang !== "me" ? `<span class="m-orig">${d.n.me}</span>` : ""}
-    </button></li>`).join("");
+  $("#m-grid").innerHTML = DISHES.filter(d => d.g.id === tab).map(d => `<li>${dishCard(d)}</li>`).join("");
+  $("#sig-grid").innerHTML = SIGNATURE.map(f => dishCard(DISHES.find(d => d.img === f))).join("");
+  $("#names").innerHTML = (lang === "ru" ? GUESTS.ru : GUESTS.lat).map(n => `<li>${n}</li>`).join("");
 }
 $("#m-tabs").addEventListener("click", e => {
   const b = e.target.closest("button[data-tab]"); if (!b) return;
@@ -626,7 +789,7 @@ $("#m-tabs").addEventListener("click", e => {
   $("#s-jelovnik .sheet-body").scrollTop = 0;
 });
 function renderGallery(){
-  $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}">${img(UP + f, i ? 700 : 1400)}</button>`).join("");
+  $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}">${img(UP + f, i === 0 ? 1400 : 800)}</button>`).join("");
 }
 function applyLang(l){
   lang = ["me","en","ru"].includes(l) ? l : "me";
@@ -644,6 +807,35 @@ function applyLang(l){
   try { localStorage.setItem("cm-lang", lang); } catch(e) {}
 }
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade between three photos; the other two load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+$("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+$("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once as they come into view; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
 
 const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
 
@@ -696,7 +888,7 @@ function openViewer(list, i){
   lockScroll();
 }
 const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
-$("#m-grid").addEventListener("click", e => {
+document.addEventListener("click", e => {
   const b = e.target.closest("[data-dish]"); if (!b) return;
   openViewer(DISHES.map(d => ({ p: UP + d.img, d })), +b.dataset.dish);
 });
