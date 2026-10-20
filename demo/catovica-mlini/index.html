@@ -109,19 +109,21 @@ p{margin:0}
 
 /* menu */
 .menu{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:36px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chips a{flex:none;text-decoration:none;border:1px solid var(--line-2);border-radius:999px;padding:9px 16px;font-size:.88rem;font-weight:500;color:var(--muted);background:var(--paper)}
-.chips a:hover{color:var(--ink);border-color:var(--ink)}
-.m-group{scroll-margin-top:90px}
-.m-group+.m-group{margin-top:48px}
-.m-group h3{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:6px}
-.m-group h3 small{font-family:var(--f-sans);font-size:.78rem;color:var(--faint);font-weight:500}
-.dishes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
-.dish{display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-.dish img{width:76px;height:76px;border-radius:12px;object-fit:cover}
-.dish h4{margin:0;font-family:var(--f-serif);font-weight:600;font-size:1.28rem;line-height:1.15}
-.dish p{color:var(--gold);margin-top:5px}
+.m-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gut)) 28px;padding:0 var(--gut) 4px}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:500 .92rem/1 var(--f-sans);color:var(--muted);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.78rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--on-dark-2)}
+.m-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
+.m-card{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:zoom-in}
+.m-ph{display:block;width:100%;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden}
+.m-ph img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.m-card:hover .m-ph img{opacity:.9}
+.m-name{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;line-height:1.15;margin-top:14px}
+.m-orig{font-size:.86rem;color:var(--faint);margin-top:4px}
+.m-tag{color:var(--gold);margin-top:8px}
 .menu-note{margin-top:28px;color:var(--faint);font-size:.92rem}
 .wine{margin-top:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:var(--r);overflow:hidden;background:var(--green);color:var(--on-dark)}
 .wine img{width:100%;height:100%;min-height:280px;object-fit:cover}
@@ -146,41 +148,22 @@ blockquote footer b{color:var(--ink);font-weight:600}
 .g-grid button:hover img{opacity:.88}
 .g-grid button:first-child{grid-column:span 2;grid-row:span 2;position:relative;min-height:200px}
 .g-grid button:first-child img{position:absolute;inset:0;aspect-ratio:auto;height:100%}
-dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
-dialog.lb::backdrop{background:rgba(15,22,17,.88)}
-dialog.lb img{max-width:100%;max-height:86vh;border-radius:10px;margin:auto}
-dialog.lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--paper);color:var(--ink);font-size:1.4rem;cursor:pointer}
-
-/* reservations */
-.res-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:start}
-.res-form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,36px);display:grid;gap:16px;margin-top:28px}
-.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
-.row3{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,.8fr);gap:14px}
-label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
-input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
-textarea{min-height:88px;resize:vertical}
-.res-form .btn{justify-self:start}
-.hint{color:var(--faint);font-size:.84rem}
-.contact-card{background:var(--green);color:var(--on-dark);border-radius:var(--r);padding:clamp(24px,4vw,36px)}
-.contact-card dl{margin:0;display:grid;gap:18px}
-.contact-card dt{color:var(--on-dark-2)}
-.contact-card dd{margin:4px 0 0;font-size:1.05rem}
-.contact-card dd a{text-decoration:none;font-weight:600}
-.contact-card dd a:hover{text-decoration:underline}
-.contact-card .btn{margin-top:26px;width:100%}
-.contact-card .note{margin-top:14px;color:var(--on-dark-2);font-size:.9rem}
-.contact-photo{margin-top:16px;border-radius:var(--r);width:100%;aspect-ratio:16/10;object-fit:cover}
-
-/* footer */
-.foot{background:var(--ink);color:var(--on-dark-2);padding-block:48px 40px;font-size:.9rem}
-.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
-.foot .brand b{color:var(--on-dark)}
-.foot p{margin-top:16px}
-.social{display:flex;gap:18px;flex-wrap:wrap}
-.social a{color:var(--on-dark);text-decoration:none;font-weight:600}
-.social a:hover{text-decoration:underline}
-.foot .made{grid-column:1 / -1;border-top:1px solid rgba(242,238,228,.14);padding-top:20px;font-size:.8rem}
-.foot .made a{color:var(--on-dark)}
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#121A14;color:var(--on-dark)}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#121A14}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:var(--on-dark-2);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(242,238,228,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,238,228,.3);background:rgba(18,26,20,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap .v-cat{color:#E9D7B4}
+.v-cap h4{margin:8px 0 0;font-family:var(--f-serif);font-weight:500;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1}
+.v-cap .v-orig{color:var(--on-dark-2);font-size:.9rem;margin-top:4px}
+.v-cap .v-tag{color:#E9D7B4;margin-top:10px}
+body.v-open{overflow:hidden}
 
 /* mobile bar */
 .mbar{display:none}
@@ -192,7 +175,6 @@ textarea{min-height:88px;resize:vertical}
   .numbers{grid-template-columns:repeat(2,minmax(0,1fr))}
   .num:nth-child(3){border-left:0;padding-left:0}
   .num:nth-child(n+3){border-top:1px solid var(--line)}
-  .dishes{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
   :root{--gut:16px}
@@ -209,6 +191,11 @@ textarea{min-height:88px;resize:vertical}
   .fb-item+.fb-item{border-left:0;border-top:1px solid var(--line);padding-left:0}
   .about-photos img:nth-child(2){margin-top:28px}
   .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .m-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
+  .m-name{font-size:1.14rem;margin-top:10px}
+  .m-tag{font-size:.64rem;letter-spacing:.16em}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
   .row2,.row3{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .row3 label:first-child{grid-column:1 / -1}
   .res-form .btn{justify-self:stretch}
@@ -245,7 +232,7 @@ textarea{min-height:88px;resize:vertical}
 
 <main id="top">
   <section class="hero">
-    <img class="hero-img ph" src="https://www.catovica-mlini.com/wp-content/themes/catovic/assets/img/cm-terasa(1).jpg" alt="" referrerpolicy="no-referrer" fetchpriority="high">
+    <img class="hero-img ph" data-p="wp-content/themes/catovic/assets/img/cm-terasa(1).jpg" data-w="1920" alt="" fetchpriority="high">
     <div class="wrap">
       <span class="eyebrow caps" data-i18n="h_eye">Konoba · Morinj, Boka Kotorska</span>
       <h1>Ćatovića Mlini</h1>
@@ -277,8 +264,8 @@ textarea{min-height:88px;resize:vertical}
           <p data-i18n="a_p3">Ovdje se ne žuri. Sjedite u hladu, slušate potok, livadom šetaju patke i guske, a iz kuhinje stižu riba, pršut i vino. Vrijeme kao da stane.</p>
         </div>
         <div class="about-photos">
-          <img class="ph" src="https://www.catovica-mlini.com/wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
-          <img class="ph" src="https://www.catovica-mlini.com/wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+          <img class="ph" data-p="wp-content/uploads/2024/06/O-KONOBI-7-DSC01008-2-2-scaled.jpg" data-w="800" alt="" loading="lazy">
+          <img class="ph" data-p="wp-content/uploads/2024/06/O-ZELENOM-DSC00187.jpg" data-w="800" alt="" loading="lazy">
         </div>
       </div>
       <div class="numbers">
@@ -298,12 +285,12 @@ textarea{min-height:88px;resize:vertical}
         <h2 data-i18n="m_t">Iće i piće</h2>
         <p data-i18n="m_p">Naša jela izgledaju jednostavno, a svako je zaslužilo svoje mjesto na jelovniku. Zažmurite, pokažite prstom bilo koje jelo i bilo koje vino, i nećete pogriješiti.</p>
       </div>
-      <nav class="chips" id="chips" aria-label="Jelovnik"></nav>
-      <div id="menu-list"></div>
-      <p class="menu-note" data-i18n="m_note">Za cijene i preporuku vina pitajte konobara.</p>
+      <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Jelovnik"></div>
+      <ul class="m-grid" id="m-grid"></ul>
+      <p class="menu-note" data-i18n="menu_note">Za cijene i preporuku vina pitajte konobara.</p>
 
       <div class="wine">
-        <img class="ph" src="https://www.catovica-mlini.com/wp-content/uploads/2024/06/LINK-NA-ICE-I-PICE-1.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+        <img class="ph" data-p="wp-content/uploads/2024/06/LINK-NA-ICE-I-PICE-1.jpg" data-w="1200" alt="" loading="lazy">
         <div class="wine-text">
           <span class="eyebrow caps" data-i18n="w_eye">Vinski podrum</span>
           <h3 data-i18n="w_t">Dobro jesti i dobro zaliti</h3>
@@ -376,7 +363,7 @@ textarea{min-height:88px;resize:vertical}
           <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="c_map">Otvorite u Google mapama</a>
           <p class="note" data-i18n="c_how">Do nas se stiže autom ili barkom.</p>
         </div>
-        <img class="contact-photo ph" src="https://www.catovica-mlini.com/wp-content/uploads/2024/06/DSC04272X.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+        <img class="contact-photo ph" data-p="wp-content/uploads/2024/06/DSC04272X.jpg" data-w="1000" alt="" loading="lazy">
       </aside>
     </div>
   </section>
@@ -404,10 +391,25 @@ textarea{min-height:88px;resize:vertical}
   <a href="https://www.google.com/maps/search/?api=1&amp;query=42.486272,18.649406" target="_blank" rel="noopener" data-i18n="b_map">Mapa</a>
 </nav>
 
-<dialog class="lb" id="lb"><button type="button" id="lb-x" aria-label="Zatvori">×</button><img id="lb-img" alt=""></dialog>
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
 
 <script>
-const IMG = "https://www.catovica-mlini.com/wp-content/uploads/2024/06/";
+/* Photos come from catovica-mlini.com. They load through the wsrv.nl image service (resized, and not blocked
+   when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
+const SITE = "www.catovica-mlini.com/", UP = "wp-content/uploads/2024/06/";
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const photo = (path, w) => "https://wsrv.nl/?url=" + encodeURIComponent(SITE + path) + "&w=" + w + "&q=80";
+const direct = path => "https://" + SITE + path;
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
+  else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const setPhoto = (img, path, w) => { img.dataset.p = path; delete img.dataset.step; img.src = photo(path, w); };
 
 /* Menu: dishes and taglines as on catovica-mlini.com (ME, EN), grouped; RU translated */
 const MENU = [
@@ -462,7 +464,7 @@ const T = {
     n1:"years the mills worked here", n2:"years of the konoba", n3:"kinds of wine in the cellar", n4:"kinds of olive oil",
     m_eye:"Menu", m_t:"Food and drink",
     m_p:"Our dishes look simple, yet each one has earned its place on the menu. Close your eyes, point at any dish and any wine, and you won't go wrong.",
-    m_note:"Ask your waiter about prices and wine pairings.",
+    menu_note:"Ask your waiter about prices and wine pairings.",
     w_eye:"Wine cellar", w_t:"Eat well, drink well",
     w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
     g_eye:"Our guests", g_t:"Here, you are the star",
@@ -491,7 +493,7 @@ const T = {
     n1:"лет здесь работали мельницы", n2:"лет конобе", n3:"вин в погребе", n4:"сорта оливкового масла",
     m_eye:"Меню", m_t:"Еда и напитки",
     m_p:"Наши блюда выглядят просто, но каждое заслужило место в меню. Закройте глаза, укажите пальцем на любое блюдо и любое вино, и вы не ошибётесь.",
-    m_note:"Цены и подходящее вино подскажет официант.",
+    menu_note:"Цены и подходящее вино подскажет официант.",
     w_eye:"Винный погреб", w_t:"Хорошо поесть и хорошо запить",
     w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
     g_eye:"Наши гости", g_t:"Каждый гость у нас звезда",
@@ -517,19 +519,25 @@ const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
 let lang = "me";
 const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
 
+let tab = MENU[0].id;
+const DISHES = MENU.flatMap(g => g.items.map(d => ({ ...d, g })));
+const img = (path, w, cls) => `<img class="ph${cls ? " " + cls : ""}" data-p="${path}" src="${photo(path, w)}" alt="" loading="lazy">`;
 function renderMenu(){
-  $("#chips").innerHTML = MENU.map(g => `<a href="#m-${g.id}">${g.t[lang]}</a>`).join("");
-  $("#menu-list").innerHTML = MENU.map(g => `
-    <div class="m-group" id="m-${g.id}">
-      <h3>${g.t[lang]} <small>${g.items.length}</small></h3>
-      <ul class="dishes">${g.items.map(d => `
-        <li class="dish"><img class="ph" src="${IMG + d.img}" alt="" loading="lazy" referrerpolicy="no-referrer" width="76" height="76">
-          <div><h4>${d.n[lang]}</h4><p class="caps">${d.tag[lang]}</p></div></li>`).join("")}
-      </ul>
-    </div>`).join("");
+  $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("");
+  $("#m-grid").innerHTML = DISHES.filter(d => d.g.id === tab).map(d => `
+    <li><button type="button" class="m-card" data-dish="${DISHES.indexOf(d)}">
+      <span class="m-ph ph">${img(UP + d.img, 640)}</span>
+      <span class="m-name">${d.n[lang]}</span>
+      ${lang !== "me" ? `<span class="m-orig">${d.n.me}</span>` : ""}
+      <span class="m-tag caps">${d.tag[lang]}</span>
+    </button></li>`).join("");
 }
+$("#m-tabs").addEventListener("click", e => {
+  const b = e.target.closest("button[data-tab]"); if (!b) return;
+  tab = b.dataset.tab; renderMenu();
+});
 function renderGallery(){
-  $("#g-grid").innerHTML = GALLERY.map(f => `<button type="button" data-full="${IMG + f}"><img class="ph" src="${IMG + f}" alt="" loading="lazy" referrerpolicy="no-referrer"></button>`).join("");
+  $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}">${img(UP + f, i ? 700 : 1400)}</button>`).join("");
 }
 function applyLang(l){
   lang = ["me","en","ru"].includes(l) ? l : "me";
@@ -547,15 +555,40 @@ function applyLang(l){
 }
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
 
-/* gallery lightbox */
-const lb = $("#lb");
-$("#g-grid").addEventListener("click", e => {
-  const b = e.target.closest("button[data-full]"); if (!b) return;
-  $("#lb-img").src = b.dataset.full; $("#lb-img").referrerPolicy = "no-referrer";
-  if (lb.showModal) lb.showModal(); else window.open(b.dataset.full, "_blank");
+/* full-screen photo viewer for dishes and the gallery: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.p, 1600);
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  $("#v-cap").innerHTML = it.d ? `<p class="caps v-cat">${it.d.g.t[lang]}</p><h4>${it.d.n[lang]}</h4>${lang !== "me" ? `<p class="v-orig">${it.d.n.me}</p>` : ""}<p class="caps v-tag">${it.d.tag[lang]}</p>` : "";
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  document.body.classList.add("v-open");
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#m-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-dish]"); if (!b) return;
+  openViewer(DISHES.map(d => ({ p: UP + d.img, d })), +b.dataset.dish);
 });
-$("#lb-x").addEventListener("click", () => lb.close());
-lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+$("#g-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-shot]"); if (!b) return;
+  openViewer(GALLERY.map(f => ({ p: UP + f })), +b.dataset.shot);
+});
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", () => document.body.classList.remove("v-open"));
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
 
 /* reservation request: opens the guest's email app, nothing is stored */
 $("#f-date").min = new Date().toISOString().slice(0, 10);
@@ -575,10 +608,7 @@ $("#res-form").addEventListener("submit", e => {
   location.href = "mailto:catovicamlini@t-com.me?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
 });
 
-/* if a photo fails to load, show the plain background instead of a broken-image icon */
-const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-document.addEventListener("error", e => { const i = e.target; if (i.tagName === "IMG" && i.src !== BLANK) i.src = BLANK; }, true);
-
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200));
 renderGallery();
 let start = new URLSearchParams(location.search).get("lang");
 if (!start) { try { start = localStorage.getItem("cm-lang"); } catch(e) {} }
