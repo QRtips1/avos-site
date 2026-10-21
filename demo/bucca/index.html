@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wine Bar Bucca · Podgorica (demo)</title>
+<meta name="description" content="Wine Bar Bucca u Podgorici: dnevni meni, doručak i vinska karta sa crnogorskim vinima. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4A1320">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<style>
+:root{
+  --wine:#4A1320; --wine-2:#6A1F33; --wine-3:#24080F; --rose:#C98A6E; --rose-2:#EEC6B1; --rose-ink:#93354A;
+  --paper:#F8F2EC; --blush:#F1E6DD; --stone:#E3D4C8; --card:#FFFBF8;
+  --ink:#24141A; --muted:#62525A; --faint:#81737A; --line:rgba(36,20,26,.12); --line-2:rgba(36,20,26,.24);
+  --on-dark:#F8EEE8; --on-dark-2:rgba(248,238,232,.76); --on-dark-line:rgba(248,238,232,.2);
+  --f-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1200px; --gut:24px; --r:16px; --hh:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:400;line-height:1.06;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,5.4vw,3.8rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--rose-ink)}
+p{margin:0}
+.eyebrow{color:var(--rose-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--rose-2)}
+.ph{background:#3a1720 linear-gradient(135deg,#4c1f2a,#22080f)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.btn-main{background:linear-gradient(135deg,#E9C1AB,#C4836A);color:#24080F;box-shadow:0 10px 30px -12px rgba(196,131,106,.75)}
+.btn-main:hover{box-shadow:0 14px 34px -10px rgba(196,131,106,.95)}
+.btn-wine{background:var(--wine);color:var(--on-dark)}
+.btn-wine:hover{background:var(--wine-3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(36,8,15,.38);color:var(--on-dark);border-color:rgba(248,238,232,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(36,8,15,.62)}
+
+/* demo strip */
+.demo{position:relative;z-index:31;background:#16050A;color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--rose-2);text-decoration:underline;text-underline-offset:2px}
+
+/* header: see-through over the photo, solid once you scroll */
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:rgba(248,242,236,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1}
+.brand-t{display:flex;flex-direction:column;line-height:1}
+.brand-t small{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--rose-2);font-weight:700;margin-bottom:5px}
+.top.solid .brand-t small{color:var(--rose-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:500;font-size:1.42rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:inherit;font:700 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--rose);color:#24080F}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+/* hero */
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--wine-3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,6,12,.66) 0%,rgba(30,6,12,.22) 34%,rgba(30,6,12,.32) 62%,rgba(30,6,12,.88) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--rose-2)}
+.hero h1{font-size:clamp(4rem,15vw,9.2rem);font-weight:400;font-style:italic;line-height:.95;letter-spacing:.01em;text-shadow:0 2px 40px rgba(0,0,0,.28)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.35;margin-top:18px;max-width:32ch;color:#FFF6F0}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-main{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.84rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--rose);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(248,238,232,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--rose-2)}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,140px)}
+.head{max-width:700px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--wine-3);color:var(--on-dark)}
+
+/* intro: text and a photo collage */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.1rem;color:var(--muted);max-width:48ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--blush);color:var(--rose-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.32rem;font-weight:500}
+.feats p{margin-top:3px;color:var(--muted);font-size:.97rem}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(36,20,26,.55)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--paper);box-shadow:0 30px 60px -30px rgba(36,20,26,.6)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:var(--wine);color:var(--on-dark);border:1px solid rgba(238,198,177,.5);display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.55)}
+.badge b{display:block;font-size:2rem;font-weight:500;font-style:italic;color:var(--rose-2)}
+.badge span{display:block;font-family:var(--f-sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:6px}
+
+/* Montenegrin wineries on the wine list */
+.wines{background:var(--blush)}
+.wn-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.wn{display:block;background:var(--card);color:inherit;text-decoration:none;border-radius:var(--r);border-top:3px solid var(--wine);padding:24px 24px 16px;box-shadow:0 24px 50px -40px rgba(36,20,26,.6);transition:transform .35s ease,box-shadow .35s ease}
+.wn:hover{transform:translateY(-3px);box-shadow:0 30px 56px -36px rgba(36,20,26,.7)}
+.wn h3{font-size:1.6rem;font-weight:500}
+.wn .at{display:block;color:var(--rose-ink);margin-top:8px}
+.wn ul{list-style:none;margin:14px 0 0;padding:0}
+.wn li{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:.95rem;line-height:1.35}
+.wn li small{margin-left:auto;color:var(--faint);white-space:nowrap;font-size:.84rem}
+.cd{display:inline-block;flex:none;width:9px;height:9px;border-radius:50%;transform:translateY(-1px)}
+.cd.wh{background:#DCC27A}.cd.ro{background:#E39C97}.cd.re{background:#7A1E2C}.cd.sp{background:#F1E2B8;box-shadow:inset 0 0 0 2px #C9B07A}
+.wn-by{margin-top:30px;text-align:center;color:var(--muted);font-size:.95rem}
+.sig-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+/* the place: full photo with text */
+.place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(30,6,12,.82) 0%,rgba(30,6,12,.4) 55%,rgba(30,6,12,.1) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--rose-2)}
+.place-card h2 em{color:var(--rose-2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+/* gallery: mosaic */
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* booking band */
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(30,6,12,.7)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--rose-2)}
+.bookband h2 em{color:var(--rose-2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:44ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--rose-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem}
+.c-list dd a{font-weight:700;text-decoration:none;overflow-wrap:anywhere}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.9rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--blush)}
+
+/* footer */
+.foot{background:#16050A;color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--rose-2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:700}
+.social a:hover{color:var(--rose-2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--rose-2)}
+
+/* full-screen windows: menu, story, booking */
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--paper);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--paper)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--wine);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--rose-2)}
+.home:hover .seal{border-color:var(--rose-2);color:var(--rose-2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--rose-2);margin-top:-3px}
+.sheet-title{font-size:clamp(2.2rem,6.4vw,3.2rem);padding-top:26px}
+.sheet-title + .sheet-lead{padding-top:8px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(248,238,232,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--rose-2)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);padding-top:20px;font-family:var(--f-serif);font-style:italic;font-size:1.2rem;line-height:1.4}
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--paper);margin:0 calc(-1 * var(--gut)) 8px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:600 .9rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.76rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--wine);border-color:var(--wine);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--rose-2)}
+.m-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.mi{padding:18px 0 16px;border-bottom:1px solid var(--line)}
+.mi-t{display:flex;align-items:baseline;gap:12px}
+.mi-n{font-family:var(--f-serif);font-size:1.28rem;line-height:1.25;display:flex;align-items:baseline;gap:10px}
+.mi-l{flex:1;min-width:18px;border-bottom:1px dotted var(--line-2);transform:translateY(-5px)}
+.mi-p{font-weight:800;white-space:nowrap;color:var(--wine);font-size:1rem}
+.mi-d{margin-top:4px;color:var(--muted);font-size:.95rem;line-height:1.45}
+.mi-d .g{color:var(--faint);white-space:nowrap}
+.mi-o{margin-top:3px;color:var(--faint);font-size:.86rem;font-style:italic}
+.m-h{grid-column:1 / -1;display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:34px;padding-bottom:10px;border-bottom:2px solid var(--wine);font-family:var(--f-serif);font-size:1.7rem;line-height:1.15}
+.m-h:first-child{margin-top:18px}
+.m-h small{font-family:var(--f-sans);color:var(--rose-ink)}
+.menu-note{margin-top:30px;color:var(--faint);font-size:.92rem}
+.wine-mini{margin-top:36px;border-radius:var(--r);background:var(--wine);color:var(--on-dark);padding:28px 26px}
+.wine-mini h3{font-size:1.8rem}
+.wine-mini h3 em{color:var(--rose-2)}
+.wine-mini p{margin-top:8px;color:var(--on-dark-2)}
+.wine-mini .btn{margin-top:20px}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:740px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.8rem,4.6vw,2.4rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+.story blockquote{margin:32px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+.story blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.45rem;line-height:1.35;color:var(--ink);margin:0}
+.story blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
+.book{max-width:640px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:700}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+
+/* photo viewer */
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#12050A;color:var(--on-dark)}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#12050A}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:var(--on-dark-2);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(248,238,232,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(248,238,232,.3);background:rgba(18,5,10,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+body.locked{overflow:hidden}
+
+/* mobile bar */
+.mbar{display:none}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .wn-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .m-list{gap:0 36px}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:640px){
+  :root{--gut:18px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:1.12rem}
+  .brand-t b{font-size:1.12rem;letter-spacing:.1em}
+  .brand-t small{font-size:.52rem}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.84rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:92px;height:92px;right:-6px;top:16px}
+  .badge b{font-size:1.6rem}
+  .badge span{font-size:.52rem;margin-bottom:4px}
+  .wn-grid{display:flex;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .wn-grid::-webkit-scrollbar{display:none}
+  .wn-grid > *{flex:0 0 84%;scroll-snap-align:center}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(30,6,12,.05) 0%,rgba(30,6,12,.55) 45%,rgba(30,6,12,.9) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .m-list{grid-template-columns:minmax(0,1fr)}
+  .mi-n{font-size:1.16rem}
+  .m-h{font-size:1.45rem}
+  .map{min-height:260px}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:#16050A;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:700;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,#E9C1AB,#C4836A);color:#24080F}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:1rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:1rem;letter-spacing:.07em}
+  .langs button{padding:7px 6px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-wine" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.5V20M8.5 21h7M7.4 7.5h9.2"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8.5 5.5-13.5 14-14-.5 8.5-5.5 14-14 14z"/><path d="M5 19l7.5-7.5"/></g></symbol>
+  <symbol id="i-room" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V4.5h10V21M15 6.5l4 1.2V21"/><path d="M12 12.5v1.2"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Wine Bar Bucca"><span class="seal">B</span><span class="brand-t"><small>Wine Bar</small><b>Bucca</b></span></a>
+    <nav class="nav" data-aria="b_menu" aria-label="Meni">
+      <a href="#jelovnik" data-i18n="b_menu">Meni</a>
+      <a href="#vina" data-i18n="nav_wine">Vina</a>
+      <a href="#prica" data-i18n="b_story">Naša priča</a>
+      <a href="#galerija" data-i18n="gal_eye">Galerija</a>
+      <a href="#kontakt" data-i18n="k_eye">Kontakt</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- FIRST SCREEN -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC02921-scaled.jpg" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="https://bucca.me/wp-content/uploads/2025/05/DSC05228-scaled.jpg" alt="">
+      <img data-lazy="https://bucca.me/wp-content/uploads/2025/05/DSC02781-scaled.jpg" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="h_eye">Wine bar · Podgorica</p>
+      <h1>Bucca</h1>
+      <p class="hero-lead" data-i18n="h_lead">Inspirativna hrana i vino u „Bijeloj kući“, na uglu Studentske i Baku ulice.</p>
+      <div class="hero-btns">
+        <a class="btn btn-main" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="btn btn-glass" href="tel:+38267991100"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Wine%20Bar%20Bucca%2C%20Baku%20140%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="hours">Svakog dana 08:30 – 24:00</span><span>+382 67 99 11 00</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" data-aria="x_photos" aria-label="Fotografije"></div>
+  </section>
+
+  <!-- IN SHORT -->
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
+        <h2 data-i18n="i_t">Prava kombinacija <em>hrane i vina</em></h2>
+        <p class="lead" data-i18n="i_p">Bucca je otvorena u septembru 2021. Šef kuhinje Stefan Brnović vodi dnevni à la carte meni od svježih, sezonskih namirnica, a vinska karta spaja crnogorska, regionalna i poznata svjetska vina.</p>
+        <ul class="feats">
+          <li><span class="fi"><svg><use href="#i-leaf"/></svg></span><div><h3 data-i18n="c1_t">Meni koji prati sezonu</h3><p data-i18n="c1_p">Meni se mijenja iz dana u dan, a dan počinje doručkom.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-wine"/></svg></span><div><h3 data-i18n="c2_t">Vina na čašu</h3><p data-i18n="c2_p">Svake sedmice nova ponuda. Uz Coravin i EuroCave na čašu stižu i rijetke etikete.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-room"/></svg></span><div><h3 data-i18n="c3_t">Privatna trpezarija</h3><p data-i18n="c3_p">Iza velike vitrine sa vinima, za do osam osoba. Bez minimalne potrošnje.</p></div></li>
+        </ul>
+        <div class="intro-cta">
+          <a class="btn btn-wine" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-line" href="#jelovnik" data-open-tab="wine"><svg class="ico"><use href="#i-wine"/></svg><span data-i18n="w_list">Vinska karta</span></a>
+        </div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC01476.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC00642.jpg" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><span data-i18n="badge">od</span><b>2021</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONTENEGRIN WINES (from their wine list, autumn 2026) -->
+  <section class="sec wines" id="vina">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="w_eye">Vinska karta</p>
+        <h2 data-i18n="w_t">Vina <em>Crne Gore</em></h2>
+        <p data-i18n="w_p">Na karti su vina devet crnogorskih vinarija, od Rogama do Dobrskog Sela. Uz njih idu vina regiona i ostatka svijeta.</p>
+      </div>
+      <div class="wn-grid" id="wn-grid"></div>
+      <p class="wn-by" data-i18n="w_by">Vinsku kartu biraju Aleksa Dašić i Mike Shore, Dip. WSET.</p>
+      <div class="sig-cta">
+        <a class="btn btn-wine" href="#jelovnik" data-open-tab="wine"><svg class="ico"><use href="#i-wine"/></svg><span data-i18n="w_list">Vinska karta</span></a>
+        <a class="btn btn-line" href="#jelovnik" data-open-tab="glass" data-i18n="c2_t">Vina na čašu</a>
+        <a class="btn btn-line" href="#jelovnik" data-i18n="sig_all">Cijeli meni</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PLACE -->
+  <section class="place">
+    <img class="ph" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC09447.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="pl_eye">Mjesto</p>
+        <h2 data-i18n="pl_t">Bijela <em>kuća</em></h2>
+        <p data-i18n="pl_p">Elegantan prostor u prizemlju i terasa nekoliko stepenika iznad ulice. Iza velike vitrine sa vinima krije se privatna trpezarija za do osam osoba.</p>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="gal_t">Trenuci <em>u Bucci</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAND -->
+  <section class="bookband">
+    <img class="ph" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC01579.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="bk_eye">Rezervacije</p>
+      <h2 data-i18n="bk_t">Sačuvajte <em>sto za sebe</em></h2>
+      <p data-i18n="bk_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom, pa ćemo ga potvrditi.</p>
+      <div class="bb-btns">
+        <a class="btn btn-main" href="tel:+38267991100"><svg class="ico"><use href="#i-phone"/></svg>+382 67 99 11 00</a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_form">Upit e-mailom</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="k_t">Dođite <em>kod nas</em></h2>
+        <dl class="c-list">
+          <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd><span data-i18n="addr">Ul. Baku 140, Podgorica 81000, Crna Gora</span><br><span data-i18n="c_where">„Bijela kuća“, na raskrsnici Studentske i Baku ulice</span></dd></div>
+          <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38267991100">+382 67 99 11 00</a></dd></div>
+          <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:bookings@bucca.me">bookings@bucca.me</a></dd></div>
+          <div class="wide"><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd data-i18n="hours">Svakog dana 08:30 – 24:00</dd></div>
+        </dl>
+        <div class="c-btns">
+          <a class="btn btn-wine" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Wine%20Bar%20Bucca%2C%20Baku%20140%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        </div>
+        <p class="c-note" data-i18n="c_note">Sto možete rezervisati unutra ili na terasi. Za grupe i privatnu trpezariju najbolje je da nas pozovete.</p>
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=Wine%20Bar%20Bucca%2C%20Baku%20140%2C%20Podgorica%2081000%2C%20Montenegro&amp;z=15&amp;output=embed" title="Mapa: Wine Bar Bucca, Podgorica" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">B</span><span class="brand-t"><small>Wine Bar</small><b>Bucca</b></span></a>
+      <p data-i18n="addr">Ul. Baku 140, Podgorica 81000, Crna Gora</p>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/bucca_wine_bar/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/buccawinebar/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g304088-d23563595-Reviews-Wine_Bar_Bucca-Podgorica_Podgorica_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
+    </div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" data-aria="x_quick" aria-label="Brze akcije">
+  <a href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+  <a href="tel:+38267991100"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Wine%20Bar%20Bucca%2C%20Baku%20140%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a>
+</nav>
+
+<!-- MENU WINDOW -->
+<dialog class="sheet" id="s-jelovnik">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">B</span><span class="brand-t"><small>Wine Bar</small><b>Bucca</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <h2 class="sheet-title" data-i18n="b_menu">Meni</h2>
+      <p class="sheet-lead" data-i18n="m_p">Meni se mijenja svakog dana. Ovdje je dnevni meni od 20. oktobra 2026, uz doručak i vina.</p>
+      <div class="m-tabs" id="m-tabs" role="tablist" data-aria="b_menu" aria-label="Meni"></div>
+      <ul class="m-list" id="m-list"></ul>
+      <p class="menu-note" id="menu-note"></p>
+      <div class="wine-mini" id="wine-mini">
+        <h3 data-i18n="wm_t">Dobro jelo, <em>dobro vino</em></h3>
+        <p data-i18n="wm_p">Na vinskoj karti su crnogorska vina, vina iz Hrvatske, Slovenije i Srbije, vina iz ostatka svijeta, desertna i bezalkoholna vina.</p>
+        <button type="button" class="btn btn-main" data-tab-go="wine" data-i18n="w_list">Vinska karta</button>
+      </div>
+      <div class="sheet-cta">
+        <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-line" href="tel:+38267991100" data-i18n="b_call">Pozovite</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- STORY WINDOW -->
+<dialog class="sheet" id="s-prica">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">B</span><span class="brand-t"><small>Wine Bar</small><b>Bucca</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="b_story">Naša priča</h2>
+        <img class="ph" data-p="https://bucca.me/wp-content/uploads/2025/05/DSC05684-scaled.jpg" data-w="1400" alt="" loading="lazy">
+        <h3 data-i18n="s1_t">U „Bijeloj kući“</h3>
+        <p data-i18n="s1_p">Bucca Wine Bar nalazi se u takozvanoj „Bijeloj kući“, na raskrsnici Studentske i Baku ulice u Podgorici. Prostor u prizemlju i terasa nekoliko stepenika iznad ulice uređeni su za Buccu, koja je otvorena u septembru 2021. Nedugo zatim proglašena je za najbolji restoran u Podgorici.</p>
+        <h3 data-i18n="s2_t">Kuhinja</h3>
+        <p data-i18n="s2_p">Meni kreira izvršni šef kuhinje Stefan Brnović. Umjesto stalnih mjesečnih tema, meni prati sezonu i mijenja se iz dana u dan: precizni ukusi, svježe namirnice i jela koja idu uz vino. Dan počinje doručkom, a uz à la carte meni tu su i manja jela za bar.</p>
+        <h3 data-i18n="s3_t">Vino</h3>
+        <p data-i18n="s3_p">Vinsku kartu biraju i redovno osvježavaju Mike Shore (Dip. WSET) i naš somelijer Aleksa Dašić. Na njoj su domaći favoriti, najbolja vina regiona i vina iz poznatih vinskih regija svijeta. Svake sedmice biramo novu ponudu vina na čašu, a zahvaljujući Coravin i EuroCave sistemima na čašu se mogu probati i rijetka vina.</p>
+        <h3 data-i18n="c3_t">Privatna trpezarija</h3>
+        <p data-i18n="s4_p">Iza naše velike vitrine sa vinima nalazi se privatna trpezarija. Udobno prima do osam osoba, a možete birati à la carte ili poseban meni šefa kuhinje. Za ručak i večeru nema minimalne potrošnje.</p>
+        <blockquote>
+          <p data-i18n="q">„Prava kombinacija hrane i vina može pretvoriti i najjednostavniji obrok u izuzetno gastronomsko iskustvo.“</p>
+          <footer>Bucca Wine Bar</footer>
+        </blockquote>
+        <div class="sheet-cta">
+          <a class="btn btn-wine" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-main" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<!-- BOOKING WINDOW -->
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">B</span><span class="brand-t"><small>Wine Bar</small><b>Bucca</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <div class="book">
+        <h2 class="sheet-title" data-i18n="book">Rezervišite sto</h2>
+        <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
+        <a class="call-big btn-main" href="tel:+38267991100"><svg class="ico"><use href="#i-phone"/></svg>+382 67 99 11 00</a>
+        <p class="call-2"><span data-i18n="c_mail">E-mail</span>: <a href="mailto:bookings@bucca.me">bookings@bucca.me</a></p>
+        <p class="or" data-i18n="r_or">ili</p>
+        <form class="res-form" id="res-form" novalidate>
+          <label><span data-i18n="f_name">Ime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <div class="row2">
+            <label><span data-i18n="f_date">Datum</span><input id="f-date" name="date" type="date" required></label>
+            <label><span data-i18n="f_time">Vrijeme</span><input id="f-time" name="time" type="time" min="08:30" max="23:30" step="900" value="20:00" required></label>
+          </div>
+          <div class="row2">
+            <label><span data-i18n="f_people">Broj osoba</span><select id="f-people" name="people"></select></label>
+            <label><span data-i18n="f_seat">Gdje želite da sjedite?</span><select id="f-seat" name="seat"><option value="any" data-i18n="o_any">Svejedno</option><option value="in" data-i18n="o_in">Unutra</option><option value="out" data-i18n="o_out">Na terasi</option></select></label>
+          </div>
+          <label><span data-i18n="f_phone">Vaš telefon</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+382 …"></label>
+          <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="f-note" name="note"></textarea></label>
+          <button class="btn btn-wine" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
+          <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.</p>
+          <p class="hint" id="f-err" hidden style="color:#93354A" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- PHOTO VIEWER -->
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+
+<script>
+/* Photos come from bucca.me (their own 2025 photo set). They load through the wsrv.nl image service (resized, and not
+   blocked when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
+const U = "https://bucca.me/wp-content/uploads/2025/05/";
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const photo = (url, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(url.replace(/^https?:\/\//, "")) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=82";
+const direct = url => url;
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
+  else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const setPhoto = (img, url, w, h) => { img.dataset.p = url; delete img.dataset.step; img.src = photo(url, w, h); };
+
+/* Menu: Bucca's daily menu of 20.10.2026 (PDF on bucca.me) and their breakfast menu. Names follow their Montenegrin
+   and English text (EN lightly polished); RU translated. g = grams, p = price in euros, as printed. */
+const MENU = [
+  { id:"deli", t:{me:"Delikatesi", en:"Charcuterie", ru:"Деликатесы"}, items:[
+    { n:{me:"Salchichón Ibérico de Bellota", en:"Salchichón Ibérico de Bellota", ru:"Salchichón Ibérico de Bellota"}, d:{en:"Iberian acorn-fed cured sausage", ru:"иберийская вяленая колбаса"}, g:50, p:7 },
+    { n:{me:"Bresaola Golfera", en:"Bresaola Golfera", ru:"Брезаола Golfera"}, d:{en:"air-dried beef", ru:"вяленая говядина"}, g:50, p:8 },
+    { n:{me:"Jamón Ibérico de Bellota 100%", en:"Jamón Ibérico de Bellota 100%", ru:"Хамон Ibérico de Bellota 100%"}, g:30, p:17 },
+    { n:{me:"Gorgonzola sir", en:"Gorgonzola", ru:"Горгонзола"}, d:{me:"med, orasi", en:"honey, walnuts", ru:"мёд, грецкие орехи"}, g:80, p:7 },
+    { n:{me:"Parmigiano Reggiano", en:"Parmigiano Reggiano", ru:"Пармиджано Реджано"}, d:{me:"odležao 40 mjeseci", en:"aged 40 months", ru:"выдержка 40 месяцев"}, g:80, p:14 },
+    { n:{me:"Selekcija delikatesa", en:"Charcuterie platter", ru:"Ассорти деликатесов"}, g:250, p:20 },
+  ]},
+  { id:"classic", t:{me:"Klasici", en:"Classics", ru:"Классика"}, items:[
+    { n:{me:"Juneći takosi", en:"Beef tacos", ru:"Тако с говядиной"}, d:{me:"aromatični majonez, pico de gallo", en:"aromatic mayo, pico de gallo", ru:"ароматный майонез, пико-де-гальо"}, g:130, p:10 },
+    { n:{me:"Burata", en:"Burrata", ru:"Буррата"}, d:{me:"pesto od bosiljka, tartar od paradajza", en:"basil pesto, tomato tartare", ru:"песто из базилика, тартар из томатов"}, g:190, p:13 },
+    { n:{me:"Gambori u puteru sa bijelim lukom", en:"Garlic butter shrimp", ru:"Креветки в чесночном масле"}, d:{me:"korijander", en:"coriander", ru:"кинза"}, g:130, p:14 },
+    { n:{me:"Black Angus burger", en:"Black Angus burger", ru:"Бургер Black Angus"}, d:{me:"brioš, čedar sir, džem od luka, jalapeño", en:"brioche, cheddar, onion jam, jalapeño", ru:"бриошь, чеддер, луковый джем, халапеньо"}, g:250, p:16.5 },
+  ]},
+  { id:"start", t:{me:"Predjela", en:"Starters", ru:"Закуски"}, items:[
+    { n:{me:"Supa od kukuruza", en:"Corn soup", ru:"Кукурузный суп"}, d:{me:"slanina, kisela pavlaka", en:"bacon, sour cream", ru:"бекон, сметана"}, g:150, p:6 },
+    { n:{me:"Humus sa karfiolom", en:"Hummus with cauliflower", ru:"Хумус с цветной капустой"}, d:{me:"pečena crvena paprika", en:"roasted red pepper", ru:"печёный красный перец"}, g:170, p:8 },
+    { n:{me:"Rukola salata", en:"Arugula salad", ru:"Салат с рукколой"}, d:{me:"kinoa, krastavac, krema od sira", en:"quinoa, cucumber, cheese cream", ru:"киноа, огурец, сырный крем"}, g:160, p:8 },
+    { n:{me:"Rižoto sa telećom brizlom", en:"Risotto with veal sweetbread", ru:"Ризотто с телячьим тимусом"}, d:{me:"njeguška kobasica, parmezan", en:"Njeguši sausage, parmesan", ru:"негушская колбаса, пармезан"}, g:200, p:12 },
+    { n:{me:"Zelene dagnje", en:"Green-shell mussels", ru:"Зелёные мидии"}, d:{me:"zapečene sa bosiljkom, pikantno ulje", en:"baked with basil, chilli oil", ru:"запечённые с базиликом, острое масло"}, g:160, p:12 },
+    { n:{me:"Juneći karpaćo", en:"Beef carpaccio", ru:"Карпаччо из говядины"}, d:{me:"ren krem, rukola, ukiseljeni luk, kapar, parmezan", en:"horseradish cream, arugula, pickled onion, capers, parmesan", ru:"крем с хреном, руккола, маринованный лук, каперсы, пармезан"}, g:150, p:14 },
+  ]},
+  { id:"main", t:{me:"Glavna jela", en:"Mains", ru:"Основные блюда"}, items:[
+    { n:{me:"Pečeni karfiol", en:"Roasted cauliflower", ru:"Запечённая цветная капуста"}, d:{me:"bademi, sos od marakuje", en:"almonds, passion fruit sauce", ru:"миндаль, соус из маракуйи"}, g:300, p:15 },
+    { n:{me:"Domaće špagete sa junetinom", en:"Homemade spaghetti with beef", ru:"Домашние спагетти с говядиной"}, d:{me:"praziluk, ukiseljena keleraba", en:"leek, pickled kohlrabi", ru:"лук-порей, маринованная кольраби"}, g:300, p:18 },
+    { n:{me:"Pileći file", en:"Chicken breast", ru:"Куриное филе"}, d:{me:"šitake pečurke, krompir pire, rotkvica", en:"shiitake mushrooms, mashed potatoes, radish", ru:"грибы шиитаке, картофельное пюре, редис"}, g:360, p:18 },
+    { n:{me:"Lignje", en:"Squid", ru:"Кальмары"}, d:{me:"citrusna palenta, salsa od paprike", en:"citrus polenta, bell pepper salsa", ru:"цитрусовая полента, сальса из перца"}, g:300, p:22 },
+    { n:{me:"Brancin", en:"Sea bass", ru:"Сибас"}, d:{me:"velute, čeri paradajz, kapar, krastavac, lješnik", en:"velouté, cherry tomatoes, capers, cucumber, hazelnuts", ru:"соус велюте, черри, каперсы, огурец, фундук"}, g:300, p:30 },
+    { n:{me:"Juneći biftek", en:"Beef tenderloin", ru:"Говяжья вырезка"}, d:{me:"kukuruz, hrskava riža sa čedarom, biber sos", en:"corn, crispy cheddar rice, pepper sauce", ru:"кукуруза, хрустящий рис с чеддером, перечный соус"}, g:320, p:30 },
+  ]},
+  { id:"side", t:{me:"Prilozi", en:"Sides", ru:"Гарниры"}, items:[
+    { n:{me:"Krompir pire, sotirano povrće ili miks zelenih salata", en:"Mashed potatoes, sautéed vegetables or mixed green salad", ru:"Картофельное пюре, овощи соте или микс зелёных салатов"}, g:150, p:5 },
+    { n:{me:"Domaći hljeb", en:"Homemade bread", ru:"Домашний хлеб"}, d:{me:"aromatizovani puter", en:"flavoured butter", ru:"ароматное сливочное масло"}, g:90, p:2 },
+  ]},
+  { id:"breakfast", t:{me:"Doručak", en:"Breakfast", ru:"Завтрак"}, items:[
+    { n:{me:"Omlet sa mocarelom", en:"Omelette with mozzarella", ru:"Омлет с моцареллой"}, d:{me:"džem od pršuta, rukola, ražani hljeb", en:"prosciutto jam, arugula, rye bread", ru:"джем из пршута, руккола, ржаной хлеб"}, g:250, p:9 },
+    { n:{me:"Kajgana sa maskarpone sirom", en:"Scrambled eggs with mascarpone", ru:"Скрэмбл с маскарпоне"}, d:{me:"miks salata, ražani hljeb", en:"mixed greens, rye bread", ru:"микс салатов, ржаной хлеб"}, g:250, p:8 },
+    { n:{me:"Poširana jaja sa slaninom", en:"Poached eggs with bacon", ru:"Яйца пашот с беконом"}, d:{me:"gvakamole, engleski mafin, majonez sa začinskim biljem, rukola", en:"guacamole, English muffin, herb mayo, arugula", ru:"гуакамоле, английский маффин, майонез с травами, руккола"}, g:250, p:8 },
+    { n:{me:"Kukuruzna tortilja sa junećom kobasicom", en:"Corn tortilla with beef sausage", ru:"Кукурузная тортилья с говяжьей колбасой"}, d:{me:"kajgana, miks salata, kisela pavlaka", en:"scrambled eggs, mixed greens, sour cream", ru:"скрэмбл, микс салатов, сметана"}, g:300, p:9 },
+    { n:{me:"Čia puding", en:"Chia pudding", ru:"Пудинг чиа"}, d:{me:"bademovo mlijeko, banana, pistaći", en:"almond milk, banana, pistachios", ru:"миндальное молоко, банан, фисташки"}, g:250, p:6.5 },
+    { n:{me:"Američke palačinke sa borovnicama", en:"American pancakes with blueberries", ru:"Американские панкейки с черникой"}, d:{me:"vanila krema, sos od maline", en:"vanilla cream, raspberry sauce", ru:"ванильный крем, малиновый соус"}, g:250, p:7 },
+    { n:{me:"Ovsena kaša", en:"Oat porridge", ru:"Овсяная каша"}, d:{me:"karamelizovana banana, lješnici, sjemenke bundeve, lan", en:"caramelised banana, hazelnuts, pumpkin seeds, flaxseed", ru:"карамелизованный банан, фундук, тыквенные семечки, лён"}, g:220, p:7 },
+    { n:{me:"Sendvič sa piletinom", en:"Chicken sandwich", ru:"Сэндвич с курицей"}, d:{me:"zelena salata, slanina, salata od jaja", en:"green salad, bacon, egg salad", ru:"зелёный салат, бекон, яичный салат"}, g:300, p:8 },
+    { n:{me:"Sendvič Caprese", en:"Caprese sandwich", ru:"Сэндвич капрезе"}, d:{me:"mocarela, paradajz, pesto od bosiljka, rukola, lješnik", en:"mozzarella, tomato, basil pesto, arugula, hazelnuts", ru:"моцарелла, томаты, песто из базилика, руккола, фундук"}, g:300, p:9 },
+    { n:{me:"Kroasan sa dimljenim lososom", en:"Croissant with smoked salmon", ru:"Круассан с копчёным лососем"}, d:{me:"krem sir, kapar, paradajz", en:"cream cheese, capers, tomato", ru:"сливочный сыр, каперсы, томаты"}, g:200, p:8 },
+    { n:{me:"Kroasan", en:"Croissant", ru:"Круассан"}, g:80, p:2.5 },
+    { n:{me:"Domaći hljeb", en:"Homemade bread", ru:"Домашний хлеб"}, d:{me:"aromatizovani puter", en:"flavoured butter", ru:"ароматное сливочное масло"}, g:90, p:2 },
+  ]},
+];
+const COL = { sp:{me:"pjenušavo", en:"sparkling", ru:"игристое"}, wh:{me:"bijelo", en:"white", ru:"белое"},
+              ro:{me:"roze", en:"rosé", ru:"розовое"}, re:{me:"crveno", en:"red", ru:"красное"} };
+/* Wine by the glass (125 ml) from the same daily menu */
+const IT = {me:"Italija", en:"Italy", ru:"Италия"}, FR = {me:"Francuska", en:"France", ru:"Франция"};
+const at = (me, en, ru, c) => ({ me: me + ", " + c.me, en: en + ", " + c.en, ru: ru + ", " + c.ru });
+const MNE = {me:"Crna Gora", en:"Montenegro", ru:"Черногория"};
+const GLASS = [
+  { t:{me:"Na čašu", en:"By the glass", ru:"По бокалам"}, items:[
+    { c:"sp", n:"Prosecco Extra Dry", by:"La Farra 2024", at:at("Veneto","Veneto","Венето",IT), p:6 },
+    { c:"wh", n:"Chardonnay „Zrak“", by:"Patrimonio 2025", at:at("Bobija","Bobija","Бобия",MNE), p:6.5 },
+    { c:"wh", n:"Gewürztraminer", by:"D. Zind-Humbrecht 2020", at:at("Alzas","Alsace","Эльзас",FR), p:7.5 },
+    { c:"wh", n:"Sauvignon Blanc", by:"Marjan Simčič 2024", at:at("Goriška Brda","Goriška Brda","Горишка-Брда",{me:"Slovenija", en:"Slovenia", ru:"Словения"}), p:8 },
+    { c:"wh", n:"Mala Nevina", by:"Saints Hills 2024", at:at("Istra","Istria","Истрия",{me:"Hrvatska", en:"Croatia", ru:"Хорватия"}), p:8 },
+    { c:"ro", n:"Calafuria", by:"Tormaresca 2025", at:at("Apulija","Puglia","Апулия",IT), p:6 },
+    { c:"re", n:"Vida Cuvée", by:"Vinarija Vida 2025", at:at("Ubli","Ubli","Убли",MNE), p:6 },
+    { c:"re", n:"Gran Reserva „Hussonet“", by:"H. de Pirque 2020", at:at("Maipo","Maipo Valley","долина Майпо",{me:"Čile", en:"Chile", ru:"Чили"}), p:7.5 },
+    { c:"re", n:"Rosso di Montalcino", by:"Pian delle Vigne 2022", at:at("Toskana","Tuscany","Тоскана",IT), p:8 },
+    { c:"re", n:"Château Siran", by:"2014", at:at("Bordo","Bordeaux","Бордо",FR), p:12 },
+  ]},
+  { t:{me:"Coravin selekcija", en:"Coravin selection", ru:"Подборка Coravin"}, items:[
+    { c:"sp", n:"Special Cuvée", by:"Bollinger NV", at:at("Šampanja","Champagne","Шампань",FR), p:24 },
+    { c:"wh", n:"Pinot Grigio „Dessimis“", by:"Vie di Romans 2023", at:at("Friuli","Friuli","Фриули",IT), p:15 },
+    { c:"wh", n:"Pouilly-Fumé „Indigène“", by:"Pascal Jolivet 2020", at:at("Dolina Loare","Loire Valley","долина Луары",FR), p:18 },
+    { c:"wh", n:"Sancerre „Les Romains“", by:"Vacheron 2022", at:at("Dolina Loare","Loire Valley","долина Луары",FR), p:21 },
+    { c:"wh", n:"Rioja „Capellanía“", by:"Marqués de Murrieta 2020", at:at("Rioha","Rioja","Риоха",{me:"Španija", en:"Spain", ru:"Испания"}), p:27 },
+    { c:"ro", n:"Cuvée Tradition", by:"Clos Cibonne 2022", at:at("Provansa","Provence","Прованс",FR), p:10.5 },
+    { c:"ro", n:"Château d’Esclans „Garrus“", by:"2022", at:at("Provansa","Provence","Прованс",FR), p:31 },
+    { c:"re", n:"Sito Moresco", by:"2019", at:at("Pijemont","Piedmont","Пьемонт",IT), p:18 },
+    { c:"re", n:"Château Romassan Rouge", by:"2020", at:at("Provansa","Provence","Прованс",FR), p:19 },
+    { c:"re", n:"Tignanello", by:"Antinori 2021", at:at("Toskana","Tuscany","Тоскана",IT), p:32 },
+  ]},
+];
+/* Montenegrin wines from their wine list "Jesen 2026" (bottle prices, as printed): [wine, vintage, colour, price] */
+const WINES = [
+  { w:"Barović", at:{l:"Bandići", ru:"Бандичи"}, items:[["Sauvignon Blanc „Vihor“","2024","wh",43],["Vranac „Crna Magija“","2022","re",48]] },
+  { w:"Bogojević", at:{l:"Lješanska nahija", ru:"Лешанская нахия"}, items:[["Rosé „Aria“","2025","ro",38],["Cabernet Sauvignon „Aria“","2023","re",42]] },
+  { w:"Keković", at:{l:"Novo Selo", ru:"Ново-Село"}, items:[["Sauvignon Blanc","2024","wh",35],["Žižak","2025","wh",35],["Rosé","2024","ro",40],["Radovan","2022","re",52]] },
+  { w:"Krgović", at:{l:"Rogami", ru:"Рогами"}, items:[["Chardonnay, Arhonto","2025","wh",34],["Malvasia, Arhonto","2025","wh",35],["Rosé, Arhonto","2025","ro",30],["Cabernet Sauvignon, Arhonto","2022","re",36],["Kratosija „Primitivo di Montenegro“, Arhonto","2020","re",41],["Vranac „Special Selection“, Arhonto","2018","re",43]] },
+  { w:"Marković", at:{l:"Dobrsko Selo", ru:"Добрско-Село"}, items:[["Sauvignon Blanc „Eshaton“","2021","wh",38],["Tamjanika „Thumiama“","2024","wh",38],["Crna Tamjanika „Inat“","2021","re",78],["Shiraz „Ti’o“","2019","re",60],["Pinot Noir „Tvorac“","2021","re",90]] },
+  { w:"Patrimonio", at:{l:"Bobija", ru:"Бобия"}, items:[["Chardonnay „Zrak“","2025","wh",34],["Sauvignon „Meandar“","2025","wh",38],["Tamjanika „Kolana“","2025","wh",35],["Vranac „Kolomat“","2021","re",35],["Vranac „Prizor“","2021","re",56]] },
+  { w:"Radević Estate", at:{l:"Rogami", ru:"Рогами"}, items:[["Chardonnay","2024","wh",52],["Cabernet Sauvignon","2011","re",85],["Syrah","2015","re",62],["Vranac","2018","re",59],["Vranac – Cabernet Sauvignon","2009","re",80]] },
+  { w:"Vida", at:{l:"Ubli", ru:"Убли"}, items:[["Chardonnay","2025","wh",35],["Rosé","2025","ro",35],["Vida Cuvée","2025","re",35]] },
+  { w:"Vukčević", at:{l:"Bigor", ru:"Бигор"}, items:[["Erotika","2018","re",39],["Fantasy","2025","wh",35]] },
+];
+const WINE_TABS = {
+  glass:{ t:{me:"Vina na čašu", en:"By the glass", ru:"Вина по бокалам"},
+          note:{me:"Ponudu vina na čašu mijenjamo svake sedmice. Cijene su za 125 ml, u eurima, sa PDV-om.",
+                en:"The by-the-glass selection changes every week. Prices are per 125 ml, in euros, VAT included.",
+                ru:"Подборка вин по бокалам меняется каждую неделю. Цены за 125 мл, в евро, включая НДС."} },
+  wine: { t:{me:"Crnogorska vina", en:"Montenegrin wines", ru:"Вина Черногории"},
+          note:{me:"Cijene su za bocu. Ovo je crnogorski dio vinske karte „Jesen 2026“; za vina iz regiona i svijeta pitajte konobara.",
+                en:"Prices are per bottle. This is the Montenegrin part of the Autumn 2026 wine list; ask your server about wines from the region and the world.",
+                ru:"Цены за бутылку. Это черногорская часть винной карты «Осень 2026»; о винах региона и мира спросите официанта."} },
+};
+
+const T = {
+  en: {
+    demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
+    book:"Book a table", b_book:"Book a table", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"Our story", b_map:"Map", nav_wine:"Wine",
+    h_eye:"Wine bar · Podgorica", h_lead:"Inspiring food and wine in the “White House”, on the corner of Studentska and Baku streets.", hours:"Every day 08:30 – midnight",
+    i_eye:"In short", i_t:"The right pairing <em>of food and wine</em>",
+    i_p:"Bucca opened in September 2021. Head chef Stefan Brnović runs a daily à la carte menu built on fresh, seasonal produce, and the wine list brings together Montenegrin, regional and well-known international wines.",
+    c1_t:"A menu that follows the season", c1_p:"The menu changes from day to day, and the day starts with breakfast.",
+    c2_t:"Wine by the glass", c2_p:"A new selection every week. Coravin and EuroCave bring even rare labels to the glass.",
+    c3_t:"Private dining room", c3_p:"Behind the big wine display, for up to eight guests. No minimum spend.",
+    badge:"since",
+    w_eye:"Wine list", w_t:"Wines <em>of Montenegro</em>", w_p:"The list features nine Montenegrin wineries, from Rogami to Dobrsko Selo. Next to them: wines from the region and the rest of the world.",
+    w_by:"The wine list is curated by Aleksa Dašić and Mike Shore, Dip. WSET.", w_list:"Wine list", sig_all:"Full menu",
+    pl_eye:"The place", pl_t:"The White <em>House</em>", pl_p:"An elegant ground-floor room and a terrace a few steps above the street. Behind the big wine display is a private dining room for up to eight.",
+    gal_eye:"Gallery", gal_t:"Moments <em>at Bucca</em>",
+    bk_eye:"Reservations", bk_t:"Reserve <em>your table</em>", bk_p:"Calling is the fastest way. You can also email us a request and we will confirm it.", bk_form:"Email request",
+    k_eye:"Contact", k_t:"Come <em>and see us</em>",
+    c_addr:"Address", addr:"Ul. Baku 140, Podgorica 81000, Montenegro", c_where:"The “White House”, at the corner of Studentska and Baku streets",
+    l_hours:"Opening hours", c_tel:"Phone", c_mail:"Email",
+    c_note:"You can book a table inside or on the terrace. For groups and the private dining room, it is best to call us.",
+    m_p:"The menu changes every day. Here is the daily menu of 20 October 2026, plus breakfast and wine.",
+    menu_note:"All prices are in euros and include VAT. Please tell your server about any allergies.",
+    wm_t:"Good food, <em>good wine</em>", wm_p:"The wine list covers Montenegro, Croatia, Slovenia, Serbia and the rest of the world, plus dessert and alcohol-free wines.",
+    s1_t:"In the “White House”",
+    s1_p:"Bucca Wine Bar sits in the so-called “White House”, at the corner of Studentska and Baku streets in Podgorica. The ground-floor room and the terrace a few steps above the street were designed for Bucca, which opened in September 2021. Soon after, it was named the best restaurant in Podgorica.",
+    s2_t:"The kitchen",
+    s2_p:"The menu is created by executive chef Stefan Brnović. Instead of fixed monthly themes, it follows the season and changes from day to day: precise flavours, fresh produce and dishes made to go with wine. The day starts with breakfast, and next to the à la carte menu there are smaller bar plates.",
+    s3_t:"The wine",
+    s3_p:"The wine list is curated and regularly updated by Mike Shore (Dip. WSET) and our sommelier Aleksa Dašić. It holds local favourites, the best wines of the region and wines from the world's well-known wine regions. Every week we choose a new by-the-glass selection, and thanks to our Coravin and EuroCave systems even rare wines can be tasted by the glass.",
+    s4_p:"Behind our big wine display is the private dining room. It comfortably seats up to eight, for à la carte dining or a bespoke chef's menu. There is no minimum spend for lunch or dinner bookings.",
+    q:"“The right combination of food and wine can transform even a simple meal into an exquisite dining experience.”",
+    r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
+    f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_seat:"Where would you like to sit?", o_any:"No preference", o_in:"Inside", o_out:"On the terrace",
+    f_phone:"Your phone", f_note:"Note (optional)",
+    f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
+    x_home:"Home", x_close:"Close", x_prev:"Previous", x_next:"Next", x_photos:"Photos", x_photo:"Photo", x_quick:"Quick actions",
+    mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to book a table:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_seat:"Seating", m_phone:"Phone", m_note:"Note", mail_bye:"Thank you!",
+  },
+  ru: {
+    demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Маршрут", b_story:"Наша история", b_map:"Карта", nav_wine:"Вина",
+    h_eye:"Винный бар · Подгорица", h_lead:"Вдохновляющая кухня и вино в «Белом доме», на углу улиц Студентска и Баку.", hours:"Каждый день 08:30 – 24:00",
+    i_eye:"Коротко о нас", i_t:"Правильное сочетание <em>еды и вина</em>",
+    i_p:"Bucca открылась в сентябре 2021 года. Шеф-повар Стефан Брнович ведёт ежедневное меню à la carte из свежих сезонных продуктов, а в винной карте собраны черногорские, региональные и известные мировые вина.",
+    c1_t:"Меню по сезону", c1_p:"Меню меняется каждый день, а день начинается с завтрака.",
+    c2_t:"Вина по бокалам", c2_p:"Каждую неделю новая подборка. Благодаря Coravin и EuroCave даже редкие вина можно взять бокалом.",
+    c3_t:"Приватный зал", c3_p:"За большой винной витриной, до восьми гостей. Без минимального чека.",
+    badge:"с",
+    w_eye:"Винная карта", w_t:"Вина <em>Черногории</em>", w_p:"В винной карте вина девяти черногорских виноделен, от Рогами до Добрско-Села. Рядом с ними вина региона и всего мира.",
+    w_by:"Винную карту составляют Алекса Дашич и Майк Шор, Dip. WSET.", w_list:"Винная карта", sig_all:"Всё меню",
+    pl_eye:"Место", pl_t:"Белый <em>дом</em>", pl_p:"Элегантный зал на первом этаже и терраса всего на несколько ступенек выше улицы. За большой винной витриной находится приватный зал вместимостью до восьми гостей.",
+    gal_eye:"Галерея", gal_t:"Моменты <em>в Bucca</em>",
+    bk_eye:"Бронирование", bk_t:"Забронируйте <em>свой столик</em>", bk_p:"Быстрее всего по телефону. Можно также отправить запрос по электронной почте, и мы его подтвердим.", bk_form:"Запрос по e-mail",
+    k_eye:"Контакты", k_t:"Приходите <em>к нам</em>",
+    c_addr:"Адрес", addr:"ул. Баку 140, Подгорица 81000, Черногория", c_where:"«Белый дом», на перекрёстке улиц Студентска и Баку",
+    l_hours:"Часы работы", c_tel:"Телефон", c_mail:"E-mail",
+    c_note:"Столик можно забронировать внутри или на террасе. Для групп и приватного зала лучше позвонить нам.",
+    m_p:"Меню меняется каждый день. Здесь показано меню на 20 октября 2026 года, а также завтрак и вина.",
+    menu_note:"Все цены указаны в евро и включают НДС. Если у вас аллергия, пожалуйста, предупредите официанта.",
+    wm_t:"Хорошая еда, <em>хорошее вино</em>", wm_p:"В винной карте вина Черногории, Хорватии, Словении и Сербии, вина других стран мира, а также десертные и безалкогольные вина.",
+    s1_t:"В «Белом доме»",
+    s1_p:"Bucca Wine Bar находится в так называемом «Белом доме», на перекрёстке улиц Студентска и Баку в Подгорице. Зал на первом этаже и терраса всего на несколько ступенек выше улицы оформлены специально для Bucca, которая открылась в сентябре 2021 года. Вскоре после открытия её назвали лучшим рестораном Подгорицы.",
+    s2_t:"Кухня",
+    s2_p:"Меню составляет шеф-повар Стефан Брнович. Вместо постоянных ежемесячных тем оно следует сезону и меняется изо дня в день: точные вкусы, свежие продукты и блюда, которые хорошо идут с вином. День начинается с завтрака, а кроме меню à la carte есть и небольшие барные блюда.",
+    s3_t:"Вино",
+    s3_p:"Винную карту составляют и регулярно обновляют Майк Шор (Dip. WSET) и наш сомелье Алекса Дашич. В ней местные любимые вина, лучшие вина региона и вина из известных винодельческих регионов мира. Каждую неделю мы выбираем новые вина по бокалам, а благодаря системам Coravin и EuroCave бокалом можно попробовать даже редкие вина.",
+    s4_p:"За нашей большой винной витриной находится приватный зал. Он с комфортом вмещает до восьми человек; можно заказать à la carte или особое меню от шефа. Минимального чека для бронирования обеда и ужина нет.",
+    q:"«Правильное сочетание еды и вина может превратить даже самую простую трапезу в изысканный гастрономический опыт».",
+    r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
+    f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_seat:"Где вы хотели бы сидеть?", o_any:"Неважно", o_in:"Внутри", o_out:"На террасе",
+    f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
+    f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
+    x_home:"На главную", x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше", x_photos:"Фотографии", x_photo:"Фото", x_quick:"Быстрые действия",
+    mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать столик:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_seat:"Место", m_phone:"Телефон", m_note:"Комментарий", mail_bye:"Спасибо!",
+  },
+};
+/* Montenegrin texts that are not in the page itself */
+const ME_EXTRA = { x_home:"Početna", x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća", x_photos:"Fotografije", x_photo:"Fotografija", x_quick:"Brze akcije",
+  menu_note:"Sve cijene su u eurima i uključuju PDV. Ako imate neku alergiju, molimo vas da kažete konobaru.",
+  mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_seat:"Mjesto", m_phone:"Telefon", m_note:"Napomena", mail_bye:"Hvala!" };
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const ME = {}; $$("[data-i18n]").forEach(n => { if (!(n.dataset.i18n in ME)) ME[n.dataset.i18n] = n.innerHTML; });
+Object.assign(ME, ME_EXTRA);
+const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
+let lang = "me";
+const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
+
+/* prices and quotation marks follow the language */
+const money = p => { const s = Number.isInteger(p) ? String(p) : p.toFixed(2); return lang === "en" ? "€" + s : s.replace(".", ",") + " €"; };
+const qt = s => lang === "me" ? s : s.replace(/„([^“]*)“/g, (m, x) => lang === "ru" ? "«" + x + "»" : "“" + x + "”");
+const place = a => lang === "ru" ? a.ru : a.l;
+
+/* menu window: one tab per section of their menu, plus wine by the glass and Montenegrin wines */
+let tab = MENU[0].id;
+const isWine = id => id in WINE_TABS;
+const row = (name, price, desc, orig) => `<li class="mi"><div class="mi-t"><span class="mi-n">${name}</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p">${price}</span></div>${desc ? `<p class="mi-d">${desc}</p>` : ""}${orig ? `<p class="mi-o">${orig}</p>` : ""}</li>`;
+const dishRow = d => {
+  const det = d.d && d.d[lang];
+  return row(d.n[lang], money(d.p), (det ? det + " · " : "") + `<span class="g">${d.g} ${lang === "ru" ? "г" : "g"}</span>`, lang !== "me" && d.n.me !== d.n[lang] ? d.n.me : "");
+};
+const dot = c => `<i class="cd ${c}" aria-hidden="true"></i>`;
+const glassList = () => GLASS.map(b => `<li class="m-h">${b.t[lang]}<small class="caps">${lang === "ru" ? "125 мл" : "125 ml"}</small></li>` +
+  b.items.map(w => row(dot(w.c) + `<span>${qt(w.n)}</span>`, money(w.p), `${w.by} · ${w.at[lang]} · ${COL[w.c][lang]}`)).join("")).join("");
+const wineList = () => WINES.map(pr => `<li class="m-h">${pr.w}<small class="caps">${place(pr.at)}</small></li>` +
+  pr.items.map(([n, y, c, p]) => row(dot(c) + `<span>${qt(n)}</span>`, money(p), `${COL[c][lang]} · ${y}`)).join("")).join("");
+const wineCard = pr => `<a class="wn" href="#jelovnik" data-open-tab="wine"><h3>${pr.w}</h3><span class="at caps">${place(pr.at)}</span>
+    <ul>${pr.items.map(([n, y, c]) => `<li>${dot(c)}<span>${qt(n)}</span><small>${y}</small></li>`).join("")}</ul></a>`;
+function renderMenu(){
+  const wine = isWine(tab);
+  $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("") +
+    Object.entries(WINE_TABS).map(([id, w]) => `<button type="button" role="tab" aria-selected="${id === tab}" data-tab="${id}">${w.t[lang]}</button>`).join("");
+  $("#m-list").innerHTML = tab === "glass" ? glassList() : tab === "wine" ? wineList() : MENU.find(g => g.id === tab).items.map(dishRow).join("");
+  $("#menu-note").innerHTML = wine ? WINE_TABS[tab].note[lang] : tr("menu_note");
+  $("#wine-mini").hidden = wine;
+  $("#wn-grid").innerHTML = WINES.map(wineCard).join("");
+}
+const tabToView = () => { const t = $("#m-tabs"), b = t.querySelector("[aria-selected=true]"); t.scrollLeft += b.getBoundingClientRect().left - t.getBoundingClientRect().left - 18; };
+function showTab(id){
+  tab = id; renderMenu(); tabToView();
+  $("#s-jelovnik .sheet-body").scrollTop = 0;
+  if (isWine(id) && window.gtag) gtag("event", "demo_open_wine", { language: lang, tab: id });
+}
+$("#m-tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) showTab(b.dataset.tab); });
+$("[data-tab-go]").addEventListener("click", e => showTab(e.currentTarget.dataset.tabGo));
+
+const GALLERY = ["DSC02731-scaled.jpg","DSC09356.jpg","DSC09456.jpg","DSC01472.jpg","DSC09458.jpg","DSC05238-scaled.jpg","DSC09463.jpg","DSC05905.jpg","DSC09260.jpg"].map(f => U + f);
+const img = (url, w, h) => `<img class="ph" data-p="${url}" src="${photo(url, w, h)}" alt="" loading="lazy">`;
+function renderGallery(){
+  $("#g-grid").innerHTML = GALLERY.map((u, i) => `<button type="button" data-shot="${i}">${img(u, i === 0 ? 1400 : 800)}</button>`).join("");
+}
+function applyLang(l){
+  lang = ["me","en","ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$("#g-grid button").forEach((b, i) => b.setAttribute("aria-label", tr("x_photo") + " " + (i + 1)));
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = LANG_CODE[lang];
+  renderMenu();
+  const sel = $("#f-people"), cur = sel.value || "2";
+  sel.innerHTML = Array.from({length:8}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join("") + `<option value="9+">9+</option>`;
+  sel.value = cur;
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem("bucca-lang", lang); } catch(e) {}
+}
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade between three photos; the other two load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+$("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+$("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once as they come into view; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows (menu, story, booking) live at #jelovnik, #prica, #rezervacija,
+   so the phone's back button closes them and the links can be shared */
+const SHEETS = ["jelovnik", "prica", "rezervacija"];
+function syncSheets(){
+  const id = location.hash.slice(1);
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k);
+    if (k === id && !d.open) {
+      d.showModal(); d.querySelector(".sheet-body").scrollTop = 0;
+      if (window.gtag) gtag("event", "demo_open_" + k, { language: lang });
+    }
+    if (k !== id && d.open) d.close();
+  });
+  lockScroll();
+  if (homeNext && !SHEETS.some(k => $("#s-" + k).open)) {
+    homeNext = false;
+    /* after the browser has put focus back on the link that opened the window */
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
+}
+function openSheet(id){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
+  syncSheets();
+}
+/* the restaurant name in a window's top bar goes back to the top of the main page */
+let homeNext = false;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const goHome = () => { homeNext = true; closeSheet(); };
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (!SHEETS.includes(id)) return;
+  e.preventDefault();
+  if (a.dataset.openTab) {
+    tab = a.dataset.openTab; renderMenu();
+    if (isWine(tab) && window.gtag) gtag("event", "demo_open_wine", { language: lang, tab });
+  } else if (id === "jelovnik" && isWine(tab)) { tab = MENU[0].id; renderMenu(); }
+  openSheet(id);
+  if (id === "jelovnik") { tabToView(); $("#s-jelovnik .sheet-body").scrollTop = 0; }
+});
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", goHome));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer for the gallery: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.p, 1600);
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#g-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-shot]"); if (!b) return;
+  openViewer(GALLERY.map(u => ({ p: u })), +b.dataset.shot);
+});
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* reservation request: opens the guest's email app, nothing is stored */
+$("#f-date").min = new Date().toISOString().slice(0, 10);
+$("#res-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  if (!v("#f-name") || !v("#f-date") || !v("#f-time")) { $("#f-err").hidden = false; return; }
+  $("#f-err").hidden = true;
+  const seat = $("#f-seat");
+  const lines = [tr("mail_hi"), "", tr("mail_ask"),
+    `${tr("m_name")}: ${v("#f-name")}`, `${tr("m_date")}: ${v("#f-date")}`, `${tr("m_time")}: ${v("#f-time")}`,
+    `${tr("m_people")}: ${v("#f-people")}`];
+  if (seat.value !== "any") lines.push(`${tr("m_seat")}: ${seat.options[seat.selectedIndex].text}`);
+  if (v("#f-phone")) lines.push(`${tr("m_phone")}: ${v("#f-phone")}`);
+  if (v("#f-note")) lines.push(`${tr("m_note")}: ${v("#f-note")}`);
+  lines.push("", tr("mail_bye"));
+  const subj = `${tr("mail_subj")}: ${v("#f-date")} ${v("#f-time")}, ${v("#f-people")}`;
+  if (window.gtag) gtag("event", "demo_reservation_click", { language: lang });
+  location.href = "mailto:bookings@bucca.me?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
+});
+
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0));
+renderGallery();
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem("bucca-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+</script>
+</body>
+</html>

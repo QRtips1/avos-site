@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Steakhouse – Grill, Fish &amp; Meat · Podgorica (demo)</title>
+<meta name="description" content="Steakhouse u Podgorici: stejkovi iz peći na drva, meso sa domaćih farmi i svježa riba iz Jadrana, u samom centru grada. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1C1714">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<style>
+:root{
+  --char:#1C1714; --char-2:#2A221D; --char-3:#120E0C; --copper:#C07A4E; --copper-2:#E7AE84; --copper-ink:#99532C;
+  --bone:#F7F2EB; --sand:#EEE5D9; --stone:#D9CCBC; --card:#FFFCF7;
+  --ink:#1D1814; --muted:#5F554D; --faint:#736860; --line:rgba(29,24,20,.12); --line-2:rgba(29,24,20,.24);
+  --on-dark:#F6EFE6; --on-dark-2:rgba(246,239,230,.76); --on-dark-line:rgba(246,239,230,.2);
+  --f-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1200px; --gut:24px; --r:16px; --hh:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.06;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,5.6vw,3.9rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--copper-ink)}
+p{margin:0}
+.eyebrow{color:var(--copper-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--copper-2)}
+.ph{background:#2b231e linear-gradient(135deg,#3a2f28,#1d1714)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.btn-cu{background:linear-gradient(135deg,#E3A777,#B86E44);color:#1B110A;box-shadow:0 10px 30px -12px rgba(184,110,68,.75)}
+.btn-cu:hover{box-shadow:0 14px 34px -10px rgba(184,110,68,.95)}
+.btn-ch{background:var(--char);color:var(--on-dark)}
+.btn-ch:hover{background:var(--char-3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(18,14,12,.4);color:var(--on-dark);border-color:rgba(246,239,230,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(18,14,12,.62)}
+
+/* demo strip */
+.demo{position:relative;z-index:31;background:#0B0907;color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--copper-2);text-decoration:underline;text-underline-offset:2px}
+
+/* header: see-through over the photo, solid once you scroll */
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:rgba(247,242,235,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-weight:600;font-size:1rem;letter-spacing:.04em}
+.brand-t{display:flex;flex-direction:column;line-height:1}
+.brand-t small{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--copper-2);font-weight:700;margin-bottom:5px;white-space:nowrap}
+.top.solid .brand-t small{color:var(--copper-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:600;font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:inherit;font:700 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--copper);color:#1B110A}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+/* hero */
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--char-3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,10,8,.7) 0%,rgba(14,10,8,.3) 34%,rgba(14,10,8,.42) 62%,rgba(14,10,8,.9) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--copper-2)}
+.hero h1{font-size:clamp(3.2rem,12vw,7.6rem);font-weight:500;line-height:.98;text-shadow:0 2px 40px rgba(0,0,0,.3)}
+.hero h1 em{color:var(--copper-2)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.25rem,3.1vw,1.75rem);line-height:1.35;margin-top:18px;max-width:32ch;color:#FFF8EF}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-cu{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.84rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--copper);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(246,239,230,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--copper-2)}
+
+/* TripAdvisor strip */
+.stats{background:var(--char);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.4rem,5.6vw,3.5rem);line-height:1;color:var(--copper-2)}
+.stat span{display:block;margin-top:8px;font-size:.84rem;color:var(--on-dark-2);line-height:1.35}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,140px)}
+.head{max-width:700px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--char-3);color:var(--on-dark)}
+
+/* in short: text and a photo collage */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.1rem;color:var(--muted);max-width:46ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--copper-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.38rem;font-weight:600}
+.feats p{margin-top:3px;color:var(--muted);font-size:.97rem}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(29,24,20,.6)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--bone);box-shadow:0 30px 60px -30px rgba(29,24,20,.65)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:linear-gradient(135deg,#E3A777,#B86E44);color:#1B110A;display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{display:block;font-size:2.3rem;font-weight:600}
+.badge span{display:block;font-family:var(--f-sans);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;margin-top:5px;max-width:84px;line-height:1.25}
+
+/* signature dishes */
+.sig{background:var(--sand)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.dcard{display:flex;flex-direction:column;align-items:stretch;width:100%;height:100%;padding:0;border:0;background:var(--card);color:inherit;font:inherit;text-align:left;cursor:zoom-in;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -36px rgba(29,24,20,.65);transition:transform .35s ease,box-shadow .35s ease}
+.dcard:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(29,24,20,.75)}
+.dcard .dph{display:block;aspect-ratio:16/10;overflow:hidden}
+.dcard img{width:100%;height:100%;object-fit:cover}
+.dcard .dtx{display:block;flex:1;padding:18px 20px 22px}
+.dcard .dcat{display:block;color:var(--copper-ink)}
+.dcard .dname{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.45rem;line-height:1.15;margin-top:6px}
+.dcard .dorig{display:block;font-size:.85rem;color:var(--faint);margin-top:4px}
+.dcard .dnote{display:block;font-size:.88rem;color:var(--muted);margin-top:6px}
+.sig-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:44px}
+
+/* the place: full photo with text */
+.place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,10,8,.84) 0%,rgba(14,10,8,.42) 55%,rgba(14,10,8,.12) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--copper-2)}
+.place-card h2 em{color:var(--copper-2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+/* gallery: mosaic */
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* booking band */
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(14,10,8,.72)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--copper-2)}
+.bookband h2 em{color:var(--copper-2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:44ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--copper-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem}
+.c-list dd a{font-weight:700;text-decoration:none;overflow-wrap:anywhere}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.9rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--sand)}
+
+/* footer */
+.foot{background:#0B0907;color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--copper-2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:700}
+.social a:hover{color:var(--copper-2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--copper-2)}
+
+/* full-screen windows: menu, story, booking */
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bone);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--bone)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--char);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--copper-2)}
+.home:hover .seal{border-color:var(--copper-2);color:var(--copper-2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--copper-2);margin-top:-3px}
+.sheet-title{font-size:clamp(2.3rem,6.6vw,3.3rem);padding-top:26px}
+.sheet-title + .sheet-lead{padding-top:8px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(246,239,230,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--copper-2)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);padding-top:20px;font-family:var(--f-serif);font-style:italic;font-size:1.25rem;line-height:1.4}
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--bone);margin:0 calc(-1 * var(--gut)) 14px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:600 .9rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.76rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--char);border-color:var(--char);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--copper-2)}
+/* the menu itself: an elegant text list; a small photo only where the dish has a real one */
+.m-body{padding-top:6px}
+.m-sec{padding-bottom:26px}
+.m-h{display:flex;align-items:center;gap:14px;font-size:1.75rem;font-weight:600;margin:14px 0 2px;break-after:avoid}
+.m-h::after{content:"";flex:1;height:1px;background:var(--copper);opacity:.45}
+.m-sn{color:var(--copper-ink);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
+.m-list{list-style:none;margin:0;padding:0}
+.m-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;align-items:start;padding:15px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.m-row.has-th{grid-template-columns:72px minmax(0,1fr) auto}
+.m-th{position:relative;width:72px;height:72px;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in}
+.m-th img{width:100%;height:100%;object-fit:cover}
+.m-n{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.24rem;line-height:1.22}
+.m-o{display:block;font-size:.84rem;color:var(--faint);margin-top:2px}
+.m-d{display:block;font-size:.93rem;color:var(--muted);margin-top:4px;line-height:1.45}
+.m-r{text-align:right;white-space:nowrap;padding-top:2px}
+.m-p{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.2rem;line-height:1.2;color:var(--copper-ink)}
+.m-bw{font-family:var(--f-serif);font-size:1.02rem;font-style:italic;font-weight:500;white-space:nowrap;padding-top:3px}
+.m-w{display:block;font-size:.82rem;color:var(--faint);margin-top:3px}
+.menu-note{margin-top:22px;color:var(--faint);font-size:.92rem}
+.brk-mini{margin-top:34px;border-radius:var(--r);background:var(--char);color:var(--on-dark);padding:28px 26px}
+.brk-mini h3{font-size:1.8rem}
+.brk-mini h3 em{color:var(--copper-2)}
+.brk-mini p{margin-top:8px;color:var(--on-dark-2)}
+.brk-mini .btn{margin-top:20px}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:740px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.8rem,4.6vw,2.4rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+.story blockquote{margin:30px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+.story blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.45rem;line-height:1.35;color:var(--ink);margin:0}
+.story blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
+.book{max-width:640px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:700;overflow-wrap:anywhere}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+
+/* photo viewer */
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#0E0B09;color:var(--on-dark)}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#0E0B09}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:var(--on-dark-2);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(246,239,230,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(246,239,230,.3);background:rgba(14,11,9,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap .caps{color:var(--copper-2)}
+.v-cap h4{margin-top:8px;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.15}
+.v-cap .v-orig{color:var(--on-dark-2);font-size:.9rem;margin-top:4px}
+body.locked{overflow:hidden}
+
+/* mobile bar */
+.mbar{display:none}
+
+@media (min-width:900px){
+  .m-body{column-count:2;column-gap:64px}
+  .m-sec{break-inside:auto}
+}
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .sig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:640px){
+  :root{--gut:18px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:.88rem}
+  .brand-t b{font-size:1.02rem;letter-spacing:.08em}
+  .brand-t small{font-size:.5rem;letter-spacing:.22em}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.84rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .stat{padding:24px 10px}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--on-dark-line)}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:96px;height:96px;right:-6px;top:16px}
+  .badge b{font-size:1.85rem}
+  .badge span{font-size:.5rem;max-width:72px}
+  .sig-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .sig-grid::-webkit-scrollbar{display:none}
+  .sig-grid > *{flex:0 0 84%;scroll-snap-align:center}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(14,10,8,.05) 0%,rgba(14,10,8,.6) 45%,rgba(14,10,8,.92) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .m-row.has-th{grid-template-columns:58px minmax(0,1fr) auto;gap:4px 12px}
+  .m-th{width:58px;height:58px;border-radius:10px}
+  .m-n{font-size:1.14rem}
+  .m-p{font-size:1.08rem}
+  .map{min-height:260px}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:#0B0907;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:700;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,#E3A777,#B86E44);color:#1B110A}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.8rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.92rem;letter-spacing:.05em}
+  .langs button{padding:7px 6px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.7-6.5-6.2 0-3.6 2.8-5.6 3.8-9.3 2 1.3 3 3 3.2 4.8 1-.8 1.6-2 1.7-3.3 2.5 2 4.3 4.6 4.3 7.8 0 3.5-2.5 6.2-6.5 6.2z"/><path d="M12 21c-1.6 0-2.7-1.1-2.7-2.6 0-1.6 1.2-2.5 2.7-4 1.5 1.5 2.7 2.4 2.7 4 0 1.5-1.1 2.6-2.7 2.6z"/></g></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-4.5 7.5-6 11-4.5 2 .8 3.6 2.4 4.5 4.5-.9 2.1-2.5 3.7-4.5 4.5C10.5 18 6 16.5 3 12z"/><path d="M18.5 12 22 9v6z"/><circle cx="8" cy="11" r=".8" fill="currentColor"/></g></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c-.6.8-.6 1.7 0 2.5M12 3.5c-.6.8-.6 1.7 0 2.5M4 21h12"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Steakhouse – Grill, Fish &amp; Meat"><span class="seal">SH</span><span class="brand-t"><small>Grill · Fish &amp; Meat</small><b>Steakhouse</b></span></a>
+    <nav class="nav" aria-label="Meni">
+      <a href="#jelovnik" data-i18n="b_menu">Meni</a>
+      <a href="#prica" data-i18n="b_story">Naša priča</a>
+      <a href="#galerija" data-i18n="gal_eye">Galerija</a>
+      <a href="#kontakt" data-i18n="k_eye">Kontakt</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-cu" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- FIRST SCREEN -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="https://www.steakhousemontenegro.com/assets/images/montenegro-stek-1000x692.jpg" data-w="1600" alt="" fetchpriority="high">
+      <img data-lazy="https://www.steakhousemontenegro.com/assets/images/bpp-1360-1000x692.jpg" alt="">
+      <img data-lazy="https://www.steakhousemontenegro.com/assets/images/bpp-1374-1000x692.jpg" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="h_eye">Grill · Fish &amp; Meat · Podgorica</p>
+      <h1>Steak<em>house</em></h1>
+      <p class="hero-lead" data-i18n="h_lead">Meso sa domaćih farmi iz peći na drva i svježa riba iz Jadrana, u samom srcu Podgorice.</p>
+      <div class="hero-btns">
+        <a class="btn btn-cu" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="btn btn-glass" href="tel:+38268825954"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Steakhouse%2C%20Kara%C4%91or%C4%91eva%201%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="h_hours">Pon – pet 08 – 23h, vikendom 12 – 22h</span><span>+382 68 825 954</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" aria-label="Fotografije"></div>
+  </section>
+
+  <!-- TRIPADVISOR -->
+  <section class="stats" aria-label="TripAdvisor">
+    <div class="wrap">
+      <div class="stat"><b data-i18n="n1_v">4,7</b><span data-i18n="n1">ocjena gostiju na TripAdvisoru</span></div>
+      <div class="stat"><b>347</b><span data-i18n="n2">recenzija gostiju na TripAdvisoru</span></div>
+      <div class="stat"><b data-i18n="n3_v">#2</b><span data-i18n="n3">od 275 restorana u Podgorici na TripAdvisoru</span></div>
+      <div class="stat"><b>2025</b><span data-i18n="n4">nagrada Travelers' Choice, TripAdvisor</span></div>
+    </div>
+  </section>
+
+  <!-- IN SHORT -->
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
+        <h2 data-i18n="i_t">Stejk koncept <em>u srcu Podgorice</em></h2>
+        <p class="lead" data-i18n="i_p">Stejkove spremamo po istim recepturama kao stejkhaus restorani širom svijeta, a namirnice biramo iz cijele Crne Gore. Nalazimo se u samom centru grada, u mirnom kutku.</p>
+        <ul class="feats">
+          <li><span class="fi"><svg><use href="#i-flame"/></svg></span><div><h3 data-i18n="c1_t">Meso sa domaćih farmi</h3><p data-i18n="c1_p">Peče se u peći na drva. Uz domaće stejkove, tu su i Black Angus iz SAD i Wagyu iz Japana.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-fish"/></svg></span><div><h3 data-i18n="c2_t">Svježa riba iz Jadrana</h3><p data-i18n="c2_p">Riba I klase, lignje, gambori, hobotnica, tuna i losos.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-cup"/></svg></span><div><h3 data-i18n="c3_t">Od doručka do večere</h3><p data-i18n="c3_p">Radnim danima od 08:00 do 13:00 doručak i kafa, a zatim klasičan stejkhaus.</p></div></li>
+        </ul>
+        <div class="intro-cta">
+          <a class="btn btn-ch" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-line" href="#prica" data-i18n="b_story">Naša priča</a>
+        </div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="https://www.steakhousemontenegro.com/assets/images/bpp-1361-1000x692.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="https://www.steakhousemontenegro.com/assets/images/tbone-570x570.jpg" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><b>28+</b><span data-i18n="badge">dana zrenja za ribeye</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE DISHES -->
+  <section class="sec sig" id="specijaliteti">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="sig_eye">Iz našeg menija</p>
+        <h2 data-i18n="sig_t">Meso <em>i riba</em></h2>
+      </div>
+      <div class="sig-grid" id="sig-grid"></div>
+      <div class="sig-cta"><a class="btn btn-ch" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli meni</span></a><a class="btn btn-line" href="#jelovnik" data-open-tab="breakfast"><svg class="ico"><use href="#i-cup"/></svg><span data-i18n="b_brk">Doručak</span></a></div>
+    </div>
+  </section>
+
+  <!-- THE PLACE -->
+  <section class="place">
+    <img class="ph" data-p="https://www.steakhousemontenegro.com/assets/images/1a-1000x692.jpg" data-w="1600" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="pl_eye">Mjesto</p>
+        <h2 data-i18n="pl_t">U srcu <em>grada</em></h2>
+        <p data-i18n="pl_p">U samom centru Podgorice, a opet u mirnom kutku, uz prijatnu i udobnu intimnost. Omiljeno je mjesto diplomata, inostranih službenika i turista.</p>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="gal_t">Za stolom <em>kod nas</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAND -->
+  <section class="bookband">
+    <img class="ph" data-p="https://www.steakhousemontenegro.com/assets/images/5-1600x1200-1000x692.jpg" data-w="1600" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="bk_eye">Rezervacije</p>
+      <h2 data-i18n="bk_t">Sačuvajte <em>sto za sebe</em></h2>
+      <p data-i18n="bk_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom, pa ćemo ga potvrditi.</p>
+      <div class="bb-btns">
+        <a class="btn btn-cu" href="tel:+38268825954"><svg class="ico"><use href="#i-phone"/></svg>+382 68 825 954</a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_form">Upit e-mailom</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="k_t">Dođite <em>kod nas</em></h2>
+        <dl class="c-list">
+          <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Karađorđeva 1, Podgorica, Crna Gora</dd></div>
+          <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38268825954">+382 68 825 954</a></dd></div>
+          <div><dt class="caps" data-i18n="c_brk">Doručak</dt><dd data-i18n="brk_hours">Pon – pet, 08:00 – 13:00</dd></div>
+          <div class="wide"><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd data-i18n="hours_full">Ponedjeljak – petak: 08:00 – 23:00<br>Subota i nedjelja: 12:00 – 22:00</dd></div>
+          <div class="wide"><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:steakhouse.montenegro@gmail.com">steakhouse.montenegro@gmail.com</a></dd></div>
+        </dl>
+        <div class="c-btns">
+          <a class="btn btn-ch" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Steakhouse%2C%20Kara%C4%91or%C4%91eva%201%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        </div>
+        <p class="c-note" data-i18n="c_how">Doručak se služi samo radnim danima. Primamo platne kartice, a imamo i besplatan Wi-Fi, mjesta napolju i stolice za djecu.</p>
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=Kara%C4%91or%C4%91eva%201%2C%20Podgorica%2C%20Montenegro&amp;z=15&amp;output=embed" title="Mapa: Steakhouse, Karađorđeva 1, Podgorica" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">SH</span><span class="brand-t"><small>Grill · Fish &amp; Meat</small><b>Steakhouse</b></span></a>
+      <p data-i18n="addr">Karađorđeva 1, Podgorica, Crna Gora</p>
+    </div>
+    <div class="social">
+      <a href="https://www.facebook.com/steakhouse.montenegro/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g304088-d12218455-Reviews-Steakhouse_Grill_Fish_Meat-Podgorica_Podgorica_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
+    </div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Brze akcije">
+  <a href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+  <a href="tel:+38268825954"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Steakhouse%2C%20Kara%C4%91or%C4%91eva%201%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a>
+</nav>
+
+<!-- MENU WINDOW -->
+<dialog class="sheet" id="s-jelovnik">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SH</span><span class="brand-t"><small>Grill · Fish &amp; Meat</small><b>Steakhouse</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <h2 class="sheet-title" data-i18n="b_menu">Meni</h2>
+      <p class="sheet-lead" data-i18n="m_p">Meso iz peći na drva, riba iz Jadrana i doručak radnim danima.</p>
+      <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Meni"></div>
+      <div class="m-body" id="m-body"></div>
+      <p class="menu-note" data-i18n="menu_note">Cijene su u eurima. Kuver po osobi 1,50 €, za djecu se ne naplaćuje. Cijene stejkova po težini i ponudu dana provjerite kod konobara.</p>
+      <div class="brk-mini">
+        <h3 data-i18n="brk_t">Doručak <em>radnim danima</em></h3>
+        <p data-i18n="brk_p">Od 08:00 do 13:00: omlet, zdravi i slatki doručak, sendvič i dva steak house doručka. Od 11:00 i branč.</p>
+        <button type="button" class="btn btn-cu" data-tab-go="breakfast" data-i18n="brk_go">Meni za doručak</button>
+      </div>
+      <div class="sheet-cta">
+        <a class="btn btn-cu" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-line" href="tel:+38268825954" data-i18n="b_call">Pozovite</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- STORY WINDOW -->
+<dialog class="sheet" id="s-prica">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SH</span><span class="brand-t"><small>Grill · Fish &amp; Meat</small><b>Steakhouse</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="b_story">Naša priča</h2>
+        <img class="ph" data-p="https://www.steakhousemontenegro.com/assets/images/2a-1000x692.jpg" data-w="1400" alt="" loading="lazy">
+        <h3 data-i18n="a_t">Stejk koncept u srcu Podgorice</h3>
+        <p data-i18n="a_p1">Steakhouse je u samom centru Podgorice, u Karađorđevoj 1, a opet u mirnom kutku koji pruža mir i prijatnu, udobnu intimnost. Stejkove spremamo po istim recepturama kao stejkhaus restorani širom svijeta, ali od lokalnih, domaćih namirnica iz cijele Crne Gore.</p>
+        <p data-i18n="a_p2">Na početku nije bilo lako predstaviti ovaj koncept, ali gosti su ubrzo prepoznali kvalitet hrane i usluge. Danas imamo sve više stalnih gostiju, a posebno nas vole stranci: diplomate, inostrani službenici i turisti.</p>
+        <h3 data-i18n="b_t">Meso sa farmi, riba iz mora</h3>
+        <p data-i18n="b_p1">Meso stiže sa domaćih farmi. Pažljivo ga biramo i čuvamo, a pečemo u savremenoj peći na drva, kakvu koriste stejkhaus restorani u svijetu. Na meniju su i Black Angus iz SAD, odležao 28 i više dana, i Wagyu sa Hokaida, odležao 40 i više dana.</p>
+        <p data-i18n="b_p2">Zbog iskustva našeg tima na primorju i duha crnogorske kuhinje, u meniju su i prvoklasna riba i plodovi mora iz Jadrana.</p>
+        <h3 data-i18n="c_t">Od jutra do večeri</h3>
+        <p data-i18n="c_p">Radnim danima otvaramo u 08:00. Do 13:00 je vrijeme za opušteniji doručak i kafu, od 11:00 i za branč, a zatim prostor postaje klasičan stejkhaus. Subotom i nedjeljom radimo od 12:00 do 22:00.</p>
+        <blockquote>
+          <p data-i18n="ta_q">Gosti nas na TripAdvisoru ocjenjuju sa 4,7 od 5, a 2025. smo dobili priznanje Travelers' Choice.</p>
+          <footer><b>TripAdvisor</b>, <span data-i18n="ta_who">347 recenzija</span></footer>
+        </blockquote>
+        <div class="sheet-cta">
+          <a class="btn btn-ch" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-cu" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<!-- BOOKING WINDOW -->
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SH</span><span class="brand-t"><small>Grill · Fish &amp; Meat</small><b>Steakhouse</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <div class="book">
+        <h2 class="sheet-title" data-i18n="book">Rezervišite sto</h2>
+        <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
+        <a class="call-big btn-cu" href="tel:+38268825954"><svg class="ico"><use href="#i-phone"/></svg>+382 68 825 954</a>
+        <p class="call-2"><span data-i18n="c_mail">E-mail</span>: <a href="mailto:steakhouse.montenegro@gmail.com">steakhouse.montenegro@gmail.com</a></p>
+        <p class="or" data-i18n="r_or">ili</p>
+        <form class="res-form" id="res-form" novalidate>
+          <label><span data-i18n="f_name">Ime i prezime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <div class="row2">
+            <label><span data-i18n="f_date">Datum</span><input id="f-date" name="date" type="date" required></label>
+            <label><span data-i18n="f_time">Vrijeme</span><input id="f-time" name="time" type="time" min="08:00" max="23:00" step="900" value="20:00" required></label>
+          </div>
+          <div class="row2">
+            <label><span data-i18n="f_people">Broj osoba</span><select id="f-people" name="people"></select></label>
+            <label><span data-i18n="f_phone">Vaš telefon</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+382 …"></label>
+          </div>
+          <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="f-note" name="note"></textarea></label>
+          <button class="btn btn-ch" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
+          <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo. Radnim danima radimo od 08:00 do 23:00, vikendom od 12:00 do 22:00.</p>
+          <p class="hint" id="f-err" hidden style="color:#9C3A28" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- PHOTO VIEWER -->
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+
+<script>
+/* Photos come from steakhousemontenegro.com. They load through the wsrv.nl image service (resized, and not blocked
+   when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
+const IMG = "https://www.steakhousemontenegro.com/assets/images/";
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const photo = (url, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(url.replace(/^https?:\/\//, "")) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&we&q=82";
+const direct = url => url;
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
+  else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const setPhoto = (img, url, w, h) => { img.dataset.p = url; delete img.dataset.step; img.src = photo(url, w, h); };
+
+/* Menu: read from their PDF menu (steak-menu.pdf) and the breakfast PDF, grouped into their own sections.
+   Weights and prices are shown only where the PDF pairs them clearly; the rest are left for the waiter.
+   Start: the PDF has 7 dishes, 8 weights and 7 prices, so only the prices are shown there. */
+const MENU = [
+  { id:"steak", t:{me:"Stejkovi", en:"Steaks", ru:"Стейки"}, secs:[
+    { t:{me:"Stejk", en:"Steaks", ru:"Стейки"}, items:[
+      { k:"crna-gora", img:IMG + "montenegro-stek-1000x692.jpg", bw:1, n:{me:"Crna Gora", en:"Montenegro steak", ru:"Стейк «Черногория»"} },
+      { k:"biftek", img:IMG + "biftek-1000x692.jpg", bw:1, n:{me:"Biftek", en:"Beef tenderloin", ru:"Говяжья вырезка"}, d:{me:"Minimum 200 g", en:"Minimum 200 g", ru:"От 200 г"} },
+      { k:"t-bone", img:IMG + "tbone-570x570.jpg", bw:1, n:{me:"T-bone stejk", en:"T-bone steak", ru:"Стейк ти-бон"} },
+      { bw:1, n:{me:"Tomahawk stejk", en:"Tomahawk steak", ru:"Стейк томагавк"} },
+      { bw:1, n:{me:"Sirloin stejk", en:"Sirloin steak", ru:"Стейк сирлойн"}, d:{me:"Odležao 28+ dana", en:"Aged 28+ days", ru:"Выдержка 28+ дней"} },
+      { k:"ribeye", img:IMG + "ribeye-900-570x570.jpg", bw:1, n:{me:"Ribeye stejk", en:"Ribeye steak", ru:"Стейк рибай"}, d:{me:"Odležao 28+ dana", en:"Aged 28+ days", ru:"Выдержка 28+ дней"} },
+      { bw:1, n:{me:"Svinjski tomahawk", en:"Pork tomahawk", ru:"Свиной томагавк"} },
+    ]},
+    { t:{me:"Internacionalni stejkovi", en:"International steaks", ru:"Импортные стейки"}, items:[
+      { n:{me:"Black Angus biftek", en:"Black Angus tenderloin", ru:"Вырезка Black Angus"}, d:{me:"Creekstone, SAD · odležao 28+ dana", en:"Creekstone, USA · aged 28+ days", ru:"Creekstone, США · выдержка 28+ дней"} },
+      { n:{me:"Black Angus striploin", en:"Black Angus striploin", ru:"Стриплойн Black Angus"}, d:{me:"Creekstone, SAD · odležao 28+ dana", en:"Creekstone, USA · aged 28+ days", ru:"Creekstone, США · выдержка 28+ дней"} },
+      { n:{me:"Ribeye Wagyu", en:"Wagyu ribeye", ru:"Рибай вагю"}, d:{me:"Hokaido, Japan · BMS 09 – A5 · odležao 40+ dana", en:"Hokkaido, Japan · BMS 09 – A5 · aged 40+ days", ru:"Хоккайдо, Япония · BMS 09 – A5 · выдержка 40+ дней"} },
+    ]},
+    { t:{me:"Sosevi", en:"Sauces and extras", ru:"Соусы и дополнения"}, items:[
+      { n:{me:"Domaće masline", en:"Local olives", ru:"Местные оливки"} },
+      { n:{me:"Edamame", en:"Edamame", ru:"Эдамаме"} },
+      { n:{me:"Biber sos", en:"Pepper sauce", ru:"Перечный соус"} },
+      { n:{me:"Tartufi sos", en:"Truffle sauce", ru:"Трюфельный соус"} },
+      { n:{me:"BBQ sos", en:"BBQ sauce", ru:"Соус барбекю"} },
+      { n:{me:"Chili sos", en:"Chilli sauce", ru:"Соус чили"} },
+      { n:{me:"Puter sa biljem", en:"Herb butter", ru:"Масло с травами"} },
+    ]},
+    { t:{me:"Prilozi uz jelo", en:"Sides", ru:"Гарниры"}, items:[
+      { n:{me:"Grilovano povrće", en:"Grilled vegetables", ru:"Овощи гриль"} },
+      { n:{me:"Šparoge", en:"Asparagus", ru:"Спаржа"} },
+      { n:{me:"Bejbi šargarepa", en:"Baby carrots", ru:"Молодая морковь"} },
+      { n:{me:"Spanać", en:"Spinach", ru:"Шпинат"} },
+      { n:{me:"Pečene paprike", en:"Roasted peppers", ru:"Печёный перец"} },
+      { n:{me:"Pire", en:"Mashed potatoes", ru:"Картофельное пюре"} },
+      { n:{me:"Pečeni krompir", en:"Roast potatoes", ru:"Печёный картофель"} },
+      { n:{me:"Domaći pomfrit", en:"Homemade fries", ru:"Домашний картофель фри"} },
+      { n:{me:"Batat pomfrit", en:"Sweet potato fries", ru:"Картофель фри из батата"} },
+    ]},
+  ]},
+  { id:"start", t:{me:"Za početak", en:"Starters", ru:"Закуски"}, secs:[
+    { t:{me:"Start", en:"Starters", ru:"Холодные закуски"}, items:[
+      { p:18, n:{me:"Tatar biftek", en:"Beef tartare", ru:"Тартар из говяжьей вырезки"} },
+      { p:12, n:{me:"Karpaćo od bifteka", en:"Beef tenderloin carpaccio", ru:"Карпаччо из говяжьей вырезки"} },
+      { p:55, n:{me:"Zlatni start za džentlmene", en:"Golden starter for gentlemen", ru:"Золотая закуска для джентльменов"} },
+      { p:13, n:{me:"Mix domaćih sireva", en:"Local cheese selection", ru:"Ассорти местных сыров"} },
+      { p:28, n:{me:"Mix internacionalnih sireva", en:"International cheese selection", ru:"Ассорти зарубежных сыров"} },
+      { p:6, n:{me:"Domaći pršut", en:"Montenegrin prosciutto", ru:"Домашний пршут"} },
+      { p:15, n:{me:"Internacionalni pršut", en:"International cured ham", ru:"Импортная вяленая ветчина"} },
+    ]},
+    { t:{me:"Paštete i namazi", en:"Pâtés and spreads", ru:"Паштеты и пасты"}, items:[
+      { w:"60 g", p:7, n:{me:"Humus namaz", en:"Hummus", ru:"Хумус"} },
+      { w:"80 g", p:5, n:{me:"Ajvar", en:"Ajvar (roasted pepper relish)", ru:"Айвар"} },
+      { w:"150 g", p:4, n:{me:"Riblja pašteta", en:"Fish pâté", ru:"Рыбный паштет"} },
+      { w:"150 g", p:6, n:{me:"Pašteta od maslina", en:"Olive pâté", ru:"Оливковый паштет"} },
+      { w:"100 g", p:4, n:{me:"Namaz pikantnog sira", en:"Spicy cheese spread", ru:"Острая сырная паста"} },
+      { w:"60 g", p:4, n:{me:"Avokado namaz", en:"Avocado spread", ru:"Паста из авокадо"} },
+    ]},
+    { t:{me:"Supe i potaži", en:"Soups", ru:"Супы"}, items:[
+      { w:"250 g", p:5.5, n:{me:"Čorba dana", en:"Soup of the day", ru:"Суп дня"} },
+      { w:"250 g", p:4.5, n:{me:"Potaž dana", en:"Cream soup of the day", ru:"Крем-суп дня"} },
+    ]},
+    { t:{me:"Salate", en:"Salads", ru:"Салаты"}, items:[
+      { w:"200 g", p:6, n:{me:"Grčka salata / Šopska salata", en:"Greek or Shopska salad", ru:"Греческий или шопский салат"} },
+      { w:"200 g", p:5, n:{me:"Mix zelenih salata", en:"Mixed green salad", ru:"Микс зелёных салатов"} },
+      { w:"200 g", p:5, n:{me:"Sezonska salata", en:"Seasonal salad", ru:"Сезонный салат"} },
+      { w:"300 g", p:9, n:{me:"Stejk house salata sa piletinom", en:"Steakhouse salad with chicken", ru:"Салат «Стейкхаус» с курицей"} },
+      { w:"300 g", p:11, n:{me:"Stejk house salata sa biftekom", en:"Steakhouse salad with beef tenderloin", ru:"Салат «Стейкхаус» с говяжьей вырезкой"} },
+      { w:"300 g", p:13, n:{me:"Stejk house salata sa kozicama", en:"Steakhouse salad with prawns", ru:"Салат «Стейкхаус» с креветками"} },
+    ]},
+  ]},
+  { id:"sea", t:{me:"Plodovi mora", en:"Seafood", ru:"Морепродукты"}, secs:[
+    { t:{me:"Plodovi mora", en:"Seafood", ru:"Морепродукты"}, items:[
+      { k:"hobotnica", img:IMG + "karpaco-hobotnica-1000x692.jpg", w:"100 g", p:20, n:{me:"Karpaćo od hobotnice", en:"Octopus carpaccio", ru:"Карпаччо из осьминога"} },
+      { w:"150 g", p:18, n:{me:"Tuna tatar", en:"Tuna tartare", ru:"Тартар из тунца"} },
+      { w:"300 g", p:15, n:{me:"Taljatele sa plodovima mora", en:"Seafood tagliatelle", ru:"Тальятелле с морепродуктами"} },
+      { w:"300 g", p:14, n:{me:"Rižoto sa gamborima", en:"Prawn risotto", ru:"Ризотто с креветками"} },
+      { w:"250 g", p:19, n:{me:"Gambori na buzari", en:"Prawns buzara", ru:"Креветки бузара"} },
+      { k:"lignje", img:IMG + "20220910-165251-1600x1200-570x257.jpg", w:"250 g", p:13, n:{me:"Lignje na žaru", en:"Grilled squid", ru:"Кальмары на гриле"} },
+      { w:"300 g", p:19.5, n:{me:"Tuna stejk", en:"Tuna steak", ru:"Стейк из тунца"} },
+      { w:"300 g", p:19.5, n:{me:"Losos stejk", en:"Salmon steak", ru:"Стейк из лосося"} },
+    ]},
+    { t:{me:"Ulov dana", en:"Catch of the day", ru:"Улов дня"}, items:[
+      { k:"riba", img:IMG + "riba-570x570.jpg", p:59, n:{me:"Riba I klase", en:"First-class fish", ru:"Рыба первого класса"}, d:{me:"Riba iz Jadranskog mora, cijena za 1 kg", en:"From the Adriatic Sea, price per 1 kg", ru:"Из Адриатического моря, цена за 1 кг"} },
+    ]},
+  ]},
+  { id:"home", t:{me:"Domaći specijalitet", en:"House specials", ru:"Фирменные блюда"}, secs:[
+    { t:{me:"Domaći specijalitet", en:"House specials", ru:"Фирменные блюда"}, items:[
+      { w:"450 g", p:28, n:{me:"Taljata biftek", en:"Beef tenderloin tagliata", ru:"Тальята из говяжьей вырезки"}, d:{me:"Na pire krompiru sa tartufima", en:"On truffle mashed potatoes", ru:"На картофельном пюре с трюфелем"} },
+      { w:"450 g", p:25, n:{me:"Biftek u gorgonzola sosu", en:"Beef tenderloin in gorgonzola sauce", ru:"Говяжья вырезка в соусе горгонзола"}, d:{me:"Sa batat krompirom", en:"With sweet potato", ru:"С бататом"} },
+      { w:"450 g", p:12, n:{me:"Kuvana teletina", en:"Boiled veal", ru:"Отварная телятина"}, d:{me:"Sa blanširanim povrćem", en:"With blanched vegetables", ru:"С бланшированными овощами"} },
+      { w:"450 g", p:14, n:{me:"Sočna piletina", en:"Juicy chicken", ru:"Сочная курица"}, d:{me:"Sa povrćem u pesto sosu", en:"With vegetables in pesto sauce", ru:"С овощами в соусе песто"} },
+    ]},
+  ]},
+  { id:"sweet", t:{me:"Deserti", en:"Desserts", ru:"Десерты"}, secs:[
+    { t:{me:"Deserti", en:"Desserts", ru:"Десерты"}, items:[
+      { w:"135 g", p:4.5, n:{me:"Sladoled", en:"Ice cream", ru:"Мороженое"} },
+      { w:"450 g", p:5.5, n:{me:"Voće dana", en:"Fruit of the day", ru:"Фрукты дня"} },
+      { k:"kolac", img:IMG + "kolac-dana-570x570.jpg", w:"200 g", p:4.5, n:{me:"Kolač dana", en:"Cake of the day", ru:"Торт дня"} },
+    ]},
+  ]},
+  { id:"kids", t:{me:"Dječiji meni", en:"Kids' menu", ru:"Детское меню"}, secs:[
+    { t:{me:"Dječiji meni", en:"Kids' menu", ru:"Детское меню"}, items:[
+      { w:"250 g", p:9, n:{me:"Pasta 4 vrste sira", en:"Four-cheese pasta", ru:"Паста с четырьмя сырами"} },
+      { w:"250 g", p:9, n:{me:"Pileći štapići sa pireom", en:"Chicken sticks with mash", ru:"Куриные палочки с пюре"} },
+    ]},
+  ]},
+  { id:"breakfast", t:{me:"Doručak", en:"Breakfast", ru:"Завтрак"}, secs:[
+    { t:{me:"Doručak", en:"Breakfast", ru:"Завтрак"}, note:{me:"Radnim danima, 08:00 – 13:00", en:"Weekdays, 8:00 – 13:00", ru:"По будням, 08:00 – 13:00"}, items:[
+      { n:{me:"Omlet / kajgana", en:"Omelette or scrambled eggs", ru:"Омлет или скрэмбл"}, d:{me:"Sa sirom, povrćem ili pršutom", en:"With cheese, vegetables or prosciutto", ru:"С сыром, овощами или пршутом"} },
+      { n:{me:"Omlet / kajgana sa šparogama", en:"Omelette or scrambled eggs with asparagus", ru:"Омлет или скрэмбл со спаржей"}, d:{me:"Šparoge i iberico pršut", en:"Asparagus and Ibérico ham", ru:"Спаржа и хамон иберико"} },
+      { n:{me:"Zdravi doručak", en:"Healthy breakfast", ru:"Полезный завтрак"}, d:{me:"Ovsene pahuljice, šumsko voće, grčki jogurt", en:"Oat flakes, forest berries, Greek yogurt", ru:"Овсяные хлопья, лесные ягоды, греческий йогурт"} },
+      { n:{me:"Slatki doručak", en:"Sweet breakfast", ru:"Сладкий завтрак"}, d:{me:"Američke palačinke, Nutella, plazma keks, šumsko voće", en:"American pancakes, Nutella, Plazma biscuits, forest berries", ru:"Американские панкейки, Nutella, печенье «Плазма», лесные ягоды"} },
+      { n:{me:"Sendvič", en:"Sandwich", ru:"Сэндвич"}, d:{me:"Svinjski ili goveđi pršut, njeguški sir, kuvano jaje", en:"Pork or beef prosciutto, Njeguši cheese, boiled egg", ru:"Свиной или говяжий пршут, сыр из Негушей, варёное яйцо"} },
+      { n:{me:"Steak house doručak (kalorični)", en:"Steakhouse breakfast (hearty)", ru:"Завтрак «Стейкхаус» (сытный)"}, d:{me:"Tri jaja, svinjski i goveđi pršut, slanina, sirevi, kajmak, zelena salata", en:"Three eggs, pork and beef prosciutto, bacon, cheeses, kajmak, green salad", ru:"Три яйца, свиной и говяжий пршут, бекон, сыры, каймак, зелёный салат"} },
+      { n:{me:"Steak house doručak (lagani)", en:"Steakhouse breakfast (light)", ru:"Завтрак «Стейкхаус» (лёгкий)"}, d:{me:"Poširana jaja na domaćem hljebu, hrskava slanina, paštete, kajmak, feta, zelena salata", en:"Poached eggs on homemade bread, crispy bacon, pâtés, kajmak, feta, green salad", ru:"Яйца пашот на домашнем хлебе, хрустящий бекон, паштеты, каймак, фета, зелёный салат"} },
+    ]},
+    { t:{me:"Branč", en:"Brunch", ru:"Бранч"}, note:{me:"Od 11:00", en:"From 11:00", ru:"С 11:00"}, items:[
+      { n:{me:"Losos", en:"Salmon", ru:"Лосось"}, d:{me:"Karpaćo od lososa na domaćem hljebu, uz čašu cijeđene narandže ili proseka", en:"Salmon carpaccio on homemade bread, with a glass of fresh orange juice or prosecco", ru:"Карпаччо из лосося на домашнем хлебе, с бокалом свежевыжатого апельсинового сока или просекко"} },
+      { n:{me:"Fritata", en:"Frittata", ru:"Фриттата"}, d:{me:"Fritata od povrća sa iberico pršutom, uz čašu cijeđene narandže ili proseka", en:"Vegetable frittata with Ibérico ham, with a glass of fresh orange juice or prosecco", ru:"Овощная фриттата с хамоном иберико, с бокалом свежевыжатого апельсинового сока или просекко"} },
+    ]},
+  ]},
+];
+/* six dishes with real photos shown on the page itself */
+const SIGNATURE = ["crna-gora","t-bone","ribeye","biftek","hobotnica","riba"];
+/* gallery: their own photos; the dish photos keep the captions from their site */
+const GALLERY = [
+  { u:IMG + "bpp-1372-1000x692.jpg" },
+  { u:IMG + "karpaco-losos-1000x692.jpg", c:{me:"Karpaćo losos", en:"Salmon carpaccio", ru:"Карпаччо из лосося"} },
+  { u:IMG + "4-1600x1200-1000x692.jpg" },
+  { u:IMG + "riba-u-soli-1000x692.jpg", c:{me:"Riba u soli", en:"Fish baked in salt", ru:"Рыба в соли"} },
+  { u:IMG + "bpp-1374-1000x692.jpg" },
+  { u:IMG + "kozice-na-zaru-1000x692.jpg", c:{me:"Kozice na žaru", en:"Grilled prawns", ru:"Креветки на гриле"} },
+  { u:IMG + "1a-1000x692.jpg" },
+  { u:IMG + "seafood-1000x692.jpg", c:{me:"Špagete sa morskim plodovima", en:"Seafood spaghetti", ru:"Спагетти с морепродуктами"} },
+  { u:IMG + "montenegro-zakuska-1000x692.jpg", c:{me:"Montenegro zakuska", en:"Montenegrin starter platter", ru:"Черногорская закуска"} },
+];
+
+const T = {
+  en: {
+    demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
+    book:"Book a table", b_book:"Book a table", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"Our story", b_map:"Map", b_brk:"Breakfast",
+    h_eye:"Grill · Fish &amp; Meat · Podgorica", h_lead:"Meat from local farms, cooked in a wood-fired oven, and fresh Adriatic fish, right in the heart of Podgorica.",
+    h_hours:"Mon – Fri 8:00 – 23:00, weekends 12:00 – 22:00",
+    n1_v:"4.7", n1:"guest rating on TripAdvisor", n2:"guest reviews on TripAdvisor", n3_v:"#2", n3:"of 275 restaurants in Podgorica on TripAdvisor", n4:"TripAdvisor Travelers' Choice award",
+    i_eye:"In short", i_t:"A steakhouse <em>in the heart of Podgorica</em>",
+    i_p:"We cook our steaks to the same recipes as steakhouses around the world, with ingredients from all over Montenegro. We are right in the city centre, in a quiet corner.",
+    c1_t:"Meat from local farms", c1_p:"Cooked in a wood-fired oven. Alongside local steaks there is Black Angus from the USA and Wagyu from Japan.",
+    c2_t:"Fresh Adriatic fish", c2_p:"First-class fish, squid, prawns, octopus, tuna and salmon.",
+    c3_t:"From breakfast to dinner", c3_p:"On weekdays, breakfast and coffee from 8:00 to 13:00, then a classic steakhouse.",
+    badge:"day-aged ribeye",
+    sig_eye:"From our menu", sig_t:"Meat <em>and fish</em>", sig_all:"Full menu",
+    pl_eye:"The place", pl_t:"In the heart <em>of the city</em>", pl_p:"Right in the centre of Podgorica, yet tucked away in a quiet corner, calm and cosy. It has become a favourite with diplomats, foreign officials and tourists.",
+    gal_eye:"Gallery", gal_t:"At the table <em>with us</em>",
+    bk_eye:"Reservations", bk_t:"Reserve <em>your table</em>", bk_p:"Calling is the fastest way. You can also email us a request and we will confirm it.", bk_form:"Email request",
+    k_eye:"Contact", k_t:"Come <em>and see us</em>",
+    c_addr:"Address", addr:"Karađorđeva 1, Podgorica, Montenegro", c_tel:"Phone", c_brk:"Breakfast", brk_hours:"Mon – Fri, 8:00 – 13:00", l_hours:"Opening hours",
+    hours_full:"Monday – Friday: 8:00 – 23:00<br>Saturday and Sunday: 12:00 – 22:00", c_mail:"Email",
+    c_how:"Breakfast is served on weekdays only. We accept cards, and we have free Wi-Fi, outdoor seating and high chairs.",
+    m_p:"Meat from the wood-fired oven, Adriatic fish, and breakfast on weekdays.",
+    menu_note:"Prices are in euros. Cover charge €1.50 per person, free for children. Please ask your waiter for steak prices by weight and the dishes of the day.",
+    brk_t:"Breakfast <em>on weekdays</em>", brk_p:"From 8:00 to 13:00: omelettes, a healthy and a sweet breakfast, a sandwich and two steakhouse breakfasts. Brunch from 11:00.", brk_go:"Breakfast menu",
+    a_t:"A steakhouse in the heart of Podgorica",
+    a_p1:"Steakhouse is right in the centre of Podgorica, at Karađorđeva 1, yet in a quiet corner with a calm, cosy, intimate feel. We cook our steaks to the same recipes as steakhouses around the world, but with local ingredients from all over Montenegro.",
+    a_p2:"At first it was not easy to introduce the concept, but guests soon came to value the food and the service. Today we have more and more regulars, and we are especially popular with foreigners: diplomats, foreign officials and tourists.",
+    b_t:"Meat from farms, fish from the sea",
+    b_p1:"Our meat comes from local farms. We choose and store it with care and cook it in a modern wood-fired oven, the kind steakhouses use around the world. The menu also has Black Angus from the USA, aged 28 days or more, and Wagyu from Hokkaido, aged 40 days or more.",
+    b_p2:"Thanks to our team's experience on the coast and the spirit of Montenegrin cooking, the menu also has first-class fish and seafood from the Adriatic.",
+    c_t:"From morning to night",
+    c_p:"On weekdays we open at 8:00. Until 13:00 it is time for a relaxed breakfast and coffee, with brunch from 11:00, and then the room becomes a classic steakhouse. On Saturdays and Sundays we are open from 12:00 to 22:00.",
+    ta_q:"Guests rate us 4.7 out of 5 on TripAdvisor, and in 2025 we received the Travelers' Choice award.", ta_who:"347 reviews",
+    r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
+    f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_note:"Note (optional)",
+    f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it. We are open 8:00 – 23:00 on weekdays and 12:00 – 22:00 at weekends.", f_err:"Please enter your name, date and time.",
+    x_home:"Home", x_close:"Close", x_prev:"Previous", x_next:"Next", by_weight:"by weight",
+    mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to book a table:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_phone:"Phone", m_note:"Note", mail_bye:"Thank you!",
+  },
+  ru: {
+    demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Маршрут", b_story:"Наша история", b_map:"Карта", b_brk:"Завтрак",
+    h_eye:"Grill · Fish &amp; Meat · Подгорица", h_lead:"Мясо с местных ферм из дровяной печи и свежая адриатическая рыба в самом сердце Подгорицы.",
+    h_hours:"Пн – пт 08 – 23 ч, сб – вс 12 – 22 ч",
+    n1_v:"4,7", n1:"оценка гостей на TripAdvisor", n2:"отзывов гостей на TripAdvisor", n3_v:"№2", n3:"из 275 ресторанов Подгорицы на TripAdvisor", n4:"награда Travelers' Choice от TripAdvisor",
+    i_eye:"Коротко о нас", i_t:"Стейкхаус <em>в сердце Подгорицы</em>",
+    i_p:"Мы готовим стейки по тем же рецептам, что и стейкхаусы по всему миру, а продукты выбираем по всей Черногории. Мы в самом центре города, в тихом уголке.",
+    c1_t:"Мясо с местных ферм", c1_p:"Готовим в дровяной печи. Кроме местных стейков, есть Black Angus из США и вагю из Японии.",
+    c2_t:"Свежая рыба из Адриатики", c2_p:"Рыба первого класса, кальмары, креветки, осьминог, тунец и лосось.",
+    c3_t:"От завтрака до ужина", c3_p:"По будням с 08:00 до 13:00 завтраки и кофе, а потом классический стейкхаус.",
+    badge:"дней выдержки рибая",
+    sig_eye:"Из нашего меню", sig_t:"Мясо <em>и рыба</em>", sig_all:"Всё меню",
+    pl_eye:"Место", pl_t:"В самом <em>сердце города</em>", pl_p:"В самом центре Подгорицы, но в тихом уголке, со спокойной и уютной атмосферой. Это любимое место дипломатов, иностранных служащих и туристов.",
+    gal_eye:"Галерея", gal_t:"За столом <em>у нас</em>",
+    bk_eye:"Бронирование", bk_t:"Оставьте столик <em>за собой</em>", bk_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте, мы его подтвердим.", bk_form:"Запрос по e-mail",
+    k_eye:"Контакты", k_t:"Приходите <em>к нам</em>",
+    c_addr:"Адрес", addr:"Karađorđeva 1, Подгорица, Черногория", c_tel:"Телефон", c_brk:"Завтрак", brk_hours:"Пн – пт, 08:00 – 13:00", l_hours:"Часы работы",
+    hours_full:"Понедельник – пятница: 08:00 – 23:00<br>Суббота и воскресенье: 12:00 – 22:00", c_mail:"E-mail",
+    c_how:"Завтраки только по будням. Принимаем банковские карты, есть бесплатный Wi-Fi, места на улице и детские стульчики.",
+    m_p:"Мясо из дровяной печи, рыба из Адриатики и завтраки по будням.",
+    menu_note:"Цены в евро. Куверт 1,50 € с человека, для детей бесплатно. Цены стейков по весу и блюда дня уточняйте у официанта.",
+    brk_t:"Завтраки <em>по будням</em>", brk_p:"С 08:00 до 13:00: омлеты, полезный и сладкий завтраки, сэндвич и два завтрака «Стейкхаус». С 11:00 также бранч.", brk_go:"Меню завтраков",
+    a_t:"Стейкхаус в сердце Подгорицы",
+    a_p1:"Steakhouse находится в самом центре Подгорицы, на улице Karađorđeva, 1, но в тихом уголке, где спокойно и уютно. Мы готовим стейки по тем же рецептам, что и стейкхаусы по всему миру, но из местных продуктов со всей Черногории.",
+    a_p2:"Поначалу представить этот формат было непросто, но гости быстро оценили кухню и сервис. Сегодня у нас всё больше постоянных гостей, а особенно нас любят иностранцы: дипломаты, сотрудники зарубежных организаций и туристы.",
+    b_t:"Мясо с ферм, рыба из моря",
+    b_p1:"Мясо поступает с местных ферм. Мы тщательно его отбираем и храним, а готовим в современной дровяной печи, какие используют стейкхаусы по всему миру. В меню есть и Black Angus из США с выдержкой от 28 дней, и вагю с Хоккайдо с выдержкой от 40 дней.",
+    b_p2:"Благодаря опыту нашей команды на побережье и духу черногорской кухни в меню есть и рыба первого класса, и морепродукты из Адриатики.",
+    c_t:"С утра до вечера",
+    c_p:"По будням мы открываемся в 08:00. До 13:00 время для неспешного завтрака и кофе, с 11:00 также бранч, а потом зал превращается в классический стейкхаус. В субботу и воскресенье работаем с 12:00 до 22:00.",
+    ta_q:"Гости ставят нам на TripAdvisor 4,7 из 5, а в 2025 году мы получили награду Travelers' Choice.", ta_who:"347 отзывов",
+    r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
+    f_name:"Имя и фамилия", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
+    f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения. По будням мы работаем с 08:00 до 23:00, в выходные с 12:00 до 22:00.", f_err:"Укажите имя, дату и время.",
+    x_home:"На главную", x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше", by_weight:"по весу",
+    mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать столик:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_phone:"Телефон", m_note:"Комментарий", mail_bye:"Спасибо!",
+  },
+};
+/* Montenegrin texts that are not in the page itself */
+const ME_EXTRA = { x_home:"Početna", x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća", by_weight:"po težini",
+  mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_note:"Napomena", mail_bye:"Hvala!" };
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const ME = {}; $$("[data-i18n]").forEach(n => { if (!(n.dataset.i18n in ME)) ME[n.dataset.i18n] = n.innerHTML; });
+Object.assign(ME, ME_EXTRA);
+const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
+let lang = "me";
+const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
+
+MENU.forEach(g => g.secs.forEach(s => s.items.forEach(d => { d.g = g; d.s = s; })));
+const DISHES = MENU.flatMap(g => g.secs.flatMap(s => s.items));
+const SHOTS = DISHES.filter(d => d.img);
+const money = p => lang === "en" ? "€" + p.toFixed(2) : p.toFixed(2).replace(".", ",") + " €";
+const img = (url, w, h) => `<img class="ph" data-p="${url}" src="${photo(url, w, h)}" alt="" loading="lazy">`;
+const orig = d => lang !== "me" && d.n.me !== d.n[lang] ? d.n.me : "";
+const dishCard = d => `<button type="button" class="dcard" data-dish="${SHOTS.indexOf(d)}">
+    <span class="dph ph">${img(d.img, 900, 563)}</span>
+    <span class="dtx"><span class="dcat caps">${d.s.t[lang]}</span><span class="dname">${d.n[lang]}</span>${orig(d) ? `<span class="dorig">${orig(d)}</span>` : ""}${d.d ? `<span class="dnote">${d.d[lang]}</span>` : ""}</span>
+  </button>`;
+const dishRow = d => {
+  const right = d.p != null ? `<span class="m-p">${money(d.p)}</span>` : d.bw ? `<span class="m-p m-bw">${tr("by_weight")}</span>` : "";
+  return `<li class="m-row${d.img ? " has-th" : ""}">` +
+    (d.img ? `<button type="button" class="m-th ph" data-dish="${SHOTS.indexOf(d)}" aria-label="${d.n[lang]}">${img(d.img, 160, 160)}</button>` : "") +
+    `<div class="m-txt"><span class="m-n">${d.n[lang]}</span>${orig(d) ? `<span class="m-o">${orig(d)}</span>` : ""}${d.d ? `<span class="m-d">${d.d[lang]}</span>` : ""}</div>` +
+    `<div class="m-r">${right}${d.w ? `<span class="m-w">${d.w}</span>` : ""}</div></li>`;
+};
+
+/* menu window (one tab per group, their own sections inside) and signature dishes */
+let tab = MENU[0].id;
+function renderMenu(){
+  const g = MENU.find(x => x.id === tab) || MENU[0];
+  $("#m-tabs").innerHTML = MENU.map(x => `<button type="button" role="tab" aria-selected="${x.id === g.id}" data-tab="${x.id}">${x.t[lang]}<small>${x.secs.reduce((a, s) => a + s.items.length, 0)}</small></button>`).join("");
+  $("#m-body").innerHTML = g.secs.map(s => `<section class="m-sec">${g.secs.length > 1 ? `<h3 class="m-h">${s.t[lang]}</h3>` : ""}${s.note ? `<p class="m-sn">${s.note[lang]}</p>` : ""}<ul class="m-list">${s.items.map(dishRow).join("")}</ul></section>`).join("");
+  $(".brk-mini").hidden = g.id === "breakfast";
+  $("#sig-grid").innerHTML = SIGNATURE.map(k => dishCard(DISHES.find(d => d.k === k))).join("");
+}
+const tabToView = () => { const t = $("#m-tabs"), b = t.querySelector("[aria-selected=true]"); t.scrollLeft += b.getBoundingClientRect().left - t.getBoundingClientRect().left - 18; };
+function showTab(id){
+  tab = id; renderMenu(); tabToView();
+  $("#s-jelovnik .sheet-body").scrollTop = 0;
+  if (id === "breakfast" && window.gtag) gtag("event", "demo_open_breakfast", { language: lang });
+}
+$("#m-tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) showTab(b.dataset.tab); });
+$("[data-tab-go]").addEventListener("click", e => showTab(e.currentTarget.dataset.tabGo));
+function renderGallery(){
+  $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}"${f.c ? ` aria-label="${f.c[lang]}"` : ""}>${img(f.u, i === 0 ? 1400 : 800)}</button>`).join("");
+}
+function applyLang(l){
+  lang = ["me","en","ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = LANG_CODE[lang];
+  renderMenu(); renderGallery();
+  const sel = $("#f-people"), cur = sel.value || "2";
+  sel.innerHTML = Array.from({length:12}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join("") + `<option value="13+">13+</option>`;
+  sel.value = cur;
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem("sh-lang", lang); } catch(e) {}
+}
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade between three photos; the other two load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+$("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+$("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 1600));
+  if (!calm) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once as they come into view; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows (menu, story, booking) live at #jelovnik, #prica, #rezervacija,
+   so the phone's back button closes them and the links can be shared */
+const SHEETS = ["jelovnik", "prica", "rezervacija"];
+function syncSheets(){
+  const id = location.hash.slice(1);
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k);
+    if (k === id && !d.open) {
+      d.showModal(); d.querySelector(".sheet-body").scrollTop = 0;
+      if (window.gtag) gtag("event", "demo_open_" + k, { language: lang });
+    }
+    if (k !== id && d.open) d.close();
+  });
+  lockScroll();
+  if (homeNext && !SHEETS.some(k => $("#s-" + k).open)) {
+    homeNext = false;
+    /* after the browser has put focus back on the link that opened the window */
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
+}
+function openSheet(id){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
+  syncSheets();
+}
+/* the restaurant name in a window's top bar goes back to the top of the main page */
+let homeNext = false;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const goHome = () => { homeNext = true; closeSheet(); };
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (!SHEETS.includes(id)) return;
+  e.preventDefault();
+  if (a.dataset.openTab) {
+    tab = a.dataset.openTab; renderMenu();
+    if (tab === "breakfast" && window.gtag) gtag("event", "demo_open_breakfast", { language: lang });
+  } else if (id === "jelovnik" && tab === "breakfast") { tab = MENU[0].id; renderMenu(); }
+  openSheet(id);
+  if (id === "jelovnik") tabToView();
+});
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", goHome));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer for dishes and the gallery: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.p, 1600);
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  $("#v-cap").innerHTML = it.d ? `<p class="caps">${it.d.s.t[lang]}</p><h4>${it.d.n[lang]}</h4>${orig(it.d) ? `<p class="v-orig">${orig(it.d)}</p>` : ""}`
+    : it.c ? `<h4>${it.c[lang]}</h4>${lang !== "me" ? `<p class="v-orig">${it.c.me}</p>` : ""}` : "";
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-dish]"); if (!b) return;
+  openViewer(SHOTS.map(d => ({ p: d.img, d })), +b.dataset.dish);
+});
+$("#g-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-shot]"); if (!b) return;
+  openViewer(GALLERY.map(f => ({ p: f.u, c: f.c })), +b.dataset.shot);
+});
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* reservation request: opens the guest's email app, nothing is stored */
+$("#f-date").min = new Date().toISOString().slice(0, 10);
+$("#res-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  if (!v("#f-name") || !v("#f-date") || !v("#f-time")) { $("#f-err").hidden = false; return; }
+  $("#f-err").hidden = true;
+  const lines = [tr("mail_hi"), "", tr("mail_ask"),
+    `${tr("m_name")}: ${v("#f-name")}`, `${tr("m_date")}: ${v("#f-date")}`, `${tr("m_time")}: ${v("#f-time")}`,
+    `${tr("m_people")}: ${v("#f-people")}`];
+  if (v("#f-phone")) lines.push(`${tr("m_phone")}: ${v("#f-phone")}`);
+  if (v("#f-note")) lines.push(`${tr("m_note")}: ${v("#f-note")}`);
+  lines.push("", tr("mail_bye"));
+  const subj = `${tr("mail_subj")}: ${v("#f-date")} ${v("#f-time")}, ${v("#f-people")}`;
+  if (window.gtag) gtag("event", "demo_reservation_click", { language: lang });
+  location.href = "mailto:steakhouse.montenegro@gmail.com?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
+});
+
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0));
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem("sh-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+</script>
+</body>
+</html>

@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stara kuća · Nacionalni restoran, Podgorica (demo)</title>
+<meta name="description" content="Nacionalni restoran Stara kuća u Podgorici: crnogorska kuhinja, kameni zidovi, bašta i proslave. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2E221B">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --walnut:#2E221B; --walnut-2:#45332A; --walnut-3:#1E1611; --terra:#B5532E; --terra-2:#E59D76; --terra-ink:#9A4322;
+  --ivory:#F6F0E6; --sand:#ECE2D2; --stone:#D9CBB5; --card:#FBF7F0;
+  --ink:#241A14; --muted:#5F5246; --faint:#75685B; --line:rgba(36,26,20,.12); --line-2:rgba(36,26,20,.24);
+  --on-dark:#F5EDE1; --on-dark-2:rgba(245,237,225,.78); --on-dark-line:rgba(245,237,225,.2);
+  --f-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-sans:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1200px; --gut:24px; --r:16px; --hh:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2.1rem,5.4vw,3.7rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--terra-ink)}
+p{margin:0}
+.eyebrow{color:var(--terra-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--terra-2)}
+.ph{background:#4a382c linear-gradient(135deg,#55402f,#2b1f17)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:.98rem;letter-spacing:.03em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.btn-terra{background:linear-gradient(135deg,#C2603A,#A2472A);color:#FFF8F1;box-shadow:0 10px 30px -12px rgba(162,71,42,.75)}
+.btn-terra:hover{box-shadow:0 14px 34px -10px rgba(162,71,42,.95)}
+.btn-dark{background:var(--walnut);color:var(--on-dark)}
+.btn-dark:hover{background:var(--walnut-3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(30,22,17,.4);color:var(--on-dark);border-color:rgba(245,237,225,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(30,22,17,.62)}
+
+/* demo strip */
+.demo{position:relative;z-index:31;background:#160F0B;color:var(--on-dark-2);font-size:.76rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--terra-2);text-decoration:underline;text-underline-offset:2px}
+
+/* header: see-through over the photo, solid once you scroll */
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:rgba(246,240,230,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-weight:600;font-size:1rem;letter-spacing:.04em}
+.brand-t{display:flex;flex-direction:column;line-height:1}
+.brand-t small{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra-2);font-weight:600;margin-bottom:6px}
+.top.solid .brand-t small{color:var(--terra-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:600;font-size:1.24rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.04em;opacity:.88}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:inherit;font:600 .72rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--terra);color:#FFF8F1}
+.top .btn{min-height:42px;padding:0 20px;font-size:.88rem}
+
+/* hero */
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--walnut-3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,16,11,.66) 0%,rgba(24,16,11,.22) 34%,rgba(24,16,11,.32) 62%,rgba(24,16,11,.88) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--terra-2)}
+.hero h1{font-size:clamp(3.2rem,11.5vw,7.6rem);font-weight:500;line-height:.98;text-shadow:0 2px 40px rgba(0,0,0,.3)}
+.hero h1 em{color:var(--terra-2)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.35;margin-top:18px;max-width:32ch;color:#FFF8EF}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.95rem}
+.hero-btns .btn-terra{grid-column:1 / -1;min-height:62px;font-size:1.1rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.88rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--terra-2);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(245,237,225,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--terra-2)}
+
+/* numbers strip */
+.stats{background:var(--walnut);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1;color:var(--terra-2);white-space:nowrap}
+.stat b small{font-size:.5em;margin-left:4px}
+.stat span{display:block;margin-top:10px;font-size:.88rem;color:var(--on-dark-2);line-height:1.35}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,140px)}
+.head{max-width:700px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--walnut-3);color:var(--on-dark)}
+
+/* intro: text and a photo collage */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:46ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--terra-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.32rem;font-weight:600}
+.feats p{margin-top:3px;color:var(--muted);font-size:.98rem}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(36,26,20,.6)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--ivory);box-shadow:0 30px 60px -30px rgba(36,26,20,.65)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:linear-gradient(135deg,#C2603A,#A2472A);color:#FFF8F1;display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{display:block;font-size:2.1rem;font-weight:600}
+.badge span{display:block;font-family:var(--f-sans);font-size:.78rem;letter-spacing:.12em;font-weight:600;margin-top:4px}
+
+/* dishes from the menu: text cards (their site has no dish photos) */
+.sig{background:var(--sand)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.tcard{display:flex;flex-direction:column;height:100%;padding:26px 24px 20px;background:var(--card);color:inherit;text-decoration:none;border-radius:var(--r);border-top:3px solid var(--terra);box-shadow:0 24px 50px -38px rgba(36,26,20,.6);transition:transform .35s ease,box-shadow .35s ease}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(36,26,20,.7)}
+.tcard .dcat{display:block;color:var(--terra-ink)}
+.tcard .dname{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.55rem;line-height:1.14;margin-top:10px}
+.tcard .dorig{display:block;font-size:.88rem;color:var(--faint);margin-top:4px}
+.tcard .tdesc{display:block;margin-top:10px;color:var(--muted);font-size:.95rem;line-height:1.5}
+.tcard .tfoot{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:14px}
+.tcard .tq{color:var(--faint);font-size:.9rem}
+.tcard .tp{font-family:var(--f-serif);font-weight:600;font-size:1.4rem;color:var(--terra-ink)}
+.tcard .tgap{display:block;margin-top:auto;padding-top:18px;border-bottom:1px solid var(--line)}
+.sig-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:44px}
+
+/* the place: full photo with text */
+.place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(24,16,11,.82) 0%,rgba(24,16,11,.4) 55%,rgba(24,16,11,.1) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--terra-2)}
+.place-card h2 em{color:var(--terra-2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+/* celebrations and events */
+.events{text-align:center}
+.events .head p{color:var(--on-dark-2)}
+.ev-list{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 28px;max-width:1080px}
+.ev-list li{font-family:var(--f-serif);font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2;color:var(--on-dark);padding-top:16px;border-top:1px solid rgba(229,157,118,.45)}
+.ev-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.ev-note{margin-top:16px;color:var(--on-dark-2);font-size:.95rem}
+
+/* gallery: mosaic */
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-more{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:32px}
+.g-src{color:var(--faint);font-size:.85rem}
+
+/* booking band */
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(24,16,11,.68)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--terra-2)}
+.bookband h2 em{color:var(--terra-2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:46ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--terra-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.05rem;overflow-wrap:anywhere}
+.c-list dd a{font-weight:600;text-decoration:none}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.92rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--sand)}
+
+/* footer */
+.foot{background:#160F0B;color:var(--on-dark-2);padding-block:56px 40px;font-size:.9rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--terra-2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:600}
+.social a:hover{color:var(--terra-2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.8rem}
+.foot .made a{color:var(--terra-2)}
+
+/* full-screen windows: menu, story, booking */
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ivory);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--ivory)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--walnut);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--terra-2)}
+.home:hover .seal{border-color:var(--terra-2);color:var(--terra-2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--terra-2);margin-top:-3px}
+.sheet-title{font-size:clamp(2.2rem,6.4vw,3.2rem);padding-top:26px}
+.sheet-title + .sheet-lead{padding-top:8px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(245,237,225,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--terra-2)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);padding-top:20px;font-family:var(--f-serif);font-style:italic;font-size:1.2rem;line-height:1.4}
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--ivory);margin:0 calc(-1 * var(--gut)) 12px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:500 .92rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.78rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--walnut);border-color:var(--walnut);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--terra-2)}
+.m-sec{font-size:clamp(1.7rem,4.4vw,2.3rem);padding:14px 0 6px}
+.m-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.mi{padding:16px 0 15px;border-bottom:1px solid var(--line)}
+.mi-row{display:flex;align-items:baseline;gap:10px}
+.mi-name{flex:0 1 auto;min-width:0;font-family:var(--f-serif);font-weight:600;font-size:1.26rem;line-height:1.22}
+.mi-dots{flex:1 1 18px;min-width:18px;border-bottom:1px dotted var(--line-2);transform:translateY(-5px)}
+.mi-price{flex:none;font-weight:600;color:var(--terra-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mi-orig{font-size:.86rem;color:var(--faint);margin-top:2px}
+.mi-desc{margin-top:4px;color:var(--muted);font-size:.94rem;line-height:1.5}
+.mi-q{color:var(--faint);white-space:nowrap}
+.menu-note{margin-top:28px;color:var(--faint);font-size:.94rem}
+.mini{margin-top:32px;border-radius:var(--r);background:var(--walnut);color:var(--on-dark);padding:28px 26px}
+.mini h3{font-size:1.7rem}
+.mini h3 em{color:var(--terra-2)}
+.mini p{margin-top:8px;color:var(--on-dark-2)}
+.mini .btn{margin-top:20px}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:740px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.8rem,4.6vw,2.4rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.06rem;line-height:1.75}
+.story blockquote{margin:30px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+.story blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.5rem;line-height:1.35;color:var(--ink);margin:0}
+.story blockquote footer{margin-top:12px;color:var(--muted);font-size:.94rem}
+.book{max-width:640px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:700;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.96rem}
+.call-2 a{font-weight:600}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:500;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.86rem}
+
+/* photo viewer */
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#140E0A;color:var(--on-dark)}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#140E0A}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.86rem;color:var(--on-dark-2);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(245,237,225,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(245,237,225,.3);background:rgba(20,14,10,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap .caps{color:var(--terra-2)}
+body.locked{overflow:hidden}
+
+/* mobile bar */
+.mbar{display:none}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .sig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .m-list{gap:0 36px}
+  .ev-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:640px){
+  :root{--gut:16px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:.88rem}
+  .brand-t b{font-size:1rem;letter-spacing:.08em}
+  .brand-t small{font-size:.5rem;letter-spacing:.22em}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.88rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .ev-list{gap:18px 16px}
+  .stat{padding:24px 10px}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--on-dark-line)}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:92px;height:92px;right:-6px;top:16px}
+  .badge b{font-size:1.6rem}
+  .badge span{font-size:.7rem}
+  .sig-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .sig-grid::-webkit-scrollbar{display:none}
+  .sig-grid > *{flex:0 0 84%;scroll-snap-align:center}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(24,16,11,.05) 0%,rgba(24,16,11,.58) 45%,rgba(24,16,11,.92) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .m-list{grid-template-columns:minmax(0,1fr)}
+  .mi-name{font-size:1.16rem}
+  .map{min-height:260px}
+  .c-list{grid-template-columns:minmax(0,1fr)}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:#160F0B;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.92rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,#C2603A,#A2472A);color:#FFF8F1}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.8rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.9rem;letter-spacing:.05em}
+  .langs button{padding:7px 6px}
+  .brand-t small{letter-spacing:.16em}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-sac" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0 1 16 0z"/><path d="M12 7V4.5M10.5 4.5h3M2.5 15h19M5 18.5h14"/></g></symbol>
+  <symbol id="i-stone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 9.3h18M3 14.7h18M9 4v5.3M15 9.3v5.4M8 14.7V20M16 14.7V20"/></g></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h5l-.4 5.5a2.6 2.6 0 0 1-4.2 0zM13 3h5l-.4 5.5a2.6 2.6 0 0 1-4.2 0z"/><path d="M8.5 11v8M15.5 11v8M6 20h5M13 20h5"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Nacionalni restoran Stara kuća"><span class="seal">SK</span><span class="brand-t"><small data-i18n="kind">Nacionalni restoran</small><b>Stara kuća</b></span></a>
+    <nav class="nav" data-aria="x_nav" aria-label="Glavni meni">
+      <a href="#jelovnik" data-i18n="b_menu">Jelovnik</a>
+      <a href="#prica" data-i18n="b_story">Naša priča</a>
+      <a href="#proslave" data-i18n="nav_ev">Proslave</a>
+      <a href="#galerija" data-i18n="gal_eye">Galerija</a>
+      <a href="#kontakt" data-i18n="k_eye">Kontakt</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-terra" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- FIRST SCREEN -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Basta-restorana-2.webp" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Restoranski-dio-1.webp" alt="">
+      <img data-lazy="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Basta-restorana-8.webp" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="h_eye">Nacionalni restoran · Podgorica</p>
+      <h1>Stara <em>kuća</em></h1>
+      <p class="hero-lead" data-i18n="h_lead">Crnogorska kuhinja među kamenim zidovima, uz popločanu baštu.</p>
+      <div class="hero-btns">
+        <a class="btn btn-terra" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="btn btn-glass" href="tel:+38269030204"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Stara%20Ku%C4%87a%2C%20Iva%20Andri%C4%87a%205%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="h_hours">Svaki dan 12:00 – 20:00</span><span>+382 69 030 204</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" data-aria="x_photos" aria-label="Fotografije"></div>
+  </section>
+
+  <!-- NUMBERS (all from their own site) -->
+  <section class="stats" data-aria="x_nums" aria-label="Brojke">
+    <div class="wrap">
+      <div class="stat"><b>1000<small data-i18n="u_m2">m²</small></b><span data-i18n="n1">restoran i bašta</span></div>
+      <div class="stat"><b>25 + 50</b><span data-i18n="n2">mjesta u konobi na dva nivoa</span></div>
+      <div class="stat"><b>2000<small data-i18n="u_m2">m²</small></b><span data-i18n="n3">parking</span></div>
+      <div class="stat"><b>12–20</b><span data-i18n="n4">radno vrijeme, svakog dana</span></div>
+    </div>
+  </section>
+
+  <!-- IN SHORT -->
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
+        <h2 data-i18n="i_t">Tradicija <em>za stolom</em></h2>
+        <p class="lead" data-i18n="i_p">Nacionalni restoran u Podgorici, u ulici Iva Andrića. Na stolu su crnogorska jela: njeguška pršuta i domaći sir, kačamak i cicvara, meso sa žara i ispod sača.</p>
+        <ul class="feats">
+          <li><span class="fi"><svg><use href="#i-sac"/></svg></span><div><h3 data-i18n="c1_t">Ispod sača</h3><p data-i18n="c1_p">Teletina, jagnjetina i jaretina ispod sača. Neke specijalitete treba poručiti unaprijed.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-stone"/></svg></span><div><h3 data-i18n="c2_t">Kamen i bašta</h3><p data-i18n="c2_p">Kameni zidovi, dizajnerski dekor i popločana bašta zagrljena drvenim kapijama.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-glass"/></svg></span><div><h3 data-i18n="c3_t">Proslave</h3><p data-i18n="c3_p">Svadbe, rođendani i korporativne proslave, u restoranu ili u bašti.</p></div></li>
+        </ul>
+        <div class="intro-cta">
+          <a class="btn btn-dark" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+          <a class="btn btn-line" href="#prica" data-i18n="b_story">Naša priča</a>
+        </div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Restoranski-dio-3.webp" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Konoba-1.webp" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><b>1000</b><span data-i18n="u_m2">m²</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM THE MENU (text cards: their site shows no dish photos) -->
+  <section class="sec sig" id="specijaliteti">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="sig_eye">Iz našeg jelovnika</p>
+        <h2 data-i18n="sig_t">Domaća <em>klasika</em></h2>
+        <p data-i18n="sig_p">Nekoliko tradicionalnih jela sa našeg jelovnika, sa cijenama.</p>
+      </div>
+      <div class="sig-grid" id="sig-grid"></div>
+      <div class="sig-cta"><a class="btn btn-dark" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli jelovnik</span></a><a class="btn btn-line" href="#rezervacija" data-i18n="book">Rezervišite sto</a></div>
+    </div>
+  </section>
+
+  <!-- THE PLACE -->
+  <section class="place">
+    <img class="ph" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Basta-restorana-1.webp" data-w="2000" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="pl_eye">Mjesto</p>
+        <h2 data-i18n="pl_t">Bašta <em>i kamen</em></h2>
+        <p data-i18n="pl_p">Restoran ima dva dijela na 1000 m², unutrašnji i baštu. Dizajn je zamišljen po ideji antičkog grada Meteona, preteče današnje Podgorice.</p>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">Naša priča</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELEBRATIONS AND EVENTS -->
+  <section class="sec dark events" id="proslave">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="ev_eye">Proslave i događaji</p>
+        <h2 data-i18n="ev_t">Slavite <em>kod nas</em></h2>
+        <p data-i18n="ev_p">Unutrašnji dio i bašta pogodni su za sve vrste proslava. Konoba na dva nivoa ima 25 mjesta u donjem i 50 u gornjem dijelu.</p>
+      </div>
+      <ul class="ev-list rv">
+        <li data-i18n="ev1">Svadbe</li>
+        <li data-i18n="ev2">Rođendani i punoljetstva</li>
+        <li data-i18n="ev3">Diplomske žurke</li>
+        <li data-i18n="ev4">Korporativne proslave</li>
+        <li data-i18n="ev5">Poslovni ručkovi</li>
+        <li data-i18n="ev6">Brend prezentacije</li>
+        <li data-i18n="ev7">Koktel zabave</li>
+        <li data-i18n="ev8">Grupni ručkovi</li>
+      </ul>
+      <div class="ev-cta rv">
+        <a class="btn btn-terra" href="#rezervacija" data-occasion="wedding"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="ev_btn">Upit za proslavu</span></a>
+        <a class="btn btn-glass" href="tel:+38269030204"><svg class="ico"><use href="#i-phone"/></svg>+382 69 030 204</a>
+      </div>
+      <p class="ev-note" data-i18n="ev_note">Nakon upita javiće vam se naš menadžer.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="gal_t">Restoran, bašta <em>i konoba</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+      <div class="g-more">
+        <button type="button" class="btn btn-line" id="g-all"><span data-i18n="gal_all">Sve fotografije</span> <span id="g-n"></span></button>
+        <p class="g-src" data-i18n="gal_src">Fotografije: starakuca.me</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAND -->
+  <section class="bookband">
+    <img class="ph" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Basta-restorana-9.webp" data-w="2000" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="bk_eye">Rezervacije</p>
+      <h2 data-i18n="bk_t">Sačuvajte <em>sto za sebe</em></h2>
+      <p data-i18n="bk_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom, a mi ćemo vas kontaktirati da ga potvrdimo.</p>
+      <div class="bb-btns">
+        <a class="btn btn-terra" href="tel:+38269030204"><svg class="ico"><use href="#i-phone"/></svg>+382 69 030 204</a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_form">Upit e-mailom</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="k_t">Dođite <em>kod nas</em></h2>
+        <dl class="c-list">
+          <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Iva Andrića 5, 81000 Podgorica, Crna Gora</dd></div>
+          <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38269030204">+382 69 030 204</a></dd></div>
+          <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:info@starakuca.me">info@starakuca.me</a></dd></div>
+          <div class="wide"><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd data-i18n="hours_dd">Pon – Sub: 12:00 – 20:00<br>Nedjelja: 12:00 – 20:00</dd></div>
+        </dl>
+        <div class="c-btns">
+          <a class="btn btn-dark" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Stara%20Ku%C4%87a%2C%20Iva%20Andri%C4%87a%205%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        </div>
+        <p class="c-note" data-i18n="c_how">Restoran ima parking površine 2000 m².</p>
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=Iva%20Andri%C4%87a%205%2C%20Podgorica&amp;z=15&amp;output=embed" data-title="map_t" title="Mapa: Restoran Stara kuća, Podgorica" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">SK</span><span class="brand-t"><small data-i18n="kind">Nacionalni restoran</small><b>Stara kuća</b></span></a>
+      <p data-i18n="addr">Iva Andrića 5, 81000 Podgorica, Crna Gora</p>
+    </div>
+    <div class="social">
+      <a href="https://www.facebook.com/starakuca.pg" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/starakuca_restoran" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g304088-d1956908-Reviews-Stara_Kuca-Podgorica_Podgorica_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
+    </div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" data-aria="x_quick" aria-label="Brze akcije">
+  <a href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+  <a href="tel:+38269030204"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Stara%20Ku%C4%87a%2C%20Iva%20Andri%C4%87a%205%2C%20Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a>
+</nav>
+
+<!-- MENU WINDOW -->
+<dialog class="sheet" id="s-jelovnik">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SK</span><span class="brand-t"><small data-i18n="kind">Nacionalni restoran</small><b>Stara kuća</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <h2 class="sheet-title" data-i18n="b_menu">Jelovnik</h2>
+      <p class="sheet-lead" data-i18n="m_p">Crnogorska kuhinja: pršuta i sirevi, jela ispod sača, roštilj, riba, rižota i paste.</p>
+      <div class="m-tabs" id="m-tabs" role="tablist" data-aria="b_menu" aria-label="Jelovnik"></div>
+      <h3 class="m-sec" id="m-sec"></h3>
+      <ul class="m-list" id="m-list"></ul>
+      <p class="menu-note" data-i18n="menu_note">Neke specijalitete potrebno je poručiti unaprijed. Cijene su u eurima.</p>
+      <div class="mini">
+        <h3 data-i18n="mini_t">Svadba, rođendan <em>ili ručak za firmu</em></h3>
+        <p data-i18n="mini_p">Za proslave i grupne ručkove pošaljite upit, a naš menadžer će vas kontaktirati.</p>
+        <a class="btn btn-terra" href="#rezervacija" data-occasion="wedding" data-i18n="ev_btn">Upit za proslavu</a>
+      </div>
+      <div class="sheet-cta">
+        <a class="btn btn-terra" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-line" href="tel:+38269030204" data-i18n="b_call">Pozovite</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- STORY WINDOW -->
+<dialog class="sheet" id="s-prica">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SK</span><span class="brand-t"><small data-i18n="kind">Nacionalni restoran</small><b>Stara kuća</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="b_story">Naša priča</h2>
+        <img class="ph" data-p="https://starakuca.me/wp-content/uploads/2024/02/Restoran-Stara-kuca-Restoranski-dio-10.webp" data-w="1400" alt="" loading="lazy">
+        <h3 data-i18n="a_t">Restoran sa tradicijom</h3>
+        <p data-i18n="a_p1">Stara kuća je nacionalni restoran u Podgorici. Ideja je da gost uz crnogorska jela i tradiciju doživi nešto što će dugo pamtiti.</p>
+        <p data-i18n="a_p2">Dizajn restorana zamišljen je po ideji antičkog grada Meteona, preteče današnje Podgorice. Unutra su kameni zidovi i dizajnerski dekor, a pogled ide na popločanu baštu zagrljenu drvenim kapijama. Sat kulu zovemo draguljem restorana.</p>
+        <h3 data-i18n="p_t">Restoran, bašta i konoba</h3>
+        <p data-i18n="p_p">Restoran ima dva dijela na 1000 m², unutrašnji i baštu, a oba su pogodna za sve vrste proslava. Konoba je na dva nivoa, sa 25 mjesta u donjem i 50 u gornjem dijelu. Parking ima 2000 m².</p>
+        <h3 data-i18n="f_t">Za stolom</h3>
+        <p data-i18n="f_p">Na jelovniku su njeguška pršuta i domaći sirevi, kačamak, cicvara, pita zeljanica, popeci na podgorički način i meso ispod sača, ali i rižota, paste, riba sa žara i plodovi mora.</p>
+        <blockquote>
+          <p data-i18n="q">„Na vratima će vas sačekati naše čuveno gostoprimstvo…“</p>
+          <footer>Nacionalni restoran Stara kuća</footer>
+        </blockquote>
+        <div class="sheet-cta">
+          <a class="btn btn-dark" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Jelovnik</span></a>
+          <a class="btn btn-terra" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<!-- BOOKING WINDOW -->
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">SK</span><span class="brand-t"><small data-i18n="kind">Nacionalni restoran</small><b>Stara kuća</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <div class="book">
+        <h2 class="sheet-title" data-i18n="book">Rezervišite sto</h2>
+        <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
+        <a class="call-big btn-terra" href="tel:+38269030204"><svg class="ico"><use href="#i-phone"/></svg>+382 69 030 204</a>
+        <p class="call-2"><span data-i18n="c_mail">E-mail</span>: <a href="mailto:info@starakuca.me">info@starakuca.me</a></p>
+        <p class="or" data-i18n="r_or">ili</p>
+        <form class="res-form" id="res-form" novalidate>
+          <label><span data-i18n="f_name">Ime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <div class="row2">
+            <label><span data-i18n="f_date">Datum</span><input id="f-date" name="date" type="date" required></label>
+            <label><span data-i18n="f_time">Vrijeme</span><input id="f-time" name="time" type="time" min="12:00" max="20:00" step="900" value="18:00" required></label>
+          </div>
+          <div class="row2">
+            <label><span data-i18n="f_people">Broj osoba</span><select id="f-people" name="people"></select></label>
+            <label><span data-i18n="f_phone">Vaš telefon</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+382 …"></label>
+          </div>
+          <label><span data-i18n="f_occ">Povod</span><select id="f-occ" name="occasion"></select></label>
+          <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="f-note" name="note"></textarea></label>
+          <button class="btn btn-dark" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
+          <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.</p>
+          <p class="hint" id="f-err" hidden style="color:#9A3A22" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
+        </form>
+        <div class="mini">
+          <h3 data-i18n="ev_eye">Proslave i događaji</h3>
+          <p data-i18n="ev_box_p">Za svadbe, rođendane, korporativne proslave i grupne ručkove izaberite povod u formi ili nas pozovite. Nakon upita javiće vam se naš menadžer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- PHOTO VIEWER -->
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+
+<script>
+/* Photos come from starakuca.me (their gallery). They load through the wsrv.nl image service (resized, and not blocked
+   when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const photo = (url, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(url.replace(/^https?:\/\//, "")) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=82";
+const direct = url => url;
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
+  else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const setPhoto = (img, url, w, h) => { img.dataset.p = url; delete img.dataset.step; img.src = photo(url, w, h); };
+
+/* Menu: every dish, weight and price from starakuca.me/meni-stara-kuca (their own 14 sections, ME as written);
+   EN and RU translated. Their [V] [VEG] [P] labels are left out: the site gives no legend for them. */
+const GRILL = { me:"Ajvar, kajmak, pomfrit", en:"Ajvar, kajmak, fries", ru:"Айвар, каймак, картофель фри" };
+const ONREQ = { me:"Na upit", en:"On request", ru:"По запросу" };
+const MENU = [
+  { id:"cold", t:{me:"Hladna predjela", en:"Cold starters", ru:"Холодные закуски"}, items:[
+    { n:{me:"Crnogorska pršuta sa domaćim sirom", en:"Montenegrin prosciutto with homemade cheese", ru:"Черногорский пршут с домашним сыром"},
+      d:{me:"Njeguška pršuta, domaći mladi i stari sir", en:"Njeguši prosciutto, young and aged homemade cheese", ru:"Негушский пршут, молодой и выдержанный домашний сыр"}, q:"200g", p:14 },
+    { n:{me:"Crnogorski tanjir za dvije osobe", en:"Montenegrin platter for two", ru:"Черногорская тарелка на двоих"},
+      d:{me:"Njeguški pršut, goveđi pršut, koziji mladi sir, njeguški sir, domaći mladi i stari sir", en:"Njeguši prosciutto, beef prosciutto, young goat cheese, Njeguši cheese, young and aged homemade cheese", ru:"Негушский пршут, говяжий пршут, молодой козий сыр, негушский сыр, молодой и выдержанный домашний сыр"}, q:"400g", p:24 },
+    { n:{me:"Izbor ribljih predjela", en:"Selection of fish starters", ru:"Ассорти рыбных закусок"},
+      d:{me:"Salata od hobotnice, riblja pašteta, tatar od tune", en:"Octopus salad, fish pâté, tuna tartare", ru:"Салат из осьминога, рыбный паштет, тартар из тунца"}, q:"250g", p:26 },
+    { n:{me:"Goveđa pršuta", en:"Beef prosciutto", ru:"Говяжий пршут"}, q:"100g", p:10 },
+    { n:{me:"Marinirani krap", en:"Marinated carp", ru:"Маринованный карп"}, q:"250g", p:16 },
+    { n:{me:"Tuna tataki u susamu", en:"Tuna tataki in sesame", ru:"Тунец татаки в кунжуте"}, q:"250g", p:12 },
+    { n:{me:"Salata od hobotnice", en:"Octopus salad", ru:"Салат из осьминога"}, q:"250g", p:24 },
+    { n:{me:"Tatar biftek", en:"Beef tenderloin tartare", ru:"Тартар из говяжьей вырезки"}, q:"300g", p:32 },
+  ]},
+  { id:"soup", t:{me:"Supe i čorbe", en:"Soups", ru:"Супы и чорбы"}, items:[
+    { n:{me:"Goveđa supa", en:"Beef soup", ru:"Говяжий суп"}, q:"300g", p:3 },
+    { n:{me:"Teleća čorba", en:"Thick veal soup (čorba)", ru:"Телячья чорба"}, q:"300g", p:4 },
+    { n:{me:"Potaž dana", en:"Soup of the day", ru:"Суп-пюре дня"}, q:"300g", p:4 },
+    { n:{me:"Riblja supa", en:"Fish soup", ru:"Рыбный суп"}, q:"300g", p:5 },
+  ]},
+  { id:"msal", t:{me:"Obrok salate", en:"Main-course salads", ru:"Сытные салаты"}, items:[
+    { n:{me:"Kapreze salata", en:"Caprese salad", ru:"Салат капрезе"},
+      d:{me:"Mocarela, paradajz, maslinovo ulje, bosiljak, pečeni pinjoli", en:"Mozzarella, tomato, olive oil, basil, roasted pine nuts", ru:"Моцарелла, помидоры, оливковое масло, базилик, обжаренные кедровые орешки"}, q:"300g", p:11 },
+    { n:{me:"Cezar salata", en:"Caesar salad", ru:"Салат «Цезарь»"},
+      d:{me:"Zelena salata, piletina, čips od slanine, krotoni, čeri paradajz, listovi parmezana, dresing", en:"Lettuce, chicken, bacon crisps, croutons, cherry tomatoes, parmesan shavings, dressing", ru:"Листья салата, курица, чипсы из бекона, крутоны, черри, лепестки пармезана, заправка"}, q:"350g", p:11 },
+    { n:{me:"Salata sa gamborima i jabukom", en:"Prawn and apple salad", ru:"Салат с креветками и яблоком"},
+      d:{me:"Repovi gambora, buket lisnatih salata, jabuka, šampinjoni, paradajz, maslinovo ulje i aćeto balzamiko", en:"Prawn tails, mixed leaf salad, apple, mushrooms, tomato, olive oil and balsamic vinegar", ru:"Хвосты креветок, микс салатных листьев, яблоко, шампиньоны, помидоры, оливковое масло и бальзамический уксус"}, q:"350g", p:21 },
+    { n:{me:"Salata od ćuretine", en:"Turkey salad", ru:"Салат с индейкой"},
+      d:{me:"Buket lisnatih salata, ćureći file u panko prezli, aćeto balzamiko", en:"Mixed leaf salad, turkey fillet in panko crumbs, balsamic vinegar", ru:"Микс салатных листьев, филе индейки в панко, бальзамический уксус"}, q:"350g", p:13 },
+  ]},
+  { id:"risotto", t:{me:"Rižota", en:"Risottos", ru:"Ризотто"}, items:[
+    { n:{me:"Rižoto sa gamborima", en:"Prawn risotto", ru:"Ризотто с креветками"},
+      d:{me:"Riža, repovi gambora, tikvice, maslinovo ulje", en:"Rice, prawn tails, zucchini, olive oil", ru:"Рис, хвосты креветок, цукини, оливковое масло"}, q:"350g", p:27 },
+    { n:{me:"Rižoto sa spanaćem i graškom", en:"Spinach and pea risotto", ru:"Ризотто со шпинатом и горошком"},
+      d:{me:"Riža, spanać, grašak, rukola, tikvice, prženi pinjoli", en:"Rice, spinach, peas, rocket, zucchini, toasted pine nuts", ru:"Рис, шпинат, горошек, руккола, цукини, обжаренные кедровые орешки"}, q:"350g", p:15 },
+    { n:{me:"Rižoto sa cveklom i tunjevinom", en:"Beetroot and tuna risotto", ru:"Ризотто со свёклой и тунцом"},
+      d:{me:"Riža, cvekla, tunjevina, maslinovo ulje", en:"Rice, beetroot, tuna, olive oil", ru:"Рис, свёкла, тунец, оливковое масло"}, q:"350g", p:16 },
+  ]},
+  { id:"pasta", t:{me:"Paste", en:"Pasta", ru:"Паста"}, items:[
+    { n:{me:"Špagete San Marzano", en:"Spaghetti San Marzano", ru:"Спагетти «Сан-Марцано»"},
+      d:{me:"Špagete, paradajz, grana padano, bosiljak, maslinovo ulje", en:"Spaghetti, tomato, Grana Padano, basil, olive oil", ru:"Спагетти, помидоры, грана падано, базилик, оливковое масло"}, q:"300g", p:11 },
+    { n:{me:"Taljatele All Emilijano", en:"Tagliatelle all'Emiliano", ru:"Тальятелле «Аль Эмилиано»"},
+      d:{me:"Teleći ragu sa šampinjonima, grana padano, maslinovo ulje", en:"Veal ragù with mushrooms, Grana Padano, olive oil", ru:"Телячье рагу с шампиньонами, грана падано, оливковое масло"}, q:"300g", p:13 },
+    { n:{me:"Špageti Aglio Olio", en:"Spaghetti aglio e olio", ru:"Спагетти алио-олио"},
+      d:{me:"Špagete, bijeli luk, maslinovo ulje, peršun, peperoncino", en:"Spaghetti, garlic, olive oil, parsley, peperoncino", ru:"Спагетти, чеснок, оливковое масло, петрушка, пеперончино"}, q:"300g", p:11 },
+    { n:{me:"Taljatele sa gamborima i tikvicama", en:"Tagliatelle with prawns and zucchini", ru:"Тальятелле с креветками и цукини"},
+      d:{me:"Taljatele, repovi gambora, maslinovo ulje, tikvice, čeri paradajz", en:"Tagliatelle, prawn tails, olive oil, zucchini, cherry tomatoes", ru:"Тальятелле, хвосты креветок, оливковое масло, цукини, черри"}, q:"400g", p:24 },
+    { n:{me:"Taljatele sa biftekom i vrgnjem", en:"Tagliatelle with beef tenderloin and porcini", ru:"Тальятелле с говяжьей вырезкой и белыми грибами"},
+      d:{me:"Taljatele, vrganj, biftek, maslinovo ulje", en:"Tagliatelle, porcini, beef tenderloin, olive oil", ru:"Тальятелле, белые грибы, говяжья вырезка, оливковое масло"}, q:"400g", p:21 },
+  ]},
+  { id:"meat", t:{me:"Specijaliteti od mesa", en:"Meat specialities", ru:"Мясные блюда"}, items:[
+    { n:{me:"Biftek taljata na žaru", en:"Grilled beef tenderloin tagliata", ru:"Тальята из говяжьей вырезки на гриле"},
+      d:{me:"Biftek narezan na pločke, grana padano, rukola, pinjoli, aćeto balzamiko, maslinovo ulje", en:"Sliced beef tenderloin, Grana Padano, rocket, pine nuts, balsamic vinegar, olive oil", ru:"Нарезанная говяжья вырезка, грана падано, руккола, кедровые орешки, бальзамический уксус, оливковое масло"}, q:"350g", p:29 },
+    { n:{me:"Biftek na žaru po želji gosta", en:"Grilled beef tenderloin, cooked to your liking", ru:"Говяжья вырезка на гриле, прожарка по желанию"},
+      d:{me:"Biftek, pečeni krompir/pire", en:"Beef tenderloin, roast potatoes or mash", ru:"Говяжья вырезка, печёный картофель или пюре"}, q:"300g", p:29 },
+    { n:{me:"Ramstek na žaru", en:"Grilled rump steak", ru:"Рамстек на гриле"},
+      d:{me:"Ramstek narezan na pločke i krompir po želji gosta", en:"Sliced rump steak and potatoes of your choice", ru:"Нарезанный рамстек и картофель на выбор"}, q:"300g", p:27 },
+    { n:{me:"Jagnjeći kotlet", en:"Lamb chops", ru:"Ягнячьи отбивные на кости"}, d:ONREQ, q:"100g", p:13.5 },
+    { n:{me:"Teleći kotlet", en:"Veal chop", ru:"Телячья отбивная на кости"}, q:"100g", p:8.5 },
+    { n:{me:"Teleći file", en:"Veal fillet", ru:"Телячье филе"}, q:"100g", p:11 },
+    { n:{me:"Teleće šnicle sa pršutom u sosu od kadulje", en:"Veal escalopes with prosciutto in sage sauce", ru:"Телячьи шницели с пршутом в соусе из шалфея"},
+      d:{me:"Teletina, pršuta, kadulja, bijelo vino, kuvano povrće", en:"Veal, prosciutto, sage, white wine, boiled vegetables", ru:"Телятина, пршут, шалфей, белое вино, отварные овощи"}, q:"300g", p:24 },
+    { n:{me:"Bečka šnicla", en:"Wiener schnitzel", ru:"Венский шницель"},
+      d:{me:"Teleće meso, pečeni krompir/pire", en:"Veal, roast potatoes or mash", ru:"Телятина, печёный картофель или пюре"}, q:"300g", p:24 },
+    { n:{me:"Ćureći file u sosu od gorgonzole sa mlincima", en:"Turkey fillet in gorgonzola sauce with mlinci", ru:"Филе индейки в соусе горгонзола с млинцами"},
+      d:{me:"Ćuretina, gorgonzola, pavlaka, mlinci", en:"Turkey, gorgonzola, cream, mlinci (baked pasta sheets)", ru:"Индейка, горгонзола, сливки, млинцы (запечённые листы теста)"}, q:"300g", p:24 },
+    { n:{me:"Piletina na žaru", en:"Grilled chicken", ru:"Курица на гриле"},
+      d:{me:"Pileći file, pečeni krompir", en:"Chicken fillet, roast potatoes", ru:"Куриное филе, печёный картофель"}, q:"300g", p:13 },
+    { n:{me:"Pileći file u sosu po želji", en:"Chicken fillet in a sauce of your choice", ru:"Куриное филе в соусе на выбор"},
+      d:{me:"Pileći file, sos po želji gosta, pire krompir", en:"Chicken fillet, sauce of your choice, mashed potatoes", ru:"Куриное филе, соус на выбор, картофельное пюре"}, q:"300g", p:14 },
+  ]},
+  { id:"sauce", t:{me:"Sosevi", en:"Sauces", ru:"Соусы"}, items:[
+    { n:{me:"Sos od crnih tartufa", en:"Black truffle sauce", ru:"Соус из чёрного трюфеля"}, q:"150g", p:5.5 },
+    { n:{me:"Sos od vrgnja", en:"Porcini sauce", ru:"Соус из белых грибов"}, q:"150g", p:6 },
+    { n:{me:"Sos od šampinjona", en:"Mushroom sauce", ru:"Соус из шампиньонов"}, q:"150g", p:4 },
+    { n:{me:"Sos od gorgonzole", en:"Gorgonzola sauce", ru:"Соус горгонзола"}, q:"150g", p:5 },
+    { n:{me:"Sos od zelenog bibera", en:"Green peppercorn sauce", ru:"Соус из зелёного перца"}, q:"150g", p:4 },
+    { n:{me:"Tartar sos", en:"Tartar sauce", ru:"Соус тартар"}, q:"150g", p:3 },
+  ]},
+  { id:"trad", t:{me:"Tradicionalni specijaliteti", en:"Traditional specialities", ru:"Традиционные блюда"}, items:[
+    { n:{me:"Kačamak smočani", en:"Kačamak smočani (cornmeal porridge)", ru:"Качамак смочани (кукурузная каша)"}, q:"500g", p:12 },
+    { n:{me:"Cicvara – vareni sir", en:"Cicvara, cooked cheese", ru:"Цицвара, варёный сыр"}, q:"400g", p:14 },
+    { n:{me:"Pita zeljanica", en:"Zeljanica, greens pie", ru:"Зеляница, пирог с зеленью"}, q:"300g", p:4 },
+    { n:{me:"Pita sa sirom", en:"Cheese pie", ru:"Пирог с сыром"}, q:"300g", p:4 },
+    { n:{me:"Jagnjeći pikljevi", en:"Lamb pikljevi", ru:"Ягнячьи пиклеви"}, q:"1kg", p:42 },
+    { n:{me:"Popeci na podgorički način", en:"Popeci, Podgorica style", ru:"Попечи по-подгорицки"}, q:"200g", p:6 },
+    { n:{me:"Teletina ispod sača", en:"Veal under the sač", ru:"Телятина под сачем"}, q:"1kg", p:48 },
+    { n:{me:"Jagnjetina ispod sača", en:"Lamb under the sač", ru:"Ягнятина под сачем"}, q:"1kg", p:48 },
+    { n:{me:"Jaretina ispod sača", en:"Kid goat under the sač", ru:"Козлятина под сачем"}, q:"1kg", p:56 },
+  ]},
+  { id:"grill", t:{me:"Jela sa roštilja", en:"From the grill", ru:"Блюда с гриля"}, items:[
+    { n:{me:"Ćevapi", en:"Ćevapi", ru:"Чевапчичи"}, d:GRILL, q:"10pc", p:10 },
+    { n:{me:"Pljeskavica", en:"Pljeskavica (grilled meat patty)", ru:"Плескавица"}, d:GRILL, q:"300g", p:12 },
+    { n:{me:"Uštipci", en:"Uštipci (small grilled meat patties)", ru:"Уштипцы (мясные котлетки с гриля)"}, d:GRILL, q:"350g", p:14 },
+    { n:{me:"Roštiljska kobasica", en:"Grilled sausage", ru:"Колбаска на гриле"}, d:GRILL, q:"300g", p:12 },
+    { n:{me:"Dimljena vješalica", en:"Smoked vješalica (pork loin)", ru:"Копчёная вешалица (свиная корейка)"}, d:GRILL, q:"400g", p:15 },
+    { n:{me:"Njeguški stek", en:"Njeguši steak", ru:"Негушский стейк"}, d:GRILL, q:"350g", p:21 },
+  ]},
+  { id:"fish", t:{me:"Morska riba, rečna riba i specijaliteti od plodova mora", en:"Sea fish, river fish and seafood", ru:"Морская и речная рыба, морепродукты"}, items:[
+    { n:{me:"Svježa jadranska riba", en:"Fresh Adriatic fish", ru:"Свежая адриатическая рыба"}, d:ONREQ, q:"1kg", p:70 },
+    { n:{me:"Tuna na žaru", en:"Grilled tuna", ru:"Тунец на гриле"},
+      d:{me:"File od tune, rukola sa krompirom na toplo", en:"Tuna fillet, rocket with warm potatoes", ru:"Филе тунца, руккола с тёплым картофелем"}, q:"300g", p:25 },
+    { n:{me:"File od brancina", en:"Sea bass fillet", ru:"Филе сибаса"},
+      d:{me:"File brancina, dalmatinsko varivo", en:"Sea bass fillet, Dalmatian-style vegetable side", ru:"Филе сибаса, далматинский овощной гарнир"}, q:"350g", p:30 },
+    { n:{me:"Hobotnica na žaru", en:"Grilled octopus", ru:"Осьминог на гриле"},
+      d:{me:"Hobotnica, krompir sa peršunom", en:"Octopus, parsley potatoes", ru:"Осьминог, картофель с петрушкой"}, q:"300g", p:35 },
+    { n:{me:"Lignje na žaru", en:"Grilled squid", ru:"Кальмары на гриле"},
+      d:{me:"Lignje, dalmatinsko varivo", en:"Squid, Dalmatian-style vegetable side", ru:"Кальмары, далматинский овощной гарнир"}, q:"300g", p:16.5 },
+    { n:{me:"Šaran", en:"Carp", ru:"Карп"},
+      d:{me:"Šaran, dalmatinsko varivo", en:"Carp, Dalmatian-style vegetable side", ru:"Карп, далматинский овощной гарнир"}, q:"1kg", p:40 },
+    { n:{me:"Pastrmka", en:"Trout", ru:"Форель"},
+      d:{me:"Pastrmka i dalmatinsko varivo", en:"Trout and a Dalmatian-style vegetable side", ru:"Форель и далматинский овощной гарнир"}, q:"1kg", p:30 },
+  ]},
+  { id:"salad", t:{me:"Salate", en:"Side salads", ru:"Салаты"}, items:[
+    { n:{me:"Sezonske salate", en:"Seasonal salads", ru:"Сезонные салаты"}, q:"200g", p:4.5 },
+    { n:{me:"Zimske salate", en:"Winter salads", ru:"Зимние салаты"}, q:"200g", p:5 },
+    { n:{me:"Ljuta paprika", en:"Hot pepper", ru:"Острый перец"}, q:"1pc", p:2.5 },
+    { n:{me:"Vitaminska salata", en:"Vitamin salad", ru:"Витаминный салат"}, q:"200g", p:6 },
+    { n:{me:"Masline", en:"Olives", ru:"Оливки"}, q:"150g", p:4 },
+  ]},
+  { id:"cheese", t:{me:"Sirevi", en:"Cheeses", ru:"Сыры"}, items:[
+    { n:{me:"Domaći stari sir", en:"Aged homemade cheese", ru:"Выдержанный домашний сыр"}, q:"100g", p:4.5 },
+    { n:{me:"Domaći mladi sir", en:"Young homemade cheese", ru:"Молодой домашний сыр"}, q:"100g", p:4.5 },
+    { n:{me:"Njeguški sir", en:"Njeguši cheese", ru:"Негушский сыр"}, q:"100g", p:8 },
+    { n:{me:"Kozji sir", en:"Goat cheese", ru:"Козий сыр"}, q:"100g", p:10 },
+    { n:{me:"Kajmak", en:"Kajmak (clotted cream)", ru:"Каймак"}, q:"100g", p:7 },
+    { n:{me:"Parmezan", en:"Parmesan", ru:"Пармезан"}, q:"100g", p:11 },
+  ]},
+  { id:"cover", t:{me:"Kuver", en:"Cover", ru:"Куверт"}, items:[
+    { n:{me:"Hleb, pašteta od maslina, urnebes", en:"Bread, olive pâté, urnebes (spicy cheese spread)", ru:"Хлеб, оливковый паштет, урнебес (острая сырная паста)"}, q:"pp", p:2 },
+  ]},
+  { id:"sweet", t:{me:"Deserti", en:"Desserts", ru:"Десерты"}, items:[
+    { n:{me:"Kolač Stara kuća", en:"Stara kuća cake", ru:"Пирожное «Stara kuća»"}, q:"1pc", p:4.5 },
+    { n:{me:"Semifredo sa šumskim voćem", en:"Semifreddo with forest fruits", ru:"Семифредо с лесными ягодами"}, q:"1pc", p:5 },
+    { n:{me:"Kruška kuvana u crvenom vinu", en:"Pear poached in red wine", ru:"Груша в красном вине"}, q:"1pc", p:5 },
+    { n:{me:"Domaće slatke pite", en:"Homemade sweet pies", ru:"Домашние сладкие пироги"},
+      d:{me:"Jabuka ili višnja", en:"Apple or sour cherry", ru:"Яблоко или вишня"}, q:"1pc", p:4 },
+    { n:{me:"Baklava", en:"Baklava", ru:"Пахлава"}, q:"1pc", p:4.5 },
+    { n:{me:"Sladoled", en:"Ice cream", ru:"Мороженое"}, q:"scoop", p:1.5 },
+  ]},
+];
+/* six traditional dishes shown on the page itself, as text cards */
+const SIGNATURE = ["Jagnjetina ispod sača","Kačamak smočani","Cicvara – vareni sir","Crnogorski tanjir za dvije osobe","Njeguški stek","Popeci na podgorički način"];
+/* their gallery (starakuca.me/galerija): interior, garden and konoba; the first nine fill the mosaic */
+const G = "https://starakuca.me/wp-content/uploads/";
+const GALLERY = [
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-2.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-6.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Konoba-2.webp", c:"konoba" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-9.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-12.webp", c:"garden" },
+  { u:G + "2022/10/ambijent.webp", c:"amb" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-4-1.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-10.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Konoba-3.webp", c:"konoba" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-1.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-3.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-6-1.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-7.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-8.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-10.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Restoranski-dio-11.webp", c:"in" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-1.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-2.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-3.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-4.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-5.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-7.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-8.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-9.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Basta-restorana-11.webp", c:"garden" },
+  { u:G + "2024/02/Restoran-Stara-kuca-Konoba-1.webp", c:"konoba" },
+  { u:G + "2022/10/ambijent3.webp", c:"amb" },
+];
+const GRID_N = 9;
+const CAT = { in:{me:"Restoran", en:"Restaurant", ru:"Зал"}, garden:{me:"Bašta", en:"Garden", ru:"Сад"},
+              konoba:{me:"Konoba", en:"Konoba", ru:"Коноба"}, amb:{me:"Ambijent", en:"Ambience", ru:"Атмосфера"} };
+const OCCASIONS = ["table","wedding","bday","corp","group","other"];
+
+const T = {
+  en: {
+    demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
+    kind:"Montenegrin restaurant",
+    book:"Book a table", b_book:"Book a table", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"Our story", b_map:"Map", nav_ev:"Events",
+    h_eye:"Montenegrin restaurant · Podgorica", h_lead:"Montenegrin cooking among stone walls and in a paved garden.", h_hours:"Open daily 12:00 – 20:00",
+    u_m2:"m²", n1:"restaurant and garden", n2:"seats in the konoba, on two levels", n3:"car park", n4:"opening hours, every day",
+    i_eye:"In short", i_t:"Tradition <em>at the table</em>",
+    i_p:"A restaurant of Montenegrin national cuisine in Podgorica, on Iva Andrića street. On the table: Montenegrin dishes such as Njeguši prosciutto and homemade cheese, kačamak and cicvara, grilled meat and meat slow-cooked under the sač.",
+    c1_t:"Under the sač", c1_p:"Veal, lamb and kid goat cooked under the sač, a traditional iron bell lid. Some specialities need to be ordered in advance.",
+    c2_t:"Stone and garden", c2_p:"Stone walls, designer décor and a paved garden framed by wooden gates.",
+    c3_t:"Celebrations", c3_p:"Weddings, birthdays and corporate events, indoors or in the garden.",
+    sig_eye:"From our menu", sig_t:"Home-style <em>classics</em>", sig_p:"A few traditional dishes from our menu, with prices.", sig_all:"Full menu",
+    pl_eye:"The place", pl_t:"Garden <em>and stone</em>", pl_p:"The restaurant has two parts across 1,000 m²: the indoor dining area and the garden. Its design was inspired by Meteon, the ancient town that came before today's Podgorica.",
+    ev_eye:"Celebrations and events", ev_t:"Celebrate <em>with us</em>", ev_p:"The indoor area and the garden suit every kind of celebration. The konoba, on two levels, seats 25 downstairs and 50 upstairs.",
+    ev1:"Weddings", ev2:"Birthdays and coming-of-age parties", ev3:"Graduation parties", ev4:"Corporate events", ev5:"Business lunches", ev6:"Brand presentations", ev7:"Cocktail parties", ev8:"Group lunches",
+    ev_btn:"Event enquiry", ev_note:"After your enquiry, our manager will get in touch.",
+    gal_eye:"Gallery", gal_t:"Restaurant, garden <em>and konoba</em>", gal_all:"All photos", gal_src:"Photos: starakuca.me",
+    bk_eye:"Reservations", bk_t:"Reserve <em>your table</em>", bk_p:"Calling is the fastest way. You can also email us a request and we will contact you to confirm it.", bk_form:"Email request",
+    k_eye:"Contact", k_t:"Come <em>and see us</em>",
+    c_addr:"Address", addr:"Iva Andrića 5, 81000 Podgorica, Montenegro", c_tel:"Phone", c_mail:"Email", l_hours:"Opening hours",
+    hours_dd:"Mon – Sat: 12:00 – 20:00<br>Sunday: 12:00 – 20:00", c_how:"The restaurant has a 2,000 m² car park.",
+    m_p:"Montenegrin cooking: prosciutto and cheeses, dishes under the sač, grill, fish, risottos and pasta.",
+    menu_note:"Some specialities need to be ordered in advance. Prices are in euros.",
+    mini_t:"A wedding, a birthday <em>or a company lunch</em>", mini_p:"For celebrations and group lunches, send us an enquiry and our manager will contact you.",
+    a_t:"A restaurant with tradition",
+    a_p1:"Stara kuća (“the old house”) is a restaurant of Montenegrin national cuisine in Podgorica. The idea is that Montenegrin food and tradition give every guest an experience to remember.",
+    a_p2:"The design was inspired by Meteon, the ancient town that came before today's Podgorica. Inside are stone walls and designer décor, with a view of the paved garden framed by wooden gates. We call our clock tower the jewel of the restaurant.",
+    p_t:"Restaurant, garden and konoba",
+    p_p:"The restaurant has two parts across 1,000 m², an indoor area and the garden, and both suit every kind of celebration. The konoba is on two levels, with 25 seats downstairs and 50 upstairs. The car park covers 2,000 m².",
+    f_t:"At the table",
+    f_p:"The menu has Njeguši prosciutto and homemade cheeses, kačamak, cicvara, zeljanica pie, Podgorica-style popeci and meat under the sač, as well as risottos, pasta, grilled fish and seafood.",
+    q:"“Our famous hospitality will be waiting for you at the door…”",
+    r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
+    f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_occ:"Occasion", f_note:"Note (optional)",
+    f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
+    ev_box_p:"For weddings, birthdays, corporate events and group lunches, choose the occasion in the form or call us. After your enquiry, our manager will get in touch.",
+    o_table:"Table in the restaurant", o_wedding:"Wedding", o_bday:"Birthday", o_corp:"Corporate event", o_group:"Group lunch", o_other:"Other",
+    q_pc:"pc", q_scoop:"per scoop", q_pp:"per person",
+    x_home:"Home", x_close:"Close", x_prev:"Previous", x_next:"Next",
+    x_nav:"Main menu", x_photos:"Photos", x_nums:"In numbers", x_quick:"Quick actions", map_t:"Map: Stara kuća restaurant, Podgorica",
+    mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to make a reservation:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_phone:"Phone", m_occ:"Occasion", m_note:"Note", mail_bye:"Thank you!",
+  },
+  ru: {
+    demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
+    kind:"Национальный ресторан",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Маршрут", b_story:"Наша история", b_map:"Карта", nav_ev:"Праздники",
+    h_eye:"Национальный ресторан · Подгорица", h_lead:"Черногорская кухня среди каменных стен и в мощёном саду.", h_hours:"Каждый день 12:00 – 20:00",
+    u_m2:"м²", n1:"ресторан и сад", n2:"мест в конобе на двух уровнях", n3:"парковка", n4:"часы работы, каждый день",
+    i_eye:"Коротко о нас", i_t:"Традиции <em>за столом</em>",
+    i_p:"Национальный ресторан в Подгорице, на улице Ива Андрича. На столе черногорские блюда: негушский пршут и домашний сыр, качамак и цицвара, мясо на гриле и под сачем.",
+    c1_t:"Под сачем", c1_p:"Телятина, ягнятина и козлятина под сачем, традиционной железной крышкой. Некоторые блюда нужно заказывать заранее.",
+    c2_t:"Камень и сад", c2_p:"Каменные стены, дизайнерский декор и мощёный сад в обрамлении деревянных ворот.",
+    c3_t:"Праздники", c3_p:"Свадьбы, дни рождения и корпоративы, в зале или в саду.",
+    sig_eye:"Из нашего меню", sig_t:"Домашняя <em>классика</em>", sig_p:"Несколько традиционных блюд из нашего меню, с ценами.", sig_all:"Всё меню",
+    pl_eye:"Место", pl_t:"Сад <em>и камень</em>", pl_p:"Ресторан состоит из двух частей общей площадью 1000 м²: зала и сада. Дизайн вдохновлён античным городом Метеон, предшественником современной Подгорицы.",
+    ev_eye:"Праздники и события", ev_t:"Празднуйте <em>у нас</em>", ev_p:"Зал и сад подходят для любых праздников. В конобе на двух уровнях 25 мест внизу и 50 наверху.",
+    ev1:"Свадьбы", ev2:"Дни рождения и совершеннолетие", ev3:"Выпускные вечеринки", ev4:"Корпоративы", ev5:"Деловые обеды", ev6:"Презентации брендов", ev7:"Коктейльные вечеринки", ev8:"Групповые обеды",
+    ev_btn:"Запрос на мероприятие", ev_note:"После запроса с вами свяжется наш менеджер.",
+    gal_eye:"Галерея", gal_t:"Зал, сад <em>и коноба</em>", gal_all:"Все фото", gal_src:"Фото: starakuca.me",
+    bk_eye:"Бронирование", bk_t:"Забронируйте <em>столик</em>", bk_p:"Быстрее всего забронировать по телефону. Можно также отправить запрос по электронной почте: мы свяжемся с вами, чтобы его подтвердить.", bk_form:"Запрос по e-mail",
+    k_eye:"Контакты", k_t:"Приходите <em>к нам</em>",
+    c_addr:"Адрес", addr:"Iva Andrića 5, 81000 Подгорица, Черногория", c_tel:"Телефон", c_mail:"E-mail", l_hours:"Часы работы",
+    hours_dd:"Пн – Сб: 12:00 – 20:00<br>Вс: 12:00 – 20:00", c_how:"У ресторана есть парковка площадью 2000 м².",
+    m_p:"Черногорская кухня: пршут и сыры, блюда под сачем, гриль, рыба, ризотто и паста.",
+    menu_note:"Некоторые блюда нужно заказывать заранее. Цены в евро.",
+    mini_t:"Свадьба, день рождения <em>или обед для компании</em>", mini_p:"Для праздников и групповых обедов отправьте запрос, и наш менеджер свяжется с вами.",
+    a_t:"Ресторан с традициями",
+    a_p1:"Stara kuća («старый дом») — национальный ресторан в Подгорице. Идея в том, чтобы черногорская кухня и традиции подарили каждому гостю впечатления, которые запомнятся надолго.",
+    a_p2:"Дизайн ресторана вдохновлён античным городом Метеон, предшественником современной Подгорицы. Внутри каменные стены и дизайнерский декор, а из зала открывается вид на мощёный сад в обрамлении деревянных ворот. Часовую башню мы называем жемчужиной ресторана.",
+    p_t:"Зал, сад и коноба",
+    p_p:"Ресторан состоит из двух частей общей площадью 1000 м², зала и сада, и обе подходят для любых праздников. Коноба расположена на двух уровнях: 25 мест внизу и 50 наверху. Площадь парковки 2000 м².",
+    f_t:"За столом",
+    f_p:"В меню негушский пршут и домашние сыры, качамак, цицвара, пита зеляница, попечи по-подгорицки и мясо под сачем, а также ризотто, паста, рыба на гриле и морепродукты.",
+    q:"«У дверей вас встретит наше знаменитое гостеприимство…»",
+    r_p:"Быстрее всего забронировать по телефону. Можно также отправить запрос по электронной почте.", r_or:"или",
+    f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_occ:"Повод", f_note:"Комментарий (необязательно)",
+    f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
+    ev_box_p:"Для свадеб, дней рождения, корпоративов и групповых обедов выберите повод в форме или позвоните нам. После запроса с вами свяжется наш менеджер.",
+    o_table:"Столик в ресторане", o_wedding:"Свадьба", o_bday:"День рождения", o_corp:"Корпоратив", o_group:"Групповой обед", o_other:"Другое",
+    q_pc:"шт.", q_scoop:"шарик", q_pp:"с человека",
+    x_home:"На главную", x_close:"Закрыть", x_prev:"Назад", x_next:"Вперёд",
+    x_nav:"Главное меню", x_photos:"Фотографии", x_nums:"В цифрах", x_quick:"Быстрые действия", map_t:"Карта: ресторан Stara kuća, Подгорица",
+    mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_phone:"Телефон", m_occ:"Повод", m_note:"Комментарий", mail_bye:"Спасибо!",
+  },
+};
+/* Montenegrin texts that are not in the page itself */
+const ME_EXTRA = { x_home:"Početna", x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća",
+  x_nav:"Glavni meni", x_photos:"Fotografije", x_nums:"Brojke", x_quick:"Brze akcije", map_t:"Mapa: Restoran Stara kuća, Podgorica",
+  o_table:"Sto u restoranu", o_wedding:"Svadbena proslava", o_bday:"Rođendan", o_corp:"Korporativna proslava", o_group:"Grupni ručak", o_other:"Ostalo",
+  q_pc:"kom", q_scoop:"kugla", q_pp:"po osobi",
+  mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_occ:"Povod", m_note:"Napomena", mail_bye:"Hvala!" };
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const ME = {}; $$("[data-i18n]").forEach(n => { if (!(n.dataset.i18n in ME)) ME[n.dataset.i18n] = n.innerHTML; });
+Object.assign(ME, ME_EXTRA);
+const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
+let lang = "me";
+const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
+
+const DISHES = MENU.flatMap(g => g.items.map(d => ({ ...d, g })));
+const img = (url, w, h) => `<img class="ph" data-p="${url}" src="${photo(url, w, h)}" alt="" loading="lazy">`;
+const fmtP = p => lang === "en" ? "€" + p.toFixed(2) : p.toFixed(2).replace(".", ",") + " €";
+const fmtQ = q => ({ scoop: tr("q_scoop"), pp: tr("q_pp") })[q] ||
+  q.replace(/^(\d+)(g|kg|pc)$/, (_, n, u) => n + " " + (u === "pc" ? tr("q_pc") : lang === "ru" ? (u === "g" ? "г" : "кг") : u));
+const orig = d => lang !== "me" ? d.n.me : "";
+/* a dish from the menu as a text card on the page (opens the menu at its section) */
+const tCard = d => `<a class="tcard" href="#jelovnik" data-open-tab="${d.g.id}">
+    <span class="dcat caps">${d.g.t[lang]}</span><span class="dname">${d.n[lang]}</span>${orig(d) ? `<span class="dorig">${orig(d)}</span>` : ""}
+    ${d.d ? `<span class="tdesc">${d.d[lang]}</span>` : ""}<span class="tgap"></span>
+    <span class="tfoot"><span class="tq">${fmtQ(d.q)}</span><span class="tp">${fmtP(d.p)}</span></span>
+  </a>`;
+/* a dish as a line in the menu window */
+const mItem = d => `<li class="mi"><div class="mi-row"><span class="mi-name">${d.n[lang]}</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">${fmtP(d.p)}</span></div>${orig(d) ? `<p class="mi-orig">${orig(d)}</p>` : ""}<p class="mi-desc">${d.d ? d.d[lang] + " · " : ""}<span class="mi-q">${fmtQ(d.q)}</span></p></li>`;
+
+/* menu window (one tab per section of their menu) and the dishes shown on the page */
+let tab = MENU[0].id;
+function renderMenu(){
+  if (!MENU.some(g => g.id === tab)) tab = MENU[0].id;
+  const sec = MENU.find(g => g.id === tab);
+  $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("");
+  $("#m-sec").textContent = sec.t[lang];
+  $("#m-list").innerHTML = DISHES.filter(d => d.g.id === tab).map(mItem).join("");
+  $("#sig-grid").innerHTML = SIGNATURE.map(n => tCard(DISHES.find(d => d.n.me === n))).join("");
+}
+const tabToView = () => { const t = $("#m-tabs"), b = t.querySelector("[aria-selected=true]"); if (b) t.scrollLeft += b.getBoundingClientRect().left - t.getBoundingClientRect().left - 18; };
+function showTab(id){
+  tab = id; renderMenu(); tabToView();
+  $("#s-jelovnik .sheet-body").scrollTop = 0;
+}
+$("#m-tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) showTab(b.dataset.tab); });
+function renderGallery(){
+  $("#g-grid").innerHTML = GALLERY.slice(0, GRID_N).map((f, i) => `<button type="button" data-shot="${i}">${img(f.u, i === 0 ? 1400 : 800)}</button>`).join("");
+  $("#g-n").textContent = "· " + GALLERY.length;
+}
+function applyLang(l){
+  lang = ["me","en","ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$("[data-title]").forEach(n => { n.title = tr(n.dataset.title); });
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = LANG_CODE[lang];
+  renderMenu();
+  const sel = $("#f-people"), cur = sel.value || "2";
+  sel.innerHTML = Array.from({length:12}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join("") +
+    ["13–20","21–50","50+"].map(v => `<option value="${v}">${v}</option>`).join("");
+  sel.value = cur;
+  const occ = $("#f-occ"), oc = occ.value || "table";
+  occ.innerHTML = OCCASIONS.map(o => `<option value="${o}">${tr("o_" + o)}</option>`).join("");
+  occ.value = oc;
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem("sk-lang", lang); } catch(e) {}
+}
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade between three photos; the other two load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+$("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+$("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once as they come into view; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows (menu, story, booking) live at #jelovnik, #prica, #rezervacija,
+   so the phone's back button closes them and the links can be shared */
+const SHEETS = ["jelovnik", "prica", "rezervacija"];
+function syncSheets(){
+  const id = location.hash.slice(1);
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k);
+    if (k === id && !d.open) {
+      d.showModal(); d.querySelector(".sheet-body").scrollTop = 0;
+      if (window.gtag) gtag("event", "demo_open_" + k, { language: lang });
+    }
+    if (k !== id && d.open) d.close();
+  });
+  lockScroll();
+  if (homeNext && !SHEETS.some(k => $("#s-" + k).open)) {
+    homeNext = false;
+    /* after the browser has put focus back on the link that opened the window */
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
+}
+function openSheet(id){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
+  syncSheets();
+}
+/* the restaurant name in a window's top bar goes back to the top of the main page */
+let homeNext = false;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const goHome = () => { homeNext = true; closeSheet(); };
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (!SHEETS.includes(id)) return;
+  e.preventDefault();
+  if (a.dataset.openTab) { tab = a.dataset.openTab; renderMenu(); }
+  if (id === "rezervacija") {
+    $("#f-occ").value = a.dataset.occasion || "table";
+    if (a.dataset.occasion && window.gtag) gtag("event", "demo_open_event_enquiry", { language: lang });
+  }
+  openSheet(id);
+  if (id === "jelovnik") tabToView();
+});
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", goHome));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer for the gallery: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.u, 1600);
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  $("#v-cap").innerHTML = it.c ? `<p class="caps">${CAT[it.c][lang]}</p>` : "";
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#g-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-shot]"); if (!b) return;
+  openViewer(GALLERY, +b.dataset.shot);
+});
+$("#g-all").addEventListener("click", () => {
+  openViewer(GALLERY, 0);
+  if (window.gtag) gtag("event", "demo_open_gallery", { language: lang });
+});
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* reservation or event request: opens the guest's email app, nothing is stored */
+$("#f-date").min = new Date().toISOString().slice(0, 10);
+$("#res-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  if (!v("#f-name") || !v("#f-date") || !v("#f-time")) { $("#f-err").hidden = false; return; }
+  $("#f-err").hidden = true;
+  const occ = v("#f-occ") || "table", occName = tr("o_" + occ);
+  const lines = [tr("mail_hi"), "", tr("mail_ask"),
+    `${tr("m_occ")}: ${occName}`,
+    `${tr("m_name")}: ${v("#f-name")}`, `${tr("m_date")}: ${v("#f-date")}`, `${tr("m_time")}: ${v("#f-time")}`,
+    `${tr("m_people")}: ${v("#f-people")}`];
+  if (v("#f-phone")) lines.push(`${tr("m_phone")}: ${v("#f-phone")}`);
+  if (v("#f-note")) lines.push(`${tr("m_note")}: ${v("#f-note")}`);
+  lines.push("", tr("mail_bye"));
+  const subj = `${occ === "table" ? tr("mail_subj") : occName}: ${v("#f-date")} ${v("#f-time")}, ${v("#f-people")}`;
+  if (window.gtag) gtag("event", "demo_reservation_click", { language: lang, occasion: occ });
+  location.href = "mailto:info@starakuca.me?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
+});
+
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0));
+renderGallery();
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem("sk-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+</script>
+</body>
+</html>

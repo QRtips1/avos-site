@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Restoran Protokol · Gastro bar, Podgorica (demo)</title>
+<meta name="description" content="Restoran Protokol u Podgorici: restoranski i gastro meni sa cijenama i vinska lista sa više od 120 etiketa. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2B0D14">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600;700&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<style>
+:root{
+  --wine:#5E1A26; --wine-2:#7A2433; --wine-3:#2B0D14; --graphite:#1B1417;
+  --champ:#C9A774; --champ-2:#E6D3B0; --champ-ink:#835F33;
+  --bone:#F7F2EC; --sand:#EFE6DB; --stone:#DCCFC0; --card:#FFFCF8;
+  --ink:#1F181B; --muted:#5F5357; --faint:#75696D; --line:rgba(31,24,27,.12); --line-2:rgba(31,24,27,.24);
+  --on-dark:#F6EFE6; --on-dark-2:rgba(246,239,230,.78); --on-dark-line:rgba(246,239,230,.2);
+  --f-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-sans:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1200px; --gut:24px; --r:16px; --hh:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--champ);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5.2vw,3.6rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--wine-2)}
+p{margin:0}
+.eyebrow{color:var(--champ-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--champ-2)}
+.ph{background:#3a2a2e linear-gradient(135deg,#46333a,#24181c)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:.95rem;letter-spacing:.03em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.btn-champ{background:linear-gradient(135deg,#E6CFA4,#C29B62);color:#24140F;box-shadow:0 10px 30px -12px rgba(194,155,98,.65)}
+.btn-champ:hover{box-shadow:0 14px 34px -10px rgba(194,155,98,.9)}
+.btn-wine{background:var(--wine);color:var(--on-dark)}
+.btn-wine:hover{background:var(--wine-3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(27,10,15,.4);color:var(--on-dark);border-color:rgba(246,239,230,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(27,10,15,.62)}
+
+/* demo strip */
+.demo{position:relative;z-index:31;background:#120A0D;color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--champ-2);text-decoration:underline;text-underline-offset:2px}
+
+/* header: see-through over the photo, solid once you scroll */
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:rgba(247,242,236,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:1.25rem;line-height:1}
+.brand-t{display:flex;flex-direction:column;line-height:1}
+.brand-t small{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--champ-2);font-weight:600;margin-bottom:6px}
+.top.solid .brand-t small{color:var(--champ-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:500;font-size:1.3rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:inherit;font:600 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--champ);color:#24140F}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+/* hero */
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--wine-3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,8,12,.66) 0%,rgba(22,8,12,.22) 34%,rgba(22,8,12,.32) 62%,rgba(22,8,12,.88) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--champ-2)}
+.hero h1{font-size:clamp(3rem,11vw,7.4rem);font-weight:500;line-height:.98;text-shadow:0 2px 40px rgba(0,0,0,.3)}
+.hero h1 small{display:block;font-size:.3em;font-style:italic;font-weight:400;letter-spacing:.02em;color:var(--champ-2);margin-bottom:.2em}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.2rem,3vw,1.65rem);line-height:1.35;margin-top:18px;max-width:30ch;color:#FFF8EE}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-champ{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.86rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--champ);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(246,239,230,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--champ-2)}
+
+/* facts strip */
+.stats{background:var(--wine);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.2rem,5.4vw,3.4rem);line-height:1;color:var(--champ-2)}
+.stat span{display:block;margin-top:10px;font-size:.86rem;color:var(--on-dark-2);line-height:1.35}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,140px)}
+.head{max-width:700px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--wine-3);color:var(--on-dark)}
+.dark .head p{color:var(--on-dark-2)}
+
+/* intro: text and a photo collage */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.1rem;color:var(--muted);max-width:48ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--wine)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.3rem;font-weight:500}
+.feats p{margin-top:3px;color:var(--muted);font-size:.97rem}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(43,13,20,.6)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--bone);box-shadow:0 30px 60px -30px rgba(43,13,20,.65)}
+
+/* from the menu: text cards */
+.sig{background:var(--sand)}
+.hl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.hcard{display:flex;flex-direction:column;height:100%;padding:26px 26px 22px;background:var(--card);border-radius:var(--r);border-top:3px solid var(--wine);text-decoration:none;color:inherit;box-shadow:0 24px 50px -38px rgba(43,13,20,.6);transition:transform .35s ease,box-shadow .35s ease}
+.hcard:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(43,13,20,.7)}
+.hcard .dcat{color:var(--champ-ink)}
+.hcard .dname{font-family:var(--f-serif);font-size:1.55rem;line-height:1.15;margin-top:10px}
+.hcard .dorig{font-size:.86rem;color:var(--faint);margin-top:4px;font-style:italic}
+.hcard .hd{margin-top:12px;color:var(--muted);font-size:.95rem;line-height:1.55}
+.hcard .hp{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:22px;font-weight:600;font-size:1.08rem;color:var(--wine)}
+.hcard .hp::after{content:"→";color:var(--champ-ink);font-weight:400}
+.sig-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:44px}
+
+/* the place: full photo with text */
+.place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(22,8,12,.82) 0%,rgba(22,8,12,.4) 55%,rgba(22,8,12,.1) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--champ-2)}
+.place-card h2 em{color:var(--champ-2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+/* wine list teaser */
+.wines-sec{text-align:center}
+.names{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 28px;max-width:1080px}
+.names li{font-family:var(--f-serif);font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.18;color:var(--on-dark);padding-top:16px;border-top:1px solid rgba(201,167,116,.4)}
+.names small{display:block;font-family:var(--f-sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champ-2);margin-top:8px;line-height:1.4}
+.regions{margin-top:44px;color:var(--champ-2);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.wines-cta{margin-top:34px}
+
+/* gallery: mosaic */
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* booking band */
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(30,9,14,.7)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--champ-2)}
+.bookband h2 em{color:var(--champ-2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:44ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--champ-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem}
+.c-list dd a{font-weight:600;text-decoration:none}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.92rem}
+.c-note a{color:var(--wine);font-weight:600}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--sand)}
+
+/* footer */
+.foot{background:#120A0D;color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--champ-2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:600}
+.social a:hover{color:var(--champ-2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--champ-2)}
+
+/* full-screen windows: menu, story, booking */
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bone);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--bone)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--wine-3);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--champ-2)}
+.home:hover .seal{border-color:var(--champ-2);color:var(--champ-2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--champ-2);margin-top:-3px}
+.sheet-title{font-size:clamp(2.2rem,6.4vw,3.2rem);padding-top:26px}
+.sheet-title + .sheet-lead{padding-top:8px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(246,239,230,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--champ-2)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-lead{color:var(--muted);padding-top:20px;font-family:var(--f-serif);font-style:italic;font-size:1.22rem;line-height:1.4}
+.m-books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-width:600px;margin-top:24px;padding:4px;border:1px solid var(--line-2);border-radius:999px;background:var(--card)}
+.m-books button{border:0;background:none;border-radius:999px;padding:12px 10px;font:600 .9rem/1.15 var(--f-sans);color:var(--muted);cursor:pointer}
+.m-books button:hover{color:var(--ink)}
+.m-books button[aria-pressed=true]{background:var(--wine);color:var(--on-dark)}
+.m-blead{margin-top:14px;color:var(--muted)}
+.m-tabs{position:sticky;top:0;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;background:var(--bone);margin:10px calc(-1 * var(--gut)) 8px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tabs button{flex:none;font:500 .9rem/1 var(--f-sans);color:var(--muted);background:var(--card);border:1px solid var(--line-2);border-radius:999px;padding:12px 18px;cursor:pointer}
+.m-tabs button small{margin-left:6px;font-size:.76rem;color:var(--faint)}
+.m-tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.m-tabs button[aria-selected=true]{background:var(--wine);border-color:var(--wine);color:var(--on-dark)}
+.m-tabs button[aria-selected=true] small{color:var(--champ-2)}
+.m-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
+.mi{padding:16px 0 18px;border-bottom:1px solid var(--line)}
+.mi-h{display:flex;align-items:baseline;gap:10px}
+.mi-n{font-family:var(--f-serif);font-weight:500;font-size:1.26rem;line-height:1.25;margin:0;min-width:0;letter-spacing:0}
+.mi-l{flex:1;min-width:14px;border-bottom:1px dotted var(--line-2);transform:translateY(-4px)}
+.mi-p{flex:none;font-weight:600;color:var(--wine);white-space:nowrap}
+.mi-o{margin-top:3px;font-size:.86rem;font-style:italic;color:var(--faint)}
+.mi-d{margin-top:6px;font-size:.93rem;line-height:1.55;color:var(--muted)}
+.m-list.wines .mi{padding:12px 0 13px}
+.m-list.wines .mi-n{font-family:var(--f-sans);font-size:1rem;font-weight:500;line-height:1.45}
+.mi-sub{grid-column:1 / -1;padding:30px 0 4px;color:var(--champ-ink);border-bottom:1px solid var(--line-2)}
+.mi-sub:first-child{padding-top:10px}
+.menu-note{margin-top:26px;color:var(--faint);font-size:.92rem}
+.wine-mini{margin-top:36px;border-radius:var(--r);background:var(--wine-3);color:var(--on-dark);padding:28px 26px}
+.wine-mini h3{font-size:1.8rem}
+.wine-mini h3 em{color:var(--champ-2)}
+.wine-mini p{margin-top:8px;color:var(--on-dark-2)}
+.wine-mini .btn{margin-top:20px}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:740px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.8rem,4.6vw,2.4rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+.book{max-width:640px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:700;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:600}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+
+/* photo viewer */
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#140B0E;color:var(--on-dark)}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#140B0E}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:var(--on-dark-2);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(246,239,230,.12);color:var(--on-dark);font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(246,239,230,.3);background:rgba(20,11,14,.55);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap .caps{color:var(--champ-2)}
+body.locked{overflow:hidden}
+
+/* mobile bar */
+.mbar{display:none}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .hl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .names{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .m-list{column-gap:36px}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:720px){
+  .m-list{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  :root{--gut:16px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:1.08rem}
+  .brand-t b{font-size:1.02rem;letter-spacing:.14em}
+  .brand-t small{font-size:.52rem}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.86rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .stats .wrap{padding:0}
+  .stat{padding:24px 6px}
+  .stat span{font-size:.76rem}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .collage{padding:0 0 40px 28px}
+  .hl-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .hl-grid::-webkit-scrollbar{display:none}
+  .hl-grid > *{flex:0 0 84%;scroll-snap-align:center}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(22,8,12,.05) 0%,rgba(22,8,12,.58) 45%,rgba(22,8,12,.92) 100%)}
+  .names{gap:20px 16px}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .m-books{border-radius:22px}
+  .m-books button{font-size:.8rem;padding:10px 4px;border-radius:18px}
+  .mi-n{font-size:1.16rem}
+  .map{min-height:260px}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:#120A0D;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,#E6CFA4,#C29B62);color:#24140F}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.98rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.92rem;letter-spacing:.1em}
+  .langs button{padding:7px 6px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="12" r="7"/><circle cx="13" cy="12" r="3.6"/><path d="M3 4v5.5a1.5 1.5 0 0 0 3 0V4M4.5 11v9"/></g></symbol>
+  <symbol id="i-wine" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.5V20M8.5 21h7M7.4 7.5h9.2"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Restoran Protokol"><span class="seal">P</span><span class="brand-t"><small>Restoran</small><b>Protokol</b></span></a>
+    <nav class="nav" aria-label="Meni">
+      <a href="#jelovnik" data-i18n="b_menu">Meni</a>
+      <a href="#prica" data-i18n="b_story">O nama</a>
+      <a href="#galerija" data-i18n="gal_eye">Galerija</a>
+      <a href="#kontakt" data-i18n="k_eye">Kontakt</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-champ" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- FIRST SCREEN -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="https://restoranprotokol.me/wp-content/uploads/2024/11/DSC06523-Enhanced-NR-copy.webp" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="https://restoranprotokol.me/wp-content/uploads/2024/09/PT-5-copy.webp" alt="">
+      <img data-lazy="https://restoranprotokol.me/wp-content/uploads/2024/09/photo-49-copy.webp" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="h_eye">Restoran · Gastro bar · Podgorica</p>
+      <h1><small data-i18n="h_pre">Restoran</small>Protokol</h1>
+      <p class="hero-lead" data-i18n="h_lead">Oaza hedonizma u Podgorici, od doručka do kasne večere.</p>
+      <div class="hero-btns">
+        <a class="btn btn-champ" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book">Rezervacija</span></a>
+        <a class="btn btn-glass" href="tel:+38268222111"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+        <a class="btn btn-glass" href="https://www.google.com/maps/place/PROTOKOL+gastro+bar+%2F+Podgorica/@42.4552862,19.2610661,17z/data=!3m1!4b1!4m6!3m5!1s0x134d952a1f550341:0x14591ac182b2f0d6!8m2!3d42.4552823!4d19.263641!16s%2Fg%2F11nnm2r5fg" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">O nama</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="h_hours">Radno vrijeme 08:00 – 00:00</span><span>+382 68 222 111</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" aria-label="Fotografije"></div>
+  </section>
+
+  <!-- FACTS (from their own site) -->
+  <section class="stats" aria-label="Protokol">
+    <div class="wrap">
+      <div class="stat"><b>2021</b><span data-i18n="n1">godina otvaranja</span></div>
+      <div class="stat"><b>120+</b><span data-i18n="n2">vinskih etiketa</span></div>
+      <div class="stat"><b>40</b><span data-i18n="n3">garažnih mjesta</span></div>
+    </div>
+  </section>
+
+  <!-- IN SHORT -->
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="i_eye">Ukratko</p>
+        <h2 data-i18n="i_t">Od doručka <em>do ponoći</em></h2>
+        <p class="lead" data-i18n="i_p">Protokol je restoran i gastro bar u Podgorici. Na gastro meniju su doručak, sendviči, salate i pice, na restoranskom tartar, hobotnica i biftek „Rossini“, a uz sve to vinska lista sa više od 120 etiketa.</p>
+        <ul class="feats">
+          <li><span class="fi"><svg><use href="#i-plate"/></svg></span><div><h3 data-i18n="c1_t">Dva menija</h3><p data-i18n="c1_p">Gastro: doručak, sendviči, pice. Restoranski: predjela, paste, riba i meso.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-wine"/></svg></span><div><h3 data-i18n="c2_t">Više od 120 vina</h3><p data-i18n="c2_p">Vinarije iz Crne Gore, regiona, Italije, Francuske, Španije i Južne Amerike.</p></div></li>
+          <li><span class="fi"><svg><use href="#i-leaf"/></svg></span><div><h3 data-i18n="c3_t">Bašta, gastro kutak, VIP zona</h3><p data-i18n="c3_p">Zatvorena i otvorena bašta i 40 garažnih mjesta.</p></div></li>
+        </ul>
+        <div class="intro-cta">
+          <a class="btn btn-wine" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-line" href="#prica" data-i18n="b_story">O nama</a>
+        </div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="https://restoranprotokol.me/wp-content/uploads/2024/10/DSC00910-820x1024.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="https://restoranprotokol.me/wp-content/uploads/2024/09/photo-353-copy.webp" data-w="600" data-h="600" alt="" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM THE MENU -->
+  <section class="sec sig" id="specijaliteti">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="sig_eye">Iz restoranskog menija</p>
+        <h2 data-i18n="sig_t">Ukusi kojima <em>se vraćate</em></h2>
+      </div>
+      <div class="hl-grid" id="sig-grid"></div>
+      <div class="sig-cta"><a class="btn btn-wine" href="#jelovnik" data-open-book="r"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli meni</span></a><a class="btn btn-line" href="#jelovnik" data-open-book="w"><svg class="ico"><use href="#i-wine"/></svg><span data-i18n="w_list">Vinska karta</span></a></div>
+    </div>
+  </section>
+
+  <!-- THE PLACE -->
+  <section class="place">
+    <img class="ph" data-p="https://restoranprotokol.me/wp-content/uploads/2024/10/DSC06614-Enhanced-NR.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="pl_eye">Prostor</p>
+        <h2 data-i18n="pl_t">Oaza <em>hedonizma</em></h2>
+        <p data-i18n="pl_p">Moderan dizajn, prefinjeni materijali i maksimalan komfor, da biste se posvetili samo uživanju. Zatvorena i otvorena bašta, unutrašnji gastro kutak i VIP zona.</p>
+        <a class="btn btn-glass" href="#prica"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="b_story">O nama</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINE LIST (wines named on their own wine list) -->
+  <section class="sec dark wines-sec" id="vina">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="wn_eye">Vinska lista</p>
+        <h2 data-i18n="wn_t">Put <em>oko svijeta</em></h2>
+        <p data-i18n="wn_p">Više od 120 etiketa najboljih vinarija iz Crne Gore, regiona i svijeta. Pitajte nas koje vino ide uz vaše jelo.</p>
+      </div>
+      <ul class="names rv">
+        <li>Premijer Vranac<small>13. Jul Plantaže</small></li>
+        <li>Radovan<small>Keković Estate</small></li>
+        <li>Pošip<small>Grgić · Korčula</small></li>
+        <li>Dingač Royal<small>Matuško</small></li>
+        <li>Barolo Serralunga d'Alba<small>Pio Cesare</small></li>
+        <li>Sassicaia<small>Toscana</small></li>
+        <li>Chablis 1er Cru Les Vaillons<small>Albert Bichot</small></li>
+        <li>Cristal 2002<small>Louis Roederer</small></li>
+      </ul>
+      <p class="regions rv" data-i18n="wn_r">Crna Gora · Region · Italija · Francuska · Španija · Južna Amerika</p>
+      <div class="wines-cta rv"><a class="btn btn-champ" href="#jelovnik" data-open-book="w"><svg class="ico"><use href="#i-wine"/></svg><span data-i18n="w_list">Vinska karta</span></a></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="gal_t">Protokol <em>izbliza</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAND -->
+  <section class="bookband">
+    <img class="ph" data-p="https://restoranprotokol.me/wp-content/uploads/2024/09/photo-328-copy.webp" data-w="2000" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="bk_eye">Rezervacije</p>
+      <h2 data-i18n="bk_t">Sačuvajte <em>sto za sebe</em></h2>
+      <p data-i18n="bk_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom, pa ćemo ga potvrditi.</p>
+      <div class="bb-btns">
+        <a class="btn btn-champ" href="tel:+38268222111"><svg class="ico"><use href="#i-phone"/></svg>+382 68 222 111</a>
+        <a class="btn btn-glass" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_form">Upit e-mailom</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="k_t">Dođite <em>kod nas</em></h2>
+        <dl class="c-list">
+          <div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="addr">Ulica Marka Đukanovića 1/1, Podgorica, Crna Gora</dd></div>
+          <div><dt class="caps" data-i18n="c_tel">Telefon</dt><dd><a href="tel:+38268222111">+382 68 222 111</a></dd></div>
+          <div><dt class="caps" data-i18n="l_hours">Radno vrijeme</dt><dd>08:00 – 00:00</dd></div>
+          <div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:info@restoranprotokol.me">info@restoranprotokol.me</a></dd></div>
+          <div><dt class="caps" data-i18n="c_park">Parking</dt><dd data-i18n="c_park_v">40 garažnih mjesta</dd></div>
+        </dl>
+        <div class="c-btns">
+          <a class="btn btn-wine" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/place/PROTOKOL+gastro+bar+%2F+Podgorica/@42.4552862,19.2610661,17z/data=!3m1!4b1!4m6!3m5!1s0x134d952a1f550341:0x14591ac182b2f0d6!8m2!3d42.4552823!4d19.263641!16s%2Fg%2F11nnm2r5fg" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+        </div>
+        <p class="c-note"><span data-i18n="c_follow">Pratite nas na Instagramu:</span> <a href="https://www.instagram.com/protokol_restoran/" target="_blank" rel="noopener">@protokol_restoran</a></p>
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=PROTOKOL%20gastro%20bar%2C%20Ulica%20Marka%20%C4%90ukanovi%C4%87a%201%2F1%2C%20Podgorica&amp;z=15&amp;output=embed" title="Mapa: Restoran Protokol, Podgorica" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">P</span><span class="brand-t"><small>Restoran</small><b>Protokol</b></span></a>
+      <p data-i18n="addr">Ulica Marka Đukanovića 1/1, Podgorica, Crna Gora</p>
+    </div>
+    <div class="social">
+      <a href="https://www.facebook.com/protokolgastrobar" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/protokol_restoran/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g304088-d23554176-Reviews-Protokol_Gastro_Bar-Podgorica_Podgorica_Municipality.html" target="_blank" rel="noopener">TripAdvisor</a>
+    </div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt restorana.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Brze akcije">
+  <a href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+  <a href="tel:+38268222111"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a>
+  <a href="https://www.google.com/maps/place/PROTOKOL+gastro+bar+%2F+Podgorica/@42.4552862,19.2610661,17z/data=!3m1!4b1!4m6!3m5!1s0x134d952a1f550341:0x14591ac182b2f0d6!8m2!3d42.4552823!4d19.263641!16s%2Fg%2F11nnm2r5fg" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a>
+</nav>
+
+<!-- MENU WINDOW -->
+<dialog class="sheet" id="s-jelovnik">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">P</span><span class="brand-t"><small>Restoran</small><b>Protokol</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <h2 class="sheet-title" data-i18n="b_menu">Meni</h2>
+      <p class="sheet-lead" data-i18n="m_p">Restoranski i gastro meni, uz vinsku kartu sa više od 120 etiketa.</p>
+      <div class="m-books" id="m-books" role="group" aria-label="Meni"></div>
+      <p class="m-blead" id="m-blead"></p>
+      <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Meni"></div>
+      <ul class="m-list" id="m-list"></ul>
+      <p class="menu-note" id="m-note"></p>
+      <div class="wine-mini" id="wine-mini">
+        <h3 data-i18n="w_t">Vino <em>uz jelo</em></h3>
+        <p data-i18n="w_p">Više od 120 etiketa iz Crne Gore, regiona, Italije, Francuske, Španije i Južne Amerike.</p>
+        <button type="button" class="btn btn-champ" data-book-go="w" data-i18n="w_list">Vinska karta</button>
+      </div>
+      <div class="sheet-cta">
+        <a class="btn btn-champ" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        <a class="btn btn-line" href="tel:+38268222111" data-i18n="b_call">Pozovite</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- STORY WINDOW -->
+<dialog class="sheet" id="s-prica">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">P</span><span class="brand-t"><small>Restoran</small><b>Protokol</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="b_story">O nama</h2>
+        <img class="ph" data-p="https://restoranprotokol.me/wp-content/uploads/2024/10/DSC06540.jpg" data-w="1400" alt="" loading="lazy">
+        <h3 data-i18n="a_t">Oaza hedonizma</h3>
+        <p data-i18n="a_p1">Restoran Protokol otvoren je 2021. godine, sa željom da Crna Gora dobije restoran koji u svim segmentima zadovoljava najzahtjevnije ugostiteljske i gastronomske standarde.</p>
+        <p data-i18n="a_p2">Nalazi se u novoizgrađenom bloku u Podgorici, lako dostupnom iz svih djelova grada. Ima zatvorenu i otvorenu baštu, unutrašnji gastro kutak, VIP restoransku zonu i 40 garažnih mjesta.</p>
+        <h3 data-i18n="a_t2">Ukusi kojima se vraćate</h3>
+        <p data-i18n="a_p3">Znanje, kvalitet, posvećenost i ljubav glavni su sastojci svakog zalogaja. Kuhinja je opremljena po najzahtjevnijim standardima, a meni ide od doručka, sendviča i pica do tartara, hobotnice na žaru i bifteka „Rossini“.</p>
+        <h3 data-i18n="a_t3">Put oko svijeta</h3>
+        <p data-i18n="a_p4">Vinska lista ima više od 120 etiketa najboljih vinarija iz Crne Gore, regiona i svijeta. Uz stručan savjet o sparivanju hrane i vina, vodimo vas kroz region, Italiju, Francusku, Španiju i Južnu Ameriku.</p>
+        <h3 data-i18n="a_t4">Stvoreno za uživanje</h3>
+        <p data-i18n="a_p5">Ambijent spaja moderan dizajn, prefinjene materijale i maksimalan komfor, kako biste se u potpunosti prepustili uživanju.</p>
+        <div class="sheet-cta">
+          <a class="btn btn-wine" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="b_menu">Meni</span></a>
+          <a class="btn btn-champ" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<!-- BOOKING WINDOW -->
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">P</span><span class="brand-t"><small>Restoran</small><b>Protokol</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body">
+    <div class="wrap">
+      <div class="book">
+        <h2 class="sheet-title" data-i18n="book">Rezervišite sto</h2>
+        <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
+        <a class="call-big btn-champ" href="tel:+38268222111"><svg class="ico"><use href="#i-phone"/></svg>+382 68 222 111</a>
+        <p class="call-2"><span data-i18n="c_mail">E-mail</span>: <a href="mailto:info@restoranprotokol.me">info@restoranprotokol.me</a></p>
+        <p class="or" data-i18n="r_or">ili</p>
+        <form class="res-form" id="res-form" novalidate>
+          <label><span data-i18n="f_name">Ime</span><input id="f-name" name="name" autocomplete="name" required></label>
+          <div class="row2">
+            <label><span data-i18n="f_date">Datum</span><input id="f-date" name="date" type="date" required></label>
+            <label><span data-i18n="f_time">Vrijeme</span><input id="f-time" name="time" type="time" min="08:00" max="23:30" step="900" value="20:00" required></label>
+          </div>
+          <div class="row2">
+            <label><span data-i18n="f_people">Broj osoba</span><select id="f-people" name="people"></select></label>
+            <label><span data-i18n="f_phone">Vaš telefon</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+382 …"></label>
+          </div>
+          <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="f-note" name="note"></textarea></label>
+          <button class="btn btn-wine" type="submit" data-i18n="f_send">Pošaljite upit e-mailom</button>
+          <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.</p>
+          <p class="hint" id="f-err" hidden style="color:#9C2E3A" data-i18n="f_err">Upišite ime, datum i vrijeme.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- PHOTO VIEWER -->
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+
+<script>
+/* Photos come from restoranprotokol.me. They load through the wsrv.nl image service (resized, and not blocked
+   when shown on another site); if that fails, straight from their site; if that fails too, a plain background. */
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const photo = (url, w, h) => "https://wsrv.nl/?url=" + encodeURIComponent(url.replace(/^https?:\/\//, "")) + "&w=" + w + (h ? "&h=" + h + "&fit=cover&a=attention" : "") + "&q=82";
+const direct = url => url;
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = direct(i.dataset.p); }
+  else if (i.dataset.step === "1") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const setPhoto = (img, url, w, h) => { img.dataset.p = url; delete img.dataset.step; img.src = photo(url, w, h); };
+const UP10 = "https://restoranprotokol.me/wp-content/uploads/2024/10/", UP11 = "https://restoranprotokol.me/wp-content/uploads/2024/11/";
+
+/* DATA START */
+/* Menus as published on restoranprotokol.me (Restoranski meni, Gastro meni, Vinski meni), with their prices.
+   Spelling slips corrected (vorčester, holandez, tartufi, file, kifla, sufle...). EN and RU are translations. */
+const I = (me, en, ru, p, d, hl) => ({ n:{ me, en, ru }, p, d, hl });
+const BOOKS = [
+  { id:"r", t:{me:"Restoranski meni", en:"Restaurant menu", ru:"Меню ресторана"},
+    p:{me:"Predjela, supe, paste, rižoto, riba, meso i sirevi.", en:"Starters, soups, pasta, risotto, fish, meat and cheese.", ru:"Закуски, супы, паста, ризотто, рыба, мясо и сыры."},
+    cover:2, secs:[
+    { id:"predjela", t:{me:"Predjela", en:"Starters", ru:"Закуски"}, items:[
+      I("Crnogorska zakuska","Montenegrin platter","Черногорская закуска",19,"pršuta, njeguški sir, masline, paradajz, kajmak, dimljeni vrat, pica hljeb"),
+      I("Grilovano povrće sa burata sirom","Grilled vegetables with burrata","Овощи гриль с бурратой",16),
+      I("Tartar biftek","Beef steak tartare","Тартар из говяжьей вырезки",30,"juneći biftek, začini, maslac, tostirani hljeb",1),
+      I("Salata od hobotnice na naš način","Octopus salad, our way","Салат из осьминога по-нашему",25,"kuvana hobotnica, pomodorini, crne masline, kukuruz, crveni luk, bijeli luk, mix salata, limun",1),
+      I("Naš marinirani karpaćo od angusa","Our marinated Angus carpaccio","Наше маринованное карпаччо из говядины ангус",21,"angus, rukola, začini, listovi parmezana, pinjoli, pomodorini"),
+      I("Riblja pašteta","Fish pâté","Рыбный паштет",14,"losos, tuna, povrće, limun, tost"),
+      I("Karpaćo od tune","Tuna carpaccio","Карпаччо из тунца",20,"tuna, limun, začini, rukola, pinjoli, pomodorini"),
+      I("Bruskete kapreze","Caprese bruschetta","Брускетты капрезе",10,"tostirani baget, paradajz, mocarela, pesto, maslinovo ulje"),
+      I("Bruskete sa morskim plodovima","Seafood bruschetta","Брускетты с морепродуктами",16,"gambori, lignje, hobotnica, riblja pašteta, paradajz, peršun, miks salata, maslinovo ulje"),
+    ]},
+    { id:"supe", t:{me:"Supe, čorbe i potaži", en:"Soups", ru:"Супы"}, items:[
+      I("Teleća čorba sa pavlakom","Veal soup with cream","Телячья чорба со сливками",4.5),
+      I("Riblja čorba od bijele morske ribe","White sea fish soup","Чорба из белой морской рыбы",5,"zubatac, brancin, orada, škarpina, kernja, povrće, paradajz"),
+      I("Potaž od koprive sa pečenim bademima","Nettle soup with roasted almonds","Крем-суп из крапивы с жареным миндалём",4.5),
+      I("Potaž od bundeve sa pečenim sjemenkama","Pumpkin soup with roasted seeds","Тыквенный крем-суп с жареными семечками",4.5),
+    ]},
+    { id:"paste", t:{me:"Paste", en:"Pasta", ru:"Паста"}, items:[
+      I("Lingvini „Frutti di mare“","Linguine frutti di mare","Лингвини «Фрутти ди маре»",20),
+      I("Špageti sa gamborima i šeri paradajzom","Spaghetti with prawns and cherry tomatoes","Спагетти с креветками и помидорами черри",19),
+      I("Domaći njoki od krompira u sosu od bifteka, vrgnja i zapečenih listića badema","Homemade potato gnocchi in a beef tenderloin and porcini sauce with toasted almond flakes","Домашние картофельные ньокки в соусе из говяжьей вырезки и белых грибов с запечёнными лепестками миндаля",18),
+      I("Zelene lingvine sa telećim fileom i šparogama","Green linguine with veal fillet and asparagus","Зелёные лингвини с телячьим филе и спаржей",18,"teleći file, šparoge, parmezan, bijeli luk"),
+      I("Ravioli sa istarskim tartufima, u sosu od gambora i tikvica","Ravioli with Istrian truffles in a prawn and zucchini sauce","Равиоли с истрийскими трюфелями в соусе из креветок и цукини",21,"tartufi, rikota, pomodorini, gambori, tikvice",1),
+    ]},
+    { id:"rizoto", t:{me:"Rižoto", en:"Risotto", ru:"Ризотто"}, items:[
+      I("Crni rižoto sa gamborima i crnilom od sipe","Black risotto with prawns and cuttlefish ink","Чёрное ризотто с креветками и чернилами каракатицы",21,"crnilo od sipe, gambori, maslac, parmezan",1),
+      I("Rižoto sa biftekom, tikvicama i burata sirom","Risotto with beef tenderloin, zucchini and burrata","Ризотто с говяжьей вырезкой, цукини и бурратой",19),
+      I("Rižoto sa gamborima i vrgnjem","Risotto with prawns and porcini","Ризотто с креветками и белыми грибами",21),
+    ]},
+    { id:"riba", t:{me:"Riba i morski plodovi", en:"Fish and seafood", ru:"Рыба и морепродукты"}, items:[
+      I("Riblji pjat za dvije osobe","Seafood platter for two","Рыбное ассорти на двоих",60,"crni rižoto, file brancina, hobotnica, gambori, lignje, vongole, šeri paradajz"),
+      I("Riba I kategorije","First-class fish","Рыба первой категории",68),
+      I("Gambori na žaru","Grilled prawns","Креветки на гриле",24),
+      I("Lignje na žaru","Grilled squid","Кальмары на гриле",19),
+      I("Lignje punjene gamborima na žaru","Grilled squid stuffed with prawns","Кальмары, фаршированные креветками, на гриле",29),
+      I("File lososa na žaru","Grilled salmon fillet","Филе лосося на гриле",25,"gambori, vongole, šeri, limun, bijeli luk, peršun"),
+      I("Hobotnica na žaru","Grilled octopus","Осьминог на гриле",33,null,1),
+      I("File brancina na žaru","Grilled sea bass fillet","Филе сибаса на гриле",23,"brancin, limun, kapar, masline, pomodorini"),
+    ]},
+    { id:"meso", t:{me:"Glavna jela od mesa", en:"Meat main courses", ru:"Мясные блюда"}, items:[
+      I("Teleći file na žaru","Grilled veal fillet","Телячье филе на гриле",29),
+      I("Teleći medaljoni u sosu od šampinjona","Veal medallions in mushroom sauce","Телячьи медальоны в соусе из шампиньонов",25),
+      I("Teleća rebarca u BBQ sosu","Veal ribs in BBQ sauce","Телячьи рёбрышки в соусе барбекю",23),
+      I("Teleći kotlet „French“","French-cut veal chop","Телячья котлета на кости «French»",8),
+      I("Biftek na žaru","Grilled beef tenderloin steak","Стейк из говяжьей вырезки на гриле",29),
+      I("Biftek „Rossini“","Beef tenderloin Rossini","Стейк из вырезки «Россини»",35,"biftek, foie gras, crni tartufi, porto",1),
+      I("Biftek taljata","Beef tenderloin tagliata","Тальята из говяжьей вырезки",29,"biftek, rukola, parmezan, pomodorini, pinjoli"),
+      I("Jagnjeći kotleti „New Zealand“ na žaru","Grilled New Zealand lamb chops","Новозеландские бараньи котлеты на гриле",38),
+      I("Ćureća prsa u sosu od suvih šljiva","Turkey breast in prune sauce","Грудка индейки в соусе из чернослива",21,"ćuretina, suve šljive, crveni luk, pana, vorčester"),
+      I("Ćureća prsa na žaru","Grilled turkey breast","Грудка индейки на гриле",16),
+      I("Pileća „Bečka“ šnicla","Chicken Wiener schnitzel","Венский шницель из курицы",16,"pileća prsa, brašno, jaje, prezla, pomfrit, tartar sos"),
+      I("Piletina na žaru","Grilled chicken","Курица на гриле",14.5),
+    ]},
+    { id:"sirevi", t:{me:"Sirevi", en:"Cheeses", ru:"Сыры"}, items:[
+      I("Njeguški sir","Njeguši cheese","Негушский сыр",8),
+      I("Burata","Burrata","Буррата",10),
+      I("Mozzarella","Mozzarella","Моцарелла",9),
+      I("Parmezan","Parmesan","Пармезан",11),
+      I("Kozji sir","Goat cheese","Козий сыр",9),
+    ]},
+    { id:"salate", t:{me:"Prilog salate", en:"Side salads", ru:"Салаты к блюдам"}, items:[
+      I("Rukola salata","Rocket salad","Салат из рукколы",7),
+      I("Miješana salata","Mixed salad","Смешанный салат",5.5),
+      I("Pomodorini","Cherry tomatoes","Помидоры черри",6),
+      I("Vitaminska salata","Vitamin salad","Витаминный салат",8),
+    ]},
+    { id:"prilozi", t:{me:"Prilozi", en:"Sides", ru:"Гарниры"}, items:[
+      I("Parmezan za paštu","Parmesan for pasta","Пармезан к пасте",3),
+      I("Pica hljeb","Pizza bread","Хлеб из теста для пиццы",2),
+      I("Pinjoli","Pine nuts","Кедровые орешки",5),
+      I("Pomfrit","French fries","Картофель фри",3.5),
+      I("Aromatični krompir","Herbed potatoes","Ароматный картофель",4.5),
+      I("Pire krompir","Mashed potatoes","Картофельное пюре",5),
+      I("Krompir salata","Potato salad","Картофельный салат",4.5),
+      I("Riža „Basmati“","Basmati rice","Рис басмати",4.5),
+      I("Grilovano povrće","Grilled vegetables","Овощи гриль",10),
+      I("Masline","Olives","Оливки",6),
+      I("Pršuta","Prosciutto","Пршут",9),
+      I("Dodatak jaje","Extra egg","Дополнительно: яйцо",1),
+      I("Dodatak vrganj","Extra porcini","Дополнительно: белые грибы",4),
+    ]},
+    { id:"sosevi", t:{me:"Sosevi i umaci", en:"Sauces", ru:"Соусы"}, items:[
+      I("Tartuf sos","Truffle sauce","Трюфельный соус",7),
+      I("Zeleni biber sos","Green peppercorn sauce","Соус из зелёного перца",6),
+      I("Gorgonzola sos","Gorgonzola sauce","Соус горгонзола",6),
+      I("Šampinjoni sos","Mushroom sauce","Соус из шампиньонов",5.5),
+      I("Teriyaki sos","Teriyaki sauce","Соус терияки",6),
+      I("Vrganj sos","Porcini sauce","Соус из белых грибов",6.5),
+      I("BBQ sos","BBQ sauce","Соус барбекю",4.5),
+      I("Kisela pavlaka","Sour cream","Сметана",1),
+    ]},
+  ]},
+  { id:"g", t:{me:"Gastro meni", en:"Gastro menu", ru:"Гастроменю"},
+    p:{me:"Doručak, sendviči, tortilje, salate, paste, pice i dezerti.", en:"Breakfast, sandwiches, wraps, salads, pasta, pizza and desserts.", ru:"Завтраки, сэндвичи, тортильи, салаты, паста, пицца и десерты."},
+    secs:[
+    { id:"dorucak", t:{me:"Doručak", en:"Breakfast", ru:"Завтраки"}, items:[
+      I("„Protokol“ doručak","Protokol breakfast","Завтрак «Протокол»",9.5,"jaja, pečenica, pančeta, kobasica, njeguški sir, pršuta, paradajz, aromatični krompir, sos"),
+      I("Engleski doručak","English breakfast","Английский завтрак",8.3,"jaja, slanina, sir, pomfrit, kobasice, pasulj"),
+      I("Doručak sa biftekom","Steak breakfast","Завтрак со стейком из вырезки",10.5,"jaja, biftek, mocarela, salata"),
+      I("Mediteranski doručak sa pršutom (ili šunkom, kulenom)","Mediterranean breakfast with prosciutto (or ham, or kulen)","Средиземноморский завтрак с пршутом (или ветчиной, или куленом)",8.2,"pršuta, jaja, integralni tost, pesto sos, holandez sos, rukola, čeri, bademi, mix salata"),
+      I("Mediteranski doručak sa lososom","Mediterranean breakfast with salmon","Средиземноморский завтрак с лососем",9.8,"dimljeni losos, jaja, integralni tost, avokado sos, holandez sos, rukola, čeri, bademi, mix salata"),
+      I("Kinoa sa povrćem i jajima","Quinoa with vegetables and eggs","Киноа с овощами и яйцами",6.8,"kinoa, jaja, tikvica, patlidžan, crvena paprika, zelena paprika, praziluk, rukola, šeri paradajz, paradajz sos"),
+      I("Fritata","Frittata","Фриттата",8.5,"jaja, pančeta, praziluk, paprika, šampinjoni, krompir, gauda, feta sir"),
+      I("Piletina zapečena u tostu","Chicken baked in toast","Курица, запечённая в тосте",7.6,"tost hljeb, piletina, čedar sir, parmezan, rukola, aromatični krompir"),
+      I("Posni doručak","Lenten breakfast","Постный завтрак",7.2,"marinirani krap, paprike, paradajz, krastavac, crveni luk, pašteta od leblebije"),
+      I("Vegetarijanski doručak","Vegetarian breakfast","Вегетарианский завтрак",6.8,"jaja, mocarela, brokoli, rukola"),
+      I("Omlet šunka","Ham omelette","Омлет с ветчиной",5.6,"jaja, šunka, sir, paradajz, pavlaka"),
+      I("Omlet pršuta","Prosciutto omelette","Омлет с пршутом",6.2,"jaja, pršuta, sir, paradajz, pavlaka"),
+      I("Omlet povrće","Vegetable omelette","Омлет с овощами",5.9,"jaja, svježe povrće, sir, paradajz, pavlaka"),
+      I("Omlet sa vrgnjem i mocarelom","Porcini and mozzarella omelette","Омлет с белыми грибами и моцареллой",8.8,"jaja, vrganj, mocarela, rukola, pinjoli, parmezan, čeri, peperonćino"),
+      I("Omlet sa piletinom","Chicken omelette","Омлет с курицей",6.8,"bjelance, feta sir, brokoli, piletina"),
+      I("Omlet sa pilećom paštetom i kozjim sirom","Omelette with chicken pâté and goat cheese","Омлет с куриным паштетом и козьим сыром",7.7,"jaja, pileća pašteta, kozji sir, sušeni paradajz, rukola, pinjoli"),
+      I("Kajgana","Scrambled eggs","Яичница-болтунья",5.6,"jaja, tost hljeb, grilovani šampinjoni, pomodorini"),
+      I("Jogurt","Yoghurt","Йогурт",1.8),
+      I("Omlet sa biftekom","Steak omelette","Омлет с говяжьей вырезкой",7.5,"biftek, jaja, tikvice, feta sir, paprika"),
+    ]},
+    { id:"sendvici", t:{me:"Sendviči", en:"Sandwiches", ru:"Сэндвичи"}, items:[
+      I("Club sandwich","Club sandwich","Клаб-сэндвич",7.7,"grilovani tost, slanina, piletina, jaje, paradajz, iceberg, namaz, pomfrit"),
+      I("Šunka sandwich","Ham sandwich","Сэндвич с ветчиной",6.5,"pica hljeb, šunka, sir, paradajz, iceberg, pesto namaz, pomfrit"),
+      I("Kulen sandwich","Kulen sandwich","Сэндвич с куленом",6.9,"pica hljeb, kulen, dimljeni sir, paradajz, iceberg, pikantni sos, pomfrit"),
+      I("Pršuta sandwich","Prosciutto sandwich","Сэндвич с пршутом",7.2,"pica hljeb, pršuta, sir, paradajz, iceberg, pesto namaz, pomfrit"),
+      I("„Tonno“ sandwich","Tuna sandwich","Сэндвич с тунцом «Тонно»",6.9,"pica hljeb, tunjevina, mocarela, paradajz, iceberg, pesto namaz, pomfrit"),
+      I("Sendvič sa piletinom","Chicken sandwich","Сэндвич с курицей",7.2,"piletina, slanina, sir, paradajz, iceberg, pesto sos, pomfrit"),
+      I("Sendvič sa biftekom","Steak sandwich","Сэндвич с говяжьей вырезкой",11.5,"biftek, mocarela, zelena salata, paradajz, med, pavlaka, puter, senf, aromatični krompir"),
+      I("Sendvič sa mortadelom i pistaćima","Mortadella and pistachio sandwich","Сэндвич с мортаделлой и фисташками",10,"pica hljeb, mortadela, straćatela, rukola, parmezan, pistaći, aromatični krompir"),
+      I("Sendvič sa dimljenim lososom","Smoked salmon sandwich","Сэндвич с копчёным лососем",11.5,"losos, mocarela, paradajz, tost hljeb, rukola"),
+      I("Maxi hot-dog","Maxi hot dog","Макси хот-дог",8,"austrijske kobasice, maxi kifla, majonez, kečap, senf, dinstani luk, iceberg, pomfrit, gauda, paradajz"),
+      I("Burger","Burger","Бургер",8.5,"juneće meso, paradajz, iceberg, namaz, pomfrit"),
+      I("„Protokol“ burger","Protokol burger","Бургер «Протокол»",11,"juneće meso, paradajz, iceberg, bbq sos, čedar, slanina, texan onion"),
+    ]},
+    { id:"tortilje", t:{me:"Tortilje, piadine i slane palačinke", en:"Tortillas, piadinas and savoury crêpes", ru:"Тортильи, пьядины и несладкие блинчики"}, items:[
+      I("Piadina","Piadina","Пьядина",8.2,{me:"Klasična piadina romanjola punjena pršutom, mocarelom i rukolom, pesto namaz, pomfrit", en:"Classic piadina romagnola filled with prosciutto, mozzarella and rocket, pesto spread, fries", ru:"Классическая пьядина романьола с пршутом, моцареллой и рукколой, соус песто, картофель фри"}),
+      I("Piadina sa piletinom","Chicken piadina","Пьядина с курицей",8,"piletina, mocarela, pesto sos, rukola, pomfrit"),
+      I("Tortilja sa piletinom","Chicken tortilla","Тортилья с курицей",9.2,"grilovana piletina, grilovano povrće, sir, pesto sos, pomfrit"),
+      I("Tortilja sa biftekom","Steak tortilla","Тортилья с говяжьей вырезкой",10.8,"grilovano meso od bifteka, grilovano povrće, sir, pesto sos, pomfrit"),
+      I("Slane palačinke sa šunkom","Savoury crêpes with ham","Блинчики с ветчиной",6.8),
+      I("Slane palačinke sa pršutom","Savoury crêpes with prosciutto","Блинчики с пршутом",7.3),
+    ]},
+    { id:"obrok", t:{me:"Obrok salate", en:"Main-course salads", ru:"Сытные салаты"}, items:[
+      I("Biftek salata","Steak salad","Салат с говяжьей вырезкой",12.8,"grilovano meso od bifteka, mix salata, pomodorini, pečena paprika, šampinjoni, suvo grožđe, pečeni lješnik, listovi parmezana"),
+      I("Cezar salata","Caesar salad","Салат «Цезарь»",9.2,"grilovana piletina, mix salata, zapečeni tost, hrskava slanina, pomodorini, cezar dresing, listovi parmezana"),
+      I("Grčka salata","Greek salad","Греческий салат",8.2,"paradajz, svježi krastavac, paprika, luk, masline, feta sir"),
+      I("Nizzarda salata","Niçoise salad","Салат «Нисуаз»",9.4,"tunjevina, crne masline, mix salata, pomodorini, kuvano jaje, crveni pasulj, zapečeni tost"),
+      I("Kapreze","Caprese","Капрезе",7.7,"mocarela „fior di latte“, paradajz, pesto, maslinovo ulje"),
+      I("Ćureća salata","Turkey salad","Салат с индейкой",9.8,"grilovana ćuretina, mix salata, šampinjoni, brusnice, pomodorini, listovi parmezana, sjemenke bundeve"),
+      I("Vitaminska salata","Vitamin salad","Витаминный салат",8.2,"rukola, radič, mix salata, pomodorini, krastavac, šargarepa, pečeni bademi"),
+      I("Italijanska salata","Italian salad","Итальянский салат",9.8,"rukola, ulje od tartufa, pomodorini, pinjoli, listovi parmezana, krema balzamiko"),
+    ]},
+    { id:"pasta", t:{me:"Paste i rižoto", en:"Pasta and risotto", ru:"Паста и ризотто"}, items:[
+      I("Špageti „Carbonara“","Spaghetti carbonara","Спагетти карбонара",11.8,"pančeta, jaje, parmezan, bijeli sos"),
+      I("Rigatoni „alla Sorrentina“","Rigatoni alla sorrentina","Ригатони по-сорренто",11.8,"paradajz sos, bosiljak, mocarela, parmezan"),
+      I("Taljatele „Bolognese“","Tagliatelle bolognese","Тальятелле болоньезе",11.8,"bolonjez sos, parmezan, bosiljak, peršun"),
+      I("Špageti „Aglio olio e peperoncino“","Spaghetti aglio, olio e peperoncino","Спагетти с чесноком, маслом и перцем чили",9.5,"bijeli luk, maslinovo ulje, peršun, peperonćino, parmezan"),
+      I("Rigatoni „Arrabbiata“","Rigatoni arrabbiata","Ригатони арраббьята",9.5,"paradajz sos, bijeli luk, bosiljak, parmezan, peršun, peperonćino, ulje"),
+      I("Rižoto sa piletinom i šampinjonima u crvenom sosu","Chicken and mushroom risotto in tomato sauce","Ризотто с курицей и шампиньонами в томатном соусе",13.8,"piletina, šampinjoni, pomodorini, paradajz sos, peršun, parmezan"),
+      I("Rižoto sa povrćem u crvenom sosu","Vegetable risotto in tomato sauce","Овощное ризотто в томатном соусе",11,"povrće, šampinjoni, paradajz sos, peršun, parmezan"),
+    ]},
+    { id:"pice", t:{me:"Pice", en:"Pizza", ru:"Пицца"}, items:[
+      I("Margherita","Margherita","Маргарита",7.9,"pelat, sir, origano"),
+      I("Bianca pizza","Pizza bianca","Пицца бьянка",11.5,"mocarela, maskarpone, guanciale, rukola, šeri, biber"),
+      I("Capricciosa","Capricciosa","Каприччоза",9.2,"pelat, sir, šunka, šampinjoni, origano"),
+      I("Pizza con pancetta bianca","Pizza con pancetta bianca","Пицца с панчеттой бьянка",10.5,"pelat, mocarela, kulen, pečenica, bijela slanina, crveni luk, paradajz, pesto sos, jaje"),
+      I("Diavolo","Diavolo","Дьяволо",9.6,"pelat, sir, kulen, peperonćino, origano"),
+      I("Vegetariana","Vegetariana","Вегетариана",8.8,"pelat, sir, povrće, šampinjoni, masline, origano"),
+      I("Tonno","Tonno","Тонно",9.6,"pelat, sir, tunjevina, crveni luk, masline, origano"),
+      I("Quattro formaggi","Quattro formaggi","Четыре сыра",10.5,"pavlaka, gauda, mocarela, parmezan, gorgonzola, origano"),
+      I("Pica sa gorgonzolom i guanciale","Pizza with gorgonzola and guanciale","Пицца с горгонзолой и гуанчале",10.5,"gorgonzola, mocarela, guanciale, crveni luk"),
+      I("Pica parmiđana sa buratom","Pizza parmigiana with burrata","Пицца пармиджана с бурратой",11.8,"šunka, mocarela, burata, parmezan, rukola, čeri, maslinovo ulje, origano"),
+      I("Pica sa mortadelom, pistaćima i straćatelom","Pizza with mortadella, pistachios and stracciatella","Пицца с мортаделлой, фисташками и страчателлой",11.8,"pica tijesto, mortadela, mocarela „Regina“, pistaći, extra virgin maslinovo ulje, straćatela, origano"),
+      I("Frutti di mare","Frutti di mare","Фрутти ди маре",14.7,"pelat, sir, morski plodovi, bijeli luk, origano"),
+      I("Crudaiola","Crudaiola","Крудайола",11.5,"pelat, mocarela, pršuta, rukola, čeri, parmezan, origano"),
+      I("Salmone pizza","Salmon pizza","Пицца с лососем",13.8,"crno tijesto, pelat, mocarela, dimljeni losos, rukola, čeri, avokado sos, origano"),
+      I("Piroška","Piroška","Пирошка",9.5,"pavlaka, sir, šunka, šampinjoni, origano"),
+    ]},
+    { id:"dezerti", t:{me:"Dezerti", en:"Desserts", ru:"Десерты"}, items:[
+      I("Tiramisu","Tiramisu","Тирамису",5.5),
+      I("Čokoladni tart sa kruškom","Chocolate tart with pear","Шоколадный тарт с грушей",5.5),
+      I("Torta sa tri vrste čokolade","Triple chocolate cake","Торт «Три шоколада»",6),
+      I("Čokoladni sufle sa sladoledom od vanile","Chocolate soufflé with vanilla ice cream","Шоколадное суфле с ванильным мороженым",7.5),
+      I("Cheesecake","Cheesecake","Чизкейк",5),
+      I("Voćna krostata","Fruit crostata","Фруктовая кростата",5.5),
+      I("Panna cotta","Panna cotta","Панна-котта",5),
+      I("Slatke palačinke (2 priloga po želji)","Sweet crêpes (2 fillings of your choice)","Сладкие блинчики (2 начинки на выбор)",5),
+      I("Sladoled, kugla","Ice cream, one scoop","Мороженое, шарик",2.2),
+      I("Šlag","Whipped cream","Взбитые сливки",1.8),
+      I("Jagode sa šlagom (u sezoni)","Strawberries with whipped cream (in season)","Клубника со взбитыми сливками (в сезон)",5),
+      I("Voćni tanjir (u sezoni)","Fruit plate (in season)","Фруктовая тарелка (в сезон)",7),
+    ]},
+  ]},
+  { id:"w", wine:true, t:{me:"Vinska karta", en:"Wine list", ru:"Винная карта"},
+    p:{me:"Više od 120 etiketa iz Crne Gore, regiona i svijeta.", en:"More than 120 labels from Montenegro, the region and the world.", ru:"Больше 120 этикеток из Черногории, региона и со всего мира."},
+    secs:[
+    { id:"pjenusci", t:{me:"Šampanjac i pjenušci", en:"Champagne and sparkling", ru:"Шампанское и игристые"}, subs:[{ items:[
+      ["Champagne Moët Chandon Brut Imperial Epernay Francuska",110],
+      ["Champagne Veuve Clicquot Brut Reims Francuska",140],
+      ["Champagne Louis Roederer Cristal Brut Reims Vintage 2015 Francuska",390],
+      ["Champagne Louis Roederer Cristal Brut Reims Vintage 2002 Francuska",650],
+      ["Bella Vista Franciacorta, Alma Gran Cuvée Brut, Lombardia D.O.C.G. – 0,75 l",80],
+      ["Bella Vista Franciacorta, Alma Gran Cuvée Brut, Lombardia D.O.C.G. – 1,5 l",160],
+      ["Prosecco Motivo Rosé, Extra Dry, Borgo Molino Veneto Italija I.G.T. – 0,75 l",32],
+      ["Prosecco Motivo Rosé, Extra Dry, Borgo Molino Veneto Italija I.G.T. – 0,2 l",9],
+      ["Prosecco Serena 1881 Brut Valdobbiadene Veneto Italija D.O.C.",26],
+      ["Prosecco Serena 1881 Extra Dry Valdobbiadene Veneto Italija D.O.C.",8],
+      ["Cava Gran Baron Brut Catalunya Španija",30],
+      ["Cava Gran Baron Brut Rosé Catalunya Španija",32],
+    ]}]},
+    { id:"roze", t:{me:"Roze", en:"Rosé", ru:"Розовые"}, subs:[{ items:[
+      ["Rosé Keković Novo Selo Danilovgrad",32],
+      ["Whispering Angel Rosé Provence Francuska",42],
+      ["Alie Rosé Frescobaldi Toscana",32],
+      ["Opera Rosé Lago di Garda Lombardia",32],
+    ]}]},
+    { id:"bijela", t:{me:"Bijela vina", en:"White wines", ru:"Белые вина"}, subs:[
+      { t:{me:"Crna Gora", en:"Montenegro", ru:"Черногория"}, items:[
+        ["Nota 13. Jul Plantaže (pinot blanc, sauvignon blanc)",42],
+        ["Chardonnay Radević Rogami",44],
+        ["Chardonnay Keković Novo Selo Danilovgrad",32],
+        ["Sauvignon blanc Keković Novo Selo Danilovgrad",32],
+        ["Sauvignon blanc Meandar Vinarija Patrimonio Bobija Skadarsko jezero",35],
+        ["Chardonnay Zrak Vinarija Patrimonio Bobija Skadarsko jezero",30],
+        ["Chardonnay limited Monte Grande Knežević Zeta",35],
+        ["S'Ubli Rajković Kuči (chardonnay, župljanka, smederevka)",32],
+        ["Viognier Rajković Kuči",38],
+        ["Chardonnay Ražnatović Skadarsko jezero",32],
+        ["Tamjanika Bonazza Brajović Jelenak Bjelopavlićka ravnica",30],
+        ["Malvazija Zenta Vinarija Vučinić Rogami",30],
+        ["Mola Ch Vinarija Mola Rogami (chardonnay, tamjanika)",30],
+      ]},
+      { t:{me:"Region", en:"The region", ru:"Регион"}, items:[
+        ["Melodija Nikad nije kasno Tri Morave Srbija (chardonnay, tamjanika)",28],
+        ["Chardonnay Kovačević Fruška Gora Srbija",32],
+        ["Rajnski Rizling Dragić Subotički Rejon Srbija",28],
+        ["Sauvignon blanc Onyx Cilić Srbija",42],
+        ["Sauvignon blanc Kamnik Makedonija",28],
+        ["Chardonnay Barrel Fermented Kamnik Makedonija",44],
+        ["Barovo Tikveš Makedonija (sauvignon blanc)",62],
+        ["Bela Voda Tikveš Makedonija (chardonnay, belan)",62],
+        ["Graševina Krauthaker Kutjevo Slavonija Hrvatska",30],
+        ["Malvazija Istarska Deklić Hrvatska",35],
+        ["Pošip Grgić Korčula Hrvatska",65],
+        ["Žilavka Rubis BiH",24],
+        ["Žilavka Andrija Paoča BiH",25],
+        ["Žilavka Andrija Selekcija Paoča BiH",30],
+        ["Balatin Jungić BiH (chardonnay, sauvignon blanc, pinot blanc)",32],
+        ["Rebula Ronk Goriška Brda Slovenija",40],
+        ["Pinot Blanc Ronk Goriška Brda Slovenija",40],
+      ]},
+      { t:{me:"Italija", en:"Italy", ru:"Италия"}, items:[
+        ["La Mora Vermentino Cecchi Maremma Toscana D.O.C.",32],
+        ["Pinot Grigio Corte Pittora Veneto I.G.T.",29],
+        ["Pinot Grigio Cesari Delle Venezie",28],
+        ["Albizzia Chardonnay Frescobaldi Toscana",28],
+        ["Ciari Sauvignon blanc Borgo Molino Friuli I.G.T.",32],
+        ["Gavi di Gavi La Meriana Broglia Piemonte",40],
+        ["Gavi dei Gavi Etichetta Nera, La Scolca Piemonte D.O.C.G. – 0,75 l",62],
+        ["Gavi dei Gavi Etichetta Nera, La Scolca Piemonte D.O.C.G. – 1,5 l (magnum)",320],
+      ]},
+      { t:{me:"Francuska i Novi Zeland", en:"France and New Zealand", ru:"Франция и Новая Зеландия"}, items:[
+        ["Riesling Les Princes Abbés Domaines Schlumberger Alsace",45],
+        ["Chablis 1er Cru Les Vaillons Albert Bichot Burgundija",68],
+        ["Aligoté Albert Bichot Burgundija",30],
+        ["Kia Ora Sauvignon blanc Marlborough Novi Zeland",30],
+      ]},
+    ]},
+    { id:"crvena", t:{me:"Crvena vina", en:"Red wines", ru:"Красные вина"}, subs:[
+      { t:{me:"Crna Gora", en:"Montenegro", ru:"Черногория"}, items:[
+        ["Premijer Vranac 13. Jul Plantaže Ćemovsko polje Bunar",110],
+        ["Stari Podrum 13. Jul Plantaže Ćemovsko polje",82],
+        ["Vranac Reserve 13. Jul Plantaže 2013 (zlatna berba)",52],
+        ["Vladika 13. Jul Plantaže Ćemovsko polje",28],
+        ["Premium Red Wine Radević 2009 (vranac, cabernet sauvignon) Rogami",65],
+        ["Vranac Radević Rogami",48],
+        ["Syrah Radević Rogami",45],
+        ["Radovan Keković Estate Novo Selo Danilovgrad (cabernet sauvignon, vranac)",50],
+        ["Vranac Keković Estate Novo Selo Danilovgrad",34],
+        ["Cabernet Sauvignon Arhonto Krgović Rogami",34],
+        ["Monte Grande Limited Knežević Zeta (vranac, cabernet)",52],
+        ["Sinjac crveno Gornje Malo Blato, Skadarsko jezero (vranac, cabernet sauvignon, merlot, cabernet franc)",28],
+        ["Vranac Gorštak Krusi",30],
+        ["Vranac Gorštak Reserve Krusi",52],
+        ["Vranac Zenta Vučinić Rogami",28],
+        ["Kratošija Zenta Vučinić Rogami",28],
+        ["Vranac Legat Selection Brajović Jelenak Bjelopavlićka ravnica",48],
+        ["Stup Rajković Kuči Ubli (vranac, kratošija)",30],
+        ["Merlot Vinarija Mola Rogami",30],
+        ["Baron Vinarija Đukić Doljani Podgorica (vranac, kratošija)",32],
+        ["Status Vranac Barrique Milović Ulcinj",34],
+        ["Prizor Vranac Barrique Vinarija Patrimonio Bobija Skadarsko jezero",47],
+        ["Pečalbar Vinarija Rakčević Riječka nahija (cabernet sauvignon, vranac)",32],
+        ["Depeša Vinarija Rakčević Riječka nahija (cabernet sauvignon, vranac)",32],
+      ]},
+      { t:{me:"Region", en:"The region", ru:"Регион"}, items:[
+        ["Cabernet Sauvignon Dragić Subotički Rejon Srbija",32],
+        ["Simfonija Nikad nije kasno Tri Morave Srbija (merlot, marselan, prokupac, cabernet sauvignon)",30],
+        ["Signature Nikad nije kasno Tri Morave Srbija (merlot, vranac, prokupac, cabernet sauvignon)",46],
+        ["Onyx Cilić crveno (Bordeaux blend) Srbija",45],
+        ["Pinot noir Legat Srbija",42],
+        ["Pinot noir Clos Vineyard Kamnik Makedonija",34],
+        ["Cuvée de Prestige Kamnik Makedonija (merlot, vranec, cabernet franc)",44],
+        ["Merlot Ten Barrels Kamnik Makedonija",68],
+        ["Ten Barrels Syrah Reserva Kamnik Makedonija",72],
+        ["Vranec Terroir Kamnik Makedonija",120],
+        ["Heritage Cabernet Sauvignon Kamnik Makedonija",130],
+        ["Barovo Tikveš Makedonija (vranec, kratošija)",70],
+        ["Bela Voda Tikveš Makedonija (vranec, plavac mali)",70],
+        ["Dingač Matuško Hrvatska",45],
+        ["Dingač Royal Matuško Hrvatska",120],
+        ["Cabernet Sauvignon Rubis BiH",29],
+        ["Blatina Andrija Paoča BiH",25],
+        ["Vranac Andrija Selekcija Paoča BiH",30],
+        ["Syrah Andrija Paoča BiH",30],
+        ["Šikar Jungić rezerva BiH (cabernet sauvignon, merlot, frankovka)",62],
+        ["Cabernet Sauvignon Jungić premium BiH",85],
+      ]},
+      { t:{me:"Italija", en:"Italy", ru:"Италия"}, items:[
+        ["Primitivo di Manduria Lu Rappaio Puglia D.O.C.",30],
+        ["Bennati Soraighe Valpolicella Ripasso Classico Superiore Veneto D.O.C.",40],
+        ["Bennati Amarone della Valpolicella Veneto D.O.C.G.",84],
+        ["Chianti Classico Famiglia Cecchi, Toscana D.O.C.G.",36],
+        ["Nipozzano Chianti Rufina Riserva Frescobaldi Toscana D.O.C.G.",42],
+        ["Hebo Petra Toscana (cabernet sauvignon, merlot, sangiovese)",42],
+        ["La Vite Lucente Toscana (merlot, sangiovese)",68],
+        ["Aglianico Radici Taurasi Mastroberardino Campania D.O.C.G.",80],
+        ["Barbera d'Alba Pio Cesare Piemonte D.O.C.",55],
+        ["Pio Cesare Barolo Serralunga d'Alba Piemonte D.O.C.G.",145],
+        ["Brunello di Montalcino Col d'Orcia Toscana D.O.C.G.",84],
+        ["Tignanello Toscana I.G.T.",190],
+        ["Sassicaia Toscana D.O.C.",320],
+        ["Luce della Vite Montalcino (sangiovese, merlot)",210],
+        ["Villa Gemma Montepulciano d'Abruzzo 2007 D.O.C.",155],
+      ]},
+      { t:{me:"Francuska", en:"France", ru:"Франция"}, items:[
+        ["Calvet Margaux Bordeaux",64],
+        ["Château Laroque Grand Cru Saint-Émilion Bordeaux",105],
+        ["Clos Beauregard Pomerol Bordeaux",110],
+        ["Châteauneuf-du-Pape St. Pierres de Nalys",88],
+      ]},
+      { t:{me:"Španija i Novi svijet", en:"Spain and the New World", ru:"Испания и Новый Свет"}, items:[
+        ["Tempranillo Crianza Vina Real Estate Rioja",30],
+        ["Tempranillo Riserva Vina Real Estate Rioja",42],
+        ["Cabernet Sauvignon Gran Reserva Hussonet Čile",35],
+      ]},
+    ]},
+    { id:"dezertna", t:{me:"Dezertna vina", en:"Dessert wines", ru:"Десертные вина"}, subs:[{ items:[
+      ["Vitez Vinarija Đukić Crna Gora",32],
+      ["Kiš Bermet Crveni Fruška Gora Srbija (merlot, kasna berba)",32],
+      ["Moscato Motivo Dolce Borgo Molino Veneto Italija",28],
+      ["Porto Krohn Valdouro Tawny Portugal",28],
+    ]}]},
+  ]},
+];
+/* ingredients: the Montenegrin list is shown as published; EN and RU come from this dictionary */
+const ING = {
+  "pršuta":["prosciutto","пршут"], "njeguški sir":["Njeguši cheese","негушский сыр"], "masline":["olives","оливки"], "paradajz":["tomato","помидоры"],
+  "kajmak":["kajmak","каймак"], "dimljeni vrat":["smoked pork neck","копчёная шейка"], "pica hljeb":["pizza bread","хлеб из теста для пиццы"],
+  "juneći biftek":["beef tenderloin","говяжья вырезка"], "začini":["spices","специи"], "maslac":["butter","сливочное масло"], "tostirani hljeb":["toasted bread","поджаренный хлеб"],
+  "kuvana hobotnica":["boiled octopus","отварной осьминог"], "pomodorini":["cherry tomatoes","помидоры черри"], "crne masline":["black olives","чёрные оливки"],
+  "kukuruz":["sweetcorn","кукуруза"], "crveni luk":["red onion","красный лук"], "bijeli luk":["garlic","чеснок"], "mix salata":["mixed leaves","микс салатов"],
+  "miks salata":["mixed leaves","микс салатов"], "limun":["lemon","лимон"], "angus":["Angus beef","говядина ангус"], "rukola":["rocket","руккола"],
+  "listovi parmezana":["parmesan shavings","лепестки пармезана"], "pinjoli":["pine nuts","кедровые орешки"], "losos":["salmon","лосось"], "tuna":["tuna","тунец"],
+  "povrće":["vegetables","овощи"], "tost":["toast","тост"], "tostirani baget":["toasted baguette","поджаренный багет"], "mocarela":["mozzarella","моцарелла"],
+  "pesto":["pesto","песто"], "maslinovo ulje":["olive oil","оливковое масло"], "gambori":["prawns","креветки"], "lignje":["squid","кальмары"],
+  "hobotnica":["octopus","осьминог"], "riblja pašteta":["fish pâté","рыбный паштет"], "peršun":["parsley","петрушка"], "zubatac":["dentex","зубан"],
+  "brancin":["sea bass","сибас"], "orada":["gilthead bream","дорада"], "škarpina":["scorpionfish","морской ёрш"], "kernja":["grouper","групер"],
+  "teleći file":["veal fillet","телячье филе"], "šparoge":["asparagus","спаржа"], "parmezan":["parmesan","пармезан"], "tartufi":["truffles","трюфели"],
+  "rikota":["ricotta","рикотта"], "tikvice":["zucchini","цукини"], "crnilo od sipe":["cuttlefish ink","чернила каракатицы"], "crni rižoto":["black risotto","чёрное ризотто"],
+  "file brancina":["sea bass fillet","филе сибаса"], "vongole":["clams","вонголе"], "šeri paradajz":["cherry tomatoes","помидоры черри"], "šeri":["cherry tomatoes","помидоры черри"],
+  "kapar":["capers","каперсы"], "biftek":["beef tenderloin","говяжья вырезка"], "foie gras":["foie gras","фуа-гра"], "crni tartufi":["black truffles","чёрные трюфели"],
+  "porto":["port wine","портвейн"], "ćuretina":["turkey","индейка"], "suve šljive":["prunes","чернослив"], "pana":["cream","сливки"],
+  "vorčester":["Worcestershire sauce","вустерширский соус"], "pileća prsa":["chicken breast","куриная грудка"], "brašno":["flour","мука"], "jaje":["egg","яйцо"],
+  "prezla":["breadcrumbs","панировочные сухари"], "pomfrit":["fries","картофель фри"], "tartar sos":["tartar sauce","соус тартар"], "jaja":["eggs","яйца"],
+  "pečenica":["smoked pork loin","копчёная корейка"], "pančeta":["pancetta","панчетта"], "kobasica":["sausage","колбаска"], "aromatični krompir":["herbed potatoes","ароматный картофель"],
+  "sos":["sauce","соус"], "slanina":["bacon","бекон"], "sir":["cheese","сыр"], "kobasice":["sausages","колбаски"], "pasulj":["beans","фасоль"], "salata":["salad","салат"],
+  "integralni tost":["wholegrain toast","цельнозерновой тост"], "pesto sos":["pesto","соус песто"], "holandez sos":["hollandaise","голландский соус"], "čeri":["cherry tomatoes","помидоры черри"],
+  "bademi":["almonds","миндаль"], "dimljeni losos":["smoked salmon","копчёный лосось"], "avokado sos":["avocado sauce","соус из авокадо"], "kinoa":["quinoa","киноа"],
+  "tikvica":["zucchini","цукини"], "patlidžan":["aubergine","баклажан"], "crvena paprika":["red pepper","красный перец"], "zelena paprika":["green pepper","зелёный перец"],
+  "praziluk":["leek","лук-порей"], "paradajz sos":["tomato sauce","томатный соус"], "paprika":["peppers","перец"], "šampinjoni":["mushrooms","шампиньоны"],
+  "krompir":["potatoes","картофель"], "gauda":["gouda","гауда"], "feta sir":["feta","фета"], "tost hljeb":["toast bread","хлеб для тостов"], "piletina":["chicken","курица"],
+  "čedar sir":["cheddar","чеддер"], "marinirani krap":["marinated carp","маринованный карп"], "paprike":["peppers","перец"], "krastavac":["cucumber","огурец"],
+  "pašteta od leblebije":["chickpea spread","паштет из нута"], "brokoli":["broccoli","брокколи"], "šunka":["ham","ветчина"], "pavlaka":["cream","сливки"],
+  "svježe povrće":["fresh vegetables","свежие овощи"], "vrganj":["porcini","белые грибы"], "peperonćino":["chilli","перец чили"], "bjelance":["egg white","яичный белок"],
+  "pileća pašteta":["chicken pâté","куриный паштет"], "kozji sir":["goat cheese","козий сыр"], "sušeni paradajz":["sun-dried tomatoes","вяленые томаты"],
+  "grilovani šampinjoni":["grilled mushrooms","шампиньоны гриль"], "grilovani tost":["grilled toast","тост гриль"], "iceberg":["iceberg lettuce","салат айсберг"],
+  "namaz":["spread","соус"], "pesto namaz":["pesto spread","соус песто"], "kulen":["kulen sausage","кулен"], "dimljeni sir":["smoked cheese","копчёный сыр"],
+  "pikantni sos":["spicy sauce","острый соус"], "tunjevina":["tuna","тунец"], "zelena salata":["lettuce","зелёный салат"], "med":["honey","мёд"], "puter":["butter","сливочное масло"],
+  "senf":["mustard","горчица"], "mortadela":["mortadella","мортаделла"], "straćatela":["stracciatella","страчателла"], "pistaći":["pistachios","фисташки"],
+  "austrijske kobasice":["Austrian sausages","австрийские сосиски"], "maxi kifla":["maxi bun","большая булочка"], "majonez":["mayonnaise","майонез"], "kečap":["ketchup","кетчуп"],
+  "dinstani luk":["braised onion","тушёный лук"], "juneće meso":["beef","говядина"], "bbq sos":["BBQ sauce","соус барбекю"], "čedar":["cheddar","чеддер"],
+  "texan onion":["Texan onion","лук по-техасски"], "grilovana piletina":["grilled chicken","курица гриль"], "grilovano povrće":["grilled vegetables","овощи гриль"],
+  "grilovano meso od bifteka":["grilled beef tenderloin","говяжья вырезка гриль"], "pečena paprika":["roasted peppers","печёный перец"], "suvo grožđe":["raisins","изюм"],
+  "pečeni lješnik":["roasted hazelnuts","жареный фундук"], "zapečeni tost":["croutons","гренки"], "hrskava slanina":["crispy bacon","хрустящий бекон"],
+  "cezar dresing":["Caesar dressing","заправка «Цезарь»"], "svježi krastavac":["fresh cucumber","свежий огурец"], "luk":["onion","лук"], "kuvano jaje":["boiled egg","варёное яйцо"],
+  "crveni pasulj":["red beans","красная фасоль"], "mocarela „fior di latte“":["fior di latte mozzarella","моцарелла фьор ди латте"], "grilovana ćuretina":["grilled turkey","индейка гриль"],
+  "brusnice":["cranberries","клюква"], "sjemenke bundeve":["pumpkin seeds","тыквенные семечки"], "radič":["radicchio","радиккьо"], "šargarepa":["carrot","морковь"],
+  "pečeni bademi":["roasted almonds","жареный миндаль"], "ulje od tartufa":["truffle oil","трюфельное масло"], "krema balzamiko":["balsamic glaze","бальзамический крем"],
+  "bijeli sos":["cream sauce","сливочный соус"], "bosiljak":["basil","базилик"], "bolonjez sos":["Bolognese sauce","соус болоньезе"], "ulje":["oil","масло"],
+  "pelat":["tomato base","томатная основа"], "origano":["oregano","орегано"], "maskarpone":["mascarpone","маскарпоне"], "guanciale":["guanciale","гуанчале"],
+  "biber":["black pepper","чёрный перец"], "bijela slanina":["lardo","сало"], "gorgonzola":["gorgonzola","горгонзола"], "burata":["burrata","буррата"],
+  "pica tijesto":["pizza dough","тесто для пиццы"], "mocarela „regina“":["Regina mozzarella","моцарелла «Регина»"], "extra virgin maslinovo ulje":["extra virgin olive oil","оливковое масло первого отжима"],
+  "morski plodovi":["seafood","морепродукты"], "crno tijesto":["black dough","чёрное тесто"],
+};
+/* place and country words inside wine names, for EN and RU */
+const WINE_WORDS = [["Novi Zeland","New Zealand","Новая Зеландия"],["Francuska","France","Франция"],["Italija","Italy","Италия"],["Španija","Spain","Испания"],
+  ["Srbija","Serbia","Сербия"],["Makedonija","Macedonia","Македония"],["Hrvatska","Croatia","Хорватия"],["Slovenija","Slovenia","Словения"],["Čile","Chile","Чили"],
+  ["Crna Gora","Montenegro","Черногория"],["Burgundija","Burgundy","Бургундия"],["Skadarsko jezero","Lake Skadar","Скадарское озеро"],["Portugal","Portugal","Португалия"],
+  ["zlatna berba","golden vintage","золотой урожай"],["kasna berba","late harvest","поздний сбор"],["(magnum)","(magnum)","(магнум)"]];
+/* the wines named on the page itself are in the HTML; gallery photos from their Galerija and O nama pages */
+const GALLERY = [UP11 + "photo-1.jpg", UP11 + "PT-173.jpg", UP11 + "photo-9.jpg", UP11 + "photo-25.jpg", UP11 + "PT-169.jpg", UP11 + "photo-31.jpg", UP11 + "photo-43.jpg",
+  UP11 + "PT-208.jpg", UP11 + "photo-3.jpg", UP10 + "DSC00923-819x1024.jpg", UP11 + "photo-354.jpg", UP11 + "PT-288.jpg", UP11 + "photo-362.jpg"];
+
+const T = {
+  en: {
+    demo:"Demo website concept by MakeSiteFor.me. This is not the restaurant's official site.",
+    book:"Book a table", b_book:"Book", b_menu:"Menu", b_call:"Call us", b_route:"Directions", b_story:"About us", b_map:"Map",
+    h_eye:"Restaurant · Gastro bar · Podgorica", h_pre:"Restaurant", h_lead:"An oasis of hedonism in Podgorica, from breakfast to a late dinner.", h_hours:"Open 08:00 – 00:00",
+    n1:"the year we opened", n2:"wine labels", n3:"garage parking spaces",
+    i_eye:"In short", i_t:"From breakfast <em>to midnight</em>",
+    i_p:"Protokol is a restaurant and gastro bar in Podgorica. The gastro menu has breakfast, sandwiches, salads and pizza, the restaurant menu has steak tartare, octopus and beef Rossini, and the wine list runs to more than 120 labels.",
+    c1_t:"Two menus", c1_p:"Gastro: breakfast, sandwiches, pizza. Restaurant: starters, pasta, fish and meat.",
+    c2_t:"More than 120 wines", c2_p:"Wineries from Montenegro, the region, Italy, France, Spain and South America.",
+    c3_t:"Terrace, gastro corner, VIP area", c3_p:"An enclosed and an open terrace, plus 40 garage parking spaces.",
+    sig_eye:"From the restaurant menu", sig_t:"Flavours <em>you come back for</em>", sig_all:"Full menu", w_list:"Wine list",
+    pl_eye:"The place", pl_t:"An oasis <em>of hedonism</em>", pl_p:"Modern design, refined materials and maximum comfort, so that all you have to do is enjoy. An enclosed and an open terrace, an indoor gastro corner and a VIP area.",
+    wn_eye:"Wine list", wn_t:"A trip <em>around the world</em>", wn_p:"More than 120 labels from the best wineries of Montenegro, the region and the world. Ask us which wine goes with your dish.",
+    wn_r:"Montenegro · The region · Italy · France · Spain · South America",
+    gal_eye:"Gallery", gal_t:"Protokol <em>up close</em>",
+    bk_eye:"Reservations", bk_t:"Save a table <em>for yourself</em>", bk_p:"Calling is the fastest way. You can also email us a request and we will confirm it.", bk_form:"Email request",
+    k_eye:"Contact", k_t:"Come <em>and see us</em>",
+    c_addr:"Address", addr:"Ulica Marka Đukanovića 1/1, Podgorica, Montenegro", c_tel:"Phone", l_hours:"Opening hours", c_mail:"Email", c_park:"Parking", c_park_v:"40 garage spaces",
+    c_follow:"Follow us on Instagram:",
+    m_p:"The restaurant menu, the gastro menu and a wine list of more than 120 labels.",
+    w_t:"Wine <em>to match</em>", w_p:"More than 120 labels from Montenegro, the region, Italy, France, Spain and South America.",
+    a_t:"An oasis of hedonism",
+    a_p1:"Restaurant Protokol opened in 2021, with the aim of giving Montenegro a restaurant that meets the most demanding standards of hospitality and cuisine in every respect.",
+    a_p2:"It sits in a newly built block in Podgorica, easy to reach from every part of the city. It has an enclosed and an open terrace, an indoor gastro corner and a VIP dining area, plus 40 garage parking spaces.",
+    a_t2:"Flavours you come back for",
+    a_p3:"Knowledge, quality, dedication and love are the main ingredients of every bite. The kitchen is equipped to the most demanding standards, and the menu runs from breakfast, sandwiches and pizza to steak tartare, grilled octopus and beef Rossini.",
+    a_t3:"A trip around the world",
+    a_p4:"The wine list has more than 120 labels from the best wineries of Montenegro, the region and the world. With expert advice on pairing food and wine, we take you through the region, Italy, France, Spain and South America.",
+    a_t4:"Made for enjoyment",
+    a_p5:"The space brings together modern design, refined materials and maximum comfort, so you can give yourself over completely to the pleasure of the table.",
+    r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
+    f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_note:"Note (optional)",
+    f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
+    x_home:"Home", x_close:"Close", x_prev:"Previous", x_next:"Next", x_photo:"Photo",
+    m_cover:"Cover charge", m_note:"Prices in euros. Ask our staff to recommend a wine.",
+    m_drinks:"Besides wine, our drinks list has coffee, fresh juices, rakija, aperitifs, liqueurs, whisky and bourbon, single malts, cognac, tequila, gin, rum, vodka, cider and beer.",
+    mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to book a table:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_phone:"Phone", m_note2:"Note", mail_bye:"Thank you!",
+  },
+  ru: {
+    demo:"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт ресторана.",
+    book:"Забронировать столик", b_book:"Бронь", b_menu:"Меню", b_call:"Позвонить", b_route:"Маршрут", b_story:"О нас", b_map:"Карта",
+    h_eye:"Ресторан · Гастробар · Подгорица", h_pre:"Ресторан", h_lead:"Оазис гедонизма в Подгорице: от завтрака до позднего ужина.", h_hours:"Работаем с 08:00 до 00:00",
+    n1:"год открытия", n2:"винных этикеток", n3:"мест в гараже",
+    i_eye:"Коротко о нас", i_t:"От завтрака <em>до полуночи</em>",
+    i_p:"«Протокол» — ресторан и гастробар в Подгорице. В гастроменю завтраки, сэндвичи, салаты и пицца, в ресторанном меню тартар, осьминог и стейк «Россини», а в винной карте больше 120 этикеток.",
+    c1_t:"Два меню", c1_p:"Гастро: завтраки, сэндвичи, пицца. Ресторан: закуски, паста, рыба и мясо.",
+    c2_t:"Больше 120 вин", c2_p:"Винодельни Черногории, региона, Италии, Франции, Испании и Южной Америки.",
+    c3_t:"Терраса, гастроуголок, VIP-зона", c3_p:"Закрытая и открытая терраса, а также 40 мест в гараже.",
+    sig_eye:"Из ресторанного меню", sig_t:"Вкусы, <em>к которым возвращаются</em>", sig_all:"Всё меню", w_list:"Винная карта",
+    pl_eye:"Пространство", pl_t:"Оазис <em>гедонизма</em>", pl_p:"Современный дизайн, изысканные материалы и максимум комфорта, чтобы вы думали только об удовольствии. Закрытая и открытая терраса, гастроуголок внутри и VIP-зона.",
+    wn_eye:"Винная карта", wn_t:"Путешествие <em>вокруг света</em>", wn_p:"Больше 120 этикеток лучших виноделен Черногории, региона и мира. Спросите нас, какое вино подойдёт к вашему блюду.",
+    wn_r:"Черногория · Регион · Италия · Франция · Испания · Южная Америка",
+    gal_eye:"Галерея", gal_t:"«Протокол» <em>вблизи</em>",
+    bk_eye:"Бронирование", bk_t:"Оставьте столик <em>за собой</em>", bk_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте, мы его подтвердим.", bk_form:"Запрос по e-mail",
+    k_eye:"Контакты", k_t:"Приходите <em>к нам</em>",
+    c_addr:"Адрес", addr:"Ulica Marka Đukanovića 1/1, Подгорица, Черногория", c_tel:"Телефон", l_hours:"Часы работы", c_mail:"E-mail", c_park:"Парковка", c_park_v:"40 мест в гараже",
+    c_follow:"Мы в Instagram:",
+    m_p:"Ресторанное меню, гастроменю и винная карта на 120 с лишним этикеток.",
+    w_t:"Вино <em>к блюду</em>", w_p:"Больше 120 этикеток из Черногории, региона, Италии, Франции, Испании и Южной Америки.",
+    a_t:"Оазис гедонизма",
+    a_p1:"Ресторан «Протокол» открылся в 2021 году, чтобы в Черногории появился ресторан, который во всём отвечает самым высоким требованиям гостеприимства и гастрономии.",
+    a_p2:"Он находится в новом квартале Подгорицы, куда легко добраться из любой части города. Здесь есть закрытая и открытая терраса, гастроуголок внутри и VIP-зона, а также гараж на 40 мест.",
+    a_t2:"Вкусы, к которым возвращаются",
+    a_p3:"Знания, качество, преданность делу и любовь — главные ингредиенты каждого кусочка. Кухня оснащена по самым высоким стандартам, а меню охватывает всё: от завтраков, сэндвичей и пиццы до тартара, осьминога на гриле и стейка «Россини».",
+    a_t3:"Путешествие вокруг света",
+    a_p4:"В винной карте больше 120 этикеток лучших виноделен Черногории, региона и мира. Мы подскажем, какое вино подойдёт к блюду, и проведём вас по винам региона, Италии, Франции, Испании и Южной Америки.",
+    a_t4:"Создано для удовольствия",
+    a_p5:"Интерьер сочетает современный дизайн, изысканные материалы и максимальный комфорт, чтобы вы могли полностью отдаться удовольствию.",
+    r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
+    f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
+    f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
+    x_home:"На главную", x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше", x_photo:"Фото",
+    m_cover:"Плата за куверт", m_note:"Цены в евро. Подходящее вино подскажет персонал.",
+    m_drinks:"Кроме вина, в карте напитков есть кофе, свежевыжатые соки, ракия, аперитивы, ликёры, виски и бурбон, односолодовый виски, коньяк, текила, джин, ром, водка, сидр и пиво.",
+    mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать столик:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_phone:"Телефон", m_note2:"Комментарий", mail_bye:"Спасибо!",
+  },
+};
+/* Montenegrin texts that are not in the page itself */
+const ME_EXTRA = { x_home:"Početna", x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća", x_photo:"Fotografija",
+  m_cover:"Kuver", m_note:"Cijene su u eurima. Za preporuku vina pitajte osoblje.",
+  m_drinks:"Osim vina, na karti pića su kafa, cijeđeni sokovi, rakije, aperitivi, likeri, viski i burbon, single malt viski, konjak, tekila, gin, rum, vodka, cider i piva.",
+  mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_note2:"Napomena", mail_bye:"Hvala!" };
+/* DATA END */
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const ME = {}; $$("[data-i18n]").forEach(n => { if (!(n.dataset.i18n in ME)) ME[n.dataset.i18n] = n.innerHTML; });
+Object.assign(ME, ME_EXTRA);
+const LANG_CODE = { me:"sr-Latn-ME", en:"en", ru:"ru" };
+let lang = "me";
+const tr = k => (lang === "me" ? ME : T[lang])[k] ?? ME[k];
+
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const fmt = p => lang === "en" ? "€" + p.toFixed(2) : p.toFixed(2).replace(".", ",") + " €";
+const ing = d => typeof d === "object" ? d[lang] : cap(lang === "me" ? d : d.split(", ").map(t => { const k = ING[t.toLowerCase()]; return k ? k[lang === "en" ? 0 : 1] : t; }).join(", "));
+const wname = n => lang === "me" ? n : WINE_WORDS.reduce((s, w) => s.split(w[0]).join(w[lang === "en" ? 1 : 2]), n);
+const img = (url, w, h) => `<img class="ph" data-p="${url}" src="${photo(url, w, h)}" alt="" loading="lazy">`;
+
+/* menu window: three menus (restaurant, gastro, wine), one tab per section */
+let book = BOOKS[0].id, tab = BOOKS[0].secs[0].id;
+const curBook = () => BOOKS.find(b => b.id === book);
+const count = s => s.items ? s.items.length : s.subs.reduce((a, x) => a + x.items.length, 0);
+const dishRow = d => `<li class="mi"><div class="mi-h"><h3 class="mi-n">${d.n[lang]}</h3><span class="mi-l" aria-hidden="true"></span><span class="mi-p">${fmt(d.p)}</span></div>${lang !== "me" && d.n.me !== d.n[lang] ? `<p class="mi-o">${d.n.me}</p>` : ""}${d.d ? `<p class="mi-d">${ing(d.d)}</p>` : ""}</li>`;
+const wineRows = s => s.subs.map(x => (x.t ? `<li class="mi-sub caps">${x.t[lang]}</li>` : "") +
+  x.items.map(([n, p]) => `<li class="mi"><div class="mi-h"><span class="mi-n">${wname(n)}</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p">${fmt(p)}</span></div></li>`).join("")).join("");
+const HL = BOOKS[0].secs.flatMap(s => s.items.filter(d => d.hl).map(d => ({ d, s })));
+const hlCard = ({ d, s }) => `<a class="hcard" href="#jelovnik" data-open-book="r" data-open-tab="${s.id}"><span class="dcat caps">${s.t[lang]}</span><span class="dname">${d.n[lang]}</span>${lang !== "me" && d.n.me !== d.n[lang] ? `<span class="dorig">${d.n.me}</span>` : ""}${d.d ? `<span class="hd">${ing(d.d)}</span>` : ""}<span class="hp">${fmt(d.p)}</span></a>`;
+function renderMenu(){
+  const b = curBook(), s = b.secs.find(x => x.id === tab) || b.secs[0]; tab = s.id;
+  $("#m-books").innerHTML = BOOKS.map(x => `<button type="button" aria-pressed="${x.id === book}" data-book="${x.id}">${x.t[lang]}</button>`).join("");
+  $("#m-blead").innerHTML = b.p[lang];
+  $("#m-tabs").innerHTML = b.secs.map(x => `<button type="button" role="tab" aria-selected="${x.id === tab}" data-tab="${x.id}">${x.t[lang]}<small>${count(x)}</small></button>`).join("");
+  $("#m-list").innerHTML = b.wine ? wineRows(s) : s.items.map(dishRow).join("");
+  $("#m-list").classList.toggle("wines", !!b.wine);
+  $("#m-note").innerHTML = b.wine ? tr("m_drinks") + " " + tr("m_note") : (b.cover ? tr("m_cover") + ": " + fmt(b.cover) + ". " : "") + tr("m_note");
+  $("#wine-mini").hidden = !!b.wine;
+  $("#sig-grid").innerHTML = HL.map(hlCard).join("");
+}
+const tabToView = () => { const t = $("#m-tabs"), b = t.querySelector("[aria-selected=true]"); if (b) t.scrollLeft += b.getBoundingClientRect().left - t.getBoundingClientRect().left - 18; };
+const toTop = () => { $("#s-jelovnik .sheet-body").scrollTop = 0; };
+function showTab(id){ tab = id; renderMenu(); tabToView(); toTop(); }
+function showBook(id){
+  if (id === book) return;
+  book = id; tab = curBook().secs[0].id; renderMenu(); tabToView(); toTop();
+  if (id === "w" && window.gtag) gtag("event", "demo_open_wine", { language: lang });
+}
+$("#m-tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) showTab(b.dataset.tab); });
+$("#m-books").addEventListener("click", e => { const b = e.target.closest("button[data-book]"); if (b) showBook(b.dataset.book); });
+$("[data-book-go]").addEventListener("click", e => showBook(e.currentTarget.dataset.bookGo));
+function renderGallery(){
+  $("#g-grid").innerHTML = GALLERY.map((u, i) => `<button type="button" data-shot="${i}" aria-label="${tr("x_photo")} ${i + 1}">${img(u, i === 0 ? 1400 : 800)}</button>`).join("");
+}
+function applyLang(l){
+  lang = ["me","en","ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$("[data-shot]").forEach(n => n.setAttribute("aria-label", tr("x_photo") + " " + (+n.dataset.shot + 1)));
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = LANG_CODE[lang];
+  renderMenu();
+  const sel = $("#f-people"), cur = sel.value || "2";
+  sel.innerHTML = Array.from({length:12}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join("") + `<option value="13+">13+</option>`;
+  sel.value = cur;
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem("pr-lang", lang); } catch(e) {}
+}
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade between three photos; the other two load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+$("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+$("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once as they come into view; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows (menu, story, booking) live at #jelovnik, #prica, #rezervacija,
+   so the phone's back button closes them and the links can be shared */
+const SHEETS = ["jelovnik", "prica", "rezervacija"];
+function syncSheets(){
+  const id = location.hash.slice(1);
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k);
+    if (k === id && !d.open) {
+      d.showModal(); d.querySelector(".sheet-body").scrollTop = 0;
+      if (window.gtag) gtag("event", "demo_open_" + k, { language: lang });
+    }
+    if (k !== id && d.open) d.close();
+  });
+  lockScroll();
+  if (homeNext && !SHEETS.some(k => $("#s-" + k).open)) {
+    homeNext = false;
+    /* after the browser has put focus back on the link that opened the window */
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
+}
+function openSheet(id){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
+  syncSheets();
+}
+/* the restaurant name in a window's top bar goes back to the top of the main page */
+let homeNext = false;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const goHome = () => { homeNext = true; closeSheet(); };
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (!SHEETS.includes(id)) return;
+  e.preventDefault();
+  if (a.dataset.openBook) {
+    book = a.dataset.openBook; tab = a.dataset.openTab || curBook().secs[0].id; renderMenu();
+    if (book === "w" && window.gtag) gtag("event", "demo_open_wine", { language: lang });
+  } else if (id === "jelovnik" && book === "w") { book = BOOKS[0].id; tab = BOOKS[0].secs[0].id; renderMenu(); }
+  openSheet(id);
+  if (id === "jelovnik") tabToView();
+});
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", goHome));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer for the gallery: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  setPhoto($("#v-img"), V.list[V.i], 1600);
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#g-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-shot]"); if (!b) return;
+  openViewer(GALLERY, +b.dataset.shot);
+});
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* reservation request: opens the guest's email app, nothing is stored */
+$("#f-date").min = new Date().toISOString().slice(0, 10);
+$("#res-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  if (!v("#f-name") || !v("#f-date") || !v("#f-time")) { $("#f-err").hidden = false; return; }
+  $("#f-err").hidden = true;
+  const lines = [tr("mail_hi"), "", tr("mail_ask"),
+    `${tr("m_name")}: ${v("#f-name")}`, `${tr("m_date")}: ${v("#f-date")}`, `${tr("m_time")}: ${v("#f-time")}`,
+    `${tr("m_people")}: ${v("#f-people")}`];
+  if (v("#f-phone")) lines.push(`${tr("m_phone")}: ${v("#f-phone")}`);
+  if (v("#f-note")) lines.push(`${tr("m_note2")}: ${v("#f-note")}`);
+  lines.push("", tr("mail_bye"));
+  const subj = `${tr("mail_subj")}: ${v("#f-date")} ${v("#f-time")}, ${v("#f-people")}`;
+  if (window.gtag) gtag("event", "demo_reservation_click", { language: lang });
+  location.href = "mailto:info@restoranprotokol.me?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines.join("\n"));
+});
+
+$$("img[data-p]").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0));
+renderGallery();
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem("pr-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+</script>
+</body>
+</html>
