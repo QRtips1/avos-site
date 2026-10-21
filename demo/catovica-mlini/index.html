@@ -151,7 +151,7 @@ p{margin:0}
 .dcard .dcat{display:block;color:var(--gold-ink)}
 .dcard .dname{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.55rem;line-height:1.1;margin-top:6px}
 .dcard .dorig{display:block;font-size:.85rem;color:var(--faint);margin-top:4px}
-.sig-cta{display:flex;justify-content:center;margin-top:44px}
+.sig-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:44px}
 
 /* the place: full photo with text */
 .place{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden}
@@ -237,6 +237,17 @@ dialog.sheet::backdrop{background:var(--ivory)}
 .wine-mini h3{font-size:1.9rem}
 .wine-mini h3 em{color:var(--gold-2)}
 .wine-mini p{margin-top:8px;color:var(--on-dark-2)}
+.wine-mini .btn{margin-top:20px}
+.m-grid.drinks{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dk{background:var(--card);border-radius:var(--r);border-top:3px solid var(--gold);padding:24px 26px 18px;box-shadow:0 24px 50px -40px rgba(19,32,26,.6)}
+.dk h3{font-size:1.8rem;font-weight:600}
+.dk p{margin-top:6px;color:var(--muted)}
+.dk ul{list-style:none;margin:12px 0 0;padding:0}
+.dk ul li{padding:10px 0;border-top:1px solid var(--line);font-family:var(--f-serif);font-size:1.3rem;line-height:1.25}
+.dk.wide,.dk-lead,.dk-note{grid-column:1 / -1}
+.dk.wide{padding-bottom:24px}
+.dk-lead{font-family:var(--f-serif);font-size:1.45rem;line-height:1.35}
+.dk-note{color:var(--faint);font-size:.92rem}
 .sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
 .story{max-width:740px;margin-inline:auto;padding-top:28px}
 .story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
@@ -320,7 +331,7 @@ body.locked{overflow:hidden}
   .place::before{background:linear-gradient(180deg,rgba(6,20,14,.05) 0%,rgba(6,20,14,.55) 45%,rgba(6,20,14,.9) 100%)}
   .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
   .g-grid button:nth-child(n+8){display:none}
-  .m-grid{grid-template-columns:minmax(0,1fr)}
+  .m-grid,.m-grid.drinks{grid-template-columns:minmax(0,1fr)}
   .map{min-height:260px}
   .v-stage{padding:0}
   .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
@@ -440,7 +451,7 @@ body.locked{overflow:hidden}
         <h2 data-i18n="sig_t">Ukusi <em>Boke</em></h2>
       </div>
       <div class="sig-grid" id="sig-grid"></div>
-      <div class="sig-cta"><a class="btn btn-em" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli jelovnik</span></a></div>
+      <div class="sig-cta"><a class="btn btn-em" href="#jelovnik"><svg class="ico"><use href="#i-menu"/></svg><span data-i18n="sig_all">Cijeli jelovnik</span></a><a class="btn btn-line" href="#jelovnik" data-open-tab="drinks"><svg class="ico"><use href="#i-wine"/></svg><span data-i18n="w_list">Vinska karta</span></a></div>
     </div>
   </section>
 
@@ -554,6 +565,7 @@ body.locked{overflow:hidden}
       <div class="wine-mini">
         <h3 data-i18n="w_t">Dobro jesti i <em>dobro zaliti</em></h3>
         <p data-i18n="w_p">U podrumu čuvamo 611 vrsta vina iz cijelog svijeta, biranih uz preporuke vrhunskih somelijera, a uz njih 42 vrste maslinovog ulja i 14 vrsta sirćeta.</p>
+        <button type="button" class="btn btn-gold" data-tab-go="drinks" data-i18n="w_list">Vinska karta</button>
       </div>
       <div class="sheet-cta">
         <a class="btn btn-gold" href="#rezervacija" data-i18n="book">Rezervišite sto</a>
@@ -678,6 +690,29 @@ const MENU = [
     { img:"STRUDLA.jpg", n:{me:"Štrudla", en:"Strudel", ru:"Штрудель"} },
   ]},
 ];
+/* Wine and drinks. Their site has no drinks list; the producers below are named in a Wine Style magazine
+   article about their wine list (2016), and TripAdvisor reviews (2025) mention wine by the glass. */
+const DRINKS = {
+  t:{me:"Vina i pića", en:"Wine and drinks", ru:"Вина и напитки"},
+  lead:{me:"U podrumu je 611 vrsta vina iz Francuske, Italije, Španije, Kalifornije i regiona. Neka vina služimo i na čašu.",
+        en:"Our cellar holds 611 wines from France, Italy, Spain, California and the region. Some are served by the glass.",
+        ru:"В погребе 611 вин из Франции, Италии, Испании, Калифорнии и нашего региона. Некоторые вина подаём по бокалам."},
+  note:{me:"Ovo je izbor iz naše vinske karte. Aktuelnu kartu i cijene pitajte konobara.",
+        en:"This is a selection from our wine list. Ask your waiter for the current list and prices.",
+        ru:"Это выборка из нашей винной карты. Актуальную карту и цены уточняйте у официанта."},
+  groups:[
+    { t:{me:"Šampanjac", en:"Champagne", ru:"Шампанское"}, p:{me:"Više od trideset šampanjaca, među njima:", en:"More than thirty champagnes, including:", ru:"Больше тридцати шампанских, среди них:"},
+      items:["Louis Roederer Cristal","Krug Rosé","Armand de Brignac Brut","Bollinger R.D. Extra Brut","Salon Blanc de Blancs"] },
+    { t:{me:"Velika vina svijeta", en:"Great wines of the world", ru:"Великие вина мира"},
+      items:["Château Margaux","Château Latour","Domaine de la Romanée-Conti, Échezeaux","Louis Latour, Chevalier-Montrachet Grand Cru","Ornellaia","Vega Sicilia, Valbuena 5º","Opus One","Grgich Hills, Cabernet Sauvignon"] },
+    { t:{me:"Vina iz regiona", en:"Wines from the region", ru:"Вина региона"},
+      items:["Movia","Simčič","Kozlović","Zlatan Otok","Radovanović","Aleksandrović","Vukoje"] },
+    { t:{me:"Crna Gora", en:"Montenegro", ru:"Черногория"},
+      items:["Plantaže","Castel Savina"] },
+    { t:{me:"Rakija", en:"Rakija", ru:"Ракия"}, p:{me:"Za dobrodošlicu, kao aperitiv: domaća loza.", en:"To welcome you, as an aperitif: homemade grape rakija (loza).", ru:"Для встречи, как аперитив: домашняя виноградная ракия (лоза)."},
+      items:[] },
+  ],
+};
 /* six dishes shown on the page itself */
 const SIGNATURE = ["GRASPANA-HOBOTNIC.jpg","BRANCIN-TARTUFI.jpg","GAMBORI-NA-ZARU.jpg","KARPACO.jpg","PRSUT-I-SIR.jpg","KOLAC.jpg"];
 const GALLERY = ["DJI_0096.jpg","DSC04171.jpg","10-DSC02239-.jpg","12-7_MG_8487.jpg","DSC00741E-1.jpg","7-44-CRW_7339.jpg","1-DSC01277-2-copy.jpg","DSC04231.jpg","1-6.jpg"];
@@ -708,7 +743,7 @@ const T = {
     c_how:"We accept Visa, Mastercard, American Express and Maestro.",
     m_p:"Close your eyes, point at any dish, and you won't go wrong.",
     menu_note:"Ask your waiter about prices and wine pairings.",
-    w_t:"Eat well, <em>drink well</em>", w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
+    w_list:"Wine list", w_t:"Eat well, <em>drink well</em>", w_p:"Our cellar holds 611 kinds of wine from around the world, chosen on the advice of top sommeliers, along with 42 kinds of olive oil and 14 kinds of vinegar.",
     a_t:"A taste of Boka",
     a_p1:"In Morinj, on a green meadow right by the sea, where streams spring from the foot of the mountain, the Ćatović family mills worked for more than two hundred years. Grain was ground into flour, olives were pressed into oil, and the whole village gathered around the mill.",
     a_p2:"In the mid-1990s Lazar Ćatović opened a konoba in the family mill. He brought together the traditions of Boka and the experience of the best Mediterranean kitchens, and it has stayed that way for thirty years.",
@@ -743,7 +778,7 @@ const T = {
     c_how:"Принимаем Visa, Mastercard, American Express и Maestro.",
     m_p:"Закройте глаза, укажите на любое блюдо, и вы не ошибётесь.",
     menu_note:"Цены и подходящее вино подскажет официант.",
-    w_t:"Хорошо поесть <em>и хорошо запить</em>", w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
+    w_list:"Винная карта", w_t:"Хорошо поесть <em>и хорошо запить</em>", w_p:"В нашем погребе 611 вин со всего мира, выбранных по советам лучших сомелье, а также 42 сорта оливкового масла и 14 видов уксуса.",
     a_t:"Вкус Боки",
     a_p1:"В посёлке Моринь, на зелёном лугу у самого моря, где у подножия горы бьют ручьи, больше двухсот лет работали мельницы семьи Чатович. Из зерна мололи муку, из оливок давили масло, и вокруг мельницы собиралась вся деревня.",
     a_p2:"В середине девяностых Лазар Чатович открыл в семейной мельнице конобу. Он соединил традиции Боки с опытом лучших средиземноморских кухонь, и так уже тридцать лет.",
@@ -777,17 +812,27 @@ const dishCard = d => `<button type="button" class="dcard" data-dish="${DISHES.i
 
 /* menu window (one tab per section), signature dishes and guest names */
 let tab = MENU[0].id;
+const drinksList = () => `<li class="dk-lead">${DRINKS.lead[lang]}</li>` +
+  DRINKS.groups.map(g => `<li class="dk${g.items.length ? "" : " wide"}"><h3>${g.t[lang]}</h3>${g.p ? `<p>${g.p[lang]}</p>` : ""}${g.items.length ? `<ul>${g.items.map(i => `<li>${i}</li>`).join("")}</ul>` : ""}</li>`).join("") +
+  `<li class="dk-note">${DRINKS.note[lang]}</li>`;
 function renderMenu(){
-  $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("");
-  $("#m-grid").innerHTML = DISHES.filter(d => d.g.id === tab).map(d => `<li>${dishCard(d)}</li>`).join("");
+  const drinks = tab === "drinks";
+  $("#m-tabs").innerHTML = MENU.map(g => `<button type="button" role="tab" aria-selected="${g.id === tab}" data-tab="${g.id}">${g.t[lang]}<small>${g.items.length}</small></button>`).join("") +
+    `<button type="button" role="tab" aria-selected="${drinks}" data-tab="drinks">${DRINKS.t[lang]}</button>`;
+  $("#m-grid").innerHTML = drinks ? drinksList() : DISHES.filter(d => d.g.id === tab).map(d => `<li>${dishCard(d)}</li>`).join("");
+  $("#m-grid").classList.toggle("drinks", drinks);
+  $(".menu-note").hidden = drinks; $(".wine-mini").hidden = drinks;
   $("#sig-grid").innerHTML = SIGNATURE.map(f => dishCard(DISHES.find(d => d.img === f))).join("");
   $("#names").innerHTML = (lang === "ru" ? GUESTS.ru : GUESTS.lat).map(n => `<li>${n}</li>`).join("");
 }
-$("#m-tabs").addEventListener("click", e => {
-  const b = e.target.closest("button[data-tab]"); if (!b) return;
-  tab = b.dataset.tab; renderMenu();
+const tabToView = () => { const t = $("#m-tabs"), b = t.querySelector("[aria-selected=true]"); t.scrollLeft += b.getBoundingClientRect().left - t.getBoundingClientRect().left - 18; };
+function showTab(id){
+  tab = id; renderMenu(); tabToView();
   $("#s-jelovnik .sheet-body").scrollTop = 0;
-});
+  if (id === "drinks" && window.gtag) gtag("event", "demo_open_drinks", { language: lang });
+}
+$("#m-tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) showTab(b.dataset.tab); });
+$("[data-tab-go]").addEventListener("click", e => showTab(e.currentTarget.dataset.tabGo));
 function renderGallery(){
   $("#g-grid").innerHTML = GALLERY.map((f, i) => `<button type="button" data-shot="${i}">${img(UP + f, i === 0 ? 1400 : 800)}</button>`).join("");
 }
@@ -866,7 +911,14 @@ function closeSheet(){
 document.addEventListener("click", e => {
   const a = e.target.closest('a[href^="#"]'); if (!a) return;
   const id = a.getAttribute("href").slice(1);
-  if (SHEETS.includes(id)) { e.preventDefault(); openSheet(id); }
+  if (!SHEETS.includes(id)) return;
+  e.preventDefault();
+  if (a.dataset.openTab) {
+    tab = a.dataset.openTab; renderMenu();
+    if (tab === "drinks" && window.gtag) gtag("event", "demo_open_drinks", { language: lang });
+  } else if (id === "jelovnik" && tab === "drinks") { tab = MENU[0].id; renderMenu(); }
+  openSheet(id);
+  if (id === "jelovnik") tabToView();
 });
 $$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
 SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
