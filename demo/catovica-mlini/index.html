@@ -217,8 +217,13 @@ p{margin:0}
 dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ivory);color:var(--ink)}
 dialog.sheet[open]{display:flex;flex-direction:column}
 dialog.sheet::backdrop{background:var(--ivory)}
-.sheet-top{display:flex;align-items:center;gap:12px;padding:12px var(--gut);padding-top:max(12px,env(safe-area-inset-top));background:var(--emerald);color:var(--on-dark)}
-.sheet-top h2{font-size:1.9rem;margin-right:auto}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--emerald);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--gold-2)}
+.home:hover .seal{border-color:var(--gold-2);color:var(--gold-2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--gold-2);margin-top:-3px}
+.sheet-title{font-size:clamp(2.4rem,7vw,3.4rem);padding-top:26px}
+.sheet-title + .sheet-lead{padding-top:8px}
 .x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(247,242,231,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
 .x:hover{border-color:var(--gold-2)}
 .sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
@@ -249,14 +254,15 @@ dialog.sheet::backdrop{background:var(--ivory)}
 .dk-lead{font-family:var(--f-serif);font-size:1.45rem;line-height:1.35}
 .dk-note{color:var(--faint);font-size:.92rem}
 .sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-.story{max-width:740px;margin-inline:auto;padding-top:28px}
+.story{max-width:740px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
 .story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
 .story h3{font-size:clamp(2rem,5vw,2.7rem);margin-top:32px}
 .story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
 .story blockquote{margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
 .story blockquote p{font-family:var(--f-serif);font-style:italic;font-size:1.6rem;line-height:1.3;color:var(--ink);margin:0}
 .story blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
-.book{max-width:640px;margin-inline:auto;padding-top:8px}
+.book{max-width:640px;margin-inline:auto}
 .call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
 .call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
 .call-2 a{font-weight:700}
@@ -555,9 +561,10 @@ body.locked{overflow:hidden}
 
 <!-- MENU WINDOW -->
 <dialog class="sheet" id="s-jelovnik">
-  <div class="sheet-top"><h2 data-i18n="b_menu">Jelovnik</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">ĆM</span><span class="brand-t"><small>Konoba</small><b>Ćatovića Mlini</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
   <div class="sheet-body">
     <div class="wrap">
+      <h2 class="sheet-title" data-i18n="b_menu">Jelovnik</h2>
       <p class="sheet-lead" data-i18n="m_p">Zažmurite, pokažite prstom bilo koje jelo i nećete pogriješiti.</p>
       <div class="m-tabs" id="m-tabs" role="tablist" aria-label="Jelovnik"></div>
       <ul class="m-grid" id="m-grid"></ul>
@@ -577,10 +584,11 @@ body.locked{overflow:hidden}
 
 <!-- STORY WINDOW -->
 <dialog class="sheet" id="s-prica">
-  <div class="sheet-top"><h2 data-i18n="b_story">Naša priča</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">ĆM</span><span class="brand-t"><small>Konoba</small><b>Ćatovića Mlini</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
   <div class="sheet-body">
     <div class="wrap">
       <article class="story">
+        <h2 class="sheet-title" data-i18n="b_story">Naša priča</h2>
         <img class="ph" data-p="wp-content/uploads/2024/06/O-30Y-8-DSC01009-3.jpg" data-w="1400" alt="" loading="lazy">
         <h3 data-i18n="a_t">Boka na usta ulazi</h3>
         <p data-i18n="a_p1">U Morinju, na zelenoj livadi tik uz more, gdje iz podnožja planine izviru potoci, više od dvjesta godina radili su mlinovi porodice Ćatović. Od žita se pravilo brašno, od maslina ulje, a oko mlina se okupljalo cijelo mjesto.</p>
@@ -605,10 +613,11 @@ body.locked{overflow:hidden}
 
 <!-- BOOKING WINDOW -->
 <dialog class="sheet" id="s-rezervacija">
-  <div class="sheet-top"><h2 data-i18n="book">Rezervišite sto</h2><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">ĆM</span><span class="brand-t"><small>Konoba</small><b>Ćatovića Mlini</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
   <div class="sheet-body">
     <div class="wrap">
       <div class="book">
+        <h2 class="sheet-title" data-i18n="book">Rezervišite sto</h2>
         <p class="sheet-lead" data-i18n="r_p">Najbrže je telefonom. Možete nam poslati i upit e-mailom.</p>
         <a class="call-big btn-gold" href="tel:+38268333444"><svg class="ico"><use href="#i-phone"/></svg>+382 68 333 444</a>
         <p class="call-2"><span data-i18n="c_tel">Telefon</span>: <a href="tel:+38232373030">+382 32 373 030</a></p>
@@ -753,7 +762,7 @@ const T = {
     r_p:"Calling is the fastest way. You can also send us a request by email.", r_or:"or",
     f_name:"Name", f_date:"Date", f_time:"Time", f_people:"Guests", f_phone:"Your phone", f_note:"Note (optional)",
     f_send:"Send the request by email", f_hint:"Your email app will open with the request filled in. The booking is valid once we confirm it.", f_err:"Please enter your name, date and time.",
-    x_close:"Close", x_prev:"Previous", x_next:"Next",
+    x_home:"Home", x_close:"Close", x_prev:"Previous", x_next:"Next",
     mail_subj:"Table reservation", mail_hi:"Hello,", mail_ask:"I would like to book a table:", m_name:"Name", m_date:"Date", m_time:"Time", m_people:"Guests", m_phone:"Phone", m_note:"Note", mail_bye:"Thank you!",
   },
   ru: {
@@ -788,12 +797,12 @@ const T = {
     r_p:"Быстрее всего по телефону. Можно и отправить запрос по электронной почте.", r_or:"или",
     f_name:"Имя", f_date:"Дата", f_time:"Время", f_people:"Число гостей", f_phone:"Ваш телефон", f_note:"Комментарий (необязательно)",
     f_send:"Отправить запрос по e-mail", f_hint:"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.", f_err:"Укажите имя, дату и время.",
-    x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше",
+    x_home:"На главную", x_close:"Закрыть", x_prev:"Назад", x_next:"Дальше",
     mail_subj:"Бронирование столика", mail_hi:"Здравствуйте!", mail_ask:"Хотел(а) бы забронировать столик:", m_name:"Имя", m_date:"Дата", m_time:"Время", m_people:"Гостей", m_phone:"Телефон", m_note:"Комментарий", mail_bye:"Спасибо!",
   },
 };
 /* Montenegrin texts that are not in the page itself */
-const ME_EXTRA = { x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća",
+const ME_EXTRA = { x_home:"Početna", x_close:"Zatvori", x_prev:"Prethodna", x_next:"Sljedeća",
   mail_subj:"Rezervacija stola", mail_hi:"Poštovani,", mail_ask:"želio/željela bih da rezervišem sto:", m_name:"Ime", m_date:"Datum", m_time:"Vrijeme", m_people:"Broj osoba", m_phone:"Telefon", m_note:"Napomena", mail_bye:"Hvala!" };
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -898,12 +907,21 @@ function syncSheets(){
     if (k !== id && d.open) d.close();
   });
   lockScroll();
+  if (homeNext && !SHEETS.some(k => $("#s-" + k).open)) {
+    homeNext = false;
+    /* after the browser has put focus back on the link that opened the window */
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
 }
 function openSheet(id){
   const anyOpen = SHEETS.some(k => $("#s-" + k).open);
   if (anyOpen) history.replaceState({ sheet: id }, "", "#" + id); else history.pushState({ sheet: id }, "", "#" + id);
   syncSheets();
 }
+/* the restaurant name in a window's top bar goes back to the top of the main page */
+let homeNext = false;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const goHome = () => { homeNext = true; closeSheet(); };
 function closeSheet(){
   if (history.state && history.state.sheet) history.back();
   else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
@@ -921,6 +939,7 @@ document.addEventListener("click", e => {
   if (id === "jelovnik") tabToView();
 });
 $$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", goHome));
 SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
 window.addEventListener("popstate", syncSheets);
 window.addEventListener("hashchange", syncSheets);
