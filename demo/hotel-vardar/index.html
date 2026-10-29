@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hotel Vardar · Stari grad Kotor (demo)</title>
+<meta name="description" content="Hotel Vardar sa četiri zvjezdice na glavnom trgu Starog grada Kotora. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#172A45">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<style>
+:root{
+  --c1:#172A45;
+  --c2:#22395C;
+  --c3:#0D192B;
+  --a1:#B8935A;
+  --a2:#E3C995;
+  --a-ink:#8A6A35;
+  --g1:#D8B77C;
+  --g2:#A98040;
+  --g-rgb:169,128,64;
+  --on-a:#1B140A;
+  --bg:#F8F5EF;
+  --bg2:#EEE7DA;
+  --card:#FFFDF9;
+  --ink:#141B26;
+  --muted:#545D6A;
+  --faint:#7B828D;
+  --line:rgba(20,27,38,.12);
+  --line-2:rgba(20,27,38,.24);
+  --on-dark:#F6F1E7;
+  --on-dark-2:rgba(246,241,231,.76);
+  --on-dark-line:rgba(246,241,231,.2);
+  --shade:10,18,32;
+  --ph:#22395C linear-gradient(135deg,#2a4266,#14233a);
+  --top-solid:rgba(248,245,239,.96);
+  --f-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1200px; --gut:24px; --r:18px; --hh:72px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.04;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--a-ink)}
+p{margin:0}
+.eyebrow{color:var(--a-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--a2)}
+.ph{background:var(--ph)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s;text-align:center;line-height:1.2}
+.btn-gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a);box-shadow:0 10px 30px -12px rgba(var(--g-rgb),.7)}
+.btn-gold:hover{box-shadow:0 14px 34px -10px rgba(var(--g-rgb),.95)}
+.btn-em{background:var(--c1);color:var(--on-dark)}
+.btn-em:hover{background:var(--c3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(var(--shade),.38);color:var(--on-dark);border-color:rgba(255,255,255,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(var(--shade),.62)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:.86rem;gap:8px}
+
+.demo{position:relative;z-index:31;background:var(--c3);color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--a2);text-decoration:underline;text-underline-offset:2px}
+
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:var(--top-solid);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-weight:600;font-size:1.05rem;letter-spacing:.02em}
+.brand-t{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-t small{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a2);font-weight:700;margin-bottom:5px;white-space:nowrap}
+.top.solid .brand-t small{color:var(--a-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;letter-spacing:var(--brand-ls,.14em);text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px;flex:none}
+.langs button{border:0;background:none;color:inherit;font:700 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--a1);color:var(--on-a)}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--c3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--shade),.62) 0%,rgba(var(--shade),.16) 34%,rgba(var(--shade),.26) 60%,rgba(var(--shade),.86) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--a2)}
+.hero h1{font-size:clamp(3.4rem,12vw,8rem);font-weight:500;line-height:.95;text-shadow:0 2px 40px rgba(0,0,0,.25)}
+.hero h1 em{color:var(--a2)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.35rem,3.4vw,1.9rem);line-height:1.3;margin-top:16px;max-width:32ch;color:#FFFDF8}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-gold{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.84rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--a1);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(255,255,255,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--a2)}
+
+.stats{background:var(--c1);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.4rem,5.6vw,3.6rem);line-height:1;color:var(--a2);white-space:nowrap}
+.stat span{display:block;margin-top:8px;font-size:.84rem;color:var(--on-dark-2);line-height:1.35}
+
+.sec{padding-block:clamp(72px,11vw,140px)}
+.sec.tint{background:var(--bg2)}
+.head{max-width:720px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--c3);color:var(--on-dark)}
+.dark .head p{color:var(--on-dark-2)}
+
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:46ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--bg2);color:var(--a-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.5rem;font-weight:600}
+.feats p{margin-top:2px;color:var(--muted);font-size:.97rem}
+.award{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 16px;border-radius:999px;border:1px solid var(--line-2);font-size:.86rem;font-weight:700}
+.award .ico{color:var(--a-ink)}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(var(--shade),.55)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--bg);box-shadow:0 30px 60px -30px rgba(var(--shade),.6)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a);display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{display:block;font-size:2.3rem;font-weight:600}
+.badge span{display:block;font-family:var(--f-sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-top:4px}
+
+/* room and property cards */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--rmin,300px),1fr));gap:24px}
+.rcard{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -36px rgba(var(--shade),.65)}
+.rph{position:relative;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;padding:0;border:0;background:var(--ph);cursor:pointer}
+.rph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.rcard:hover .rph img{transform:scale(1.04)}
+.rtag{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.94);color:#141414;font:700 .72rem/1 var(--f-sans);letter-spacing:.04em;border-radius:999px;padding:8px 12px}
+.rcount{position:absolute;right:14px;bottom:14px;background:rgba(var(--shade),.7);color:#fff;font:700 .72rem/1 var(--f-sans);border-radius:999px;padding:7px 11px;display:inline-flex;gap:6px;align-items:center}
+.rcount .ico{width:14px;height:14px}
+.rbody{flex:1;display:flex;flex-direction:column;padding:20px 22px 22px}
+.rbody h3{font-size:1.65rem;font-weight:600;line-height:1.08}
+.rsub{margin-top:6px;color:var(--a-ink);font-size:.86rem;font-weight:700}
+.specs{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;color:var(--muted);font-size:.88rem}
+.specs span{display:inline-flex;align-items:center;gap:6px}
+.specs .ico{width:16px;height:16px;color:var(--a-ink)}
+.rdesc{margin-top:10px;color:var(--muted);font-size:.95rem}
+.rfoot{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.price{font-family:var(--f-serif);font-size:1.55rem;font-weight:600;margin-right:auto;line-height:1.1}
+.price small{font-family:var(--f-sans);font-size:.76rem;color:var(--faint);font-weight:600}
+.sec-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:40px}
+
+/* service photo cards */
+.s-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.scard{position:relative;display:flex;align-items:flex-end;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;color:#fff;isolation:isolate;background:var(--ph);padding:0;border:0;font:inherit;text-align:left;cursor:zoom-in}
+.scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s ease}
+.scard:hover img{transform:scale(1.04)}
+.scard::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--shade),0) 40%,rgba(var(--shade),.88) 100%)}
+.scard span{display:block;padding:20px 20px 22px}
+.scard b{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.6rem;line-height:1.1}
+.scard small{display:block;margin-top:6px;font-size:.88rem;line-height:1.45;color:rgba(255,255,255,.84)}
+
+/* icon tiles */
+.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.amen li{list-style:none;display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:16px;padding:18px;border:1px solid var(--line)}
+.amen{margin:0;padding:0}
+.amen .fi{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--bg2);color:var(--a-ink)}
+.amen b{display:block;font-size:.98rem;line-height:1.3}
+.amen small{display:block;margin-top:3px;color:var(--muted);font-size:.86rem;line-height:1.45}
+.dark .amen li{background:rgba(255,255,255,.05);border-color:var(--on-dark-line)}
+.dark .amen small{color:var(--on-dark-2)}
+.dark .amen .fi{background:rgba(255,255,255,.08);color:var(--a2)}
+
+/* offers */
+.o-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.ocard{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);padding:24px 22px 22px;border-top:3px solid var(--a1);box-shadow:0 24px 50px -40px rgba(var(--shade),.6)}
+.ocard .big{font-family:var(--f-serif);font-size:2.9rem;line-height:1;color:var(--a-ink);font-weight:600}
+.ocard h3{font-size:1.45rem;font-weight:600;margin-top:10px}
+.ocard p{margin-top:8px;color:var(--muted);font-size:.93rem}
+.ocard .btn{margin-top:auto;align-self:flex-start}
+.ocard p+.btn{margin-top:18px}
+
+.place{position:relative;min-height:min(88vh,800px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden;background:var(--c3)}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(var(--shade),.82) 0%,rgba(var(--shade),.38) 55%,rgba(var(--shade),.08) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--a2)}
+.place-card h2 em{color:var(--a2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:var(--ph);cursor:zoom-in;border-radius:14px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden;background:var(--c3)}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(var(--shade),.66)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--a2)}
+.bookband h2 em{color:var(--a2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:46ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--a-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem;overflow-wrap:anywhere}
+.c-list dd a{font-weight:700;text-decoration:none}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.9rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--bg2)}
+
+.foot{background:var(--c3);color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--a2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:700}
+.social a:hover{color:var(--a2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--a2)}
+
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bg);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--bg)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--c1);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--a2)}
+.home:hover .seal{border-color:var(--a2);color:var(--a2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--a2);margin-top:-3px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(255,255,255,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--a2)}
+.sheet-body:focus{outline:none}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-title{font-size:clamp(2.3rem,7vw,3.4rem);padding-top:26px}
+.sheet-lead{color:var(--muted);padding-top:12px;font-family:var(--f-serif);font-style:italic;font-size:1.3rem;line-height:1.35}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:760px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.9rem,5vw,2.5rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+
+.rs-photos{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px calc(-1 * var(--gut)) 0;padding:0 var(--gut) 6px;scrollbar-width:thin}
+.rs-photos button{flex:0 0 min(84%,620px);aspect-ratio:3/2;scroll-snap-align:start;border-radius:14px;overflow:hidden;padding:0;border:0;cursor:zoom-in;background:var(--ph)}
+.rs-photos img{width:100%;height:100%;object-fit:cover}
+.rs-info{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);margin-top:28px;align-items:start}
+.rs-info .specs{font-size:.95rem;gap:10px 20px;margin-top:0}
+.rs-desc{margin-top:16px;color:var(--muted);font-size:1.05rem;line-height:1.7}
+.rs-box{background:var(--card);border-radius:var(--r);padding:22px 22px 24px;border:1px solid var(--line)}
+.rs-box h3{font-size:1.5rem;font-weight:600;margin-bottom:14px}
+.alist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.alist li{display:flex;gap:9px;align-items:center;font-size:.93rem;line-height:1.3}
+.alist .ico{width:18px;height:18px;color:var(--a-ink)}
+.rs-box .btn{width:100%;margin-top:20px}
+.units{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.unit{display:flex;flex-direction:column;background:var(--card);border-radius:16px;padding:18px 20px 18px;border:1px solid var(--line)}
+.unit h3{font-size:1.4rem;font-weight:600;line-height:1.12}
+.unit p{margin-top:6px;color:var(--muted);font-size:.93rem}
+.unit .specs{margin-top:8px}
+.unit .rfoot{padding-top:14px}
+
+.book{max-width:680px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:700}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+input[type=date],input[type=time]{min-height:50px}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+.err{color:#A3301E;font-size:.88rem;font-weight:600}
+.f-btns{display:grid;gap:10px}
+.online{display:grid;gap:10px;margin-top:20px}
+.online a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:16px;background:var(--card);border:1px solid var(--line-2);text-decoration:none}
+.online a:hover{border-color:var(--ink)}
+.online b{font-family:var(--f-serif);font-size:1.45rem;font-weight:600;line-height:1.1}
+.online small{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
+.online .go{flex:none;font-weight:800;color:var(--a-ink);font-size:.9rem;white-space:nowrap}
+
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#0B0C0E;color:#F4F1EA}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#0B0C0E}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:rgba(244,241,234,.72);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap h4{font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1}
+body.locked{overflow:hidden}
+
+.mbar{display:none}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid,.rs-info{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+  .units{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  :root{--gut:18px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:.92rem}
+  .brand-t b{font-size:1.04rem;letter-spacing:var(--brand-ls-m,.08em)}
+  .brand-t small{font-size:.5rem;letter-spacing:.24em}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.84rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .stat{padding:24px 10px}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--on-dark-line)}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:92px;height:92px;right:-6px;top:16px}
+  .badge b{font-size:1.8rem}
+  .r-grid,.s-grid,.o-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .r-grid::-webkit-scrollbar,.s-grid::-webkit-scrollbar,.o-grid::-webkit-scrollbar{display:none}
+  .r-grid > *{flex:0 0 86%;scroll-snap-align:center}
+  .s-grid > *{flex:0 0 72%;scroll-snap-align:center}
+  .o-grid > *{flex:0 0 78%;scroll-snap-align:center}
+  .swipe{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--faint);font-size:.8rem;margin-top:2px}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(var(--shade),.05) 0%,rgba(var(--shade),.55) 45%,rgba(var(--shade),.9) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .amen{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  .amen li{flex-direction:column;gap:10px;padding:14px}
+  .map{min-height:260px}
+  .alist{grid-template-columns:minmax(0,1fr)}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--c3);padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:700;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a)}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (min-width:641px){.swipe{display:none}}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.84rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.92rem;letter-spacing:.05em}
+  .langs button{padding:7px 6px}
+}
+
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></g></symbol>
+  <symbol id="i-area" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.6-3.4 3-5.3 6-5.3s5.4 1.9 6 5.3"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M18 14.6c1.6.7 2.7 2.4 3 4.9"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></g></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1.5-3 4-3 7v3h3"/></g></symbol>
+  <symbol id="i-spa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-4.5 0-8-3-8-7 2.5 0 5 1 6.5 3M12 20c4.5 0 8-3 8-7-2.5 0-5 1-6.5 3M12 20c-2-2-3-4.5-3-7.5S10.5 6.5 12 4c1.5 2.5 3 5.5 3 8.5S14 18 12 20z"/></g></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V9l5-3v14.5M8.5 20.5V4h7v16.5M15.5 20.5V10l5 2.5v8M2.5 20.5h19M11 8h2M11 11.5h2M11 15h2"/></g></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".9" fill="currentColor"/></g></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></g></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M3 12a1.5 1.5 0 0 1 3 0v2h12v-2a1.5 1.5 0 0 1 3 0v5H3z"/><path d="M5 17v2M19 17v2"/></g></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 6l2.5-1.5M9.5 19.5 12 18l2.5 1.5"/></g></symbol>
+  <symbol id="i-minibar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M6 10h12M9 6.5v1.5M9 13v3"/></g></symbol>
+  <symbol id="i-safe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="15" rx="1.5"/><circle cx="12" cy="11.5" r="3"/><path d="M12 8.5v1M7 19v2M17 19v2"/></g></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></g></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v8H4zM4 10V7M20 10V7M8 10v8M12 10v8M16 10v8"/></g></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.5V20M8.5 21h7M7.4 7.5h9.2"/></g></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></g></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5M2.5 14c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5M2.5 19c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Hotel Vardar"><span class="seal">HV</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Vardar</b></span></a>
+    <nav class="nav" aria-label="Meni"><a href="#sobe" data-i18n="t1">Sobe</a><a href="#usluge" data-i18n="t2">U hotelu</a><a href="#galerija" data-i18n="gal_eye">Galerija</a><a href="#kontakt" data-i18n="k_eye">Kontakt</a></nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-gold" href="#rezervacija" data-i18n="b_book">Rezervišite</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="hotelvardar.com/wp-content/uploads/vardarog.jpg" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="hotelvardar.com/wp-content/uploads/terasa-otvorena.jpg" alt="">
+      <img data-lazy="hotelvardar.com/wp-content/uploads/Junior-soba-crvene-fotelje.jpg" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="t4">Stari grad Kotor · UNESCO</p>
+      <h1>Hotel <em>Vardar</em></h1>
+      <p class="hero-lead" data-i18n="t5">Na glavnom trgu Starog grada, u zgradi iz 1750. godine.</p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t6">Rezervišite sobu</span></a><a class="btn btn-glass" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t7">Sobe</span></a><a class="btn btn-glass" href="#o-hotelu"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="t8">O hotelu</span></a><a class="btn btn-glass" href="tel:+38232311300"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a><a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Vardar+Kotor" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="t3">Trg od oružja, Kotor</span><span>+382 32 311 300</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" aria-label="Foto"></div>
+  </section>
+
+  <section class="stats" aria-label="Brojke"><div class="wrap"><div class="stat"><b>1750</b><span data-i18n="t9">godina gradnje zgrade</span></div><div class="stat"><b>24</b><span data-i18n="t10">elegantne sobe</span></div><div class="stat"><b>40</b><span data-i18n="t11">mjesta u sali za sastanke</span></div><div class="stat"><b>10%</b><span data-i18n="t12">popusta u restoranu Galion</span></div></div></section>
+
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="t19">O hotelu</p>
+        <h2 data-i18n="t20">Tradicija <em>i gostoprimstvo</em></h2>
+        <p class="lead" data-i18n="t21">Hotel je na glavnom trgu Starog grada Kotora, među spomenicima pod zaštitom UNESCO-a. Zgrada iz 1750. obnovljena je 2007. i sačuvala je klasičnu arhitekturu.</p>
+        <ul class="feats"><li><span class="fi"><svg class="ico"><use href="#i-sun"/></svg></span><div><h3 data-i18n="t13">Terasa na trgu</h3><p data-i18n="t14">Mjesto susreta gostiju i Kotorana: odabrana jela, kokteli i pića.</p></div></li><li><span class="fi"><svg class="ico"><use href="#i-fork"/></svg></span><div><h3 data-i18n="t15">Bogat doručak</h3><p data-i18n="t16">Švedski sto svako jutro.</p></div></li><li><span class="fi"><svg class="ico"><use href="#i-spa"/></svg></span><div><h3 data-i18n="t17">Wellness</h3><p data-i18n="t18">Sauna, tursko kupatilo, teretana i masaža po dogovoru.</p></div></li></ul>
+        
+        <div class="intro-cta"><a class="btn btn-em" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t22">Sobe</span></a><a class="btn btn-line" href="#o-hotelu"><span data-i18n="t23">O hotelu</span></a></div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="hotelvardar.com/wp-content/uploads/terasa-otvorena.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="hotelvardar.com/wp-content/uploads/Standard-soba.jpg" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><b>24</b><span data-i18n="t24">sobe</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="sobe">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="t25">Smještaj</p>
+        <h2 data-i18n="t26">Sobe <em>sa pogledom na Stari grad</em></h2>
+        <p data-i18n="t27">24 sobe: 18 standard i 6 junior. U svakoj je king size krevet 181 × 210 cm.</p>
+      </div>
+      <div class="r-grid" id="r-grid"></div>
+      <p class="swipe" data-i18n="swipe">Prevucite za još</p>
+    </div>
+  </section>
+
+
+  <section class="place">
+    <img class="ph" data-p="hotelvardar.com/wp-content/uploads/Sauna-scaled.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="place-card rv">
+        <p class="eyebrow caps" data-i18n="t28">Wellness</p>
+        <h2 data-i18n="t29">Odmor <em>poslije šetnje</em></h2>
+        <p data-i18n="t30">Sauna i tursko kupatilo za opuštanje poslije dana u gradu, mala moderna teretana i profesionalna masaža po dogovoru.</p>
+        <a class="btn btn-glass" href="#o-hotelu"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="t31">O hotelu</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="usluge">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="t40">U hotelu</p>
+        <h2 data-i18n="t41">Sve <em>na jednom mjestu</em></h2>
+        
+      </div>
+      <div class="s-grid" id="s-grid"><button type="button" class="scard" data-svc="0"><img data-p="hotelvardar.com/wp-content/uploads/Sauna-scaled.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t32">Sauna i tursko kupatilo</b><small data-i18n="t33">Savršen balans toplote i opuštanja.</small></span></button><button type="button" class="scard" data-svc="1"><img data-p="hotelvardar.com/wp-content/uploads/Teretana.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t34">Teretana</b><small data-i18n="t35">Osnovne kardio i fitnes sprave.</small></span></button><button type="button" class="scard" data-svc="2"><img data-p="hotelvardar.com/wp-content/uploads/Konferencijska-sala.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t36">Sala za sastanke</b><small data-i18n="t37">Do 40 osoba, sa opremom za simultani prevod.</small></span></button><button type="button" class="scard" data-svc="3"><img data-p="hotelvardar.com/wp-content/uploads/Galion-172-scaled-1.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t38">Restoran Galion</b><small data-i18n="t39">10 minuta hoda, 10% popusta za goste hotela.</small></span></button></div>
+      <p class="swipe" data-i18n="swipe">Prevucite za još</p>
+    </div>
+  </section>
+
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="t42">Hotel <em>i Kotor</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <section class="bookband">
+    <img class="ph" data-p="hotelvardar.com/wp-content/uploads/terasa-otvorena.jpg" data-w="2000" alt="" loading="lazy">
+    <div class="wrap rv">
+      <p class="eyebrow caps center" data-i18n="t43">Rezervacije</p>
+      <h2 data-i18n="t44">Vaša soba <em>u srcu Kotora</em></h2>
+      <p data-i18n="t45">Pošaljite upit sa datumima i odgovorićemo sa ponudom. Ili nas pozovite.</p>
+      <div class="bb-btns"><a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t46">Rezervišite sobu</span></a><a class="btn btn-glass" href="tel:+38232311300"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="t50">Dođite <em>u Kotor</em></h2>
+        <dl class="c-list"><div class="wide"><dt class="caps" data-i18n="c_addr">Adresa</dt><dd data-i18n="t47">Trg od oružja, 85330 Kotor, Crna Gora</dd></div><div><dt class="caps" data-i18n="t48">Recepcija</dt><dd><a href="tel:+38232311300">+382 32 311 300</a></dd></div><div><dt class="caps" data-i18n="t49">Mobilni</dt><dd><a href="tel:+38267263410">+382 67 263 410</a></dd></div><div class="wide"><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:info@hotelvardar.com">info@hotelvardar.com</a></dd></div></dl>
+        <div class="c-btns"><a class="btn btn-em" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t51">Rezervišite sobu</span></a><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Vardar+Kotor" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a></div>
+        
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=Hotel+Vardar,+Kotor,+Montenegro&amp;z=16&amp;output=embed" title="Hotel Vardar" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">HV</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Vardar</b></span></a>
+      <p data-i18n="t52">Trg od oružja, 85330 Kotor, Crna Gora</p><p style="margin-top:6px">HP Fjord AD Kotor</p>
+    </div>
+    <div class="social"><a href="https://www.instagram.com/hotelvardar_kotor" target="_blank" rel="noopener">Instagram</a></div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Brze akcije"><a href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book_s">Rezervišite</span></a><a href="tel:+38232311300"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Vardar+Kotor" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a></nav>
+
+<dialog class="sheet" id="s-o-hotelu">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">HV</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Vardar</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus>
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="t63">O hotelu</h2>
+        <img class="ph" data-p="hotelvardar.com/wp-content/uploads/hotelvardar_6.jpg" data-w="1400" data-h="788" alt="" loading="lazy">
+        <h3 data-i18n="t53">Zgrada iz 1750.</h3><p data-i18n="t54">Hotel Vardar je na glavnom trgu Starog grada Kotora, na samom ulazu u grad, među istorijskim spomenicima pod zaštitom UNESCO-a. Zgrada potiče iz 1750. godine, a obnovljena je 2007. uz očuvanu klasičnu arhitekturu. Nekoliko soba gleda direktno na trg.</p><h3 data-i18n="t55">Terasa i doručak</h3><p data-i18n="t56">Terasa hotela omiljeno je mjesto susreta gostiju i Kotorana. Svako jutro služimo bogat švedski sto, a tokom dana odabrana jela, koktele i pića.</p><h3 data-i18n="t57">Wellness i teretana</h3><p data-i18n="t58">Sauna i tursko kupatilo pomažu da se opustite poslije dana u gradu. Tu je i mala moderna teretana, a profesionalnu masažu zakazujete u hotelu.</p><h3 data-i18n="t59">Poslovni sastanci</h3><p data-i18n="t60">Sala za sastanke prima 40 osoba. Uz panel, projektor i ozvučenje imamo i opremu za simultani prevod.</p><h3 data-i18n="t61">Restoran Galion</h3><p data-i18n="t62">Deset minuta hoda od hotela je restoran Galion: riba, velik izbor vina i terasa sa pogledom na gradske zidine i more. Gosti hotela imaju 10% popusta.</p>
+        <div class="sheet-cta"><a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t64">Rezervišite sobu</span></a><a class="btn btn-line" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t65">Sobe</span></a></div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="s-soba">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">HV</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Vardar</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus><div class="wrap" id="item-body"></div></div>
+</dialog>
+
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">HV</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Vardar</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus>
+    <div class="wrap">
+      <div class="book">
+        <h2 class="sheet-title" data-i18n="t67">Rezervišite sobu</h2>
+        <p class="sheet-lead" data-i18n="t68">Pošaljite upit sa datumima, a mi ćemo vam odgovoriti sa ponudom.</p>
+        
+        <form class="res-form" id="b-form" novalidate>
+          <div class="row2">
+            <label><span data-i18n="f_in">Dolazak</span><input id="b-in" type="date" required></label>
+            <label><span data-i18n="f_out">Odlazak</span><input id="b-out" type="date" required></label>
+          </div>
+          <div class="row2">
+            <label><span data-i18n="f_ad">Odrasli</span><select id="b-ad"></select></label>
+            <label><span data-i18n="f_ch">Djeca</span><select id="b-ch"></select></label>
+          </div>
+          <label><span data-i18n="room_label">Soba</span><select id="b-room"></select></label>
+          <div class="row2">
+            <label><span data-i18n="f_name">Ime i prezime</span><input id="b-name" autocomplete="name" required></label>
+            <label><span data-i18n="f_contact">Telefon ili e-mail</span><input id="b-contact" autocomplete="tel"></label>
+          </div>
+          <label><span data-i18n="f_note">Napomena (nije obavezno)</span><textarea id="b-note"></textarea></label>
+          <p class="err" id="b-err" hidden data-i18n="f_err">Upišite ime i datume dolaska i odlaska.</p>
+          <div class="f-btns"><button class="btn btn-em" type="submit" data-via="mail"><svg class="ico"><use href="#i-mail"/></svg><span data-i18n="f_send">Pošaljite upit e-mailom</span></button></div>
+          <p class="hint" data-i18n="f_hint">Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.</p>
+        </form>
+        <a class="call-big btn-gold" href="tel:+38232311300"><svg class="ico"><use href="#i-phone"/></svg>+382 32 311 300</a>
+        <p class="call-2"><span data-i18n="t66">Mobilni</span>: <a href="tel:+38267263410">+382 67 263 410</a></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+<script>
+const SITE = {"slug":"hotel-vardar","mail":"info@hotelvardar.com","sheets":["rezervacija","o-hotelu","soba"],"itemSheet":"soba","items":[{"id":"standard","name":{"me":"Standard soba","en":"Standard room","ru":"Стандартный номер"},"photos":["hotelvardar.com/wp-content/uploads/Standard-soba.jpg","hotelvardar.com/wp-content/uploads/Standard-soba-Kupatilo.jpg"],"tag":{"me":"18 soba","en":"18 rooms","ru":"18 номеров"},"size":"25 m²","bed":{"me":"King size krevet 181 × 210 cm","en":"King-size bed, 181 × 210 cm","ru":"Кровать king size 181 × 210 см"},"view":{"me":"Pogled na Stari grad","en":"Old Town view","ru":"Вид на Старый город"},"viewIcon":"city","short":{"me":"Udobna i profinjena soba sa autentičnom atmosferom Kotora.","en":"A comfortable, refined room with the authentic feel of Kotor.","ru":"Уютный и изысканный номер с настоящей атмосферой Котора."},"desc":{"me":"Standard sobe od 25 m² nude udoban i profinjen ambijent sa prostranim king size krevetom. Sa pogledom na Stari grad, idealan su izbor za goste koji žele komfor i autentičnu atmosferu Kotora.","en":"Our 25 m² Standard rooms offer a comfortable, refined setting with a spacious king-size bed. With views of the Old Town, they suit guests who want comfort and the authentic atmosphere of Kotor.","ru":"Стандартные номера площадью 25 м² — уютная и изысканная обстановка с просторной кроватью king size. С видом на Старый город, для тех, кто хочет комфорта и настоящей атмосферы Котора."},"amen":["net","sattv","sofa"]},{"id":"junior","name":{"me":"Junior soba","en":"Junior room","ru":"Номер Junior"},"photos":["hotelvardar.com/wp-content/uploads/Junior-soba-crvene-fotelje.jpg","hotelvardar.com/wp-content/uploads/Junior-soba-kupatilo.jpg"],"tag":{"me":"6 soba","en":"6 rooms","ru":"6 номеров"},"size":"35 m²","bed":{"me":"King size krevet 181 × 210 cm","en":"King-size bed, 181 × 210 cm","ru":"Кровать king size 181 × 210 см"},"view":{"me":"Pogled na Stari grad","en":"Old Town view","ru":"Вид на Старый город"},"viewIcon":"city","short":{"me":"Više prostora uz isti nivo komfora i pažljivo uređen enterijer.","en":"More space, the same comfort and a carefully designed interior.","ru":"Больше пространства, тот же комфорт и продуманный интерьер."},"desc":{"me":"Junior sobe od 35 m², takođe sa king size krevetom, nude dodatni komfor i prostor uz isti visok nivo udobnosti i pažljivo uređen enterijer. Za goste koji žele više prostora sa pogledom na čarobnu atmosferu Starog grada.","en":"Our 35 m² Junior rooms, also with a king-size bed, add space with the same high level of comfort and a carefully designed interior. For guests who want more room and a view of the magical Old Town.","ru":"Номера Junior площадью 35 м², тоже с кроватью king size, дают больше пространства при том же высоком уровне комфорта и продуманном интерьере. Для тех, кто хочет простора и вида на волшебный Старый город."},"amen":["net","sattv","sofa"]}],"mode":"rooms","gallery":["hotelvardar.com/wp-content/uploads/vardarog.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_5.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_6.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_7.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_8.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_9.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_10.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_11.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_12.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_13.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_14.jpg","hotelvardar.com/wp-content/uploads/hotelvardar_15.jpg"],"services":[{"p":"hotelvardar.com/wp-content/uploads/Sauna-scaled.jpg","cap":{"me":"Sauna i tursko kupatilo","en":"Sauna and Turkish bath","ru":"Сауна и турецкая баня"}},{"p":"hotelvardar.com/wp-content/uploads/Teretana.jpg","cap":{"me":"Teretana","en":"Gym","ru":"Тренажёрный зал"}},{"p":"hotelvardar.com/wp-content/uploads/Konferencijska-sala.jpg","cap":{"me":"Sala za sastanke","en":"Meeting room","ru":"Конференц-зал"}},{"p":"hotelvardar.com/wp-content/uploads/Galion-172-scaled-1.jpg","cap":{"me":"Restoran Galion","en":"Galion restaurant","ru":"Ресторан Galion"}}],"amen":{"wifi":{"i":"wifi","t":{"me":"Besplatan WiFi","en":"Free Wi-Fi","ru":"Бесплатный Wi-Fi"}},"net":{"i":"wifi","t":{"me":"Besplatan internet","en":"Free internet","ru":"Бесплатный интернет"}},"tv":{"i":"tv","t":{"me":"TV","en":"TV","ru":"Телевизор"}},"sattv":{"i":"tv","t":{"me":"Satelitska TV","en":"Satellite TV","ru":"Спутниковое ТВ"}},"lcd":{"i":"tv","t":{"me":"LCD TV sa kablovskim kanalima","en":"LCD TV with cable channels","ru":"LCD-телевизор с кабельными каналами"}},"sofa":{"i":"sofa","t":{"me":"Kutak za sjedenje","en":"Seating area","ru":"Зона отдыха"}},"ac":{"i":"snow","t":{"me":"Klima: grijanje i hlađenje","en":"Air conditioning: heating and cooling","ru":"Кондиционер: тепло и холод"}},"aircon":{"i":"snow","t":{"me":"Klima uređaj","en":"Air conditioning","ru":"Кондиционер"}},"minibar":{"i":"minibar","t":{"me":"Mini bar","en":"Minibar","ru":"Мини-бар"}},"safe":{"i":"safe","t":{"me":"Sef","en":"In-room safe","ru":"Сейф"}},"shower":{"i":"drop","t":{"me":"Kupatilo sa tušem","en":"Bathroom with shower","ru":"Ванная с душем"}},"hair":{"i":"drop","t":{"me":"Fen za kosu","en":"Hairdryer","ru":"Фен"}},"phone":{"i":"phone","t":{"me":"Direktna telefonska linija","en":"Direct-dial phone","ru":"Телефон с прямым номером"}},"baby":{"i":"baby","t":{"me":"Krevetac za bebe na upit","en":"Baby cot on request","ru":"Детская кроватка по запросу"}},"robe":{"i":"spa","t":{"me":"Bade-mantil i papuče","en":"Bathrobe and slippers","ru":"Халат и тапочки"}},"desk":{"i":"story","t":{"me":"Radni sto","en":"Work desk","ru":"Рабочий стол"}},"sofabed":{"i":"sofa","t":{"me":"Sofa na razvlačenje","en":"Sofa bed","ru":"Диван-кровать"}},"balcony":{"i":"sun","t":{"me":"Privatni balkon","en":"Private balcony","ru":"Собственный балкон"}},"jacuzzi":{"i":"drop","t":{"me":"Đakuzi na balkonu","en":"Jacuzzi on the balcony","ru":"Джакузи на балконе"}},"coffee":{"i":"glass","t":{"me":"Aparat za kafu i čaj","en":"Coffee and tea station","ru":"Чай и кофе в номере"}},"living":{"i":"sofa","t":{"me":"Dnevna soba","en":"Living room","ru":"Гостиная"}},"service":{"i":"key","t":{"me":"Pranje veša, čišćenje i buđenje","en":"Laundry, housekeeping and wake-up calls","ru":"Прачечная, уборка и побудка"}},"breakfast":{"i":"fork","t":{"me":"Doručak uključen","en":"Breakfast included","ru":"Завтрак включён"}},"seaview":{"i":"wave","t":{"me":"Pogled na more","en":"Sea view","ru":"Вид на море"}}},"online":null,"maxAd":3,"phobsLang":false};
+const T = {"me":{"b_book":"Rezervišite","b_book_s":"Rezervišite","b_call":"Pozovite","b_route":"Kako do nas","b_map":"Mapa","b_details":"Detalji","b_bookshort":"Rezervišite","from":"od","night":"noć","swipe":"Prevucite za još","gal_eye":"Galerija","k_eye":"Kontakt","c_addr":"Adresa","c_mail":"E-mail","x_home":"Početna","x_close":"Zatvori","x_prev":"Prethodna","x_next":"Sljedeća","f_in":"Dolazak","f_out":"Odlazak","f_ad":"Odrasli","f_ch":"Djeca","f_any":"Svejedno","f_name":"Ime i prezime","f_contact":"Telefon ili e-mail","f_note":"Napomena (nije obavezno)","f_send":"Pošaljite upit e-mailom","f_hint":"Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.","f_err":"Upišite ime i datume dolaska i odlaska.","r_or":"ili pošaljite upit","m_subj":"Upit za smještaj","m_hi":"Poštovani,","m_ask":"želio/željela bih da rezervišem smještaj:","m_bye":"Hvala!","in_room":"U sobi","b_bookthis":"Rezervišite ovu sobu","b_see":"Apartmani","b_online":"Rezervišite online","units_word":"jedinica","units_t":"Apartmani i sobe","book_direct":"Direktna rezervacija","book_direct_p":"Slobodni datumi i cijene na jednom mjestu.","room_label":"Soba","brand_small":"Hotel ★★★★","demo":"Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.","t1":"Sobe","t2":"U hotelu","t3":"Trg od oružja, Kotor","t4":"Stari grad Kotor · UNESCO","t5":"Na glavnom trgu Starog grada, u zgradi iz 1750. godine.","t6":"Rezervišite sobu","t7":"Sobe","t8":"O hotelu","t9":"godina gradnje zgrade","t10":"elegantne sobe","t11":"mjesta u sali za sastanke","t12":"popusta u restoranu Galion","t13":"Terasa na trgu","t14":"Mjesto susreta gostiju i Kotorana: odabrana jela, kokteli i pića.","t15":"Bogat doručak","t16":"Švedski sto svako jutro.","t17":"Wellness","t18":"Sauna, tursko kupatilo, teretana i masaža po dogovoru.","t19":"O hotelu","t20":"Tradicija <em>i gostoprimstvo<\/em>","t21":"Hotel je na glavnom trgu Starog grada Kotora, među spomenicima pod zaštitom UNESCO-a. Zgrada iz 1750. obnovljena je 2007. i sačuvala je klasičnu arhitekturu.","t22":"Sobe","t23":"O hotelu","t24":"sobe","t25":"Smještaj","t26":"Sobe <em>sa pogledom na Stari grad<\/em>","t27":"24 sobe: 18 standard i 6 junior. U svakoj je king size krevet 181 × 210 cm.","t28":"Wellness","t29":"Odmor <em>poslije šetnje<\/em>","t30":"Sauna i tursko kupatilo za opuštanje poslije dana u gradu, mala moderna teretana i profesionalna masaža po dogovoru.","t31":"O hotelu","t32":"Sauna i tursko kupatilo","t33":"Savršen balans toplote i opuštanja.","t34":"Teretana","t35":"Osnovne kardio i fitnes sprave.","t36":"Sala za sastanke","t37":"Do 40 osoba, sa opremom za simultani prevod.","t38":"Restoran Galion","t39":"10 minuta hoda, 10% popusta za goste hotela.","t40":"U hotelu","t41":"Sve <em>na jednom mjestu<\/em>","t42":"Hotel <em>i Kotor<\/em>","t43":"Rezervacije","t44":"Vaša soba <em>u srcu Kotora<\/em>","t45":"Pošaljite upit sa datumima i odgovorićemo sa ponudom. Ili nas pozovite.","t46":"Rezervišite sobu","t47":"Trg od oružja, 85330 Kotor, Crna Gora","t48":"Recepcija","t49":"Mobilni","t50":"Dođite <em>u Kotor<\/em>","t51":"Rezervišite sobu","t52":"Trg od oružja, 85330 Kotor, Crna Gora","t53":"Zgrada iz 1750.","t54":"Hotel Vardar je na glavnom trgu Starog grada Kotora, na samom ulazu u grad, među istorijskim spomenicima pod zaštitom UNESCO-a. Zgrada potiče iz 1750. godine, a obnovljena je 2007. uz očuvanu klasičnu arhitekturu. Nekoliko soba gleda direktno na trg.","t55":"Terasa i doručak","t56":"Terasa hotela omiljeno je mjesto susreta gostiju i Kotorana. Svako jutro služimo bogat švedski sto, a tokom dana odabrana jela, koktele i pića.","t57":"Wellness i teretana","t58":"Sauna i tursko kupatilo pomažu da se opustite poslije dana u gradu. Tu je i mala moderna teretana, a profesionalnu masažu zakazujete u hotelu.","t59":"Poslovni sastanci","t60":"Sala za sastanke prima 40 osoba. Uz panel, projektor i ozvučenje imamo i opremu za simultani prevod.","t61":"Restoran Galion","t62":"Deset minuta hoda od hotela je restoran Galion: riba, velik izbor vina i terasa sa pogledom na gradske zidine i more. Gosti hotela imaju 10% popusta.","t63":"O hotelu","t64":"Rezervišite sobu","t65":"Sobe","t66":"Mobilni","t67":"Rezervišite sobu","t68":"Pošaljite upit sa datumima, a mi ćemo vam odgovoriti sa ponudom."},"en":{"b_book":"Book now","b_book_s":"Book","b_call":"Call us","b_route":"Directions","b_map":"Map","b_details":"Details","b_bookshort":"Book","from":"from","night":"night","swipe":"Swipe for more","gal_eye":"Gallery","k_eye":"Contact","c_addr":"Address","c_mail":"Email","x_home":"Home","x_close":"Close","x_prev":"Previous","x_next":"Next","f_in":"Arrival","f_out":"Departure","f_ad":"Adults","f_ch":"Children","f_any":"No preference","f_name":"Full name","f_contact":"Phone or email","f_note":"Note (optional)","f_send":"Send the request by email","f_hint":"Your email app will open with the request filled in. The booking is valid once we confirm it.","f_err":"Please enter your name and your arrival and departure dates.","r_or":"or send a request","m_subj":"Accommodation request","m_hi":"Hello,","m_ask":"I would like to book a stay:","m_bye":"Thank you!","in_room":"In the room","b_bookthis":"Book this room","b_see":"Apartments","b_online":"Book online","units_word":"units","units_t":"Apartments and rooms","book_direct":"Book direct","book_direct_p":"Availability and prices in one place.","room_label":"Room","brand_small":"Hotel ★★★★","demo":"Demo website concept by MakeSiteFor.me. This is not the hotel's official site.","t1":"Rooms","t2":"At the hotel","t3":"Square of Arms, Kotor","t4":"Kotor Old Town · UNESCO","t5":"On the main square of Kotor Old Town, in a building from 1750.","t6":"Book a room","t7":"Rooms","t8":"About","t9":"the year the building went up","t10":"elegant rooms","t11":"seats in the meeting room","t12":"off at Galion restaurant","t13":"A terrace on the square","t14":"Where guests and locals meet: selected dishes, cocktails and drinks.","t15":"A rich breakfast","t16":"A buffet every morning.","t17":"Wellness","t18":"Sauna, Turkish bath, a gym and massage by appointment.","t19":"About the hotel","t20":"Tradition <em>and hospitality<\/em>","t21":"The hotel stands on the main square of Kotor Old Town, among UNESCO-protected monuments. The building dates from 1750 and was restored in 2007, keeping its classical architecture.","t22":"Rooms","t23":"About","t24":"rooms","t25":"Accommodation","t26":"Rooms <em>overlooking the Old Town<\/em>","t27":"24 rooms: 18 Standard and 6 Junior. Each has a 181 × 210 cm king-size bed.","t28":"Wellness","t29":"Unwind <em>after a day out<\/em>","t30":"A sauna and Turkish bath to relax after a day in town, a small modern gym, and a professional massage by appointment.","t31":"About","t32":"Sauna and Turkish bath","t33":"The right balance of heat and rest.","t34":"Gym","t35":"Basic cardio and fitness equipment.","t36":"Meeting room","t37":"Up to 40 people, with simultaneous interpretation kit.","t38":"Galion restaurant","t39":"A 10-minute walk, 10% off for hotel guests.","t40":"At the hotel","t41":"Everything <em>in one place<\/em>","t42":"The hotel <em>and Kotor<\/em>","t43":"Reservations","t44":"Your room <em>in the heart of Kotor<\/em>","t45":"Send a request with your dates and we'll reply with an offer. Or give us a call.","t46":"Book a room","t47":"Trg od oružja (Square of Arms), 85330 Kotor, Montenegro","t48":"Reception","t49":"Mobile","t50":"Come <em>to Kotor<\/em>","t51":"Book a room","t52":"Trg od oružja, 85330 Kotor, Montenegro","t53":"A building from 1750","t54":"Hotel Vardar stands on the main square of Kotor Old Town, right at the town's entrance, among UNESCO-protected historic monuments. The building dates from 1750 and was restored in 2007 with its classical architecture preserved. Several rooms look straight onto the square.","t55":"The terrace and breakfast","t56":"The hotel terrace is a favourite meeting place for guests and locals. Every morning we serve a rich buffet breakfast, and during the day selected dishes, cocktails and drinks.","t57":"Wellness and gym","t58":"The sauna and Turkish bath help you unwind after a day in town. There is also a small modern gym, and you can book a professional massage at the hotel.","t59":"Business meetings","t60":"The meeting room seats 40. Along with a panel, projector and sound system, we have equipment for simultaneous interpretation.","t61":"Galion restaurant","t62":"A ten-minute walk from the hotel, Galion serves fish and a large choice of wines on a terrace facing the town walls and the sea. Hotel guests get 10% off.","t63":"About the hotel","t64":"Book a room","t65":"Rooms","t66":"Mobile","t67":"Book a room","t68":"Send a request with your dates and we'll reply with an offer."},"ru":{"b_book":"Забронировать","b_book_s":"Бронь","b_call":"Позвонить","b_route":"Как добраться","b_map":"Карта","b_details":"Подробнее","b_bookshort":"Забронировать","from":"от","night":"ночь","swipe":"Листайте дальше","gal_eye":"Галерея","k_eye":"Контакты","c_addr":"Адрес","c_mail":"E-mail","x_home":"На главную","x_close":"Закрыть","x_prev":"Назад","x_next":"Дальше","f_in":"Заезд","f_out":"Выезд","f_ad":"Взрослые","f_ch":"Дети","f_any":"Не важно","f_name":"Имя и фамилия","f_contact":"Телефон или e-mail","f_note":"Комментарий (необязательно)","f_send":"Отправить запрос по e-mail","f_hint":"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.","f_err":"Укажите имя и даты заезда и выезда.","r_or":"или отправьте запрос","m_subj":"Запрос на проживание","m_hi":"Здравствуйте!","m_ask":"Хотел(а) бы забронировать проживание:","m_bye":"Спасибо!","in_room":"В номере","b_bookthis":"Забронировать этот номер","b_see":"Апартаменты","b_online":"Забронировать онлайн","units_word":"вариантов","units_t":"Апартаменты и комнаты","book_direct":"Прямое бронирование","book_direct_p":"Свободные даты и цены в одном месте.","room_label":"Номер","brand_small":"Отель ★★★★","demo":"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт отеля.","t1":"Номера","t2":"В отеле","t3":"Оружейная площадь, Котор","t4":"Старый город Котор · ЮНЕСКО","t5":"На главной площади Старого города, в здании 1750 года.","t6":"Забронировать номер","t7":"Номера","t8":"Об отеле","t9":"год постройки здания","t10":"элегантных номера","t11":"мест в конференц-зале","t12":"скидка в ресторане Galion","t13":"Терраса на площади","t14":"Место встречи гостей и жителей Котора: блюда, коктейли и напитки.","t15":"Богатый завтрак","t16":"Шведский стол каждое утро.","t17":"Велнес","t18":"Сауна, турецкая баня, тренажёрный зал и массаж по записи.","t19":"Об отеле","t20":"Традиции <em>и гостеприимство<\/em>","t21":"Отель стоит на главной площади Старого города Котора, среди памятников под охраной ЮНЕСКО. Здание 1750 года отреставрировано в 2007-м с сохранением классической архитектуры.","t22":"Номера","t23":"Об отеле","t24":"номера","t25":"Размещение","t26":"Номера <em>с видом на Старый город<\/em>","t27":"24 номера: 18 стандартных и 6 junior. В каждом кровать king size 181 × 210 см.","t28":"Велнес","t29":"Отдых <em>после прогулки<\/em>","t30":"Сауна и турецкая баня, чтобы расслабиться после прогулки, небольшой современный тренажёрный зал и профессиональный массаж по записи.","t31":"Об отеле","t32":"Сауна и турецкая баня","t33":"Идеальный баланс тепла и отдыха.","t34":"Тренажёрный зал","t35":"Кардио и силовые тренажёры.","t36":"Конференц-зал","t37":"До 40 человек, с оборудованием для синхронного перевода.","t38":"Ресторан Galion","t39":"10 минут пешком, скидка 10% гостям отеля.","t40":"В отеле","t41":"Всё <em>в одном месте<\/em>","t42":"Отель <em>и Котор<\/em>","t43":"Бронирование","t44":"Ваш номер <em>в сердце Котора<\/em>","t45":"Отправьте запрос с датами, и мы ответим с предложением. Или позвоните нам.","t46":"Забронировать номер","t47":"Trg od oružja (Оружейная площадь), 85330 Котор, Черногория","t48":"Ресепшн","t49":"Мобильный","t50":"Приезжайте <em>в Котор<\/em>","t51":"Забронировать номер","t52":"Trg od oružja, 85330 Котор, Черногория","t53":"Здание 1750 года","t54":"Отель Vardar стоит на главной площади Старого города Котора, у самого входа в город, среди исторических памятников под охраной ЮНЕСКО. Здание построено в 1750 году и отреставрировано в 2007-м с сохранением классической архитектуры. Несколько номеров выходят окнами прямо на площадь.","t55":"Терраса и завтрак","t56":"Терраса отеля — любимое место встреч гостей и жителей Котора. Каждое утро у нас богатый шведский стол, а днём блюда, коктейли и напитки.","t57":"Велнес и тренажёрный зал","t58":"Сауна и турецкая баня помогут расслабиться после дня в городе. Есть небольшой современный тренажёрный зал, а профессиональный массаж можно заказать в отеле.","t59":"Деловые встречи","t60":"Конференц-зал вмещает 40 человек. Кроме панели, проектора и звука, есть оборудование для синхронного перевода.","t61":"Ресторан Galion","t62":"В десяти минутах ходьбы от отеля — ресторан Galion: рыба, большой выбор вин и терраса с видом на городские стены и море. Гостям отеля скидка 10%.","t63":"Об отеле","t64":"Забронировать номер","t65":"Номера","t66":"Мобильный","t67":"Забронировать номер","t68":"Отправьте запрос с датами, и мы ответим с предложением."}};
+
+const C = SITE, $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+let lang = "me";
+const tr = k => (T[lang] && T[lang][k] != null ? T[lang][k] : T.me[k]);
+const L = o => o == null ? "" : typeof o === "string" ? o : (o[lang] != null ? o[lang] : o.me);
+const ev = (name, extra) => { if (window.gtag) gtag("event", name, Object.assign({ language: lang, demo: C.slug }, extra || {})); };
+
+/* Photos come from the business's own site. They load through the wsrv.nl image service (resized, and not
+   blocked when shown on another site); if that fails, straight from their site; then a spare photo; then a plain background. */
+const wsrv = (p, w, h, x) => p.startsWith("http") ? p : "https://wsrv.nl/?url=" + encodeURIComponent(p) + "&w=" + w +
+  (h ? "&h=" + h + (x === "contain" ? "&fit=contain&cbg=" + (C.cbg || "ffffff") : "&fit=cover&a=attention") : "") + "&q=80";
+function setPhoto(img, p, w, h, x){
+  img.dataset.p = p; img.dataset.w = w; img.dataset.h = h || ""; img.dataset.x = x || ""; img.dataset.step = "";
+  img.src = wsrv(p, w, h, x);
+}
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step && !i.dataset.p.startsWith("http")) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = "https://" + i.dataset.p; }
+  else if (i.dataset.fb) { const fb = i.dataset.fb; delete i.dataset.fb; setPhoto(i, fb, +i.dataset.w, +i.dataset.h, i.dataset.x); }
+  else if (i.dataset.step !== "2") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const imgTag = (p, w, h, x, fb) => `<img data-p="${p}" data-w="${w}" data-h="${h || ""}" data-x="${x || ""}"${fb ? ` data-fb="${fb}"` : ""} src="${wsrv(p, w, h, x)}" alt="" loading="lazy">`;
+const icon = n => `<svg class="ico"><use href="#i-${n}"/></svg>`;
+
+/* language */
+function applyLang(l){
+  lang = ["me", "en", "ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$("[data-ph]").forEach(n => n.setAttribute("placeholder", tr(n.dataset.ph)));
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = { me: "sr-Latn-ME", en: "en", ru: "ru" }[lang];
+  RENDER.forEach(f => f());
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem(C.slug + "-lang", lang); } catch(e) {}
+}
+const RENDER = [];
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade; the others load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+if ($("#dots") && slides.length > 1) {
+  $("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+  $("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+}
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm && slides.length > 1) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows live at #<name> or #<name>-<item>, so the phone's back button closes them
+   and the links can be shared */
+const SHEETS = C.sheets, HOOK = {};
+function parseHash(h){
+  h = decodeURIComponent(h || "");
+  for (const s of SHEETS) { if (h === s) return { s, arg: "" }; if (h.startsWith(s + "-")) return { s, arg: h.slice(s.length + 1) }; }
+  return null;
+}
+let homeNext = false, pendingScroll = null;
+function syncSheets(){
+  const m = parseHash(location.hash.slice(1));
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k), want = m && m.s === k;
+    if (want) {
+      if (!d.open || d.dataset.arg !== m.arg) {
+        d.dataset.arg = m.arg;
+        if (HOOK[k]) HOOK[k](m.arg);
+        d.querySelector(".sheet-body").scrollTop = 0;
+      }
+      if (!d.open) { d.showModal(); ev("demo_open_" + k.replace(/-/g, "_"), m.arg ? { item: m.arg } : null); }
+    } else if (d.open) d.close();
+  });
+  lockScroll();
+  if (!SHEETS.some(k => $("#s-" + k).open)) {
+    if (homeNext) { homeNext = false; requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" })); }
+    else if (pendingScroll) { const t = pendingScroll; pendingScroll = null; requestAnimationFrame(() => { const el = document.getElementById(t); if (el) el.scrollIntoView({ behavior: "smooth" }); }); }
+  }
+}
+function openSheet(hash){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: hash }, "", "#" + hash); else history.pushState({ sheet: hash }, "", "#" + hash);
+  syncSheets();
+}
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const h = a.getAttribute("href").slice(1), m = parseHash(h);
+  if (a.dataset.pick && PICK) PICK(a.dataset.pick);
+  if (m) { e.preventDefault(); openSheet(h); return; }
+  if (SHEETS.some(k => $("#s-" + k).open)) { e.preventDefault(); pendingScroll = h; closeSheet(); }
+});
+let PICK = null;
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", () => { homeNext = true; closeSheet(); }));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.p, 1600, 0, "");
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  $("#v-cap").innerHTML = it.cap ? `<h4>${L(it.cap)}</h4>` : "";
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* gallery */
+function renderGallery(){
+  const g = $("#g-grid"); if (!g || g.dataset.done) return;
+  C.gallery = C.gallery.slice(0, 9);  /* 9 fills the mosaic exactly at 4, 3 and 2 columns */
+  g.innerHTML = C.gallery.map((p, i) => `<button type="button" data-shot="${i}" aria-label="${i + 1}">${imgTag(p, i === 0 ? 1400 : 800)}</button>`).join("");
+  g.dataset.done = "1";
+  g.addEventListener("click", e => { const b = e.target.closest("[data-shot]"); if (b) openViewer(C.gallery.map(p => ({ p })), +b.dataset.shot); });
+}
+
+const today = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+const addDays = (s, n) => { const d = new Date(s + "T12:00:00"); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+const fmtDate = s => { if (!s) return ""; const [y, m, d] = s.split("-"); return `${d}.${m}.${y}.`; };
+const opts = (n, from, sel) => Array.from({ length: n }, (_, i) => i + from).map(v => `<option value="${v}"${String(v) === String(sel) ? " selected" : ""}>${v}</option>`).join("");
+function sendRequest(via, subject, lines){
+  const body = lines.join("\n");
+  ev("demo_booking_send", { via });
+  if (via === "wa") location.href = "https://wa.me/" + C.wa + "?text=" + encodeURIComponent(subject + "\n\n" + body);
+  else location.href = "mailto:" + C.mail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
+
+/* rooms (or houses, for a business with several places) */
+const ITEMS = C.items, byId = id => ITEMS.find(r => r.id === id);
+const bookLang = () => C.phobsLang ? "&lang=" + lang : "";
+function specs(r, full){
+  const out = [];
+  if (r.size) out.push(`<span>${icon("area")}${r.size}</span>`);
+  if (r.guests) out.push(`<span>${icon("users")}${L(r.guests)}</span>`);
+  if (full && r.bed) out.push(`<span>${icon("bed")}${L(r.bed)}</span>`);
+  if (r.view) out.push(`<span>${icon(r.viewIcon || "eye")}${L(r.view)}</span>`);
+  if (r.units) out.push(`<span>${icon("home")}${r.units.length} ${tr("units_word")}</span>`);
+  return out.join("");
+}
+const priceHtml = p => p ? `<span class="price">${tr("from")} ${p} €<small> / ${tr("night")}</small></span>` : "";
+function card(r){
+  const book = r.book ? `<a class="btn btn-em btn-sm" href="${r.book}${bookLang()}" target="_blank" rel="noopener">${tr("b_online")}</a>`
+                      : `<a class="btn btn-em btn-sm" href="#rezervacija" data-pick="${r.id}">${tr("b_bookshort")}</a>`;
+  return `<article class="rcard">
+    <a class="rph" href="#${C.itemSheet}-${r.id}" aria-label="${L(r.name)}">${imgTag(r.photos[0], 900, 675, "", r.fb)}${r.tag ? `<span class="rtag">${L(r.tag)}</span>` : ""}${r.photos.length > 1 ? `<span class="rcount">${icon("grid")}${r.photos.length}</span>` : ""}</a>
+    <div class="rbody"><h3>${L(r.name)}</h3>${r.sub ? `<p class="rsub">${L(r.sub)}</p>` : ""}<div class="specs">${specs(r)}</div>${r.short ? `<p class="rdesc">${L(r.short)}</p>` : ""}
+      <div class="rfoot">${priceHtml(r.price)}<a class="btn btn-line btn-sm" href="#${C.itemSheet}-${r.id}">${tr(C.mode === "props" ? "b_see" : "b_details")}</a>${book}</div>
+    </div></article>`;
+}
+function renderCards(){ $("#r-grid").innerHTML = ITEMS.map(card).join(""); }
+RENDER.push(renderCards);
+
+function unitHtml(u, r){
+  const sp = [u.size ? `<span>${icon("area")}${u.size}</span>` : "", u.guests ? `<span>${icon("users")}${L(u.guests)}</span>` : "", u.extra ? `<span>${icon("check")}${L(u.extra)}</span>` : ""].join("");
+  return `<li class="unit"><h3>${L(u.name)}</h3>${sp ? `<div class="specs">${sp}</div>` : ""}${u.desc ? `<p>${L(u.desc)}</p>` : ""}
+    <div class="rfoot">${priceHtml(u.price)}<a class="btn btn-em btn-sm" href="${r.unitBase}${u.id}${bookLang()}" target="_blank" rel="noopener">${tr("b_online")}</a></div></li>`;
+}
+HOOK[C.itemSheet] = arg => {
+  const r = byId(arg) || ITEMS[0];
+  const photos = r.photos.map((p, i) => `<button type="button" data-ph="${i}" aria-label="${i + 1}">${imgTag(p, 1100, 733, "", i === 0 ? r.fb : "")}</button>`).join("");
+  const amen = (r.amen || []).map(a => `<li>${icon(C.amen[a].i)}${L(C.amen[a].t)}</li>`).join("");
+  const box = r.units
+    ? `<aside class="rs-box"><h3>${tr("book_direct")}</h3><p class="rdesc">${tr("book_direct_p")}</p><a class="btn btn-gold" href="${r.book}${bookLang()}" target="_blank" rel="noopener">${icon("cal")}${tr("b_online")}</a></aside>`
+    : `<aside class="rs-box"><h3>${tr("in_room")}</h3><ul class="alist">${amen}</ul><a class="btn btn-gold" href="#rezervacija" data-pick="${r.id}">${icon("cal")}${tr("b_bookthis")}</a></aside>`;
+  $("#item-body").innerHTML = `<h2 class="sheet-title">${L(r.name)}</h2>${r.sub ? `<p class="sheet-lead">${L(r.sub)}</p>` : ""}
+    <div class="rs-photos" id="rs-photos">${photos}</div>
+    <div class="rs-info"><div><div class="specs">${specs(r, true)}</div>${priceHtml(r.price) ? `<p style="margin-top:14px">${priceHtml(r.price)}</p>` : ""}<p class="rs-desc">${L(r.desc)}</p></div>${box}</div>
+    ${r.units ? `<h3 style="font-size:clamp(1.9rem,5vw,2.5rem);margin-top:40px">${tr("units_t")}</h3><ul class="units">${r.units.map(u => unitHtml(u, r)).join("")}</ul>` : ""}`;
+  $("#rs-photos").addEventListener("click", e => { const b = e.target.closest("[data-ph]"); if (b) openViewer(r.photos.map(p => ({ p, cap: r.name })), +b.dataset.ph); });
+};
+RENDER.push(() => { const d = $("#s-" + C.itemSheet); if (d.open) HOOK[C.itemSheet](d.dataset.arg); });
+
+/* services photo cards open the viewer */
+const sg = $("#s-grid");
+if (sg) sg.addEventListener("click", e => { const b = e.target.closest("[data-svc]"); if (b) openViewer(C.services, +b.dataset.svc); });
+
+/* booking request: opens the guest's email app, nothing is stored */
+function fillBooking(){
+  const room = $("#b-room"), cur = room.value;
+  room.innerHTML = `<option value="">${tr("f_any")}</option>` + ITEMS.map(r => `<option value="${r.id}">${L(r.name)}</option>`).join("");
+  room.value = cur;
+  const ad = $("#b-ad"), ch = $("#b-ch");
+  ad.innerHTML = opts(C.maxAd, 1, ad.value || 2); ch.innerHTML = opts(5, 0, ch.value || 0);
+  if (C.online) $("#b-online").innerHTML = C.online.map(o => `<a href="${o.href}${bookLang()}" target="_blank" rel="noopener"><span><b>${L(o.name)}</b><small>${L(o.sub)}</small></span><span class="go">${tr("b_online")} ›</span></a>`).join("");
+}
+RENDER.push(fillBooking);
+PICK = id => { fillBooking(); $("#b-room").value = id; };
+const bIn = $("#b-in"), bOut = $("#b-out");
+bIn.min = today(); bOut.min = addDays(today(), 1);
+bIn.addEventListener("change", () => { if (!bIn.value) return; bOut.min = addDays(bIn.value, 1); if (!bOut.value || bOut.value <= bIn.value) bOut.value = addDays(bIn.value, 3); });
+$("#b-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  if (!v("#b-name") || !v("#b-in") || !v("#b-out")) { $("#b-err").hidden = false; return; }
+  $("#b-err").hidden = true;
+  const room = $("#b-room"), roomTxt = room.options[room.selectedIndex].text;
+  const lines = [tr("m_hi"), "", tr("m_ask"), "",
+    `${tr("f_in")}: ${fmtDate(v("#b-in"))}`, `${tr("f_out")}: ${fmtDate(v("#b-out"))}`,
+    `${tr("f_ad")}: ${v("#b-ad")}`, `${tr("f_ch")}: ${v("#b-ch")}`, `${tr("room_label")}: ${roomTxt}`, "",
+    `${tr("f_name")}: ${v("#b-name")}`];
+  if (v("#b-contact")) lines.push(`${tr("f_contact")}: ${v("#b-contact")}`);
+  if (v("#b-note")) lines.push(`${tr("f_note").replace(/\s*\(.*\)/, "")}: ${v("#b-note")}`);
+  lines.push("", tr("m_bye"));
+  sendRequest("mail", `${tr("m_subj")}: ${fmtDate(v("#b-in"))} – ${fmtDate(v("#b-out"))}`, lines);
+});
+
+$$("img[data-p]:not([src])").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0, i.dataset.x));
+renderGallery();
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem(C.slug + "-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+
+</script>
+</body>
+</html>
