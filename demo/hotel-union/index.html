@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hotel Union i New Star · Podgorica (demo)</title>
+<meta name="description" content="Hotel Union i sestrinski hotel New Star, četiri zvjezdice u centru Podgorice: renovirane sobe, restoran, besplatna garaža i online rezervacija. Demo koncept sajta, MakeSiteFor.me.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F2833">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+  document.documentElement.classList.add('js');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext,cyrillic" rel="stylesheet">
+<style>
+:root{
+  --c1:#1F2833;
+  --c2:#2C3644;
+  --c3:#151B23;
+  --a1:#B9A07A;
+  --a2:#E4D6BE;
+  --a-ink:#866A41;
+  --g1:#D3BE98;
+  --g2:#A98C60;
+  --g-rgb:169,140,96;
+  --on-a:#1B150C;
+  --bg:#F7F5F1;
+  --bg2:#EDE8E0;
+  --card:#FFFFFF;
+  --ink:#1A1E25;
+  --muted:#545963;
+  --faint:#82868E;
+  --line:rgba(26,30,37,.12);
+  --line-2:rgba(26,30,37,.24);
+  --on-dark:#F4F1EA;
+  --on-dark-2:rgba(244,241,234,.76);
+  --on-dark-line:rgba(244,241,234,.18);
+  --shade:14,18,24;
+  --ph:#2C3644 linear-gradient(135deg,#36404e,#161c25);
+  --top-solid:rgba(247,245,241,.96);
+  --f-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --f-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --rmin:260px;
+  --wrap:1200px; --gut:24px; --r:18px; --hh:72px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.caps{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:500;line-height:1.04;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--a-ink)}
+p{margin:0}
+.eyebrow{color:var(--a-ink);display:inline-flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.center{text-align:center}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+.center .eyebrow::after,.eyebrow.center::after{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow,.dark h2 em{color:var(--a2)}
+.ph{background:var(--ph)}
+.ico{width:19px;height:19px;flex:none}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-sans);transition:background .25s,color .25s,border-color .25s,box-shadow .25s;text-align:center;line-height:1.2}
+.btn-gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a);box-shadow:0 10px 30px -12px rgba(var(--g-rgb),.7)}
+.btn-gold:hover{box-shadow:0 14px 34px -10px rgba(var(--g-rgb),.95)}
+.btn-em{background:var(--c1);color:var(--on-dark)}
+.btn-em:hover{background:var(--c3)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-glass{background:rgba(var(--shade),.38);color:var(--on-dark);border-color:rgba(255,255,255,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(var(--shade),.62)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:.86rem;gap:8px}
+
+.demo{position:relative;z-index:31;background:var(--c3);color:var(--on-dark-2);font-size:.74rem;text-align:center;padding:6px var(--gut);line-height:1.45}
+.demo a{color:var(--a2);text-decoration:underline;text-underline-offset:2px}
+
+.top{position:sticky;top:0;z-index:30;height:var(--hh);color:var(--on-dark);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:var(--top-solid);color:var(--ink);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:100%}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--f-serif);font-weight:600;font-size:1.05rem;letter-spacing:.02em}
+.brand-t{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-t small{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a2);font-weight:700;margin-bottom:5px;white-space:nowrap}
+.top.solid .brand-t small{color:var(--a-ink)}
+.brand-t b{font-family:var(--f-serif);font-weight:600;font-size:1.32rem;letter-spacing:var(--brand-ls,.14em);text-transform:uppercase;white-space:nowrap}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.04em;opacity:.86}
+.nav a:hover{opacity:1}
+.langs{display:flex;border:1px solid currentColor;border-radius:999px;padding:3px;flex:none}
+.langs button{border:0;background:none;color:inherit;font:700 .7rem/1 var(--f-sans);letter-spacing:.1em;padding:8px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--a1);color:var(--on-a)}
+.top .btn{min-height:42px;padding:0 20px;font-size:.84rem}
+
+.hero{position:relative;margin-top:calc(-1 * var(--hh));color:var(--on-dark);background:var(--c3);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--shade),.62) 0%,rgba(var(--shade),.16) 34%,rgba(var(--shade),.26) 60%,rgba(var(--shade),.86) 100%)}
+.hero-in{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--hh) + 40px);padding-bottom:56px}
+.hero .eyebrow{color:var(--a2)}
+.hero h1{font-size:clamp(3.4rem,12vw,8rem);font-weight:500;line-height:.95;text-shadow:0 2px 40px rgba(0,0,0,.25)}
+.hero h1 em{color:var(--a2)}
+.hero-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.35rem,3.4vw,1.9rem);line-height:1.3;margin-top:16px;max-width:32ch;color:#FFFDF8}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%;max-width:500px;margin-top:34px}
+.hero-btns .btn{min-height:54px;padding:0 12px;font-size:.92rem}
+.hero-btns .btn-gold{grid-column:1 / -1;min-height:62px;font-size:1.08rem}
+.hero-meta{display:flex;gap:10px 0;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.84rem;color:var(--on-dark-2);letter-spacing:.04em}
+.hero-meta span{display:inline-flex;align-items:center}
+.hero-meta span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--a1);margin:0 14px}
+.dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:26px;height:3px;border:0;border-radius:2px;background:rgba(255,255,255,.35);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--a2)}
+
+.stats{background:var(--c1);color:var(--on-dark)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{padding:34px 18px;text-align:center}
+.stat+.stat{border-left:1px solid var(--on-dark-line)}
+.stat b{display:block;font-family:var(--f-serif);font-weight:500;font-size:clamp(2.4rem,5.6vw,3.6rem);line-height:1;color:var(--a2);white-space:nowrap}
+.stat span{display:block;margin-top:8px;font-size:.84rem;color:var(--on-dark-2);line-height:1.35}
+
+.sec{padding-block:clamp(72px,11vw,140px)}
+.sec.tint{background:var(--bg2)}
+.head{max-width:720px;margin:0 auto clamp(36px,6vw,60px)}
+.head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+.dark{background:var(--c3);color:var(--on-dark)}
+.dark .head p{color:var(--on-dark-2)}
+
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,96px);align-items:center}
+.intro-text p.lead{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:46ch}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;align-items:start}
+.feats .fi{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--bg2);color:var(--a-ink)}
+.feats .fi svg{width:21px;height:21px}
+.feats h3{font-size:1.5rem;font-weight:600}
+.feats p{margin-top:2px;color:var(--muted);font-size:.97rem}
+.award{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 16px;border-radius:999px;border:1px solid var(--line-2);font-size:.86rem;font-weight:700}
+.award .ico{color:var(--a-ink)}
+.intro-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;padding:0 0 56px 56px}
+.collage .c1{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 80px -40px rgba(var(--shade),.55)}
+.collage .c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);border:8px solid var(--bg);box-shadow:0 30px 60px -30px rgba(var(--shade),.6)}
+.collage .badge{position:absolute;right:-14px;top:28px;width:118px;height:118px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a);display:grid;place-items:center;text-align:center;font-family:var(--f-serif);line-height:1;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{display:block;font-size:2.3rem;font-weight:600}
+.badge span{display:block;font-family:var(--f-sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-top:4px}
+
+/* room and property cards */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--rmin,300px),1fr));gap:24px}
+.rcard{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -36px rgba(var(--shade),.65)}
+.rph{position:relative;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;padding:0;border:0;background:var(--ph);cursor:pointer}
+.rph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.rcard:hover .rph img{transform:scale(1.04)}
+.rtag{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.94);color:#141414;font:700 .72rem/1 var(--f-sans);letter-spacing:.04em;border-radius:999px;padding:8px 12px}
+.rcount{position:absolute;right:14px;bottom:14px;background:rgba(var(--shade),.7);color:#fff;font:700 .72rem/1 var(--f-sans);border-radius:999px;padding:7px 11px;display:inline-flex;gap:6px;align-items:center}
+.rcount .ico{width:14px;height:14px}
+.rbody{flex:1;display:flex;flex-direction:column;padding:20px 22px 22px}
+.rbody h3{font-size:1.65rem;font-weight:600;line-height:1.08}
+.rsub{margin-top:6px;color:var(--a-ink);font-size:.86rem;font-weight:700}
+.specs{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;color:var(--muted);font-size:.88rem}
+.specs span{display:inline-flex;align-items:center;gap:6px}
+.specs .ico{width:16px;height:16px;color:var(--a-ink)}
+.rdesc{margin-top:10px;color:var(--muted);font-size:.95rem}
+.rfoot{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.price{font-family:var(--f-serif);font-size:1.55rem;font-weight:600;margin-right:auto;line-height:1.1}
+.price small{font-family:var(--f-sans);font-size:.76rem;color:var(--faint);font-weight:600}
+.sec-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:40px}
+
+/* service photo cards */
+.s-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.scard{position:relative;display:flex;align-items:flex-end;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;color:#fff;isolation:isolate;background:var(--ph);padding:0;border:0;font:inherit;text-align:left;cursor:zoom-in}
+.scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s ease}
+.scard:hover img{transform:scale(1.04)}
+.scard::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--shade),0) 40%,rgba(var(--shade),.88) 100%)}
+.scard span{display:block;padding:20px 20px 22px}
+.scard b{display:block;font-family:var(--f-serif);font-weight:600;font-size:1.6rem;line-height:1.1}
+.scard small{display:block;margin-top:6px;font-size:.88rem;line-height:1.45;color:rgba(255,255,255,.84)}
+
+/* icon tiles */
+.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.amen li{list-style:none;display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:16px;padding:18px;border:1px solid var(--line)}
+.amen{margin:0;padding:0}
+.amen .fi{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--bg2);color:var(--a-ink)}
+.amen b{display:block;font-size:.98rem;line-height:1.3}
+.amen small{display:block;margin-top:3px;color:var(--muted);font-size:.86rem;line-height:1.45}
+.dark .amen li{background:rgba(255,255,255,.05);border-color:var(--on-dark-line)}
+.dark .amen small{color:var(--on-dark-2)}
+.dark .amen .fi{background:rgba(255,255,255,.08);color:var(--a2)}
+
+/* offers */
+.o-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.ocard{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);padding:24px 22px 22px;border-top:3px solid var(--a1);box-shadow:0 24px 50px -40px rgba(var(--shade),.6)}
+.ocard .big{font-family:var(--f-serif);font-size:2.9rem;line-height:1;color:var(--a-ink);font-weight:600}
+.ocard h3{font-size:1.45rem;font-weight:600;margin-top:10px}
+.ocard p{margin-top:8px;color:var(--muted);font-size:.93rem}
+.ocard .btn{margin-top:auto;align-self:flex-start}
+.ocard p+.btn{margin-top:18px}
+
+.place{position:relative;min-height:min(88vh,800px);display:flex;align-items:flex-end;color:var(--on-dark);isolation:isolate;overflow:hidden;background:var(--c3)}
+.place > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(var(--shade),.82) 0%,rgba(var(--shade),.38) 55%,rgba(var(--shade),.08) 100%)}
+.place .wrap{width:100%;padding-block:clamp(64px,10vw,120px)}
+.place-card{max-width:540px}
+.place-card .eyebrow{color:var(--a2)}
+.place-card h2 em{color:var(--a2)}
+.place-card p{margin-top:18px;color:var(--on-dark-2);font-size:1.1rem}
+.place-card .btn{margin-top:28px}
+
+.g-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+.g-grid button{padding:0;border:0;background:var(--ph);cursor:zoom-in;border-radius:14px;overflow:hidden;position:relative}
+.g-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g-grid button:hover img{transform:scale(1.04)}
+.g-grid button:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+.bookband{position:relative;color:var(--on-dark);text-align:center;isolation:isolate;overflow:hidden;background:var(--c3)}
+.bookband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.bookband::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(var(--shade),.66)}
+.bookband .wrap{padding-block:clamp(80px,12vw,150px)}
+.bookband .eyebrow{color:var(--a2)}
+.bookband h2 em{color:var(--a2)}
+.bookband p{margin:16px auto 0;color:var(--on-dark-2);font-size:1.1rem;max-width:46ch}
+.bb-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.c-list{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 24px}
+.c-list dt{color:var(--a-ink)}
+.c-list dd{margin:5px 0 0;font-size:1.04rem;overflow-wrap:anywhere}
+.c-list dd a{font-weight:700;text-decoration:none}
+.c-list .wide{grid-column:1 / -1}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.c-note{margin-top:16px;color:var(--faint);font-size:.9rem}
+.map{border:0;width:100%;height:100%;min-height:380px;border-radius:var(--r);background:var(--bg2)}
+
+.foot{background:var(--c3);color:var(--on-dark-2);padding-block:56px 40px;font-size:.88rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-t small{color:var(--a2)}
+.foot p{margin-top:16px}
+.social{display:flex;gap:20px;flex-wrap:wrap}
+.social a{color:var(--on-dark);text-decoration:none;font-weight:700}
+.social a:hover{color:var(--a2)}
+.foot .made{grid-column:1 / -1;border-top:1px solid var(--on-dark-line);padding-top:18px;font-size:.78rem}
+.foot .made a{color:var(--a2)}
+
+dialog.sheet{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bg);color:var(--ink)}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:var(--bg)}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);padding-top:max(10px,env(safe-area-inset-top));background:var(--c1);color:var(--on-dark)}
+.home{display:flex;align-items:center;gap:10px;min-width:0;padding:4px 10px 4px 0;border:0;border-radius:999px;background:none;color:var(--on-dark);font:inherit;text-align:left;cursor:pointer}
+.home .brand-t small{color:var(--a2)}
+.home:hover .seal{border-color:var(--a2);color:var(--a2)}
+.home-arrow{font-size:1.9rem;line-height:1;color:var(--a2);margin-top:-3px}
+.x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(255,255,255,.08);color:var(--on-dark);font-size:1.45rem;line-height:1;cursor:pointer}
+.x:hover{border-color:var(--a2)}
+.sheet-body:focus{outline:none}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+.sheet-title{font-size:clamp(2.3rem,7vw,3.4rem);padding-top:26px}
+.sheet-lead{color:var(--muted);padding-top:12px;font-family:var(--f-serif);font-style:italic;font-size:1.3rem;line-height:1.35}
+.sheet-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.story{max-width:760px;margin-inline:auto}
+.story .sheet-title{margin-bottom:22px}
+.story > img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
+.story h3{font-size:clamp(1.9rem,5vw,2.5rem);margin-top:32px}
+.story p{margin-top:14px;color:var(--muted);font-size:1.05rem;line-height:1.75}
+
+.rs-photos{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px calc(-1 * var(--gut)) 0;padding:0 var(--gut) 6px;scrollbar-width:thin}
+.rs-photos button{flex:0 0 min(84%,620px);aspect-ratio:3/2;scroll-snap-align:start;border-radius:14px;overflow:hidden;padding:0;border:0;cursor:zoom-in;background:var(--ph)}
+.rs-photos img{width:100%;height:100%;object-fit:cover}
+.rs-info{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);margin-top:28px;align-items:start}
+.rs-info .specs{font-size:.95rem;gap:10px 20px;margin-top:0}
+.rs-desc{margin-top:16px;color:var(--muted);font-size:1.05rem;line-height:1.7}
+.rs-box{background:var(--card);border-radius:var(--r);padding:22px 22px 24px;border:1px solid var(--line)}
+.rs-box h3{font-size:1.5rem;font-weight:600;margin-bottom:14px}
+.alist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.alist li{display:flex;gap:9px;align-items:center;font-size:.93rem;line-height:1.3}
+.alist .ico{width:18px;height:18px;color:var(--a-ink)}
+.rs-box .btn{width:100%;margin-top:20px}
+.units{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.unit{display:flex;flex-direction:column;background:var(--card);border-radius:16px;padding:18px 20px 18px;border:1px solid var(--line)}
+.unit h3{font-size:1.4rem;font-weight:600;line-height:1.12}
+.unit p{margin-top:6px;color:var(--muted);font-size:.93rem}
+.unit .specs{margin-top:8px}
+.unit .rfoot{padding-top:14px}
+
+.book{max-width:680px;margin-inline:auto}
+.call-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1.15rem;margin-top:18px}
+.call-2{display:block;text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem}
+.call-2 a{font-weight:700}
+.or{display:flex;align-items:center;gap:14px;color:var(--faint);margin:28px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.res-form{display:grid;gap:14px;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px;width:100%;min-width:0;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+input[type=date],input[type=time]{min-height:50px}
+textarea{min-height:80px;resize:vertical}
+.hint{color:var(--faint);font-size:.84rem}
+.err{color:#A3301E;font-size:.88rem;font-weight:600}
+.f-btns{display:grid;gap:10px}
+.online{display:grid;gap:10px;margin-top:20px}
+.online a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:16px;background:var(--card);border:1px solid var(--line-2);text-decoration:none}
+.online a:hover{border-color:var(--ink)}
+.online b{font-family:var(--f-serif);font-size:1.45rem;font-weight:600;line-height:1.1}
+.online small{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
+.online .go{flex:none;font-weight:800;color:var(--a-ink);font-size:.9rem;white-space:nowrap}
+
+dialog.viewer{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#0B0C0E;color:#F4F1EA}
+dialog.viewer[open]{display:flex;flex-direction:column}
+dialog.viewer::backdrop{background:#0B0C0E}
+.v-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.v-count{font-size:.85rem;color:rgba(244,241,234,.72);letter-spacing:.08em}
+.v-x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
+.v-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 64px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+.v-prev{left:12px}.v-next{right:12px}
+.v-cap{text-align:center;padding:16px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));min-height:40px}
+.v-cap h4{font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1}
+body.locked{overflow:hidden}
+
+.mbar{display:none}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .intro,.contact-grid,.rs-info{grid-template-columns:minmax(0,1fr)}
+  .collage{max-width:560px}
+  .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:180px}
+  .units{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  :root{--gut:18px;--hh:62px}
+  .top .wrap{gap:12px}
+  .seal{width:38px;height:38px;font-size:.92rem}
+  .brand-t b{font-size:1.04rem;letter-spacing:var(--brand-ls-m,.08em)}
+  .brand-t small{font-size:.5rem;letter-spacing:.24em}
+  .top .btn{display:none}
+  .langs{margin-left:auto}
+  .langs button{padding:8px}
+  .hero-in{padding-bottom:84px}
+  .hero .eyebrow{font-size:.64rem;letter-spacing:.18em}
+  .hero .eyebrow::before,.hero .eyebrow::after{display:none}
+  .dots{display:none}
+  .hero-btns .btn{font-size:.84rem;padding:0 8px;gap:7px}
+  .hero-btns .ico{width:17px;height:17px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .hero-meta{flex-direction:column;align-items:center;gap:4px}
+  .hero-meta span+span::before{display:none}
+  .eyebrow{letter-spacing:.2em}
+  .eyebrow::before,.center .eyebrow::after,.eyebrow.center::after{width:22px}
+  .stat{padding:24px 10px}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--on-dark-line)}
+  .collage{padding:0 0 40px 28px}
+  .collage .badge{width:92px;height:92px;right:-6px;top:16px}
+  .badge b{font-size:1.8rem}
+  .r-grid,.s-grid,.o-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .r-grid::-webkit-scrollbar,.s-grid::-webkit-scrollbar,.o-grid::-webkit-scrollbar{display:none}
+  .r-grid > *{flex:0 0 86%;scroll-snap-align:center}
+  .s-grid > *{flex:0 0 72%;scroll-snap-align:center}
+  .o-grid > *{flex:0 0 78%;scroll-snap-align:center}
+  .swipe{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--faint);font-size:.8rem;margin-top:2px}
+  .place{min-height:auto}
+  .place .wrap{padding-top:300px}
+  .place::before{background:linear-gradient(180deg,rgba(var(--shade),.05) 0%,rgba(var(--shade),.55) 45%,rgba(var(--shade),.9) 100%)}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}
+  .g-grid button:nth-child(n+8){display:none}
+  .amen{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  .amen li{flex-direction:column;gap:10px;padding:14px}
+  .map{min-height:260px}
+  .alist{grid-template-columns:minmax(0,1fr)}
+  .v-stage{padding:0}
+  .v-nav{top:auto;bottom:-6px;transform:none;width:44px;height:44px}
+  .foot .wrap{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--c3);padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;color:var(--on-dark);text-decoration:none;font-weight:700;font-size:.9rem}
+  .mbar a+a{border-left:1px solid var(--on-dark-line)}
+  .mbar a:first-child{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a)}
+  .mbar .ico{width:17px;height:17px}
+}
+@media (min-width:641px){.swipe{display:none}}
+@media (max-width:389px){
+  .seal{width:34px;height:34px;font-size:.84rem}
+  .brand{gap:9px}
+  .brand-t b{font-size:.92rem;letter-spacing:.05em}
+  .langs button{padding:7px 6px}
+}
+
+
+body{font-size:17px}
+.hero-in{padding-bottom:120px}
+.dots{bottom:86px}
+.qbar{position:relative;z-index:3;background:var(--c1)}
+.qb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:12px;align-items:end;background:var(--card);border-radius:20px;padding:18px 18px 18px 22px;margin-top:-64px;box-shadow:0 30px 60px -30px rgba(var(--shade),.55)}
+.qb .btn{min-height:50px}
+.hotels{background:var(--bg)}
+.h-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.hcard{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -44px rgba(var(--shade),.6)}
+.hph{position:relative;aspect-ratio:16/10;background:var(--ph)}
+.hph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hstar{position:absolute;left:16px;top:16px;background:rgba(255,255,255,.94);color:var(--a-ink);font:700 .78rem/1 var(--f-sans);letter-spacing:.18em;border-radius:999px;padding:8px 12px}
+.hbody{flex:1;display:flex;flex-direction:column;padding:26px 28px 28px}
+.hbody h3{font-size:2.2rem;font-weight:600}
+.haddr{display:flex;gap:8px;align-items:center;margin-top:8px;color:var(--muted);font-size:.95rem}
+.haddr .ico,.hlist .ico{width:17px;height:17px;color:var(--a-ink)}
+.hlist{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.hlist li{display:flex;gap:10px;align-items:flex-start;line-height:1.4}
+.hlist .ico{margin-top:3px}
+.hbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:24px}
+.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:-16px 0 28px}
+.chips button{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);background:transparent;color:var(--ink);font:700 .88rem/1 var(--f-sans);padding:12px 16px;border-radius:999px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--c1);border-color:var(--c1);color:var(--on-dark)}
+.chips small{font-size:.74rem;opacity:.7}
+
+.bk{max-width:880px;margin-inline:auto}
+.bk-steps{list-style:none;margin:24px 0 26px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.bk-steps li{position:relative}
+.bk-steps li+li::before{content:"";position:absolute;top:17px;right:calc(50% + 22px);width:calc(100% - 38px);height:1px;background:var(--line-2)}
+.bk-steps li > *{display:flex;flex-direction:column;align-items:center;gap:7px;width:100%;padding:0;border:0;background:none;font:inherit;color:var(--faint);text-align:center}
+.bk-steps button{cursor:pointer}
+.bk-steps b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);background:var(--card);font:700 .9rem/1 var(--f-sans)}
+.bk-steps li > * > span{font-size:.78rem;font-weight:700;letter-spacing:.03em;line-height:1.2}
+.bk-steps .now > *{color:var(--ink)}
+.bk-steps .now b{background:var(--c1);border-color:var(--c1);color:var(--on-dark)}
+.bk-steps .done > *{color:var(--a-ink)}
+.bk-steps .done b{background:var(--bg2);border-color:var(--a1)}
+.bk-steps .ico{width:16px;height:16px}
+.bk-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;background:var(--bg2);border-radius:999px;padding:5px;margin-bottom:16px}
+.bk-seg button{min-height:46px;border:0;border-radius:999px;background:none;color:var(--muted);font:700 .9rem/1.15 var(--f-sans);padding:0 8px;cursor:pointer}
+.bk-seg button[aria-pressed=true]{background:var(--card);color:var(--ink);box-shadow:0 6px 16px -10px rgba(var(--shade),.6)}
+#bk-view > .row2{margin-top:12px}
+.bk-picked{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--a1);border-radius:14px;padding:10px 10px 10px 14px;margin-bottom:4px;font-size:.95rem}
+.bk-picked .ico{color:var(--a-ink)}
+.bk-picked span{flex:1}
+.bk-picked button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);background:none;font-size:1.2rem;line-height:1;cursor:pointer;color:var(--muted)}
+.bk-nights{margin-top:14px;min-height:1.6em;font-family:var(--f-serif);font-size:1.5rem;color:var(--a-ink)}
+.bk-go{width:100%;min-height:60px;margin-top:16px;font-size:1.05rem}
+.bk-sum{display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-weight:600;font-size:.95rem}
+.bk-edit{border:0;background:none;padding:6px 0;color:var(--a-ink);font:700 .88rem/1 var(--f-sans);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.bk-note{margin-top:12px;color:var(--muted);font-size:.95rem}
+.bk-rooms{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
+.bk-room{display:grid;grid-template-columns:230px minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.bk-room.on{border-color:var(--a1);box-shadow:0 0 0 1px var(--a1)}
+.bk-ph{position:relative;padding:0;border:0;background:var(--ph);cursor:pointer;min-height:170px;overflow:hidden}
+.bk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bk-rb{display:flex;flex-direction:column;padding:16px 18px}
+.bk-h{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--a-ink)}
+.bk-rb h3,.bk-cb h3{font-size:1.55rem;font-weight:600;margin-top:4px}
+.bk-rf{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
+.bk-incl{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.86rem}
+.bk-incl .ico{width:16px;height:16px;color:var(--a-ink)}
+.bk-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:start}
+.bk-grid .res-form{margin-top:0}
+.bk-card{position:sticky;top:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.bk-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--ph)}
+.bk-cb{padding:18px 20px 16px}
+.bk-dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:16px 0 0}
+.bk-dl dt{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--faint)}
+.bk-dl dd{margin:4px 0 0;font-weight:700}
+.bk-dl small{display:block;color:var(--muted);font-weight:500;font-size:.84rem}
+.bk-perks{list-style:none;margin:16px 0 6px;padding:14px 0 0;border-top:1px solid var(--line);display:grid;gap:8px}
+.bk-perks li{display:flex;align-items:center;gap:9px;font-size:.93rem}
+.bk-perks .ico{width:17px;height:17px;color:var(--a-ink)}
+.bk-done{max-width:560px;margin:8px auto 0;text-align:center}
+.bk-ok{width:76px;height:76px;margin:0 auto;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-a)}
+.bk-ok .ico{width:34px;height:34px}
+.bk-done h3{font-size:clamp(2.1rem,6vw,2.9rem);margin-top:18px}
+.bk-ref{margin-top:10px;color:var(--muted)}
+.bk-ref b{color:var(--ink);letter-spacing:.06em}
+.bk-done > p:not(.bk-ref){margin-top:12px;color:var(--muted)}
+.bk-mini{display:grid;gap:4px;margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.95rem}
+.bk-btns{display:grid;gap:10px;margin-top:22px}
+.bk-call{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.95rem}
+.bk-call a{color:var(--ink);font-weight:700;text-decoration:none;white-space:nowrap}
+
+@media (max-width:980px){
+  .qb{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qb .btn{grid-column:1 / -1}
+}
+@media (max-width:820px){
+  .bk-grid{grid-template-columns:minmax(0,1fr)}
+  .bk-card{position:static;order:-1}
+  .bk-card img{display:none}
+}
+@media (max-width:640px){
+  .hero-in{padding-bottom:84px}
+  .qbar{padding-top:18px}
+  .qb{margin-top:0;padding:16px;border-radius:16px;gap:10px}
+  .h-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+  .hbody{padding:20px 20px 22px}
+  .hbody h3{font-size:1.9rem}
+  .chips{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:-12px calc(-1 * var(--gut)) 16px;padding:0 var(--gut);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips button{flex:none}
+  .bk-steps li > * > span{font-size:.68rem}
+  .bk-room{grid-template-columns:minmax(0,1fr)}
+  .bk-ph{aspect-ratio:16/10;min-height:0}
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></g></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></g></symbol>
+  <symbol id="i-area" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.6-3.4 3-5.3 6-5.3s5.4 1.9 6 5.3"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M18 14.6c1.6.7 2.7 2.4 3 4.9"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></g></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></g></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1.5-3 4-3 7v3h3"/></g></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16.5h14M3.5 16.5v-4l2-5.5h13l2 5.5v4"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="16.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/></g></symbol>
+  <symbol id="i-meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="11" rx="1.5"/><path d="M12 15v3M8 21l4-3 4 3"/></g></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".9" fill="currentColor"/></g></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V9l5-3v14.5M8.5 20.5V4h7v16.5M15.5 20.5V10l5 2.5v8M2.5 20.5h19M11 8h2M11 11.5h2M11 15h2"/></g></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M3 12a1.5 1.5 0 0 1 3 0v2h12v-2a1.5 1.5 0 0 1 3 0v5H3z"/><path d="M5 17v2M19 17v2"/></g></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></g></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 6l2.5-1.5M9.5 19.5 12 18l2.5 1.5"/></g></symbol>
+  <symbol id="i-minibar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M6 10h12M9 6.5v1.5M9 13v3"/></g></symbol>
+  <symbol id="i-safe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="15" rx="1.5"/><circle cx="12" cy="11.5" r="3"/><path d="M12 8.5v1M7 19v2M17 19v2"/></g></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></g></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v8H4zM4 10V7M20 10V7M8 10v8M12 10v8M16 10v8"/></g></symbol>
+  <symbol id="i-spa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-4.5 0-8-3-8-7 2.5 0 5 1 6.5 3M12 20c4.5 0 8-3 8-7-2.5 0-5 1-6.5 3M12 20c-2-2-3-4.5-3-7.5S10.5 6.5 12 4c1.5 2.5 3 5.5 3 8.5S14 18 12 20z"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.5V20M8.5 21h7M7.4 7.5h9.2"/></g></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></g></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5M2.5 14c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5M2.5 19c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 3-1.5"/></g></symbol>
+</svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></div>
+
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Hotel Union"><span class="seal">U</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Union</b></span></a>
+    <nav class="nav" aria-label="Meni"><a href="#hoteli" data-i18n="t1">Hoteli</a><a href="#sobe" data-i18n="t2">Sobe</a><a href="#restoran" data-i18n="t3">Restoran</a><a href="#kontakt" data-i18n="k_eye">Kontakt</a></nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="me" aria-pressed="true">ME</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="btn btn-gold" href="#rezervacija" data-i18n="b_book">Rezervišite</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="slides" id="slides">
+      <img class="on" data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24e9016d.jpg" data-w="2000" alt="" fetchpriority="high">
+      <img data-lazy="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/5f84ba4f.jpg" alt="">
+      <img data-lazy="images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/0eceea8c.jpg" alt="">
+    </div>
+    <div class="hero-in wrap">
+      <p class="eyebrow caps center" data-i18n="t5">Podgorica · centar grada</p>
+      <h1>Hotel <em>Union</em></h1>
+      <p class="hero-lead" data-i18n="t6">I sestrinski hotel New Star, 10 m dalje.</p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t7">Rezervišite online</span></a><a class="btn btn-glass" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t8">Sobe</span></a><a class="btn btn-glass" href="#restoran"><svg class="ico"><use href="#i-fork"/></svg><span data-i18n="t9">Restoran</span></a><a class="btn btn-glass" href="tel:+38220223888"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a><a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Union+Kralja+Nikole+110+Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a>
+      </div>
+      <p class="hero-meta"><span data-i18n="t4">Kralja Nikole 110, Podgorica</span><span>+382 20 223 888</span></p>
+    </div>
+    <div class="dots" id="dots" role="group" aria-label="Foto"></div>
+  </section>
+
+  <section class="qbar" aria-label="Online rezervacija">
+    <div class="wrap">
+      <form class="qb" id="qb" novalidate>
+        <label><span data-i18n="f_in">Dolazak</span><input type="date" id="q-in"></label>
+        <label><span data-i18n="f_out">Odlazak</span><input type="date" id="q-out"></label>
+        <label><span data-i18n="f_ad">Odrasli</span><select id="q-g"></select></label>
+        <label><span data-i18n="bk_hotel">Hotel</span><select id="q-h"></select></label>
+        <button class="btn btn-gold" type="submit"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="bk_check">Provjerite sobe</span></button>
+      </form>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Brojke"><div class="wrap"><div class="stat"><b>4★</b><span data-i18n="t10">dva hotela u centru</span></div><div class="stat"><b>32</b><span data-i18n="t11">sobe i apartmana u Unionu</span></div><div class="stat"><b>10 m</b><span data-i18n="t12">od Uniona do New Stara</span></div><div class="stat"><b>5 min</b><span data-i18n="t13">pješice do Sahat kule</span></div></div></section>
+
+  <section class="sec" id="ukratko">
+    <div class="wrap intro">
+      <div class="intro-text rv">
+        <p class="eyebrow caps" data-i18n="t22">O hotelu</p>
+        <h2 data-i18n="t23">U centru <em>Podgorice</em></h2>
+        <p class="lead" data-i18n="t24">Hotel sa četiri zvjezdice blizu centra grada i važnih mjesta. Osoblje je ljubazno i profesionalno, da se osjećate kao kod kuće.</p>
+        <ul class="feats"><li><span class="fi"><svg class="ico"><use href="#i-bed"/></svg></span><div><h3 data-i18n="t14">Novo renovirane sobe</h3><p data-i18n="t15">King size kreveti, TV ravnog ekrana, mini bar i sef. Dodatni kreveti na upit.</p></div></li><li><span class="fi"><svg class="ico"><use href="#i-fork"/></svg></span><div><h3 data-i18n="t16">Restoran i doručak</h3><p data-i18n="t17">Bogat doručak na švedskom stolu, a tokom dana italijanski specijaliteti.</p></div></li><li><span class="fi"><svg class="ico"><use href="#i-car"/></svg></span><div><h3 data-i18n="t18">Besplatna garaža</h3><p data-i18n="t19">Parking u podzemnoj garaži hotela, bez doplate.</p></div></li><li><span class="fi"><svg class="ico"><use href="#i-meet"/></svg></span><div><h3 data-i18n="t20">Konferencijska sala</h3><p data-i18n="t21">Za poslovne sastanke i druge događaje.</p></div></li></ul>
+        
+        <div class="intro-cta"><a class="btn btn-em" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t25">Sobe</span></a><a class="btn btn-line" href="#o-hotelima"><svg class="ico"><use href="#i-story"/></svg><span data-i18n="t26">Više o hotelima</span></a></div>
+      </div>
+      <div class="collage rv">
+        <img class="c1 ph" data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/0a3085d5.jpg" data-w="1000" data-h="1250" alt="" loading="lazy">
+        <img class="c2 ph" data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/725d5fe4.jpg" data-w="600" data-h="600" alt="" loading="lazy">
+        <div class="badge"><div><b>4★</b><span data-i18n="t27">hotel</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec hotels" id="hoteli">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="t77">Dva hotela</p>
+        <h2 data-i18n="t78">Union <em>i New Star</em></h2>
+        <p data-i18n="t79">Oba sa četiri zvjezdice, u Ulici Kralja Nikole, 10 metara jedan od drugog.</p>
+      </div>
+      <div class="h-grid"><article class="hcard rv">
+          <div class="hph"><img class="ph" data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/5f84ba4f.jpg" data-w="1100" data-h="690" alt="" loading="lazy"><span class="hstar">★★★★</span></div>
+          <div class="hbody">
+            <h3>Hotel Union</h3>
+            <p class="haddr"><svg class="ico"><use href="#i-pin"/></svg>Kralja Nikole 110, Podgorica</p>
+            <ul class="hlist"><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t69">32 novo renovirane sobe i apartmana</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t70">Restoran i konferencijska sala</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t71">Besplatna podzemna garaža</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t72">Prijava od 14:00, odjava do 12:00</span></li></ul>
+            <div class="hbtns"><a class="btn btn-line btn-sm" href="#sobe" data-filter="union"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="b_rooms">Sobe</span></a><a class="btn btn-em btn-sm" href="#rezervacija" data-pick="hotel:union"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_bookshort">Rezervišite</span></a></div>
+          </div>
+        </article><article class="hcard rv">
+          <div class="hph"><img class="ph" data-p="images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/bbe0f37b.jpg" data-w="1100" data-h="690" alt="" loading="lazy"><span class="hstar">★★★★</span></div>
+          <div class="hbody">
+            <h3>Hotel New Star</h3>
+            <p class="haddr"><svg class="ico"><use href="#i-pin"/></svg>Kralja Nikole 106, Podgorica</p>
+            <ul class="hlist"><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t73">10 m od Hotela Union</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t74">Sobe od 28 do 40 m²</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t75">Restoran, bar i stolovi napolju</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-i18n="t76">Prijava od 12:00, odjava do 12:00</span></li></ul>
+            <div class="hbtns"><a class="btn btn-line btn-sm" href="#sobe" data-filter="newstar"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="b_rooms">Sobe</span></a><a class="btn btn-em btn-sm" href="#rezervacija" data-pick="hotel:newstar"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_bookshort">Rezervišite</span></a></div>
+          </div>
+        </article></div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="sobe">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="t28">Smještaj</p>
+        <h2 data-i18n="t29">Sobe <em>i apartmani</em></h2>
+        <p data-i18n="t30">Deset vrsta soba u dva hotela.</p>
+      </div>
+      <div class="r-grid" id="r-grid"></div>
+      <p class="swipe" data-i18n="swipe">Prevucite za još</p>
+    </div>
+  </section>
+
+
+  <section class="sec" id="restoran">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="t39">Restoran i usluge</p>
+        <h2 data-i18n="t40">Doručak, ručak <em>i večera</em></h2>
+        <p data-i18n="t41">Nacionalna i internacionalna kuhinja. Preporučujemo italijanske specijalitete.</p>
+      </div>
+      <div class="s-grid" id="s-grid"><button type="button" class="scard" data-svc="0"><img data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24e9016d.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t31">Restoran Union</b><small data-i18n="t32">Na prvom spratu: doručak na švedskom stolu, ručak i večera.</small></span></button><button type="button" class="scard" data-svc="1"><img data-p="images.trvl-media.com/lodging/10000000/9770000/9763000/9762918/fc0f4808.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t33">Bar New Star</b><small data-i18n="t34">Kafa i piće u hotelu New Star.</small></span></button><button type="button" class="scard" data-svc="2"><img data-p="images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/0eceea8c.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t35">Napolju</b><small data-i18n="t36">Stolovi na otvorenom u hotelu New Star.</small></span></button><button type="button" class="scard" data-svc="3"><img data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/725d5fe4.jpg" data-w="700" data-h="875" alt="" loading="lazy"><span><b data-i18n="t37">Recepcija 24/7</b><small data-i18n="t38">Brza prijava i odjava, čuvanje prtljaga.</small></span></button></div>
+      <p class="swipe" data-i18n="swipe">Prevucite za još</p>
+    </div>
+  </section>
+
+  <section class="sec" id="galerija">
+    <div class="wrap">
+      <div class="head center rv">
+        <p class="eyebrow caps" data-i18n="gal_eye">Galerija</p>
+        <h2 data-i18n="t42">Hoteli <em>iznutra</em></h2>
+      </div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow caps" data-i18n="k_eye">Kontakt</p>
+        <h2 data-i18n="t50">Recepcija <em>0–24</em></h2>
+        <dl class="c-list"><div class="wide"><dt class="caps" data-i18n="t43">Hotel Union</dt><dd data-i18n="t44">Kralja Nikole 110, 81000 Podgorica, Crna Gora</dd></div><div class="wide"><dt class="caps" data-i18n="t45">Hotel New Star</dt><dd data-i18n="t46">Kralja Nikole 106, 10 m od Hotela Union</dd></div><div><dt class="caps" data-i18n="t47">Recepcija</dt><dd><a href="tel:+38220223888">+382 20 223 888</a></dd></div><div><dt class="caps" data-i18n="t48">Mobilni</dt><dd><a href="tel:+38269223888">+382 69 223 888</a></dd></div><div><dt class="caps" data-i18n="c_mail">E-mail</dt><dd><a href="mailto:info@hotelunion.me">info@hotelunion.me</a></dd></div><div><dt class="caps" data-i18n="t49">New Star e-mail</dt><dd><a href="mailto:info@hotel-newstar.com">info@hotel-newstar.com</a></dd></div></dl>
+        <div class="c-btns"><a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t51">Rezervišite online</span></a><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Union+Kralja+Nikole+110+Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_route">Kako do nas</span></a></div>
+        
+      </div>
+      <iframe class="map" data-src="https://maps.google.com/maps?q=Hotel+Union,+Kralja+Nikole+110,+Podgorica&amp;z=16&amp;output=embed" title="Hotel Union" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><span class="seal">U</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Union</b></span></a>
+      <p data-i18n="t52">Hotel Union · Kralja Nikole 110 · Podgorica</p><p data-i18n="t53">Hotel New Star · Kralja Nikole 106</p><p style="margin-top:6px">+382 20 223 888 · info@hotelunion.me</p>
+    </div>
+    <div class="social"></div>
+    <p class="made"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">makesitefor.me</a></p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Brze akcije"><a href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="b_book_s">Rezervišite</span></a><a href="tel:+38220223888"><svg class="ico"><use href="#i-phone"/></svg><span data-i18n="b_call">Pozovite</span></a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Union+Kralja+Nikole+110+Podgorica" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="b_map">Mapa</span></a></nav>
+
+<dialog class="sheet" id="s-o-hotelima">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">U</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Union</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus>
+    <div class="wrap">
+      <article class="story">
+        <h2 class="sheet-title" data-i18n="t64">O hotelima</h2>
+        <img class="ph" data-p="images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/5f84ba4f.jpg" data-w="1400" data-h="788" alt="" loading="lazy">
+        <h3 data-i18n="t54">Hotel Union</h3><p data-i18n="t55">Hotel sa četiri zvjezdice u Ulici Kralja Nikole 110, blizu centra Podgorice i važnih mjesta u gradu. Ima 32 novo renovirane, prostrane sobe i apartmana sa king size krevetima, TV-om ravnog ekrana, mini barom i sefom, a dodatni kreveti su na upit. Parking u podzemnoj garaži je besplatan.</p><h3 data-i18n="t56">Hotel New Star</h3><p data-i18n="t57">Sestrinski hotel sa četiri zvjezdice, 10 metara od Hotela Union, na adresi Kralja Nikole 106. Sobe su od 28 do 40 m², sa king size krevetom ili dva odvojena kreveta, a ima i soba za troje.</p><h3 data-i18n="t58">Restoran</h3><p data-i18n="t59">Restoran Hotela Union je na prvom spratu. Ujutru je bogat doručak na švedskom stolu, a tokom dana nacionalna i internacionalna jela. Preporučujemo italijanske specijalitete.</p><h3 data-i18n="t60">Poslovni boravak</h3><p data-i18n="t61">Konferencijska sala u Hotelu Union je mjesto za poslovne sastanke i druge događaje. Recepcija radi 24 sata, a Wi-Fi je besplatan u cijelom hotelu.</p><h3 data-i18n="t62">Lokacija</h3><p data-i18n="t63">Sahat kula i Osmanagića džamija su 5 minuta pješice, Milenijumski most 15 minuta, a aerodrom je oko 15 minuta vožnje.</p>
+        <div class="sheet-cta"><a class="btn btn-gold" href="#rezervacija"><svg class="ico"><use href="#i-cal"/></svg><span data-i18n="t65">Rezervišite online</span></a><a class="btn btn-line" href="#sobe"><svg class="ico"><use href="#i-bed"/></svg><span data-i18n="t66">Sobe</span></a></div>
+      </article>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="s-soba">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">U</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Union</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus><div class="wrap" id="item-body"></div></div>
+</dialog>
+
+<dialog class="sheet" id="s-rezervacija">
+  <div class="sheet-top"><button type="button" class="home" data-home data-aria="x_home" aria-label="Početna"><span class="home-arrow" aria-hidden="true">‹</span><span class="seal">U</span><span class="brand-t"><small data-i18n="brand_small">Hotel ★★★★</small><b>Union</b></span></button><button type="button" class="x" data-close data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="sheet-body" tabindex="-1" autofocus>
+    <div class="wrap">
+      <div class="bk">
+        <h2 class="sheet-title" data-i18n="bk_title">Online rezervacija</h2>
+        <ol class="bk-steps" id="bk-steps"></ol>
+        <div id="bk-view"></div>
+        <p class="bk-call"><span data-i18n="bk_call">Radije telefonom? Recepcija radi 24 sata:</span> <a href="tel:+38220223888">+382 20 223 888</a> · <a href="tel:+38269223888">+382 69 223 888</a></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="viewer" id="viewer">
+  <div class="v-top"><span class="v-count" id="v-count"></span><button type="button" class="v-x" id="v-x" data-aria="x_close" aria-label="Zatvori">×</button></div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""><button type="button" class="v-nav v-prev" id="v-prev" data-aria="x_prev" aria-label="Prethodna">‹</button><button type="button" class="v-nav v-next" id="v-next" data-aria="x_next" aria-label="Sljedeća">›</button></div>
+  <div class="v-cap" id="v-cap"></div>
+</dialog>
+<script>
+const SITE = {"slug":"hotel-union","mail":"info@hotelunion.me","sheets":["rezervacija","o-hotelima","soba"],"itemSheet":"soba","items":[{"id":"union-suite","hotel":"union","cap":2,"sub":"Hotel Union","name":{"me":"Apartman","en":"Suite","ru":"Сьют"},"photos":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24ca1dfb.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/0a3085d5.jpg"],"guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"King size krevet","en":"King bed","ru":"Кровать king size"},"view":{"me":"Pogled na grad","en":"City view","ru":"Вид на город"},"viewIcon":"city","short":{"me":"Sofa, stolić i veliki prozori prema gradu.","en":"A sofa, a coffee table and big windows onto the city.","ru":"Диван, столик и большие окна на город."},"desc":{"me":"Novo renoviran apartman sa king size krevetom, sofom i stolićem. Veliki prozori gledaju na grad.","en":"A newly renovated suite with a king bed, a sofa and a coffee table. Big windows look out over the city.","ru":"Недавно отремонтированный сьют с кроватью king size, диваном и столиком. Большие окна выходят на город."},"amen":["aircon","wifi","flattv","minibar","safe","robe","hair","extrabed","sofa"]},{"id":"union-superior","hotel":"union","cap":2,"sub":"Hotel Union","name":{"me":"Superior dvokrevetna soba","en":"Superior Double Room","ru":"Улучшенный двухместный номер"},"photos":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/0a3085d5.jpg"],"guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"Queen size krevet","en":"Queen bed","ru":"Кровать queen size"},"short":{"me":"Prostrana soba sa velikim krevetom.","en":"A spacious room with a large bed.","ru":"Просторный номер с большой кроватью."},"desc":{"me":"Novo renovirana, prostrana soba sa queen size krevetom.","en":"A newly renovated, spacious room with a queen bed.","ru":"Недавно отремонтированный просторный номер с кроватью queen size."},"amen":["aircon","wifi","flattv","minibar","safe","robe","hair","extrabed"]},{"id":"union-twin","hotel":"union","cap":2,"sub":"Hotel Union","name":{"me":"Superior soba sa dva kreveta","en":"Superior Twin Room","ru":"Улучшенный номер с двумя кроватями"},"photos":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/6bbcb672.jpg"],"guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"Dva odvojena kreveta","en":"Two single beds","ru":"Две отдельные кровати"},"view":{"me":"Pogled na baštu","en":"Garden view","ru":"Вид на сад"},"viewIcon":"eye","short":{"me":"Dva odvojena kreveta, pogled na baštu.","en":"Two single beds and a garden view.","ru":"Две отдельные кровати, вид на сад."},"desc":{"me":"Novo renovirana soba sa dva odvojena kreveta i pogledom na baštu.","en":"A newly renovated room with two single beds and a garden view.","ru":"Недавно отремонтированный номер с двумя отдельными кроватями и видом на сад."},"amen":["aircon","wifi","flattv","minibar","safe","robe","hair","extrabed"]},{"id":"union-standard","hotel":"union","cap":2,"sub":"Hotel Union","name":{"me":"Standard dvokrevetna soba","en":"Standard Double Room","ru":"Стандартный двухместный номер"},"photos":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/4566ffa9.jpg"],"guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"Bračni krevet","en":"Double bed","ru":"Двуспальная кровать"},"view":{"me":"Pogled na baštu","en":"Garden view","ru":"Вид на сад"},"viewIcon":"eye","short":{"me":"Bračni krevet, radni sto i pogled na baštu.","en":"A double bed, a desk and a garden view.","ru":"Двуспальная кровать, рабочий стол, вид на сад."},"desc":{"me":"Novo renovirana soba sa bračnim krevetom, radnim stolom i pogledom na baštu.","en":"A newly renovated room with a double bed, a desk and a garden view.","ru":"Недавно отремонтированный номер с двуспальной кроватью, рабочим столом и видом на сад."},"amen":["aircon","wifi","flattv","minibar","safe","robe","hair","extrabed","desk"]},{"id":"union-junior","hotel":"union","cap":3,"sub":"Hotel Union","name":{"me":"Junior trokrevetna soba","en":"Junior Triple Room","ru":"Номер Junior Triple"},"photos":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24ca1dfb.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/6bbcb672.jpg"],"guests":{"me":"2 osobe + dodatni krevet","en":"2 guests + extra bed","ru":"2 гостя + доп. кровать"},"bed":{"me":"Dva odvojena kreveta","en":"Two single beds","ru":"Две отдельные кровати"},"short":{"me":"Dva kreveta, a za treću osobu dodatni krevet.","en":"Two single beds, plus an extra bed for a third guest.","ru":"Две кровати и дополнительная для третьего гостя."},"desc":{"me":"Soba sa dva odvojena kreveta. Za treću osobu hotel postavlja dodatni krevet.","en":"A room with two single beds. The hotel adds an extra bed for a third guest.","ru":"Номер с двумя отдельными кроватями. Для третьего гостя отель ставит дополнительную кровать."},"amen":["aircon","wifi","flattv","minibar","safe","robe","hair","extrabed"]},{"id":"newstar-comfort","hotel":"newstar","cap":2,"sub":"Hotel New Star","name":{"me":"Comfort dvokrevetna soba","en":"Comfort Double Room","ru":"Номер Comfort Double"},"photos":["images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/347537dc.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/e71091eb.jpg"],"size":"40 m²","guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"King size krevet","en":"King bed","ru":"Кровать king size"},"view":{"me":"Pogled na dvorište","en":"Courtyard view","ru":"Вид во двор"},"viewIcon":"eye","short":{"me":"40 m², king size krevet i kutak za sjedenje.","en":"40 m², a king bed and a sitting area.","ru":"40 м², кровать king size и зона отдыха."},"desc":{"me":"Soba od 40 m² sa king size krevetom, kutkom za sjedenje i radnim stolom. Prozori gledaju na dvorište.","en":"A 40 m² room with a king bed, a sitting area and a desk. The windows face the courtyard.","ru":"Номер 40 м² с кроватью king size, зоной отдыха и рабочим столом. Окна выходят во двор."},"amen":["wifi","sofa","desk","safe","hair","clean"]},{"id":"newstar-junior","hotel":"newstar","cap":2,"sub":"Hotel New Star","name":{"me":"Junior dvokrevetna soba","en":"Junior Double Room","ru":"Номер Junior Double"},"photos":["images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/e71091eb.jpg"],"size":"35 m²","guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"King size krevet","en":"King bed","ru":"Кровать king size"},"view":{"me":"Pogled na grad","en":"City view","ru":"Вид на город"},"viewIcon":"city","short":{"me":"35 m², king size krevet i pogled na grad.","en":"35 m², a king bed and a city view.","ru":"35 м², кровать king size и вид на город."},"desc":{"me":"Soba od 35 m² sa king size krevetom i pogledom na grad.","en":"A 35 m² room with a king bed and a city view.","ru":"Номер 35 м² с кроватью king size и видом на город."},"amen":["wifi","sofa","desk","safe","hair","clean"]},{"id":"newstar-triple","hotel":"newstar","cap":3,"sub":"Hotel New Star","name":{"me":"Classic trokrevetna soba","en":"Classic Triple Room","ru":"Трёхместный номер Classic"},"photos":["images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/53ff70e9.jpg"],"size":"35 m²","guests":{"me":"3 osobe","en":"3 guests","ru":"3 гостя"},"bed":{"me":"King size + jedan krevet","en":"King bed + single bed","ru":"King size + односпальная"},"view":{"me":"Pogled na dvorište","en":"Courtyard view","ru":"Вид во двор"},"viewIcon":"eye","short":{"me":"35 m² za troje, king size i još jedan krevet.","en":"35 m² for three: a king bed and a single bed.","ru":"35 м² на троих: king size и односпальная кровать."},"desc":{"me":"Soba od 35 m² za tri osobe, sa king size krevetom i još jednim krevetom. Prozori gledaju na dvorište.","en":"A 35 m² room for three, with a king bed and a single bed. The windows face the courtyard.","ru":"Номер 35 м² на троих: кровать king size и односпальная кровать. Окна выходят во двор."},"amen":["wifi","sofa","desk","safe","hair","clean"]},{"id":"newstar-double","hotel":"newstar","cap":2,"sub":"Hotel New Star","name":{"me":"Classic dvokrevetna soba","en":"Classic Double Room","ru":"Двухместный номер Classic"},"photos":["images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/b118054a.jpg"],"size":"28 m²","guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"King size krevet","en":"King bed","ru":"Кровать king size"},"view":{"me":"Pogled na grad","en":"City view","ru":"Вид на город"},"viewIcon":"city","short":{"me":"28 m², king size krevet i pogled na grad.","en":"28 m², a king bed and a city view.","ru":"28 м², кровать king size и вид на город."},"desc":{"me":"Soba od 28 m² sa king size krevetom i pogledom na grad.","en":"A 28 m² room with a king bed and a city view.","ru":"Номер 28 м² с кроватью king size и видом на город."},"amen":["wifi","sofa","desk","safe","hair","clean"]},{"id":"newstar-twin","hotel":"newstar","cap":2,"sub":"Hotel New Star","name":{"me":"Classic soba sa dva kreveta","en":"Classic Twin Room","ru":"Номер Classic с двумя кроватями"},"photos":["images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/43cf8eca.jpg"],"size":"28 m²","guests":{"me":"2 odrasle osobe","en":"2 adults","ru":"2 взрослых"},"bed":{"me":"Dva odvojena kreveta","en":"Two single beds","ru":"Две отдельные кровати"},"view":{"me":"Pogled na dvorište","en":"Courtyard view","ru":"Вид во двор"},"viewIcon":"eye","short":{"me":"28 m², dva odvojena kreveta.","en":"28 m², two single beds.","ru":"28 м², две отдельные кровати."},"desc":{"me":"Soba od 28 m² sa dva odvojena kreveta. Prozori gledaju na dvorište.","en":"A 28 m² room with two single beds. The windows face the courtyard.","ru":"Номер 28 м² с двумя отдельными кроватями. Окна выходят во двор."},"amen":["wifi","sofa","desk","safe","hair","clean"]}],"mode":"rooms","gallery":["images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/5f84ba4f.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24ca1dfb.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24e9016d.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/0eceea8c.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/725d5fe4.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/e71091eb.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/0a3085d5.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/bbe0f37b.jpg","images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/6bbcb672.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/5a82d46c.jpg","images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/b118054a.jpg","images.trvl-media.com/lodging/10000000/9770000/9763000/9762918/fc0f4808.jpg"],"services":[{"p":"images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/24e9016d.jpg","cap":{"me":"Restoran Union","en":"Union restaurant","ru":"Ресторан Union"}},{"p":"images.trvl-media.com/lodging/10000000/9770000/9763000/9762918/fc0f4808.jpg","cap":{"me":"Bar New Star","en":"New Star bar","ru":"Бар New Star"}},{"p":"images.trvl-media.com/lodging/111000000/110920000/110915500/110915434/0eceea8c.jpg","cap":{"me":"Napolju","en":"Outdoors","ru":"На улице"}},{"p":"images.trvl-media.com/lodging/111000000/110390000/110383100/110383043/725d5fe4.jpg","cap":{"me":"Recepcija 24/7","en":"Reception 24/7","ru":"Ресепшн 24/7"}}],"amen":{"wifi":{"i":"wifi","t":{"me":"Besplatan WiFi","en":"Free Wi-Fi","ru":"Бесплатный Wi-Fi"}},"net":{"i":"wifi","t":{"me":"Besplatan internet","en":"Free internet","ru":"Бесплатный интернет"}},"tv":{"i":"tv","t":{"me":"TV","en":"TV","ru":"Телевизор"}},"sattv":{"i":"tv","t":{"me":"Satelitska TV","en":"Satellite TV","ru":"Спутниковое ТВ"}},"lcd":{"i":"tv","t":{"me":"LCD TV sa kablovskim kanalima","en":"LCD TV with cable channels","ru":"LCD-телевизор с кабельными каналами"}},"sofa":{"i":"sofa","t":{"me":"Kutak za sjedenje","en":"Seating area","ru":"Зона отдыха"}},"ac":{"i":"snow","t":{"me":"Klima: grijanje i hlađenje","en":"Air conditioning: heating and cooling","ru":"Кондиционер: тепло и холод"}},"aircon":{"i":"snow","t":{"me":"Klima uređaj","en":"Air conditioning","ru":"Кондиционер"}},"minibar":{"i":"minibar","t":{"me":"Mini bar","en":"Minibar","ru":"Мини-бар"}},"safe":{"i":"safe","t":{"me":"Sef","en":"In-room safe","ru":"Сейф"}},"shower":{"i":"drop","t":{"me":"Kupatilo sa tušem","en":"Bathroom with shower","ru":"Ванная с душем"}},"hair":{"i":"drop","t":{"me":"Fen za kosu","en":"Hairdryer","ru":"Фен"}},"phone":{"i":"phone","t":{"me":"Direktna telefonska linija","en":"Direct-dial phone","ru":"Телефон с прямым номером"}},"baby":{"i":"baby","t":{"me":"Krevetac za bebe na upit","en":"Baby cot on request","ru":"Детская кроватка по запросу"}},"robe":{"i":"spa","t":{"me":"Bade-mantil i papuče","en":"Bathrobe and slippers","ru":"Халат и тапочки"}},"desk":{"i":"story","t":{"me":"Radni sto","en":"Work desk","ru":"Рабочий стол"}},"sofabed":{"i":"sofa","t":{"me":"Sofa na razvlačenje","en":"Sofa bed","ru":"Диван-кровать"}},"balcony":{"i":"sun","t":{"me":"Privatni balkon","en":"Private balcony","ru":"Собственный балкон"}},"jacuzzi":{"i":"drop","t":{"me":"Đakuzi na balkonu","en":"Jacuzzi on the balcony","ru":"Джакузи на балконе"}},"coffee":{"i":"glass","t":{"me":"Aparat za kafu i čaj","en":"Coffee and tea station","ru":"Чай и кофе в номере"}},"living":{"i":"sofa","t":{"me":"Dnevna soba","en":"Living room","ru":"Гостиная"}},"service":{"i":"key","t":{"me":"Pranje veša, čišćenje i buđenje","en":"Laundry, housekeeping and wake-up calls","ru":"Прачечная, уборка и побудка"}},"breakfast":{"i":"fork","t":{"me":"Doručak uključen","en":"Breakfast included","ru":"Завтрак включён"}},"seaview":{"i":"wave","t":{"me":"Pogled na more","en":"Sea view","ru":"Вид на море"}},"flattv":{"i":"tv","t":{"me":"TV ravnog ekrana","en":"Flat-screen TV","ru":"Плоский телевизор"}},"extrabed":{"i":"bed","t":{"me":"Dodatni krevet na upit","en":"Extra bed on request","ru":"Доп. кровать по запросу"}},"clean":{"i":"key","t":{"me":"Svakodnevno čišćenje","en":"Daily housekeeping","ru":"Ежедневная уборка"}}},"online":null,"maxAd":4,"phobsLang":false,"hotels":{"union":{"name":"Hotel Union","addr":"Kralja Nikole 110","cin":"14:00","cout":"12:00","ref":"UN"},"newstar":{"name":"Hotel New Star","addr":"Kralja Nikole 106","cin":"12:00","cout":"12:00","ref":"NS"}}};
+const T = {"me":{"bk_title":"Online rezervacija","bk_s1":"Datumi","bk_s2":"Soba","bk_s3":"Vaši podaci","bk_s4":"Potvrda","bk_both":"Oba hotela","bk_hotel":"Hotel","bk_nights":"noć|noći|noći","bk_err1":"Izaberite datum dolaska i odlaska.","bk_next2":"Pogledajte sobe","bk_next3":"Dalje","bk_picked":"Izabrana soba","bk_change":"Promijenite","bk_big":"Za ovoliko gostiju predlažemo dvije sobe ili dodatni krevet. Izaberite sobu i napišite to u napomeni.","bk_bf":"Doručak: švedski sto","bk_choose":"Izaberite","bk_chosen":"Izabrano","bk_from":"prijava od","bk_until":"odjava do","bk_stay":"Boravak","bk_guests":"Gosti","bk_park":"Besplatan parking","bk_wifi":"Besplatan Wi-Fi","bk_other":"Izaberite drugu sobu","bk_phone":"Telefon","bk_eta":"Vrijeme dolaska","bk_eta_x":"Još ne znam","bk_late":"Poslije 22:00","bk_err3":"Upišite ime i telefon ili e-mail.","bk_send":"Pošaljite rezervaciju","bk_hint":"Otvoriće se vaša e-mail aplikacija sa popunjenom rezervacijom. Rezervacija važi kada je recepcija potvrdi.","bk_thanks":"Hvala","bk_ref":"Broj rezervacije","bk_done_p":"Rezervacija je spremna u vašoj e-mail aplikaciji. Pošaljite je, a recepcija će vam je potvrditi e-mailom ili telefonom.","bk_resend":"Otvorite e-mail ponovo","bk_m_subj":"Rezervacija","bk_m_ask":"želim da rezervišem smještaj:","bk_allrooms":"Sve sobe","bk_check":"Provjerite sobe","b_rooms":"Sobe","bk_call":"Radije telefonom? Recepcija radi 24 sata:","b_book":"Rezervišite","b_book_s":"Rezervišite","b_call":"Pozovite","b_route":"Kako do nas","b_map":"Mapa","b_details":"Detalji","b_bookshort":"Rezervišite","from":"od","night":"noć","swipe":"Prevucite za još","gal_eye":"Galerija","k_eye":"Kontakt","c_addr":"Adresa","c_mail":"E-mail","x_home":"Početna","x_close":"Zatvori","x_prev":"Prethodna","x_next":"Sljedeća","f_in":"Dolazak","f_out":"Odlazak","f_ad":"Odrasli","f_ch":"Djeca","f_any":"Svejedno","f_name":"Ime i prezime","f_contact":"Telefon ili e-mail","f_note":"Napomena (nije obavezno)","f_send":"Pošaljite upit e-mailom","f_hint":"Otvoriće se vaša e-mail aplikacija sa popunjenim upitom. Rezervacija važi kada je potvrdimo.","f_err":"Upišite ime i datume dolaska i odlaska.","r_or":"ili pošaljite upit","m_subj":"Upit za smještaj","m_hi":"Poštovani,","m_ask":"želio/željela bih da rezervišem smještaj:","m_bye":"Hvala!","in_room":"U sobi","b_bookthis":"Rezervišite ovu sobu","b_see":"Apartmani","b_online":"Rezervišite online","units_word":"jedinica","units_t":"Apartmani i sobe","book_direct":"Direktna rezervacija","book_direct_p":"Slobodni datumi i cijene na jednom mjestu.","room_label":"Soba","brand_small":"Hotel ★★★★","demo":"Demo koncept sajta, izradio MakeSiteFor.me. Ovo nije zvanični sajt hotela.","t1":"Hoteli","t2":"Sobe","t3":"Restoran","t4":"Kralja Nikole 110, Podgorica","t5":"Podgorica · centar grada","t6":"I sestrinski hotel New Star, 10 m dalje.","t7":"Rezervišite online","t8":"Sobe","t9":"Restoran","t10":"dva hotela u centru","t11":"sobe i apartmana u Unionu","t12":"od Uniona do New Stara","t13":"pješice do Sahat kule","t14":"Novo renovirane sobe","t15":"King size kreveti, TV ravnog ekrana, mini bar i sef. Dodatni kreveti na upit.","t16":"Restoran i doručak","t17":"Bogat doručak na švedskom stolu, a tokom dana italijanski specijaliteti.","t18":"Besplatna garaža","t19":"Parking u podzemnoj garaži hotela, bez doplate.","t20":"Konferencijska sala","t21":"Za poslovne sastanke i druge događaje.","t22":"O hotelu","t23":"U centru <em>Podgorice<\/em>","t24":"Hotel sa četiri zvjezdice blizu centra grada i važnih mjesta. Osoblje je ljubazno i profesionalno, da se osjećate kao kod kuće.","t25":"Sobe","t26":"Više o hotelima","t27":"hotel","t28":"Smještaj","t29":"Sobe <em>i apartmani<\/em>","t30":"Deset vrsta soba u dva hotela.","t31":"Restoran Union","t32":"Na prvom spratu: doručak na švedskom stolu, ručak i večera.","t33":"Bar New Star","t34":"Kafa i piće u hotelu New Star.","t35":"Napolju","t36":"Stolovi na otvorenom u hotelu New Star.","t37":"Recepcija 24/7","t38":"Brza prijava i odjava, čuvanje prtljaga.","t39":"Restoran i usluge","t40":"Doručak, ručak <em>i večera<\/em>","t41":"Nacionalna i internacionalna kuhinja. Preporučujemo italijanske specijalitete.","t42":"Hoteli <em>iznutra<\/em>","t43":"Hotel Union","t44":"Kralja Nikole 110, 81000 Podgorica, Crna Gora","t45":"Hotel New Star","t46":"Kralja Nikole 106, 10 m od Hotela Union","t47":"Recepcija","t48":"Mobilni","t49":"New Star e-mail","t50":"Recepcija <em>0–24<\/em>","t51":"Rezervišite online","t52":"Hotel Union · Kralja Nikole 110 · Podgorica","t53":"Hotel New Star · Kralja Nikole 106","t54":"Hotel Union","t55":"Hotel sa četiri zvjezdice u Ulici Kralja Nikole 110, blizu centra Podgorice i važnih mjesta u gradu. Ima 32 novo renovirane, prostrane sobe i apartmana sa king size krevetima, TV-om ravnog ekrana, mini barom i sefom, a dodatni kreveti su na upit. Parking u podzemnoj garaži je besplatan.","t56":"Hotel New Star","t57":"Sestrinski hotel sa četiri zvjezdice, 10 metara od Hotela Union, na adresi Kralja Nikole 106. Sobe su od 28 do 40 m², sa king size krevetom ili dva odvojena kreveta, a ima i soba za troje.","t58":"Restoran","t59":"Restoran Hotela Union je na prvom spratu. Ujutru je bogat doručak na švedskom stolu, a tokom dana nacionalna i internacionalna jela. Preporučujemo italijanske specijalitete.","t60":"Poslovni boravak","t61":"Konferencijska sala u Hotelu Union je mjesto za poslovne sastanke i druge događaje. Recepcija radi 24 sata, a Wi-Fi je besplatan u cijelom hotelu.","t62":"Lokacija","t63":"Sahat kula i Osmanagića džamija su 5 minuta pješice, Milenijumski most 15 minuta, a aerodrom je oko 15 minuta vožnje.","t64":"O hotelima","t65":"Rezervišite online","t66":"Sobe","t67":"Rezervišite sobu","t68":"","t69":"32 novo renovirane sobe i apartmana","t70":"Restoran i konferencijska sala","t71":"Besplatna podzemna garaža","t72":"Prijava od 14:00, odjava do 12:00","t73":"10 m od Hotela Union","t74":"Sobe od 28 do 40 m²","t75":"Restoran, bar i stolovi napolju","t76":"Prijava od 12:00, odjava do 12:00","t77":"Dva hotela","t78":"Union <em>i New Star<\/em>","t79":"Oba sa četiri zvjezdice, u Ulici Kralja Nikole, 10 metara jedan od drugog."},"en":{"bk_title":"Online booking","bk_s1":"Dates","bk_s2":"Room","bk_s3":"Your details","bk_s4":"Confirmation","bk_both":"Both hotels","bk_hotel":"Hotel","bk_nights":"night|nights","bk_err1":"Choose your arrival and departure dates.","bk_next2":"See the rooms","bk_next3":"Continue","bk_picked":"Selected room","bk_change":"Change","bk_big":"For this many guests we suggest two rooms or an extra bed. Choose a room and mention it in the note.","bk_bf":"Buffet breakfast","bk_choose":"Select","bk_chosen":"Selected","bk_from":"check-in from","bk_until":"check-out by","bk_stay":"Stay","bk_guests":"Guests","bk_park":"Free parking","bk_wifi":"Free Wi-Fi","bk_other":"Choose another room","bk_phone":"Phone","bk_eta":"Arrival time","bk_eta_x":"Not sure yet","bk_late":"After 22:00","bk_err3":"Please enter your name and a phone number or email.","bk_send":"Send the booking","bk_hint":"Your email app will open with the booking filled in. The booking is valid once reception confirms it.","bk_thanks":"Thank you","bk_ref":"Booking number","bk_done_p":"Your booking is ready in your email app. Send it, and reception will confirm it by email or phone.","bk_resend":"Open the email again","bk_m_subj":"Booking","bk_m_ask":"I would like to book a stay:","bk_allrooms":"All rooms","bk_check":"Check rooms","b_rooms":"Rooms","bk_call":"Rather call? Reception is open 24 hours:","b_book":"Book now","b_book_s":"Book","b_call":"Call us","b_route":"Directions","b_map":"Map","b_details":"Details","b_bookshort":"Book","from":"from","night":"night","swipe":"Swipe for more","gal_eye":"Gallery","k_eye":"Contact","c_addr":"Address","c_mail":"Email","x_home":"Home","x_close":"Close","x_prev":"Previous","x_next":"Next","f_in":"Arrival","f_out":"Departure","f_ad":"Adults","f_ch":"Children","f_any":"No preference","f_name":"Full name","f_contact":"Phone or email","f_note":"Note (optional)","f_send":"Send the request by email","f_hint":"Your email app will open with the request filled in. The booking is valid once we confirm it.","f_err":"Please enter your name and your arrival and departure dates.","r_or":"or send a request","m_subj":"Accommodation request","m_hi":"Hello,","m_ask":"I would like to book a stay:","m_bye":"Thank you!","in_room":"In the room","b_bookthis":"Book this room","b_see":"Apartments","b_online":"Book online","units_word":"units","units_t":"Apartments and rooms","book_direct":"Book direct","book_direct_p":"Availability and prices in one place.","room_label":"Room","brand_small":"Hotel ★★★★","demo":"Demo website concept by MakeSiteFor.me. This is not the hotel's official site.","t1":"Hotels","t2":"Rooms","t3":"Restaurant","t4":"Kralja Nikole 110, Podgorica","t5":"Podgorica · city centre","t6":"And its sister hotel New Star, 10 m away.","t7":"Book online","t8":"Rooms","t9":"Restaurant","t10":"two hotels in the centre","t11":"rooms and suites at Union","t12":"from Union to New Star","t13":"walk to the Clock Tower","t14":"Newly renovated rooms","t15":"King beds, flat-screen TVs, a minibar and a safe. Extra beds on request.","t16":"Restaurant and breakfast","t17":"A rich buffet breakfast, and Italian specialities later in the day.","t18":"Free garage","t19":"Parking in the hotel's underground garage at no charge.","t20":"Conference room","t21":"For business meetings and other events.","t22":"About the hotel","t23":"In the centre <em>of Podgorica<\/em>","t24":"A four-star hotel close to the city centre and the main sights. The staff are kind and professional, so you feel at home.","t25":"Rooms","t26":"More about the hotels","t27":"hotel","t28":"Accommodation","t29":"Rooms <em>and suites<\/em>","t30":"Ten room types in two hotels.","t31":"Union restaurant","t32":"On the first floor: buffet breakfast, lunch and dinner.","t33":"New Star bar","t34":"Coffee and drinks at New Star.","t35":"Outdoors","t36":"Outdoor tables at New Star.","t37":"Reception 24/7","t38":"Express check-in and check-out, luggage storage.","t39":"Dining and services","t40":"Breakfast, lunch <em>and dinner<\/em>","t41":"National and international cooking. We recommend the Italian specialities.","t42":"Inside <em>the hotels<\/em>","t43":"Hotel Union","t44":"Kralja Nikole 110, 81000 Podgorica, Montenegro","t45":"Hotel New Star","t46":"Kralja Nikole 106, 10 m from Hotel Union","t47":"Reception","t48":"Mobile","t49":"New Star email","t50":"Reception <em>24/7<\/em>","t51":"Book online","t52":"Hotel Union · Kralja Nikole 110 · Podgorica","t53":"Hotel New Star · Kralja Nikole 106","t54":"Hotel Union","t55":"A four-star hotel at Kralja Nikole 110, close to the centre of Podgorica and the main sights. It has 32 newly renovated, spacious rooms and suites with king beds, flat-screen TVs, a minibar and a safe; extra beds are available on request. Parking in the underground garage is free.","t56":"Hotel New Star","t57":"Union's four-star sister hotel, 10 metres away at Kralja Nikole 106. Rooms are 28 to 40 m², with a king bed or two single beds, and there is a room for three.","t58":"Restaurant","t59":"Hotel Union's restaurant is on the first floor. Mornings start with a rich buffet breakfast, and during the day it serves national and international dishes. We recommend the Italian specialities.","t60":"Business stays","t61":"The conference room at Hotel Union is the place for business meetings and other events. Reception is open 24 hours, and Wi-Fi is free throughout the hotel.","t62":"Location","t63":"The Clock Tower and the Osmanagić Mosque are a 5-minute walk away, the Millennium Bridge 15 minutes, and the airport is about a 15-minute drive.","t64":"About the hotels","t65":"Book online","t66":"Rooms","t67":"Book a room","t68":"","t69":"32 newly renovated rooms and suites","t70":"A restaurant and a conference room","t71":"Free underground garage","t72":"Check-in from 14:00, check-out by 12:00","t73":"10 m from Hotel Union","t74":"Rooms from 28 to 40 m²","t75":"A restaurant, a bar and outdoor tables","t76":"Check-in from 12:00, check-out by 12:00","t77":"Two hotels","t78":"Union <em>and New Star<\/em>","t79":"Both four-star, on Kralja Nikole Street, 10 metres apart."},"ru":{"bk_title":"Онлайн-бронирование","bk_s1":"Даты","bk_s2":"Номер","bk_s3":"Ваши данные","bk_s4":"Подтверждение","bk_both":"Оба отеля","bk_hotel":"Отель","bk_nights":"ночь|ночи|ночей","bk_err1":"Выберите даты заезда и выезда.","bk_next2":"Смотреть номера","bk_next3":"Далее","bk_picked":"Выбранный номер","bk_change":"Изменить","bk_big":"Для такого числа гостей советуем два номера или дополнительную кровать. Выберите номер и напишите об этом в комментарии.","bk_bf":"Завтрак: шведский стол","bk_choose":"Выбрать","bk_chosen":"Выбрано","bk_from":"заезд с","bk_until":"выезд до","bk_stay":"Проживание","bk_guests":"Гости","bk_park":"Бесплатная парковка","bk_wifi":"Бесплатный Wi-Fi","bk_other":"Выбрать другой номер","bk_phone":"Телефон","bk_eta":"Время прибытия","bk_eta_x":"Пока не знаю","bk_late":"После 22:00","bk_err3":"Укажите имя и телефон или e-mail.","bk_send":"Отправить бронь","bk_hint":"Откроется ваше почтовое приложение с готовой бронью. Бронь действительна после подтверждения ресепшн.","bk_thanks":"Спасибо","bk_ref":"Номер брони","bk_done_p":"Бронь готова в вашем почтовом приложении. Отправьте её, и ресепшн подтвердит её по e-mail или телефону.","bk_resend":"Открыть письмо ещё раз","bk_m_subj":"Бронирование","bk_m_ask":"хочу забронировать проживание:","bk_allrooms":"Все номера","bk_check":"Подобрать номер","b_rooms":"Номера","bk_call":"Удобнее по телефону? Ресепшн работает круглосуточно:","b_book":"Забронировать","b_book_s":"Бронь","b_call":"Позвонить","b_route":"Как добраться","b_map":"Карта","b_details":"Подробнее","b_bookshort":"Забронировать","from":"от","night":"ночь","swipe":"Листайте дальше","gal_eye":"Галерея","k_eye":"Контакты","c_addr":"Адрес","c_mail":"E-mail","x_home":"На главную","x_close":"Закрыть","x_prev":"Назад","x_next":"Дальше","f_in":"Заезд","f_out":"Выезд","f_ad":"Взрослые","f_ch":"Дети","f_any":"Не важно","f_name":"Имя и фамилия","f_contact":"Телефон или e-mail","f_note":"Комментарий (необязательно)","f_send":"Отправить запрос по e-mail","f_hint":"Откроется ваше почтовое приложение с готовым запросом. Бронь действительна после нашего подтверждения.","f_err":"Укажите имя и даты заезда и выезда.","r_or":"или отправьте запрос","m_subj":"Запрос на проживание","m_hi":"Здравствуйте!","m_ask":"Хотел(а) бы забронировать проживание:","m_bye":"Спасибо!","in_room":"В номере","b_bookthis":"Забронировать этот номер","b_see":"Апартаменты","b_online":"Забронировать онлайн","units_word":"вариантов","units_t":"Апартаменты и комнаты","book_direct":"Прямое бронирование","book_direct_p":"Свободные даты и цены в одном месте.","room_label":"Номер","brand_small":"Отель ★★★★","demo":"Демо-концепт сайта от MakeSiteFor.me. Это не официальный сайт отеля.","t1":"Отели","t2":"Номера","t3":"Ресторан","t4":"Kralja Nikole 110, Подгорица","t5":"Подгорица · центр города","t6":"И отель-партнёр New Star в 10 м.","t7":"Забронировать онлайн","t8":"Номера","t9":"Ресторан","t10":"два отеля в центре","t11":"номера и сьюта в Union","t12":"от Union до New Star","t13":"пешком до Часовой башни","t14":"Обновлённые номера","t15":"Кровати king size, плоский ТВ, мини-бар и сейф. Дополнительные кровати по запросу.","t16":"Ресторан и завтрак","t17":"Богатый завтрак «шведский стол», а днём итальянские блюда.","t18":"Бесплатный гараж","t19":"Парковка в подземном гараже отеля без доплаты.","t20":"Конференц-зал","t21":"Для деловых встреч и других мероприятий.","t22":"Об отеле","t23":"В центре <em>Подгорицы<\/em>","t24":"Четырёхзвёздочный отель рядом с центром города и главными местами. Персонал доброжелательный и профессиональный, чтобы вы чувствовали себя как дома.","t25":"Номера","t26":"Подробнее об отелях","t27":"отель","t28":"Размещение","t29":"Номера <em>и сьюты<\/em>","t30":"Десять категорий номеров в двух отелях.","t31":"Ресторан Union","t32":"На втором этаже: завтрак «шведский стол», обед и ужин.","t33":"Бар New Star","t34":"Кофе и напитки в New Star.","t35":"На улице","t36":"Столики на открытом воздухе в New Star.","t37":"Ресепшн 24/7","t38":"Быстрый заезд и выезд, хранение багажа.","t39":"Ресторан и услуги","t40":"Завтрак, обед <em>и ужин<\/em>","t41":"Национальная и интернациональная кухня. Рекомендуем итальянские блюда.","t42":"Отели <em>изнутри<\/em>","t43":"Hotel Union","t44":"Kralja Nikole 110, 81000 Подгорица, Черногория","t45":"Hotel New Star","t46":"Kralja Nikole 106, в 10 м от отеля Union","t47":"Ресепшн","t48":"Мобильный","t49":"E-mail New Star","t50":"Ресепшн <em>24/7<\/em>","t51":"Забронировать онлайн","t52":"Hotel Union · Kralja Nikole 110 · Подгорица","t53":"Hotel New Star · Kralja Nikole 106","t54":"Hotel Union","t55":"Четырёхзвёздочный отель на улице Кралья Николе, 110, рядом с центром Подгорицы и главными местами города. 32 недавно отремонтированных просторных номера и сьюта с кроватями king size, плоским ТВ, мини-баром и сейфом; дополнительные кровати по запросу. Парковка в подземном гараже бесплатная.","t56":"Hotel New Star","t57":"Четырёхзвёздочный отель-партнёр в 10 метрах от Union, Кралья Николе, 106. Номера от 28 до 40 м² с кроватью king size или двумя отдельными кроватями, есть номер на троих.","t58":"Ресторан","t59":"Ресторан отеля Union на втором этаже. Утром богатый завтрак «шведский стол», днём национальные и интернациональные блюда. Рекомендуем итальянские блюда.","t60":"Деловые поездки","t61":"Конференц-зал отеля Union подходит для деловых встреч и других мероприятий. Ресепшн работает круглосуточно, Wi-Fi бесплатный во всём отеле.","t62":"Расположение","t63":"Часовая башня и мечеть Османагича в 5 минутах пешком, Мост тысячелетия в 15 минутах, до аэропорта около 15 минут на машине.","t64":"Об отелях","t65":"Забронировать онлайн","t66":"Номера","t67":"Забронировать номер","t68":"","t69":"32 недавно отремонтированных номера и сьюта","t70":"Ресторан и конференц-зал","t71":"Бесплатный подземный гараж","t72":"Заезд с 14:00, выезд до 12:00","t73":"В 10 м от отеля Union","t74":"Номера от 28 до 40 м²","t75":"Ресторан, бар и столики на улице","t76":"Заезд с 12:00, выезд до 12:00","t77":"Два отеля","t78":"Union <em>и New Star<\/em>","t79":"Оба четырёхзвёздочные, на улице Кралья Николе, в 10 метрах друг от друга."}};
+
+const C = SITE, $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+let lang = "me";
+const tr = k => (T[lang] && T[lang][k] != null ? T[lang][k] : T.me[k]);
+const L = o => o == null ? "" : typeof o === "string" ? o : (o[lang] != null ? o[lang] : o.me);
+const ev = (name, extra) => { if (window.gtag) gtag("event", name, Object.assign({ language: lang, demo: C.slug }, extra || {})); };
+
+/* Photos come from the business's own site. They load through the wsrv.nl image service (resized, and not
+   blocked when shown on another site); if that fails, straight from their site; then a spare photo; then a plain background. */
+const wsrv = (p, w, h, x) => p.startsWith("http") ? p : "https://wsrv.nl/?url=" + encodeURIComponent(p) + "&w=" + w +
+  (h ? "&h=" + h + (x === "contain" ? "&fit=contain&cbg=" + (C.cbg || "ffffff") : "&fit=cover&a=attention") : "") + "&q=80";
+function setPhoto(img, p, w, h, x){
+  img.dataset.p = p; img.dataset.w = w; img.dataset.h = h || ""; img.dataset.x = x || ""; img.dataset.step = "";
+  img.src = wsrv(p, w, h, x);
+}
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || !i.dataset.p) return;
+  if (!i.dataset.step && !i.dataset.p.startsWith("http")) { i.dataset.step = "1"; i.referrerPolicy = "no-referrer"; i.src = "https://" + i.dataset.p; }
+  else if (i.dataset.fb) { const fb = i.dataset.fb; delete i.dataset.fb; setPhoto(i, fb, +i.dataset.w, +i.dataset.h, i.dataset.x); }
+  else if (i.dataset.step !== "2") { i.dataset.step = "2"; i.src = BLANK; }
+}, true);
+const imgTag = (p, w, h, x, fb) => `<img data-p="${p}" data-w="${w}" data-h="${h || ""}" data-x="${x || ""}"${fb ? ` data-fb="${fb}"` : ""} src="${wsrv(p, w, h, x)}" alt="" loading="lazy">`;
+const icon = n => `<svg class="ico"><use href="#i-${n}"/></svg>`;
+
+/* language */
+function applyLang(l){
+  lang = ["me", "en", "ru"].includes(l) ? l : "me";
+  $$("[data-i18n]").forEach(n => { const v = tr(n.dataset.i18n); if (v != null) n.innerHTML = v; });
+  $$("[data-aria]").forEach(n => n.setAttribute("aria-label", tr(n.dataset.aria)));
+  $$("[data-ph]").forEach(n => n.setAttribute("placeholder", tr(n.dataset.ph)));
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.documentElement.lang = { me: "sr-Latn-ME", en: "en", ru: "ru" }[lang];
+  RENDER.forEach(f => f());
+  const u = new URL(location.href);
+  if (lang === "me") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+  history.replaceState(history.state, "", u);
+  try { localStorage.setItem(C.slug + "-lang", lang); } catch(e) {}
+}
+const RENDER = [];
+$$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+/* header turns solid once the page scrolls */
+const hdr = $("#hdr");
+const onScroll = () => hdr.classList.toggle("solid", window.scrollY > 60);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* hero photos: a slow cross-fade; the others load after the page */
+const slides = $$("#slides img"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cur = 0, timer = null;
+function showSlide(n){
+  cur = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle("on", i === cur));
+  $$("#dots button").forEach((b, i) => b.setAttribute("aria-current", String(i === cur)));
+}
+if ($("#dots") && slides.length > 1) {
+  $("#dots").innerHTML = slides.map((_, i) => `<button type="button" aria-label="${i + 1}" aria-current="${i === 0}"></button>`).join("");
+  $("#dots").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clearInterval(timer); showSlide([...b.parentNode.children].indexOf(b)); });
+}
+window.addEventListener("load", () => {
+  slides.slice(1).forEach(s => setPhoto(s, s.dataset.lazy, 2000));
+  if (!calm && slides.length > 1) timer = setInterval(() => showSlide(cur + 1), 6500);
+});
+
+/* sections fade in once; the map loads only near the screen */
+const seen = (nodes, fn, margin) => {
+  if (!("IntersectionObserver" in window)) { nodes.forEach(fn); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { fn(en.target); io.unobserve(en.target); } }), { rootMargin: margin });
+  nodes.forEach(n => io.observe(n));
+};
+
+const lockScroll = () => document.body.classList.toggle("locked", $$("dialog").some(d => d.open));
+
+/* full-screen windows live at #<name> or #<name>-<item>, so the phone's back button closes them
+   and the links can be shared */
+const SHEETS = C.sheets, HOOK = {};
+function parseHash(h){
+  h = decodeURIComponent(h || "");
+  for (const s of SHEETS) { if (h === s) return { s, arg: "" }; if (h.startsWith(s + "-")) return { s, arg: h.slice(s.length + 1) }; }
+  return null;
+}
+let homeNext = false, pendingScroll = null;
+function syncSheets(){
+  const m = parseHash(location.hash.slice(1));
+  SHEETS.forEach(k => {
+    const d = $("#s-" + k), want = m && m.s === k;
+    if (want) {
+      if (!d.open || d.dataset.arg !== m.arg) {
+        d.dataset.arg = m.arg;
+        if (HOOK[k]) HOOK[k](m.arg);
+        d.querySelector(".sheet-body").scrollTop = 0;
+      }
+      if (!d.open) { d.showModal(); ev("demo_open_" + k.replace(/-/g, "_"), m.arg ? { item: m.arg } : null); }
+    } else if (d.open) d.close();
+  });
+  lockScroll();
+  if (!SHEETS.some(k => $("#s-" + k).open)) {
+    if (homeNext) { homeNext = false; requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" })); }
+    else if (pendingScroll) { const t = pendingScroll; pendingScroll = null; requestAnimationFrame(() => { const el = document.getElementById(t); if (el) el.scrollIntoView({ behavior: "smooth" }); }); }
+  }
+}
+function openSheet(hash){
+  const anyOpen = SHEETS.some(k => $("#s-" + k).open);
+  if (anyOpen) history.replaceState({ sheet: hash }, "", "#" + hash); else history.pushState({ sheet: hash }, "", "#" + hash);
+  syncSheets();
+}
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+function closeSheet(){
+  if (history.state && history.state.sheet) history.back();
+  else { history.replaceState(null, "", location.pathname + location.search); syncSheets(); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const h = a.getAttribute("href").slice(1), m = parseHash(h);
+  if (a.dataset.pick && PICK) PICK(a.dataset.pick);
+  if (m) { e.preventDefault(); openSheet(h); return; }
+  if (SHEETS.some(k => $("#s-" + k).open)) { e.preventDefault(); pendingScroll = h; closeSheet(); }
+});
+let PICK = null;
+$$("[data-close]").forEach(b => b.addEventListener("click", closeSheet));
+$$("[data-home]").forEach(b => b.addEventListener("click", () => { homeNext = true; closeSheet(); }));
+SHEETS.forEach(k => $("#s-" + k).addEventListener("cancel", e => { e.preventDefault(); closeSheet(); }));
+window.addEventListener("popstate", syncSheets);
+window.addEventListener("hashchange", syncSheets);
+
+/* photo viewer: arrows, swipe, Esc */
+const V = { list: [], i: 0 }, viewer = $("#viewer");
+function showShot(){
+  const it = V.list[V.i];
+  setPhoto($("#v-img"), it.p, 1600, 0, "");
+  $("#v-count").textContent = (V.i + 1) + " / " + V.list.length;
+  $("#v-cap").innerHTML = it.cap ? `<h4>${L(it.cap)}</h4>` : "";
+  const one = V.list.length < 2; $("#v-prev").hidden = one; $("#v-next").hidden = one;
+}
+function openViewer(list, i){
+  V.list = list; V.i = i; showShot();
+  if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+  lockScroll();
+}
+const step = n => { V.i = (V.i + n + V.list.length) % V.list.length; showShot(); };
+$("#v-prev").addEventListener("click", () => step(-1));
+$("#v-next").addEventListener("click", () => step(1));
+$("#v-x").addEventListener("click", () => viewer.close());
+viewer.addEventListener("close", lockScroll);
+viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let tx = null;
+$("#v-stage").addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+$("#v-stage").addEventListener("touchend", e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+});
+
+/* gallery */
+function renderGallery(){
+  const g = $("#g-grid"); if (!g || g.dataset.done) return;
+  C.gallery = C.gallery.slice(0, 9);  /* 9 fills the mosaic exactly at 4, 3 and 2 columns */
+  g.innerHTML = C.gallery.map((p, i) => `<button type="button" data-shot="${i}" aria-label="${i + 1}">${imgTag(p, i === 0 ? 1400 : 800)}</button>`).join("");
+  g.dataset.done = "1";
+  g.addEventListener("click", e => { const b = e.target.closest("[data-shot]"); if (b) openViewer(C.gallery.map(p => ({ p })), +b.dataset.shot); });
+}
+
+const today = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+const addDays = (s, n) => { const d = new Date(s + "T12:00:00"); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+const fmtDate = s => { if (!s) return ""; const [y, m, d] = s.split("-"); return `${d}.${m}.${y}.`; };
+const opts = (n, from, sel) => Array.from({ length: n }, (_, i) => i + from).map(v => `<option value="${v}"${String(v) === String(sel) ? " selected" : ""}>${v}</option>`).join("");
+function sendRequest(via, subject, lines){
+  const body = lines.join("\n");
+  ev("demo_booking_send", { via });
+  if (via === "wa") location.href = "https://wa.me/" + C.wa + "?text=" + encodeURIComponent(subject + "\n\n" + body);
+  else location.href = "mailto:" + C.mail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
+
+/* rooms (or houses, for a business with several places) */
+const ITEMS = C.items, byId = id => ITEMS.find(r => r.id === id);
+const bookLang = () => C.phobsLang ? "&lang=" + lang : "";
+function specs(r, full){
+  const out = [];
+  if (r.size) out.push(`<span>${icon("area")}${r.size}</span>`);
+  if (r.guests) out.push(`<span>${icon("users")}${L(r.guests)}</span>`);
+  if (full && r.bed) out.push(`<span>${icon("bed")}${L(r.bed)}</span>`);
+  if (r.view) out.push(`<span>${icon(r.viewIcon || "eye")}${L(r.view)}</span>`);
+  if (r.units) out.push(`<span>${icon("home")}${r.units.length} ${tr("units_word")}</span>`);
+  return out.join("");
+}
+const priceHtml = p => p ? `<span class="price">${tr("from")} ${p} €<small> / ${tr("night")}</small></span>` : "";
+function card(r){
+  const book = r.book ? `<a class="btn btn-em btn-sm" href="${r.book}${bookLang()}" target="_blank" rel="noopener">${tr("b_online")}</a>`
+                      : `<a class="btn btn-em btn-sm" href="#rezervacija" data-pick="${r.id}">${tr("b_bookshort")}</a>`;
+  return `<article class="rcard">
+    <a class="rph" href="#${C.itemSheet}-${r.id}" aria-label="${L(r.name)}">${imgTag(r.photos[0], 900, 675, "", r.fb)}${r.tag ? `<span class="rtag">${L(r.tag)}</span>` : ""}${r.photos.length > 1 ? `<span class="rcount">${icon("grid")}${r.photos.length}</span>` : ""}</a>
+    <div class="rbody"><h3>${L(r.name)}</h3>${r.sub ? `<p class="rsub">${L(r.sub)}</p>` : ""}<div class="specs">${specs(r)}</div>${r.short ? `<p class="rdesc">${L(r.short)}</p>` : ""}
+      <div class="rfoot">${priceHtml(r.price)}<a class="btn btn-line btn-sm" href="#${C.itemSheet}-${r.id}">${tr(C.mode === "props" ? "b_see" : "b_details")}</a>${book}</div>
+    </div></article>`;
+}
+function renderCards(){ $("#r-grid").innerHTML = ITEMS.map(card).join(""); }
+RENDER.push(renderCards);
+
+function unitHtml(u, r){
+  const sp = [u.size ? `<span>${icon("area")}${u.size}</span>` : "", u.guests ? `<span>${icon("users")}${L(u.guests)}</span>` : "", u.extra ? `<span>${icon("check")}${L(u.extra)}</span>` : ""].join("");
+  return `<li class="unit"><h3>${L(u.name)}</h3>${sp ? `<div class="specs">${sp}</div>` : ""}${u.desc ? `<p>${L(u.desc)}</p>` : ""}
+    <div class="rfoot">${priceHtml(u.price)}<a class="btn btn-em btn-sm" href="${r.unitBase}${u.id}${bookLang()}" target="_blank" rel="noopener">${tr("b_online")}</a></div></li>`;
+}
+HOOK[C.itemSheet] = arg => {
+  const r = byId(arg) || ITEMS[0];
+  const photos = r.photos.map((p, i) => `<button type="button" data-ph="${i}" aria-label="${i + 1}">${imgTag(p, 1100, 733, "", i === 0 ? r.fb : "")}</button>`).join("");
+  const amen = (r.amen || []).map(a => `<li>${icon(C.amen[a].i)}${L(C.amen[a].t)}</li>`).join("");
+  const box = r.units
+    ? `<aside class="rs-box"><h3>${tr("book_direct")}</h3><p class="rdesc">${tr("book_direct_p")}</p><a class="btn btn-gold" href="${r.book}${bookLang()}" target="_blank" rel="noopener">${icon("cal")}${tr("b_online")}</a></aside>`
+    : `<aside class="rs-box"><h3>${tr("in_room")}</h3><ul class="alist">${amen}</ul><a class="btn btn-gold" href="#rezervacija" data-pick="${r.id}">${icon("cal")}${tr("b_bookthis")}</a></aside>`;
+  $("#item-body").innerHTML = `<h2 class="sheet-title">${L(r.name)}</h2>${r.sub ? `<p class="sheet-lead">${L(r.sub)}</p>` : ""}
+    <div class="rs-photos" id="rs-photos">${photos}</div>
+    <div class="rs-info"><div><div class="specs">${specs(r, true)}</div>${priceHtml(r.price) ? `<p style="margin-top:14px">${priceHtml(r.price)}</p>` : ""}<p class="rs-desc">${L(r.desc)}</p></div>${box}</div>
+    ${r.units ? `<h3 style="font-size:clamp(1.9rem,5vw,2.5rem);margin-top:40px">${tr("units_t")}</h3><ul class="units">${r.units.map(u => unitHtml(u, r)).join("")}</ul>` : ""}`;
+  $("#rs-photos").addEventListener("click", e => { const b = e.target.closest("[data-ph]"); if (b) openViewer(r.photos.map(p => ({ p, cap: r.name })), +b.dataset.ph); });
+};
+RENDER.push(() => { const d = $("#s-" + C.itemSheet); if (d.open) HOOK[C.itemSheet](d.dataset.arg); });
+
+/* services photo cards open the viewer */
+const sg = $("#s-grid");
+if (sg) sg.addEventListener("click", e => { const b = e.target.closest("[data-svc]"); if (b) openViewer(C.services, +b.dataset.svc); });
+
+/* online booking in four steps: dates, room, guest details, confirmation. Nothing is stored:
+   the finished booking opens in the guest's email app, addressed to the hotel, and reception confirms it. */
+const HOT = C.hotels, B = { step: 1, hotel: "all", in: "", out: "", ad: 2, ch: 0, room: "", name: "", phone: "", email: "", eta: "", note: "", ref: "" };
+const escH = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pl = (n, k) => {
+  const f = tr(k).split("|");
+  if (lang === "en") return n + " " + (n === 1 ? f[0] : f[1]);
+  const a = n % 10, b = n % 100;
+  return n + " " + (a === 1 && b !== 11 ? f[0] : a >= 2 && a <= 4 && (b < 12 || b > 14) ? f[1] : f[2]);
+};
+const nights = () => B.in && B.out && B.out > B.in ? Math.round((new Date(B.out + "T12:00:00") - new Date(B.in + "T12:00:00")) / 864e5) : 0;
+const datesOk = () => !!B.in && B.in >= today() && nights() > 0;
+const hotelOf = r => HOT[r.hotel];
+const sumLine = () => `${fmtDate(B.in)} – ${fmtDate(B.out)} · ${pl(nights(), "bk_nights")} · ${tr("f_ad")}: ${B.ad}${B.ch ? ` · ${tr("f_ch")}: ${B.ch}` : ""}`;
+
+function stepsHtml(){
+  return ["bk_s1", "bk_s2", "bk_s3", "bk_s4"].map((k, i) => {
+    const n = i + 1, back = n < B.step && B.step < 4, cls = n < B.step ? "done" : n === B.step ? "now" : "";
+    const inner = `<b>${n < B.step ? icon("check") : n}</b><span>${tr(k)}</span>`;
+    return `<li class="${cls}"${n === B.step ? ' aria-current="step"' : ""}>${back ? `<button type="button" data-go="${n}">${inner}</button>` : `<span>${inner}</span>`}</li>`;
+  }).join("");
+}
+function v1(){
+  const seg = ["all", "union", "newstar"].map(h => `<button type="button" data-hotel="${h}" aria-pressed="${B.hotel === h}">${h === "all" ? tr("bk_both") : HOT[h].name}</button>`).join("");
+  const r = byId(B.room), n = nights();
+  return `<div class="bk-seg" role="group" aria-label="${tr("bk_hotel")}">${seg}</div>
+    ${r ? `<p class="bk-picked">${icon("bed")}<span>${tr("bk_picked")}: <b>${L(r.name)}</b></span><button type="button" data-unpick aria-label="${tr("x_close")}">×</button></p>` : ""}
+    <div class="row2"><label><span>${tr("f_in")}</span><input type="date" id="bk-in" value="${B.in}" min="${today()}"></label>
+      <label><span>${tr("f_out")}</span><input type="date" id="bk-out" value="${B.out}" min="${addDays(B.in || today(), 1)}"></label></div>
+    <div class="row2"><label><span>${tr("f_ad")}</span><select id="bk-ad">${opts(4, 1, B.ad)}</select></label>
+      <label><span>${tr("f_ch")}</span><select id="bk-ch">${opts(4, 0, B.ch)}</select></label></div>
+    <p class="bk-nights">${n ? pl(n, "bk_nights") : ""}</p>
+    <p class="err" id="bk-err" hidden>${tr("bk_err1")}</p>
+    <button type="button" class="btn btn-gold bk-go" data-next>${tr(r ? "bk_next3" : "bk_next2")} ›</button>`;
+}
+function v2(){
+  const g = B.ad + B.ch, all = ITEMS.filter(r => B.hotel === "all" || r.hotel === B.hotel), fit = all.filter(r => r.cap >= g);
+  const list = (fit.length ? fit : all).slice().sort((a, b) => (b.id === B.room) - (a.id === B.room));
+  const rows = list.map(r => `<li class="bk-room${r.id === B.room ? " on" : ""}">
+      <button type="button" class="bk-ph" data-room="${r.id}" aria-label="${L(r.name)}">${imgTag(r.photos[0], 520, 390)}</button>
+      <div class="bk-rb"><p class="bk-h">${hotelOf(r).name}</p><h3>${L(r.name)}</h3><div class="specs">${specs(r, true)}</div>
+        <div class="bk-rf"><span class="bk-incl">${icon("fork")}${tr("bk_bf")}</span><button type="button" class="btn ${r.id === B.room ? "btn-gold" : "btn-em"} btn-sm" data-room="${r.id}">${tr(r.id === B.room ? "bk_chosen" : "bk_choose")}</button></div></div></li>`).join("");
+  return `<div class="bk-sum"><span>${sumLine()}</span><button type="button" class="bk-edit" data-go="1">${tr("bk_change")}</button></div>
+    ${fit.length ? "" : `<p class="bk-note">${tr("bk_big")}</p>`}<ul class="bk-rooms">${rows}</ul>`;
+}
+function card3(){
+  const r = byId(B.room), h = hotelOf(r);
+  return `<aside class="bk-card">${imgTag(r.photos[0], 760, 475)}<div class="bk-cb">
+    <p class="bk-h">${h.name} ★★★★</p><h3>${L(r.name)}</h3>
+    <dl class="bk-dl"><div><dt>${tr("f_in")}</dt><dd>${fmtDate(B.in)}<small>${tr("bk_from")} ${h.cin}</small></dd></div>
+      <div><dt>${tr("f_out")}</dt><dd>${fmtDate(B.out)}<small>${tr("bk_until")} ${h.cout}</small></dd></div>
+      <div><dt>${tr("bk_stay")}</dt><dd>${pl(nights(), "bk_nights")}</dd></div>
+      <div><dt>${tr("bk_guests")}</dt><dd>${tr("f_ad")}: ${B.ad}${B.ch ? `<small>${tr("f_ch")}: ${B.ch}</small>` : ""}</dd></div></dl>
+    <ul class="bk-perks"><li>${icon("fork")}${tr("bk_bf")}</li><li>${icon("car")}${tr("bk_park")}</li><li>${icon("wifi")}${tr("bk_wifi")}</li></ul>
+    <button type="button" class="bk-edit" data-go="2">${tr("bk_other")}</button></div></aside>`;
+}
+function v3(){
+  const eta = ["", "12:00–14:00", "14:00–18:00", "18:00–22:00", "late"].map(v => `<option value="${v}"${v === B.eta ? " selected" : ""}>${v === "" ? tr("bk_eta_x") : v === "late" ? tr("bk_late") : v}</option>`).join("");
+  return `<div class="bk-grid"><form class="res-form" id="bk-form" novalidate>
+      <label><span>${tr("f_name")}</span><input id="bk-name" autocomplete="name" value="${escH(B.name)}"></label>
+      <div class="row2"><label><span>${tr("bk_phone")}</span><input id="bk-phone" type="tel" autocomplete="tel" value="${escH(B.phone)}"></label>
+        <label><span>${tr("c_mail")}</span><input id="bk-email" type="email" autocomplete="email" value="${escH(B.email)}"></label></div>
+      <label><span>${tr("bk_eta")}</span><select id="bk-eta">${eta}</select></label>
+      <label><span>${tr("f_note")}</span><textarea id="bk-note">${escH(B.note)}</textarea></label>
+      <p class="err" id="bk-err" hidden>${tr("bk_err3")}</p>
+      <button class="btn btn-gold bk-go" type="submit">${icon("check")}${tr("bk_send")}</button>
+      <p class="hint">${tr("bk_hint")}</p></form>${card3()}</div>`;
+}
+function v4(){
+  const r = byId(B.room), h = hotelOf(r), first = B.name.trim().split(/\s+/)[0];
+  return `<div class="bk-done"><span class="bk-ok">${icon("check")}</span>
+    <h3>${tr("bk_thanks")}${first ? ", " + escH(first) : ""}!</h3>
+    <p class="bk-ref">${tr("bk_ref")}: <b>${B.ref}</b></p>
+    <p>${tr("bk_done_p")}</p>
+    <div class="bk-mini"><b>${h.name} · ${L(r.name)}</b><span>${sumLine()}</span></div>
+    <div class="bk-btns"><button type="button" class="btn btn-em" data-resend>${icon("mail")}${tr("bk_resend")}</button>
+      <a class="btn btn-line" href="tel:+38220223888">${icon("phone")}${tr("b_call")}</a>
+      <button type="button" class="btn btn-line" data-finish>${tr("x_home")}</button></div></div>`;
+}
+function renderBook(){
+  if (B.step > 1 && !datesOk()) B.step = 1;
+  if (B.step > 2 && !byId(B.room)) B.step = 2;
+  $("#bk-steps").innerHTML = stepsHtml();
+  $("#bk-view").innerHTML = [v1, v2, v3, v4][B.step - 1]();
+}
+RENDER.push(renderBook);
+function go(n){
+  B.step = n; renderBook();
+  $("#s-rezervacija .sheet-body").scrollTop = 0;
+  ev("demo_booking_step", { step: n });
+}
+function send(){
+  const r = byId(B.room), h = hotelOf(r);
+  const lines = [tr("m_hi"), "", tr("bk_m_ask"), "",
+    `${tr("bk_ref")}: ${B.ref}`, `${tr("bk_hotel")}: ${h.name}`, `${tr("room_label")}: ${L(r.name)}`,
+    `${tr("f_in")}: ${fmtDate(B.in)}`, `${tr("f_out")}: ${fmtDate(B.out)} (${pl(nights(), "bk_nights")})`,
+    `${tr("f_ad")}: ${B.ad}`, `${tr("f_ch")}: ${B.ch}`];
+  if (B.eta) lines.push(`${tr("bk_eta")}: ${B.eta === "late" ? tr("bk_late") : B.eta}`);
+  lines.push("", `${tr("f_name")}: ${B.name.trim()}`);
+  if (B.phone.trim()) lines.push(`${tr("bk_phone")}: ${B.phone.trim()}`);
+  if (B.email.trim()) lines.push(`E-mail: ${B.email.trim()}`);
+  if (B.note.trim()) lines.push(`${tr("f_note").replace(/\s*\(.*\)/, "")}: ${B.note.trim()}`);
+  lines.push("", tr("m_bye"));
+  sendRequest("mail", `${tr("bk_m_subj")} ${B.ref}: ${h.name}, ${fmtDate(B.in)} – ${fmtDate(B.out)}`, lines);
+}
+const bkView = $("#bk-view");
+bkView.addEventListener("input", e => {
+  const f = { "bk-name": "name", "bk-phone": "phone", "bk-email": "email", "bk-note": "note" }[e.target.id];
+  if (f) B[f] = e.target.value;
+});
+bkView.addEventListener("change", e => {
+  const id = e.target.id, v = e.target.value;
+  if (id === "bk-eta") { B.eta = v; return; }
+  if (id === "bk-in") { B.in = v; if (v && (!B.out || B.out <= v)) B.out = addDays(v, 2); }
+  else if (id === "bk-out") B.out = v;
+  else if (id === "bk-ad") B.ad = +v;
+  else if (id === "bk-ch") B.ch = +v;
+  else return;
+  renderBook();
+});
+bkView.addEventListener("click", e => {
+  const el = sel => e.target.closest(sel);
+  let b;
+  if ((b = el("[data-hotel]"))) { B.hotel = b.dataset.hotel; if (B.room && B.hotel !== "all" && byId(B.room).hotel !== B.hotel) B.room = ""; renderBook(); }
+  else if (el("[data-unpick]")) { B.room = ""; renderBook(); }
+  else if (el("[data-next]")) { if (!datesOk()) { $("#bk-err").hidden = false; return; } go(B.room ? 3 : 2); }
+  else if ((b = el("[data-room]"))) { if (B.room !== b.dataset.room) B.ref = ""; B.room = b.dataset.room; go(3); }
+  else if ((b = el("[data-go]"))) go(+b.dataset.go);
+  else if (el("[data-resend]")) send();
+  else if (el("[data-finish]")) { homeNext = true; closeSheet(); }
+});
+bkView.addEventListener("submit", e => {
+  e.preventDefault();
+  if (!B.name.trim() || !(B.phone.trim() || B.email.trim())) { $("#bk-err").hidden = false; return; }
+  const h = hotelOf(byId(B.room));
+  if (!B.ref) B.ref = `${h.ref}-${B.in.slice(5).replace("-", "")}-${100 + Math.floor(Math.random() * 900)}`;
+  send(); go(4);
+});
+$("#bk-steps").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
+HOOK.rezervacija = () => {
+  if (B.step === 4) Object.assign(B, { step: 1, room: "", ref: "", note: "" });
+  renderBook();
+};
+PICK = id => {
+  if (B.step === 4) Object.assign(B, { ref: "", note: "" });
+  if (id.startsWith("hotel:")) { B.hotel = id.slice(6); B.room = ""; B.step = 1; return; }
+  const r = byId(id); if (!r) return;
+  if (B.room !== id) B.ref = "";
+  B.room = id; B.hotel = r.hotel; B.step = datesOk() ? 3 : 1;
+};
+
+/* quick search under the photos */
+const qIn = $("#q-in"), qOut = $("#q-out");
+qIn.min = today(); qOut.min = addDays(today(), 1);
+qIn.addEventListener("change", () => { if (!qIn.value) return; qOut.min = addDays(qIn.value, 1); if (!qOut.value || qOut.value <= qIn.value) qOut.value = addDays(qIn.value, 2); });
+function fillQ(){
+  const g = $("#q-g"), h = $("#q-h"), gv = g.value || 2, hv = h.value || "all";
+  g.innerHTML = opts(4, 1, gv);
+  h.innerHTML = ["all", "union", "newstar"].map(k => `<option value="${k}"${k === hv ? " selected" : ""}>${k === "all" ? tr("bk_both") : HOT[k].name}</option>`).join("");
+}
+RENDER.push(fillQ);
+$("#qb").addEventListener("submit", e => {
+  e.preventDefault();
+  Object.assign(B, { in: qIn.value, out: qOut.value, ad: +$("#q-g").value, ch: 0, hotel: $("#q-h").value, room: "", ref: "" });
+  B.step = datesOk() ? 2 : 1;
+  ev("demo_quick_search");
+  openSheet("rezervacija");
+});
+
+/* rooms of both hotels, with a filter by hotel */
+let FILTER = "all";
+const rGrid = $("#r-grid"), chips = document.createElement("div");
+chips.className = "chips"; chips.setAttribute("role", "group");
+rGrid.before(chips);
+function renderRooms(){
+  chips.innerHTML = ["all", "union", "newstar"].map(k => `<button type="button" data-f="${k}" aria-pressed="${FILTER === k}">${k === "all" ? tr("bk_allrooms") : HOT[k].name}<small>${k === "all" ? ITEMS.length : ITEMS.filter(r => r.hotel === k).length}</small></button>`).join("");
+  rGrid.innerHTML = ITEMS.filter(r => FILTER === "all" || r.hotel === FILTER).map(card).join("");
+  rGrid.scrollLeft = 0;
+}
+RENDER.push(renderRooms);
+chips.addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) { FILTER = b.dataset.f; renderRooms(); } });
+document.addEventListener("click", e => { const a = e.target.closest("[data-filter]"); if (a) { FILTER = a.dataset.filter; renderRooms(); } });
+
+$$("img[data-p]:not([src])").forEach(i => setPhoto(i, i.dataset.p, +i.dataset.w || 1200, +i.dataset.h || 0, i.dataset.x));
+renderGallery();
+seen($$(".rv"), n => n.classList.add("in"), "0px 0px -8% 0px");
+seen($$(".map"), m => { m.src = m.dataset.src; }, "400px");
+let start = new URLSearchParams(location.search).get("lang");
+if (!start) { try { start = localStorage.getItem(C.slug + "-lang"); } catch(e) {} }
+applyLang(start || "me");
+syncSheets();
+
+</script>
+</body>
+</html>
