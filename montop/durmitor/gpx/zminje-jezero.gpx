@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MonTop (montop guide)" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Zminje Lake</name>
+    <desc>Track built from OpenStreetMap paths (ODbL, openstreetmap.org/copyright). Elevation: Copernicus DEM via Open-Meteo. One way. Check conditions before you go.</desc>
+  </metadata>
+  <wpt lat="43.16059" lon="19.08398"><ele>1572</ele><name>Start</name></wpt>
+  <wpt lat="43.15604" lon="19.07066"><ele>1541</ele><name>Goal</name></wpt>
+  <trk>
+    <name>Zminje Lake</name>
+    <trkseg>
+      <trkpt lat="43.16059" lon="19.08398"><ele>1572</ele></trkpt>
+      <trkpt lat="43.16048" lon="19.08379"><ele>1575</ele></trkpt>
+      <trkpt lat="43.16037" lon="19.08359"><ele>1577</ele></trkpt>
+      <trkpt lat="43.16027" lon="19.08339"><ele>1578</ele></trkpt>
+      <trkpt lat="43.16016" lon="19.08319"><ele>1580</ele></trkpt>
+      <trkpt lat="43.16002" lon="19.08304"><ele>1584</ele></trkpt>
+      <trkpt lat="43.15988" lon="19.0829"><ele>1587</ele></trkpt>
+      <trkpt lat="43.15978" lon="19.08269"><ele>1591</ele></trkpt>
+      <trkpt lat="43.15973" lon="19.08245"><ele>1593</ele></trkpt>
+      <trkpt lat="43.15966" lon="19.08223"><ele>1597</ele></trkpt>
+      <trkpt lat="43.15955" lon="19.08204"><ele>1602</ele></trkpt>
+      <trkpt lat="43.15948" lon="19.08181"><ele>1606</ele></trkpt>
+      <trkpt lat="43.15943" lon="19.08158"><ele>1604</ele></trkpt>
+      <trkpt lat="43.15935" lon="19.08136"><ele>1601</ele></trkpt>
+      <trkpt lat="43.1592" lon="19.08122"><ele>1599</ele></trkpt>
+      <trkpt lat="43.15908" lon="19.08104"><ele>1596</ele></trkpt>
+      <trkpt lat="43.159" lon="19.08082"><ele>1591</ele></trkpt>
+      <trkpt lat="43.15892" lon="19.0806"><ele>1581</ele></trkpt>
+      <trkpt lat="43.15887" lon="19.08037"><ele>1572</ele></trkpt>
+      <trkpt lat="43.15891" lon="19.08013"><ele>1576</ele></trkpt>
+      <trkpt lat="43.15899" lon="19.07991"><ele>1580</ele></trkpt>
+      <trkpt lat="43.15908" lon="19.0797"><ele>1579</ele></trkpt>
+      <trkpt lat="43.15917" lon="19.07948"><ele>1578</ele></trkpt>
+      <trkpt lat="43.15923" lon="19.07926"><ele>1577</ele></trkpt>
+      <trkpt lat="43.15928" lon="19.07902"><ele>1579</ele></trkpt>
+      <trkpt lat="43.15935" lon="19.07879"><ele>1581</ele></trkpt>
+      <trkpt lat="43.15942" lon="19.07856"><ele>1574</ele></trkpt>
+      <trkpt lat="43.15944" lon="19.07832"><ele>1568</ele></trkpt>
+      <trkpt lat="43.15943" lon="19.07808"><ele>1565</ele></trkpt>
+      <trkpt lat="43.15942" lon="19.07783"><ele>1563</ele></trkpt>
+      <trkpt lat="43.15941" lon="19.07758"><ele>1561</ele></trkpt>
+      <trkpt lat="43.1594" lon="19.07734"><ele>1560</ele></trkpt>
+      <trkpt lat="43.1594" lon="19.07709"><ele>1559</ele></trkpt>
+      <trkpt lat="43.15943" lon="19.07685"><ele>1557</ele></trkpt>
+      <trkpt lat="43.15947" lon="19.07661"><ele>1556</ele></trkpt>
+      <trkpt lat="43.1595" lon="19.07636"><ele>1555</ele></trkpt>
+      <trkpt lat="43.15954" lon="19.07612"><ele>1554</ele></trkpt>
+      <trkpt lat="43.15956" lon="19.07588"><ele>1553</ele></trkpt>
+      <trkpt lat="43.15957" lon="19.07563"><ele>1552</ele></trkpt>
+      <trkpt lat="43.15957" lon="19.07539"><ele>1551</ele></trkpt>
+      <trkpt lat="43.15949" lon="19.07516"><ele>1551</ele></trkpt>
+      <trkpt lat="43.15942" lon="19.07494"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15934" lon="19.07471"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15932" lon="19.07447"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15929" lon="19.07422"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15928" lon="19.07398"><ele>1546</ele></trkpt>
+      <trkpt lat="43.15927" lon="19.07373"><ele>1544</ele></trkpt>
+      <trkpt lat="43.15918" lon="19.07361"><ele>1541</ele></trkpt>
+      <trkpt lat="43.15907" lon="19.07344"><ele>1539</ele></trkpt>
+      <trkpt lat="43.15899" lon="19.07322"><ele>1537</ele></trkpt>
+      <trkpt lat="43.15896" lon="19.07298"><ele>1536</ele></trkpt>
+      <trkpt lat="43.15896" lon="19.07274"><ele>1535</ele></trkpt>
+      <trkpt lat="43.15896" lon="19.07249"><ele>1537</ele></trkpt>
+      <trkpt lat="43.1589" lon="19.07226"><ele>1538</ele></trkpt>
+      <trkpt lat="43.15877" lon="19.0721"><ele>1542</ele></trkpt>
+      <trkpt lat="43.15863" lon="19.07194"><ele>1546</ele></trkpt>
+      <trkpt lat="43.1585" lon="19.07178"><ele>1548</ele></trkpt>
+      <trkpt lat="43.15839" lon="19.07158"><ele>1549</ele></trkpt>
+      <trkpt lat="43.15833" lon="19.07135"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15825" lon="19.07113"><ele>1552</ele></trkpt>
+      <trkpt lat="43.15816" lon="19.07092"><ele>1554</ele></trkpt>
+      <trkpt lat="43.158" lon="19.07081"><ele>1554</ele></trkpt>
+      <trkpt lat="43.15782" lon="19.07076"><ele>1551</ele></trkpt>
+      <trkpt lat="43.15767" lon="19.07064"><ele>1551</ele></trkpt>
+      <trkpt lat="43.15752" lon="19.0705"><ele>1550</ele></trkpt>
+      <trkpt lat="43.15736" lon="19.0704"><ele>1549</ele></trkpt>
+      <trkpt lat="43.15718" lon="19.07036"><ele>1547</ele></trkpt>
+      <trkpt lat="43.15701" lon="19.07039"><ele>1545</ele></trkpt>
+      <trkpt lat="43.15686" lon="19.07052"><ele>1543</ele></trkpt>
+      <trkpt lat="43.15671" lon="19.07066"><ele>1543</ele></trkpt>
+      <trkpt lat="43.15654" lon="19.07072"><ele>1542</ele></trkpt>
+      <trkpt lat="43.15637" lon="19.07066"><ele>1542</ele></trkpt>
+      <trkpt lat="43.15622" lon="19.07053"><ele>1542</ele></trkpt>
+      <trkpt lat="43.15606" lon="19.07047"><ele>1541</ele></trkpt>
+      <trkpt lat="43.15604" lon="19.07066"><ele>1541</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
