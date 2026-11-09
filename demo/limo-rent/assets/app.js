@@ -1,5 +1,5 @@
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const KEY = "limo-rent-demo-v2";
+const KEY = "limo-rent-demo-v3";
 let lang = "me";
 const LOC = { me: "sr-Latn-ME", en: "en-GB", ru: "ru-RU", de: "de-DE" }, HTML_LANG = { me: "sr-Latn-ME", en: "en", ru: "ru", de: "de" };
 const LANGS = ["me", "en", "ru", "de"], LI = () => Math.max(0, LANGS.indexOf(lang));
@@ -28,17 +28,20 @@ const daysWord = n => {
 /* ---------- demo data, kept in this browser so the admin panel and the site share it */
 function defaults(){
   const span = ([a, b]) => { const r = []; for (let i = a; i <= b; i++) r.push(iso(addD(TODAY, i))); return r; };
+  const routes = DEF_ROUTES.map(r => JSON.parse(JSON.stringify(r)));
+  const rp = (car, a, b) => { const q = routes.find(r => (r.a === a && r.b === b) || (r.a === b && r.b === a)); return q ? +q.p[car] || 0 : 0; };
   return {
+    routes,
     cars: DEF_CARS.map(c => { const x = JSON.parse(JSON.stringify(c)); x.busy = x.off.flatMap(span); delete x.off; x.photos = []; return x; }),
     requests: DEF_REQ.map(r => { const x = Object.assign({}, r); x.d1 = iso(addD(TODAY, r.a)); x.d2 = r.b != null ? iso(addD(TODAY, r.b)) : null; x.created = iso(addD(TODAY, r.c));
       delete x.a; delete x.b; delete x.c; const car = DEF_CARS.find(c => c.id === r.car); x.carName = car.name;
-      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = x.mode === "hourly" ? car.price * x.hours : (r.est || 0); return x; }),
+      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = x.mode === "hourly" ? car.price * x.hours : rp(car.id, x.p1, x.p2); return x; }),
     clients: DEF_CL.map(c => { const x = Object.assign({}, c); x.created = iso(addD(TODAY, c.c)); delete x.c; return x; }),
     seq: 500
   };
 }
 let DB;
-function load(){ try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.cars) && Array.isArray(d.clients)) { DB = d; return; } } catch (e) {} DB = defaults(); }
+function load(){ try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.cars) && Array.isArray(d.clients) && Array.isArray(d.routes)) { DB = d; return; } } catch (e) {} DB = defaults(); }
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(DB)); return true; } catch (e) { return false; } }
 load();
 window.addEventListener("storage", e => { if (e.key === KEY) { load(); if (window.render) render(); } });
@@ -57,6 +60,12 @@ function avLine(c, a, z){
   const f = freeFrom(c); return [f === TODAY_S, f === TODAY_S ? tr("avail_today") : tr("avail_from", { d: fmtD(f) })];
 }
 const placeName = k => { const p = PLACES.find(x => x[0] === k); return p ? p[1 + LI()] : k; };
+const placeL = k => { const p = PLACES_L.find(x => x[0] === k); return p ? p[1 + LI()] : (k || ""); };
+const plOpts = (v, list) => `<option value="">${escH(tr("choose"))}</option>` + (list || PLACES_L).map(p => `<option value="${p[0]}"${p[0] === v ? " selected" : ""}>${escH(p[1 + LI()])}</option>`).join("") +
+  (v && !PLACES_L.some(p => p[0] === v) ? `<option value="${escH(v)}" selected>${escH(v)}</option>` : "");
+const routeOf = (a, b) => (DB.routes || []).find(r => (r.a === a && r.b === b) || (r.a === b && r.b === a));
+const transferPrice = (car, a, b) => { const r = a && b ? routeOf(a, b) : null; return r ? +r.p[car] || 0 : 0; };
+const minTransfer = car => { const v = (DB.routes || []).map(r => +r.p[car] || 0).filter(Boolean); return v.length ? Math.min(...v) : 0; };
 
 /* ---------- cars drawn from the side until the owner uploads photos */
 const BODY = {
@@ -177,8 +186,8 @@ function reqLines(r){
     L.push(tr("m_rent", { car: name }), `${tr("m_dates")}: ${fmtD(r.d1)} – ${fmtD(r.d2)} (${r.days} ${daysWord(r.days)}), ${r.time}`,
       `${tr("f_place")}: ${placeName(r.place)}`, `${tr("total")}: ${eur(r.total)}`);
   } else {
-    L.push(tr("m_limo", { car: name }), r.mode === "transfer" ? `${tr("t_transfer")}: ${r.p1} → ${r.p2}` : `${tr("t_hourly")}: ${r.hours} ${tr("h_short")} · ${tr("f_start")}: ${r.p1}`,
-      `${tr("f_date")}: ${fmtD(r.d1)} ${r.time}`, `${tr("f_pax")}: ${r.pax}`, r.est ? `${tr("est")}: ${eur(r.est)}` : tr("on_req"));
+    L.push(tr("m_limo", { car: name }), r.mode === "transfer" ? `${tr("t_transfer")}: ${placeL(r.p1)} → ${placeL(r.p2)}` : `${tr("t_hourly")}: ${r.hours} ${tr("h_short")} · ${tr("f_start")}: ${placeL(r.p1)}`,
+      `${tr("f_date")}: ${fmtD(r.d1)} ${r.time}`, `${tr("f_pax")}: ${r.pax}`, r.est ? `${tr(r.mode === "transfer" ? "price_l" : "est")}: ${eur(r.est)}` : tr("on_req"));
   }
   L.push(`${tr("f_name")}: ${r.name}`, `${tr("f_phone_s")}: ${r.phone}`);
   if (r.email) L.push(`E-mail: ${r.email}`);

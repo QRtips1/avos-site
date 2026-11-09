@@ -37,12 +37,13 @@
     <button type="submit" class="btn full" data-i18n="a_enter">Uđi</button>
   </form>
   <div id="app" hidden>
-    <div class="atabs" role="tablist"><button type="button" data-t="kalendar" aria-pressed="true" data-i18n="a_board">Kalendar</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button><button type="button" data-t="klijenti" aria-pressed="false" data-i18n="a_clients">Klijenti</button><button type="button" data-t="vozila" aria-pressed="false" data-i18n="a_cars">Vozila</button></div>
+    <div class="atabs" role="tablist"><button type="button" data-t="kalendar" aria-pressed="true" data-i18n="a_board">Kalendar</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button><button type="button" data-t="klijenti" aria-pressed="false" data-i18n="a_clients">Klijenti</button><button type="button" data-t="vozila" aria-pressed="false" data-i18n="a_cars">Vozila</button><button type="button" data-t="cijene" aria-pressed="false" data-i18n="a_prices">Cijene</button></div>
     <p class="dnote" style="margin:0 0 12px"><span data-i18n="a_note">Demo: promjene se čuvaju samo u ovom pregledaču. Na pravom sajtu odmah ih vide svi posjetioci.</span></p>
     <section id="p-kalendar"></section>
     <section id="p-zahtjevi" hidden></section>
     <section id="p-klijenti" hidden></section>
     <section id="p-vozila" hidden></section>
+    <section id="p-cijene" hidden></section>
     <p style="margin-top:28px"><button type="button" class="btn line sm" id="reset" data-i18n="a_reset">Vrati demo na početak</button></p>
   </div>
 </main>
@@ -50,7 +51,6 @@
 <div class="sheet" id="reqsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="reqsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="rq-body"></div><div class="foot" id="rq-foot"></div></div></div>
 <div class="sheet" id="clsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="clsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="cl-body"></div><div class="foot" id="cl-foot"></div></div></div>
 <div class="sheet" id="daysheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="daysheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="ds-body"></div></div></div>
-<datalist id="pl"></datalist>
 <div class="toast" id="toast" hidden></div>
 <script src="../assets/data.js?v=1"></script>
 <script src="../assets/app.js?v=1"></script>
@@ -65,7 +65,7 @@ $("#logout").addEventListener("click", () => { try { sessionStorage.removeItem("
 let tt; function toast(m){ const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2600); }
 function persist(){ if (!save()) { toast(tr("a_full")); return false; } return true; }
 $(".atabs").addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (!b) return; TAB = b.dataset.t; history.replaceState(null, "", "#" + TAB); render(); });
-if (/^#(kalendar|zahtjevi|klijenti|vozila)$/.test(location.hash)) TAB = location.hash.slice(1);
+if (/^#(kalendar|zahtjevi|klijenti|vozila|cijene)$/.test(location.hash)) TAB = location.hash.slice(1);
 
 function row(c){
   return `<div class="arow"><div class="pic${c.cat === "limo" ? " dk" : ""}">${carPic(c)}</div>
@@ -100,7 +100,7 @@ function renderForm(){
   $("#cf-body").innerHTML = `<p class="h3">${tr("a_cat")}</p>
     <div class="radios"><label><input type="radio" name="cat" value="limo"${limo ? " checked" : ""}>${tr("nav_limo")}</label><label><input type="radio" name="cat" value="rent"${!limo ? " checked" : ""}>${tr("nav_rent")}</label></div>
     <div class="fg" style="--c:2;margin-top:14px">${f("a_name", `<input class="inp" data-f="name" value="${escH(F.name)}" placeholder="Mercedes-Benz E-Klasa">`)}${f("a_year", `<input class="inp" type="number" inputmode="numeric" data-f="year" value="${escH(F.year)}">`)}
-      ${f(limo ? "a_price_hour" : "a_price_day", `<input class="inp" type="number" inputmode="decimal" min="0" data-f="price" value="${escH(F.price)}">`)}
+      ${f(limo ? "a_price_hour" : "a_price_day", `<input class="inp" type="number" inputmode="decimal" min="0" data-f="price" value="${escH(F.price)}">${limo ? `<small class="small">${tr("a_price_hint")}</small>` : ""}`)}
       ${f(limo ? "a_pax" : "a_seats", sel("seats", [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => [n, n])))}
       ${limo ? f("a_bags", sel("bags", [1, 2, 3, 4, 5, 6, 7, 8].map(n => [n, n]))) : f("a_gear", sel("gear", [["A", tr("gear_A")], ["M", tr("gear_M")]])) + f("a_fuel", sel("fuel", ["D", "P", "H", "E"].map(x => [x, tr("fuel_" + x)])))}</div>
     <div class="fg" style="--c:2;margin-top:10px">${LANGS.map(l => f("a_desc_" + l, `<textarea class="inp" data-d="${l}">${escH(F.desc[l] || "")}</textarea>`)).join("")}</div>
@@ -194,7 +194,7 @@ function agenda(){
   for (const r of DB.requests) {
     if (r.status === "no") continue;
     const c = byId(r.car), nm = c ? c.name : r.carName;
-    if (r.type === "limo") { if (inW(r.d1)) ev.push({ d: r.d1, k: "ev_ride", r, nm, what: r.mode === "transfer" ? `${r.p1} → ${r.p2}` : `${tr("t_hourly")} ${r.hours} ${tr("h_short")} · ${r.p1}` }); }
+    if (r.type === "limo") { if (inW(r.d1)) ev.push({ d: r.d1, k: "ev_ride", r, nm, what: r.mode === "transfer" ? `${placeL(r.p1)} → ${placeL(r.p2)}` : `${tr("t_hourly")} ${r.hours} ${tr("h_short")} · ${placeL(r.p1)}` }); }
     else {
       if (inW(r.d1)) ev.push({ d: r.d1, k: "ev_pick", r, nm, what: placeName(r.place) });
       if (inW(r.d2)) ev.push({ d: r.d2, k: "ev_ret", r, nm, what: placeName(r.place) });
@@ -279,7 +279,7 @@ let BK = null;
 function recalc(b, force){
   const c = byId(b.car); if (!c) return;
   if (b.type === "rent") { if (b.d2 && b.d2 > b.d1) { b.days = nDays(b.d1, b.d2); if (force || !b.manualPrice) b.total = b.days * c.price; } }
-  else if (b.mode === "hourly" && (force || !b.manualPrice)) b.est = c.price * +b.hours;
+  else if (force || !b.manualPrice) b.est = b.mode === "hourly" ? c.price * +b.hours : transferPrice(c.id, b.p1, b.p2);
 }
 function openBk(id, preset){
   const r = id != null ? DB.requests.find(x => x.id === +id) : null;
@@ -299,6 +299,7 @@ function renderBk(){
   const f = (k, inner, w) => `<label class="fld${w ? " wide" : ""}"><span>${tr(k)}</span>${inner}</label>`;
   const inp = (k, type, extra) => `<input class="inp" type="${type || "text"}" data-k="${k}" value="${escH(b[k] == null ? "" : b[k])}"${extra || ""}>`;
   const sel = (k, opts) => `<select class="inp" data-k="${k}">${opts.map(([v, t]) => `<option value="${escH(v)}"${String(b[k]) === String(v) ? " selected" : ""}>${escH(t)}</option>`).join("")}</select>`;
+  const psel = k => `<select class="inp" data-k="${k}">${plOpts(b[k])}</select>`;
   const tel = String(b.phone || "").replace(/[^+\d]/g, "");
   let top = "";
   if (isNew) top = `<div class="radios" style="margin-bottom:12px"><label><input type="radio" name="bktype" value="limo"${b.type === "limo" ? " checked" : ""}>${tr("nav_limo")}</label><label><input type="radio" name="bktype" value="rent"${b.type === "rent" ? " checked" : ""}>${tr("nav_rent")}</label></div>`;
@@ -310,8 +311,8 @@ function renderBk(){
     ? f("f_pick", inp("d1", "date")) + f("f_ret", inp("d2", "date")) + f("f_time", inp("time", "time")) + f("f_place", sel("place", PLACES.map(p => [p[0], p[1 + LI()]])))
     : f("f_date", inp("d1", "date")) + f("f_time", inp("time", "time")) +
       `<div class="tabs wide" role="group" id="bk-mode"><button type="button" data-mode="transfer" aria-pressed="${b.mode === "transfer"}">${tr("t_transfer")}</button><button type="button" data-mode="hourly" aria-pressed="${b.mode === "hourly"}">${tr("t_hourly")}</button></div>` +
-      (b.mode === "transfer" ? f("f_from", inp("p1", "text", ' list="pl"')) + f("f_to", inp("p2", "text", ' list="pl"'))
-        : f("f_start", inp("p1", "text", ' list="pl"')) + f("f_hours", sel("hours", [1, 2, 3, 4, 5, 6, 8, 10, 12].map(n => [n, n])))) +
+      (b.mode === "transfer" ? f("f_from", psel("p1"), 1) + f("f_to", psel("p2"), 1)
+        : f("f_start", psel("p1"), 1) + f("f_hours", sel("hours", [1, 2, 3, 4, 5, 6, 8, 10, 12].map(n => [n, n])))) +
       f("f_pax", sel("pax", [1, 2, 3, 4, 5, 6, 7, 8].map(n => [n, n])));
   const pk = b.type === "rent" ? "total" : "est";
   $("#rq-body").innerHTML = `${top}
@@ -334,7 +335,7 @@ $("#rq-body").addEventListener("input", e => {
   const k = t.dataset.k; if (!k) return;
   BK[k] = k === "car" ? +t.value : t.value;
   if (k === "total" || k === "est") { BK.manualPrice = true; return; }
-  if (k === "d1" || k === "d2" || k === "car" || k === "hours") {
+  if (k === "d1" || k === "d2" || k === "car" || k === "hours" || k === "p1" || k === "p2") {
     recalc(BK);
     const pf = $(`#rq-body [data-k="${BK.type === "rent" ? "total" : "est"}"]`); if (pf) pf.value = (BK.type === "rent" ? BK.total : BK.est) || "";
   }
@@ -459,16 +460,48 @@ function saveCl(){
   closeSheet(); render(); toast(tr("a_saved"));
 }
 
+/* ---------- transfer prices: route x car, edited by the owner */
+const PA = { a: "tgd", b: "bud", err: "" };
+const short = n => { const w = String(n).split(" "); return w.length > 1 ? w.slice(1).join(" ") : n; };
+function pPrices(){
+  const cars = DB.cars.filter(c => c.cat === "limo"), pl = PLACES_L.filter(p => p[0] !== "oth");
+  const num = (attr, v, label) => `<input class="inp pi" type="number" inputmode="numeric" min="0" step="5" ${attr} value="${v === "" || v == null ? "" : +v}" placeholder="–" aria-label="${escH(label)}">`;
+  $("#p-cijene").innerHTML = `<p class="h3">${tr("pr_t")}</p><p class="small">${tr("pr_hint")}</p>
+    <div class="ptw"><table class="ptab"><thead><tr><th>${tr("pr_route")}</th>${cars.map(c => `<th title="${escH(c.name)}">${escH(short(c.name))}</th>`).join("")}</tr></thead><tbody>
+      <tr class="hr"><th>${tr("pr_hourly")}</th>${cars.map(c => `<td>${num(`data-hcar="${c.id}"`, c.price, c.name)}</td>`).join("")}</tr>
+      ${DB.routes.map(r => `<tr><th><div class="rt"><span>${escH(placeL(r.a))}<br>→ ${escH(placeL(r.b))}</span><button type="button" class="pdel" data-delr="${r.id}" aria-label="${escH(tr("a_del"))}">×</button></div></th>${cars.map(c => `<td>${num(`data-r="${r.id}" data-c="${c.id}"`, r.p[c.id], `${placeL(r.a)} → ${placeL(r.b)}, ${c.name}`)}</td>`).join("")}</tr>`).join("")}
+    </tbody></table></div>
+    <div class="padd"><p class="h3">${tr("pr_add")}</p><div class="fg two"><label class="fld"><span>${tr("f_from")}</span><select class="inp" id="pr-a">${plOpts(PA.a, pl).replace(/^<option value="">[^<]*<\/option>/, "")}</select></label>
+      <label class="fld"><span>${tr("f_to")}</span><select class="inp" id="pr-b">${plOpts(PA.b, pl).replace(/^<option value="">[^<]*<\/option>/, "")}</select></label></div>
+      ${PA.err ? `<p class="err" style="margin-top:8px">${escH(PA.err)}</p>` : ""}<button type="button" class="btn line" id="pr-add">+ ${tr("pr_add")}</button></div>`;
+}
+$("#p-cijene").addEventListener("input", e => {
+  const t = e.target, v = t.value === "" ? "" : Math.max(0, +t.value || 0);
+  if (t.dataset.r) { const r = DB.routes.find(x => x.id === +t.dataset.r); if (r) { r.p[t.dataset.c] = v; save(); } }
+  else if (t.dataset.hcar) { const c = byId(t.dataset.hcar); if (c) { c.price = +v || 0; save(); } }
+  else if (t.id === "pr-a") PA.a = t.value; else if (t.id === "pr-b") PA.b = t.value;
+});
+$("#p-cijene").addEventListener("change", e => { if (e.target.dataset.r || e.target.dataset.hcar) { if (persist()) toast(tr("a_saved")); } });
+$("#p-cijene").addEventListener("click", e => {
+  const d = e.target.closest("[data-delr]");
+  if (d) { if (!confirm(tr("pr_del_q"))) return; DB.routes = DB.routes.filter(r => r.id !== +d.dataset.delr); if (persist()) toast(tr("a_saved")); pPrices(); return; }
+  if (e.target.closest("#pr-add")) {
+    PA.err = PA.a === PA.b ? tr("pr_same") : routeOf(PA.a, PA.b) ? tr("pr_exists") : "";
+    if (!PA.err) { DB.routes.push({ id: ++DB.seq, a: PA.a, b: PA.b, p: {} }); if (persist()) toast(tr("a_saved")); }
+    pPrices();
+    if (!PA.err) { const rows = $$("#p-cijene tbody tr"), i = rows.length && rows[rows.length - 1].querySelector("input"); if (i) { i.scrollIntoView({ block: "center" }); i.focus({ preventScroll: true }); } }
+  }
+});
+
 $("#reset").addEventListener("click", () => { if (!confirm(tr("a_reset_q"))) return; try { localStorage.removeItem(KEY); } catch (e) {} load(); render(); toast(tr("a_saved")); });
 
 function render(){
   show();
   if (!signed()) return;
   $$(".atabs [data-t]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === TAB)));
-  ["kalendar", "zahtjevi", "klijenti", "vozila"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
+  ["kalendar", "zahtjevi", "klijenti", "vozila", "cijene"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
   const n = DB.requests.filter(r => r.status === "new").length; $("#req-n").textContent = n; $("#req-n").hidden = !n;
-  $("#pl").innerHTML = PLACES_L.map(p => `<option value="${escH(p[LI()])}">`).join("");
-  if (TAB === "kalendar") keepScroll(pBoard); else if (TAB === "zahtjevi") pReq(); else if (TAB === "klijenti") pClients(); else pCars();
+  if (TAB === "kalendar") keepScroll(pBoard); else if (TAB === "zahtjevi") pReq(); else if (TAB === "klijenti") pClients(); else if (TAB === "cijene") pPrices(); else pCars();
   if (openId === "carform" && F) renderForm();
   if (openId === "reqsheet" && BK) renderBk();
   if (openId === "clsheet" && CL) renderCl();

@@ -30,22 +30,21 @@
 </div></header>
 <main>
 <section class="phero dark"><div class="wrap">
-  <span class="kick" data-i18n="limo_k">Limo servis</span><h1 data-i18n="l_h1">Vozilo sa vozačem</h1><p data-i18n="l_lead">Transferi sa aerodroma, poslovni susreti, proslave i ture po Crnoj Gori. Izaberite vožnju, pa vozilo.</p>
+  <span class="kick" data-i18n="limo_k">Limo servis</span><h1 data-i18n="l_h1">Vozilo sa vozačem</h1><p data-i18n="l_lead">Transferi sa aerodroma, poslovni susreti, proslave i ture po Crnoj Gori.</p>
   <form class="bk" id="lf" novalidate>
-    <div class="tabs" role="group"><button type="button" data-mode="transfer" aria-pressed="true" data-i18n="t_transfer">Transfer</button><button type="button" data-mode="hourly" aria-pressed="false" data-i18n="t_hourly">Po satu</button></div>
+    <div class="tabs" role="group"><button type="button" data-mode="transfer" aria-pressed="true" data-i18n="t_transfer">Transfer</button><button type="button" data-mode="hourly" aria-pressed="false" data-i18n="t_hourly">Najam po satu</button></div>
     <div class="fg" style="--c:5" id="lf-f"></div>
     <button type="submit" class="btn gold full" data-i18n="l_go">Prikaži vozila</button>
   </form>
-  <datalist id="pl"></datalist>
 </div></section>
 <section class="sec" id="vozila"><div class="wrap">
-  <h2 data-i18n="l_cars_t">Vozila</h2><p class="sub" data-i18n="l_cars_sub">Cijena je po satu. Za transfer cijenu potvrđujemo porukom.</p>
+  <h2 data-i18n="l_cars_t">Vozila</h2><p class="sub" data-i18n="l_cars_sub">Cijena transfera zavisi od vozila i pravca. Izaberite odakle i dokle i vidjećete tačnu cijenu.</p>
   <div class="cars dk" id="cars"></div>
 </div></section>
 <section class="sec alt"><div class="wrap">
   <h2 data-i18n="sv_t">Usluge</h2>
   <div class="svs">
-    <div class="sv"><svg class="ico" aria-hidden="true"><use href="#i-plane"/></svg><b data-i18n="sv1">Aerodrom</b><p data-i18n="sv1p">Transfer sa aerodroma Podgorica ili Tivat do hotela, i nazad.</p><button type="button" class="btn line sm" data-sv="transfer" data-p="Aerodrom Podgorica"><span data-i18n="sv_btn">Pošalji upit</span></button></div>
+    <div class="sv"><svg class="ico" aria-hidden="true"><use href="#i-plane"/></svg><b data-i18n="sv1">Aerodrom</b><p data-i18n="sv1p">Transfer sa aerodroma Podgorica ili Tivat do hotela, i nazad.</p><button type="button" class="btn line sm" data-sv="transfer" data-p="tgd"><span data-i18n="sv_btn">Pošalji upit</span></button></div>
     <div class="sv"><svg class="ico" aria-hidden="true"><use href="#i-brief"/></svg><b data-i18n="sv2">Poslovni susreti</b><p data-i18n="sv2p">Vozač vas čeka dok traje sastanak.</p><button type="button" class="btn line sm" data-sv="hourly"><span data-i18n="sv_btn">Pošalji upit</span></button></div>
     <div class="sv"><svg class="ico" aria-hidden="true"><use href="#i-ring"/></svg><b data-i18n="sv3">Vjenčanja i proslave</b><p data-i18n="sv3p">Vozilo za mladence, goste ili cijelu porodicu.</p><button type="button" class="btn line sm" data-sv="hourly"><span data-i18n="sv_btn">Pošalji upit</span></button></div>
     <div class="sv"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg><b data-i18n="sv4">Ture po Crnoj Gori</b><p data-i18n="sv4p">Kotor, Budva, Durmitor ili ruta po vašem planu.</p><button type="button" class="btn line sm" data-sv="hourly"><span data-i18n="sv_btn">Pošalji upit</span></button></div>
@@ -74,29 +73,33 @@ const PAX = [1, 2, 3, 4, 5, 6, 7], HRS = [2, 3, 4, 5, 6, 8, 10, 12];
 const opt = (arr, v) => arr.map(x => `<option${+x === +v ? " selected" : ""}>${x}</option>`).join("");
 function topFields(){
   const f = (k, inner, w) => `<label class="fld${w ? " wide" : ""}"><span>${tr(k)}</span>${inner}</label>`;
-  const place = (key, k, ph) => f(k, `<input class="inp" list="pl" data-k="${key}" value="${escH(L[key])}" placeholder="${escH(tr(ph))}" autocomplete="off">`, 1);
-  $("#lf-f").innerHTML = (L.mode === "transfer" ? place("p1", "f_from", "ph_place") + place("p2", "f_to", "ph_to") : place("p1", "f_start", "ph_place") +
+  const place = (key, k) => f(k, `<select class="inp" data-k="${key}">${plOpts(L[key])}</select>`, 1);
+  $("#lf-f").innerHTML = (L.mode === "transfer" ? place("p1", "f_from") + place("p2", "f_to") : place("p1", "f_start") +
       f("f_hours", `<select class="inp" data-k="hours">${opt(HRS, L.hours)}</select>`)) +
     f("f_date", `<input class="inp" type="date" data-k="date" min="${TODAY_S}" value="${L.date}">`) +
     f("f_time", `<input class="inp" type="time" data-k="time" value="${L.time}">`) +
     f("f_pax", `<select class="inp" data-k="pax">${opt(PAX, L.pax)}</select>`, L.mode === "transfer");
   $$("#lf .tabs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mode === L.mode)));
-  $("#pl").innerHTML = PLACES_L.map(p => `<option value="${escH(p[LI()])}">`).join("");
 }
-$("#lf").addEventListener("input", e => { const k = e.target.dataset.k; if (k) L[k] = e.target.value; if (k === "date" || k === "pax") renderCars(); });
-$("#lf").addEventListener("click", e => { const b = e.target.closest("[data-mode]"); if (b) { L.mode = b.dataset.mode; topFields(); } });
+$("#lf").addEventListener("input", e => { const k = e.target.dataset.k; if (k) L[k] = e.target.value; if (k && k !== "time") renderCars(); });
+$("#lf").addEventListener("click", e => { const b = e.target.closest("[data-mode]"); if (b) { L.mode = b.dataset.mode; topFields(); renderCars(); } });
 $("#lf").addEventListener("submit", e => { e.preventDefault(); renderCars(); $("#vozila").scrollIntoView(); });
 document.addEventListener("click", e => {
   const s = e.target.closest("[data-sv]"); if (!s) return;
-  L.mode = s.dataset.sv; if (s.dataset.p && !L.p1) L.p1 = PLACES_L[0][LI()];
-  topFields(); scrollTo({ top: 0, behavior: "smooth" }); setTimeout(() => { const i = $("#lf-f input"); if (i) i.focus({ preventScroll: true }); }, 400);
+  L.mode = s.dataset.sv; if (s.dataset.p && !L.p1) L.p1 = s.dataset.p;
+  topFields(); renderCars(); scrollTo({ top: 0, behavior: "smooth" }); setTimeout(() => { const i = $("#lf-f [data-k]"); if (i) i.focus({ preventScroll: true }); }, 400);
 });
+function priceHTML(c){   // hourly hire: price per hour; transfer: price of the chosen route, or the lowest one
+  if (L.mode === "hourly") return `${eur(c.price)} <small>${tr("per_hour")}</small>`;
+  if (L.p1 && L.p2) { const p = transferPrice(c.id, L.p1, L.p2); return p ? `${eur(p)} <small>${tr("tr_short")}</small>` : `<small>${tr("price_req")}</small>`; }
+  const m = minTransfer(c.id); return m ? `${tr("from_p", { p: eur(m) })} <small>${tr("tr_short")}</small>` : `<small>${tr("price_req")}</small>`;
+}
 function card(c){
   const [ok, txt] = avLine(c, L.date || null), fits = c.seats >= +L.pax, on = (ok || !L.date) && fits;
   return `<article class="cc${on ? "" : " off"}"><button type="button" class="pic" data-car="${c.id}" aria-label="${escH(c.name)}">${carPic(c)}${c.test ? `<span class="tb">${tr("test")}</span>` : ""}</button>
     <div class="bd"><h3>${escH(c.name)} <small>${c.year || ""}</small></h3><div class="specs">${specsLimo(c)}</div>
     <div class="av${on ? (ok ? "" : " soon") : " no"}">${escH(fits ? txt : tr("too_small", { n: L.pax }))}</div>
-    <div class="row"><div class="pr">${eur(c.price)} <small>${tr("per_hour")}</small></div><button type="button" class="btn sm" data-car="${c.id}">${tr("btn_book")}</button></div></div></article>`;
+    <div class="row"><div class="pr">${priceHTML(c)}</div><button type="button" class="btn sm" data-car="${c.id}">${tr("btn_book")}</button></div></div></article>`;
 }
 function renderCars(){
   const cars = DB.cars.filter(c => c.cat === "limo" && c.visible !== false);
@@ -111,10 +114,10 @@ function openBook(id){
   Object.assign(B, { c, ph: 0, done: null, err: "", o: { busy: busySet(c), mode: "single", start: L.date && !busySet(c).has(L.date) && L.date >= TODAY_S ? L.date : null, end: null, onChange: () => { L.date = B.o.start; foot(); } } });
   renderBook(); openSheet("book"); ev("view_item", { item: c.name });
 }
-function est(){ return L.mode === "hourly" ? B.c.price * +L.hours : 0; }
+function est(){ return L.mode === "hourly" ? B.c.price * +L.hours : transferPrice(B.c.id, L.p1, L.p2); }
 function foot(){
   const f = $("#bk-foot"); if (B.done) { f.hidden = true; return; } f.hidden = false;
-  f.innerHTML = `<div class="sumrow"><span>${tr("est")}</span><b>${est() ? eur(est()) : `<small class="mut" style="font-size:.86rem">${tr("on_req")}</small>`}</b></div>
+  f.innerHTML = `<div class="sumrow"><span>${tr(L.mode === "transfer" ? "price_l" : "est")}</span><b>${est() ? eur(est()) : `<small class="mut" style="font-size:.86rem">${tr("on_req")}</small>`}</b></div>
     ${B.err ? `<p class="err">${escH(B.err)}</p>` : ""}<button type="button" class="btn gold full" id="bk-send">${tr("send")}</button><p class="small">${tr("pay_note")}</p>`;
   $("#bk-send").onclick = send;
 }
@@ -126,12 +129,12 @@ function renderBook(){
   const thumbs = c.photos.length > 1 ? `<div class="thumbs">${c.photos.map((p, i) => `<button type="button" data-ph="${i}" aria-pressed="${i === B.ph}"><img src="${p}" alt=""></button>`).join("")}</div>` : "";
   b.innerHTML = `<div class="bkg"><div><div class="pic bk-pic dk" id="bk-pic">${carPic(c, B.ph)}</div>${thumbs}
       <h3 class="bk-h">${escH(c.name)} <span class="yr">${c.year || ""}</span></h3><div class="specs">${specsLimo(c)}</div><p class="bk-d">${escH(descOf(c))}</p>
-      <p class="pr" style="margin-top:10px">${eur(c.price)} <small>${tr("per_hour")}</small></p></div>
+      <p class="pr" style="margin-top:10px" id="bk-pr">${priceHTML(c)}</p></div>
     <div>
       <div class="tabs" role="group" id="bk-tabs"><button type="button" data-mode="transfer" aria-pressed="${L.mode === "transfer"}">${tr("t_transfer")}</button><button type="button" data-mode="hourly" aria-pressed="${L.mode === "hourly"}">${tr("t_hourly")}</button></div>
       <div class="fg two" style="margin-top:10px">${L.mode === "transfer"
-        ? f("f_from", `<input class="inp" list="pl" data-k="p1" value="${escH(L.p1)}" placeholder="${escH(tr("ph_place"))}">`) + f("f_to", `<input class="inp" list="pl" data-k="p2" value="${escH(L.p2)}" placeholder="${escH(tr("ph_to"))}">`)
-        : f("f_start", `<input class="inp" list="pl" data-k="p1" value="${escH(L.p1)}" placeholder="${escH(tr("ph_place"))}">`) + f("f_hours", `<select class="inp" data-k="hours">${opt(HRS, L.hours)}</select>`)}</div>
+        ? f("f_from", `<select class="inp" data-k="p1">${plOpts(L.p1)}</select>`) + f("f_to", `<select class="inp" data-k="p2">${plOpts(L.p2)}</select>`)
+        : f("f_start", `<select class="inp" data-k="p1">${plOpts(L.p1)}</select>`) + f("f_hours", `<select class="inp" data-k="hours">${opt(HRS, L.hours)}</select>`)}</div>
       <p class="h3">${tr("cal_t1")}</p><div class="cal" id="bk-cal"></div>
       <div class="lgd"><span><i class="b"></i>${tr("lg_busy")}</span><span><i></i>${tr("lg_free")}</span><span><i class="s"></i>${tr("lg_sel")}</span></div>
       <div class="fg two" style="margin-top:12px">${f("f_time", `<input class="inp" type="time" data-k="time" value="${L.time}">`)}${f("f_pax", `<select class="inp" data-k="pax">${opt(PAX.filter(n => n <= c.seats), Math.min(+L.pax, c.seats))}</select>`)}</div>
@@ -142,15 +145,15 @@ function renderBook(){
   B.cal = Cal($("#bk-cal"), B.o);
   foot();
 }
-$("#bk-body").addEventListener("input", e => { const k = e.target.dataset.k, bk = e.target.dataset.b; if (k) { L[k] = e.target.value; if (k === "hours") foot(); } if (bk) B[bk] = e.target.value; });
+$("#bk-body").addEventListener("input", e => { const k = e.target.dataset.k, bk = e.target.dataset.b; if (k) { L[k] = e.target.value; if (k === "hours" || k === "p1" || k === "p2") { $("#bk-pr").innerHTML = priceHTML(B.c); foot(); topFields(); renderCars(); } } if (bk) B[bk] = e.target.value; });
 $("#bk-body").addEventListener("click", e => {
-  const t = e.target.closest("#bk-tabs [data-mode]"); if (t) { L.mode = t.dataset.mode; renderBook(); topFields(); return; }
+  const t = e.target.closest("#bk-tabs [data-mode]"); if (t) { L.mode = t.dataset.mode; renderBook(); topFields(); renderCars(); return; }
   const p = e.target.closest("[data-ph]"); if (p) { B.ph = +p.dataset.ph; $("#bk-pic").innerHTML = carPic(B.c, B.ph); $$(".thumbs button").forEach(x => x.setAttribute("aria-pressed", String(+x.dataset.ph === B.ph))); }
 });
 function send(){
-  if (!B.o.start || !L.time || !L.p1.trim() || (L.mode === "transfer" && !L.p2.trim()) || !B.name.trim() || !B.phone.trim()) { B.err = tr("err_limo"); foot(); return; }
+  if (!B.o.start || !L.time || !L.p1 || (L.mode === "transfer" && !L.p2) || !B.name.trim() || !B.phone.trim()) { B.err = tr("err_limo"); foot(); return; }
   B.err = "";
-  B.done = addRequest({ type: "limo", car: B.c.id, carName: B.c.name, d1: B.o.start, d2: null, time: L.time, mode: L.mode, p1: L.p1.trim(), p2: L.mode === "transfer" ? L.p2.trim() : "",
+  B.done = addRequest({ type: "limo", car: B.c.id, carName: B.c.name, d1: B.o.start, d2: null, time: L.time, mode: L.mode, p1: L.p1, p2: L.mode === "transfer" ? L.p2 : "",
     hours: L.mode === "hourly" ? +L.hours : 0, pax: Math.min(+L.pax, B.c.seats), est: est(), name: B.name.trim(), phone: B.phone.trim(), email: B.email.trim(), note: B.note.trim() });
   renderBook(); $("#bk-body").scrollTop = 0;
 }
