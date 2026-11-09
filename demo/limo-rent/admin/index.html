@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin panel</title>
+<meta name="description" content="Limo servis i rent a car u Crnoj Gori">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F1115">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y27FR4XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S6Y27FR4XR');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap&subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="../assets/app.css?v=1">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=1">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cs" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".42" stop-color="#fff" stop-opacity=".04"/><stop offset=".62" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".32"/></linearGradient><linearGradient id="cg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#5B6B80"/><stop offset=".5" stop-color="#1B222C"/><stop offset="1" stop-color="#0E1218"/></linearGradient></defs><symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol><symbol id="i-cash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6.5" width="18" height="11" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6.5 9.5v5M17.5 9.5v5"/></g></symbol><symbol id="i-msg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9l-5 4z"/></g></symbol><symbol id="i-plane" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5 3 11l1.5-1.5 7.5 1L16.5 6c1-1 2.6-1 3 .5.3 1-.2 1.8-1 2.5l-4.5 4.5 1 7.5L13.5 22 11 14.5"/></g></symbol><symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="2"/><path d="M9 7V5h6v2M3.5 12h17"/></g></symbol><symbol id="i-ring" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="6"/><path d="m9.5 4 2.5 3.5L14.5 4"/></g></symbol><symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 6 5.5-2 6 2 5.5-2v14l-5.5 2-6-2-5.5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol><symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4.5-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></g></symbol><symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></g></symbol><symbol id="i-cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h3.2l1.8-2.5h6l1.8 2.5H20v10.5H4z"/><circle cx="12" cy="13.5" r="3.4"/></g></symbol><symbol id="i-wa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></g></symbol></svg>
+
+<div class="demo"><span data-i18n="demo">Demo koncept sajta, izradio MakeSiteFor.me. Naziv, vozila, cijene i kontakti su primjeri.</span> <a href="https://makesitefor.me/" target="_blank" rel="noopener">MakeSiteFor.me</a></div>
+<header class="ahdr"><div class="wrap">
+  <a class="logo" href="../"><span class="lg-mark">L&amp;R</span><span class="lg-t">LIMO &amp; RENT<small data-i18n="a_title">Admin panel</small></span></a>
+  <div class="acts"><a href="../" target="_blank" data-i18n="a_site">Otvori sajt</a><button type="button" class="lnk" id="logout" hidden data-i18n="a_logout">Odjava</button>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="me" aria-pressed="true">ME</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="ru" aria-pressed="false">RU</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div></div>
+</div></header>
+<main class="wrap" style="padding-bottom:40px">
+  <form class="acard" id="login" novalidate>
+    <h1 data-i18n="a_login_t">Prijava</h1><p class="small" data-i18n="a_login_p">Demo: lozinka nije potrebna, samo kliknite „Uđi“.</p>
+    <label class="fld"><span>E-mail</span><input class="inp" type="email" value="vlasnik@primjer.me" autocomplete="off"></label>
+    <label class="fld"><span data-i18n="a_pass">Lozinka</span><input class="inp" type="password" value="demo1234" autocomplete="off"></label>
+    <button type="submit" class="btn full" data-i18n="a_enter">Uđi</button>
+  </form>
+  <div id="app" hidden>
+    <div class="atabs" role="tablist"><button type="button" data-t="vozila" aria-pressed="true" data-i18n="a_cars">Vozila</button><button type="button" data-t="zauzetost" aria-pressed="false" data-i18n="a_cal">Zauzetost</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button></div>
+    <p class="dnote" style="margin:0 0 12px"><span data-i18n="a_note">Demo: promjene se čuvaju samo u ovom pregledaču. Na pravom sajtu odmah ih vide svi posjetioci.</span></p>
+    <section id="p-vozila"></section>
+    <section id="p-zauzetost" hidden></section>
+    <section id="p-zahtjevi" hidden></section>
+    <p style="margin-top:28px"><button type="button" class="btn line sm" id="reset" data-i18n="a_reset">Vrati demo na početak</button></p>
+  </div>
+</main>
+<div class="sheet" id="carform" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="carform-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="cf-body"></div><div class="foot" id="cf-foot"></div></div></div>
+<div class="toast" id="toast" hidden></div>
+<script src="../assets/data.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+<script>
+const PAGE_TITLE = "t_admin", PREFIX = "../";
+
+let TAB = "vozila", CALCAR = null;
+const signed = () => { try { return sessionStorage.getItem("limo-admin") === "1"; } catch (e) { return false; } };
+function show(){ $("#login").hidden = signed(); $("#app").hidden = !signed(); $("#logout").hidden = !signed(); }
+$("#login").addEventListener("submit", e => { e.preventDefault(); try { sessionStorage.setItem("limo-admin", "1"); } catch (er) {} show(); render(); ev("admin_login"); });
+$("#logout").addEventListener("click", () => { try { sessionStorage.removeItem("limo-admin"); } catch (e) {} show(); });
+let tt; function toast(m){ const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2600); }
+function persist(){ if (!save()) { toast(tr("a_full")); return false; } return true; }
+$(".atabs").addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (!b) return; TAB = b.dataset.t; history.replaceState(null, "", "#" + TAB); render(); });
+if (/^#(vozila|zauzetost|zahtjevi)$/.test(location.hash)) TAB = location.hash.slice(1);
+
+function row(c){
+  return `<div class="arow"><div class="pic${c.cat === "limo" ? " dk" : ""}">${carPic(c)}</div>
+    <div><b>${escH(c.name)} <small>${c.year || ""}</small></b><small>${eur(c.price)} ${tr(c.cat === "limo" ? "per_hour" : "per_day")} · ${c.cat === "limo" ? tr("pax_n", { n: c.seats }) : tr("seats", { n: c.seats })}</small></div>
+    <div class="ab"><label class="sw"><input type="checkbox" data-vis="${c.id}"${c.visible !== false ? " checked" : ""}>${tr(c.visible !== false ? "a_on" : "a_off")}</label>
+      <button type="button" class="btn line sm" data-edit="${c.id}">${tr("a_edit")}</button><button type="button" class="btn line sm" data-del="${c.id}">${tr("a_del")}</button></div></div>`;
+}
+function pCars(){
+  const g = cat => DB.cars.filter(c => c.cat === cat);
+  $("#p-vozila").innerHTML = `<button type="button" class="btn gold" data-edit="new">+ ${tr("a_add")}</button>
+    <p class="agrp">${tr("a_limo_list")}</p>${g("limo").map(row).join("") || `<p class="mut">${tr("no_cars")}</p>`}
+    <p class="agrp">${tr("a_rent_list")}</p>${g("rent").map(row).join("") || `<p class="mut">${tr("no_cars")}</p>`}`;
+}
+$("#p-vozila").addEventListener("change", e => { const v = e.target.closest("[data-vis]"); if (!v) return; byId(v.dataset.vis).visible = v.checked; if (persist()) toast(tr("a_saved")); pCars(); });
+$("#p-vozila").addEventListener("click", e => {
+  const ed = e.target.closest("[data-edit]"); if (ed) { openForm(ed.dataset.edit); return; }
+  const d = e.target.closest("[data-del]");
+  if (d) { const c = byId(d.dataset.del); if (confirm(tr("a_del_q", { n: c.name }))) { DB.cars = DB.cars.filter(x => x !== c); persist(); render(); toast(tr("a_saved")); } }
+});
+
+/* add / edit form */
+let F = null;
+function openForm(id){
+  const c = id === "new" ? null : byId(id);
+  F = c ? JSON.parse(JSON.stringify(c)) : { id: null, cat: "rent", name: "", year: new Date().getFullYear(), body: "sedan", color: "#2B2F36", seats: 5, bags: 2, gear: "A", fuel: "D", price: "", desc: { me: "", en: "", ru: "", de: "" }, photos: [], busy: [], visible: true, test: false };
+  F.err = ""; renderForm(); openSheet("carform");
+}
+function renderForm(){
+  $("#carform-t").textContent = tr(F.id ? "a_edit_t" : "a_new_t");
+  const f = (k, inner) => `<label class="fld"><span>${tr(k)}</span>${inner}</label>`, limo = F.cat === "limo";
+  const sel = (key, opts) => `<select class="inp" data-f="${key}">${opts.map(([v, t]) => `<option value="${v}"${String(F[key]) === String(v) ? " selected" : ""}>${escH(t)}</option>`).join("")}</select>`;
+  $("#cf-body").innerHTML = `<p class="h3">${tr("a_cat")}</p>
+    <div class="radios"><label><input type="radio" name="cat" value="limo"${limo ? " checked" : ""}>${tr("nav_limo")}</label><label><input type="radio" name="cat" value="rent"${!limo ? " checked" : ""}>${tr("nav_rent")}</label></div>
+    <div class="fg" style="--c:2;margin-top:14px">${f("a_name", `<input class="inp" data-f="name" value="${escH(F.name)}" placeholder="Mercedes-Benz E-Klasa">`)}${f("a_year", `<input class="inp" type="number" inputmode="numeric" data-f="year" value="${escH(F.year)}">`)}
+      ${f(limo ? "a_price_hour" : "a_price_day", `<input class="inp" type="number" inputmode="decimal" min="0" data-f="price" value="${escH(F.price)}">`)}
+      ${f(limo ? "a_pax" : "a_seats", sel("seats", [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => [n, n])))}
+      ${limo ? f("a_bags", sel("bags", [1, 2, 3, 4, 5, 6, 7, 8].map(n => [n, n]))) : f("a_gear", sel("gear", [["A", tr("gear_A")], ["M", tr("gear_M")]])) + f("a_fuel", sel("fuel", ["D", "P", "H", "E"].map(x => [x, tr("fuel_" + x)])))}</div>
+    <div class="fg" style="--c:2;margin-top:10px">${LANGS.map(l => f("a_desc_" + l, `<textarea class="inp" data-d="${l}">${escH(F.desc[l] || "")}</textarea>`)).join("")}</div>
+    <p class="small" style="margin-top:6px">${tr("a_desc_hint")}</p>
+    <p class="h3">${tr("a_photos")}</p><p class="small" style="margin:-4px 0 10px">${tr("a_photos_hint")}</p>
+    <div class="ph">${F.photos.map((p, i) => `<div><img src="${p}" alt=""><button type="button" data-rmph="${i}" aria-label="${tr("a_del")}">×</button></div>`).join("")}</div>
+    ${F.photos.length < 4 ? `<label class="filebtn" style="margin-top:10px">${icon("cam")}<span>${tr("a_photo_btn")}</span><input type="file" accept="image/*" multiple id="cf-file"></label>` : ""}
+    <div class="fg" style="--c:2;margin-top:14px">${f("a_body", sel("body", ["sedan", "suv", "van", "hatch"].map(x => [x, tr("body_" + x)])))}${f("a_color", `<input class="inp" type="color" data-f="color" value="${F.color}" style="padding:4px">`)}</div>
+    <div class="pic${limo ? " dk" : ""}" style="border-radius:14px;margin-top:10px;max-width:420px">${carPic(F)}</div>
+    <label class="sw" style="margin-top:16px"><input type="checkbox" data-f="visible"${F.visible !== false ? " checked" : ""}>${tr("a_visible")}</label>`;
+  $("#cf-foot").innerHTML = `${F.err ? `<p class="err">${escH(F.err)}</p>` : ""}<div style="display:grid;grid-template-columns:1fr 2fr;gap:8px"><button type="button" class="btn line" data-close>${tr("a_cancel")}</button><button type="button" class="btn" id="cf-save">${tr("a_save")}</button></div>`;
+  $("#cf-save").onclick = saveForm;
+  const fi = $("#cf-file"); if (fi) fi.onchange = addPhotos;
+}
+$("#cf-body").addEventListener("input", e => {
+  const t = e.target;
+  if (t.name === "cat") { F.cat = t.value; renderForm(); return; }
+  if (t.dataset.d) { F.desc[t.dataset.d] = t.value; return; }
+  const k = t.dataset.f; if (!k) return;
+  F[k] = t.type === "checkbox" ? t.checked : t.value;
+  if (k === "body" || k === "color") { const pic = $("#cf-body .pic"); if (pic) pic.innerHTML = carPic(F); }
+});
+$("#cf-body").addEventListener("click", e => { const r = e.target.closest("[data-rmph]"); if (r) { F.photos.splice(+r.dataset.rmph, 1); renderForm(); } });
+function resizeImg(file, max){
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, max / Math.max(im.width, im.height)), cv = document.createElement("canvas");
+      cv.width = Math.round(im.width * k); cv.height = Math.round(im.height * k); cv.getContext("2d").drawImage(im, 0, 0, cv.width, cv.height); res(cv.toDataURL("image/jpeg", .78)); };
+      im.onerror = rej; im.src = fr.result; };
+    fr.onerror = rej; fr.readAsDataURL(file);
+  });
+}
+async function addPhotos(e){
+  for (const file of [...e.target.files].slice(0, 4 - F.photos.length)) { try { F.photos.push(await resizeImg(file, 1100)); } catch (er) {} }
+  renderForm();
+}
+function saveForm(){
+  F.name = String(F.name || "").trim(); F.price = Number(F.price);
+  if (!F.name || !(F.price > 0)) { F.err = tr("a_err_name"); renderForm(); return; }
+  const { err, ...car } = F; car.seats = +car.seats; car.bags = +car.bags; car.year = +car.year || "";
+  const backup = JSON.stringify(DB.cars);
+  if (car.id) DB.cars = DB.cars.map(c => c.id === car.id ? car : c); else { car.id = ++DB.seq; DB.cars.push(car); }
+  if (!save()) { DB.cars = JSON.parse(backup); F.err = tr("a_full"); renderForm(); return; }
+  closeSheet(); render(); toast(tr("a_saved"));
+}
+
+/* busy days */
+function pCal(){
+  if (!CALCAR || !byId(CALCAR)) CALCAR = (DB.cars[0] || {}).id;
+  const c = byId(CALCAR);
+  $("#p-zauzetost").innerHTML = `<p class="small" style="margin:0 0 10px">${tr("a_cal_hint")}</p>
+    <div class="chips">${DB.cars.map(x => `<button type="button" data-cc="${x.id}" aria-pressed="${x.id === CALCAR}">${escH(x.name)}</button>`).join("")}</div>
+    ${c ? `<div class="cal two" id="a-cal"></div><div class="lgd"><span><i class="b"></i>${tr("lg_busy")}</span><span><i></i>${tr("lg_free")}</span></div>` : `<p class="mut">${tr("no_cars")}</p>`}`;
+  if (!c) return;
+  const o = { busy: busySet(c), mode: "toggle", onChange: () => { c.busy = [...o.busy].sort(); if (persist()) toast(tr("a_saved")); } };
+  Cal($("#a-cal"), o);
+}
+$("#p-zauzetost").addEventListener("click", e => { const b = e.target.closest("[data-cc]"); if (b) { CALCAR = +b.dataset.cc; pCal(); } });
+
+/* requests */
+function pReq(){
+  const st = { new: "st_new", ok: "st_ok", no: "st_no" };
+  const list = DB.requests.slice().sort((a, b) => (a.status === "new" ? 0 : 1) - (b.status === "new" ? 0 : 1) || (b.created > a.created ? 1 : -1));
+  $("#p-zahtjevi").innerHTML = list.length ? list.map(r => {
+    const L = reqLines(r), tel = r.phone.replace(/[^+\d]/g, "");
+    return `<div class="req"><span class="st ${r.status}">${tr(st[r.status])}</span><b>${escH(L[0])}</b><pre>${escH(L.slice(1).join("\n"))}</pre><small class="mut">${tr("a_received", { d: fmtD(r.created) })}</small>
+      <div class="ab">${r.status === "new" ? `<button type="button" class="btn sm" data-ok="${r.id}">${tr("a_confirm")}</button><button type="button" class="btn line sm" data-no="${r.id}">${tr("a_decline")}</button>` : ""}
+        <a class="btn line sm" href="tel:${tel}">${icon("phone")}${tr("a_call")}</a><a class="btn line sm" href="https://wa.me/${tel.replace("+", "")}" target="_blank" rel="noopener">${icon("wa")}WhatsApp</a></div></div>`;
+  }).join("") : `<p class="mut">${tr("a_req_empty")}</p>`;
+}
+$("#p-zahtjevi").addEventListener("click", e => {
+  const ok = e.target.closest("[data-ok]"), no = e.target.closest("[data-no]"); if (!ok && !no) return;
+  const r = DB.requests.find(x => x.id === +(ok || no).dataset[ok ? "ok" : "no"]); if (!r) return;
+  r.status = ok ? "ok" : "no";
+  if (ok) { const c = byId(r.car); if (c) { const b = busySet(c); for (let d = fromIso(r.d1); iso(d) <= (r.d2 || r.d1); d = addD(d, 1)) b.add(iso(d)); c.busy = [...b].sort(); } }
+  persist(); render(); toast(tr("a_saved"));
+});
+$("#reset").addEventListener("click", () => { if (!confirm(tr("a_reset_q"))) return; try { localStorage.removeItem(KEY); } catch (e) {} load(); render(); toast(tr("a_saved")); });
+
+function render(){
+  show();
+  if (!signed()) return;
+  $$(".atabs [data-t]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === TAB)));
+  ["vozila", "zauzetost", "zahtjevi"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
+  const n = DB.requests.filter(r => r.status === "new").length; $("#req-n").textContent = n; $("#req-n").hidden = !n;
+  if (TAB === "vozila") pCars(); else if (TAB === "zauzetost") pCal(); else pReq();
+  if (openId === "carform" && F) renderForm();
+}
+
+startLang();
+</script>
+</body>
+</html>
