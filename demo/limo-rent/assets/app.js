@@ -1,5 +1,5 @@
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const KEY = "limo-rent-demo-v1";
+const KEY = "limo-rent-demo-v2";
 let lang = "me";
 const LOC = { me: "sr-Latn-ME", en: "en-GB", ru: "ru-RU", de: "de-DE" }, HTML_LANG = { me: "sr-Latn-ME", en: "en", ru: "ru", de: "de" };
 const LANGS = ["me", "en", "ru", "de"], LI = () => Math.max(0, LANGS.indexOf(lang));
@@ -32,17 +32,23 @@ function defaults(){
     cars: DEF_CARS.map(c => { const x = JSON.parse(JSON.stringify(c)); x.busy = x.off.flatMap(span); delete x.off; x.photos = []; return x; }),
     requests: DEF_REQ.map(r => { const x = Object.assign({}, r); x.d1 = iso(addD(TODAY, r.a)); x.d2 = r.b != null ? iso(addD(TODAY, r.b)) : null; x.created = iso(addD(TODAY, r.c));
       delete x.a; delete x.b; delete x.c; const car = DEF_CARS.find(c => c.id === r.car); x.carName = car.name;
-      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = x.mode === "hourly" ? car.price * x.hours : 0; return x; }),
-    seq: 100
+      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = x.mode === "hourly" ? car.price * x.hours : (r.est || 0); return x; }),
+    clients: DEF_CL.map(c => { const x = Object.assign({}, c); x.created = iso(addD(TODAY, c.c)); delete x.c; return x; }),
+    seq: 500
   };
 }
 let DB;
-function load(){ try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.cars)) { DB = d; return; } } catch (e) {} DB = defaults(); }
+function load(){ try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.cars) && Array.isArray(d.clients)) { DB = d; return; } } catch (e) {} DB = defaults(); }
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(DB)); return true; } catch (e) { return false; } }
 load();
 window.addEventListener("storage", e => { if (e.key === KEY) { load(); if (window.render) render(); } });
 const byId = id => DB.cars.find(c => c.id === +id);
-const busySet = c => new Set(c.busy || []);
+const manualSet = c => new Set(c.busy || []);   // days the owner closed himself
+function busySet(c){                                 // what visitors see as booked: closed days + confirmed bookings
+  const b = manualSet(c);
+  for (const r of DB.requests) if (r.car === c.id && r.status === "ok") for (let d = fromIso(r.d1); iso(d) <= (r.d2 || r.d1); d = addD(d, 1)) b.add(iso(d));
+  return b;
+}
 const descOf = c => (c.desc && (c.desc[lang] || (lang !== "me" && c.desc.en) || c.desc.me)) || "";
 function freeFrom(c){ const b = busySet(c); let d = TODAY; for (let i = 0; i < 400 && b.has(iso(d)); i++) d = addD(d, 1); return iso(d); }
 function rangeFree(c, a, z){ const b = busySet(c); for (let d = fromIso(a); iso(d) <= z; d = addD(d, 1)) if (b.has(iso(d))) return false; return true; }
@@ -179,7 +185,21 @@ function reqLines(r){
   if (r.note) L.push(`${tr("f_note_s")}: ${r.note}`);
   return L;
 }
-function addRequest(r){ r.id = ++DB.seq; r.status = "new"; r.created = TODAY_S; DB.requests.unshift(r); save(); ev("generate_lead", { kind: r.type }); return r; }
+/* clients: every request is linked to a client by phone (or email); a new phone creates a new client */
+const normTel = s => String(s || "").replace(/\D/g, "").replace(/^00/, "");
+function findClient(phone, email){
+  const t = normTel(phone), m = String(email || "").trim().toLowerCase();
+  return DB.clients.find(c => (t.length > 5 && normTel(c.phone) === t) || (m && String(c.email || "").toLowerCase() === m));
+}
+function linkClient(r){
+  let c = findClient(r.phone, r.email);
+  if (!c) { c = { id: ++DB.seq, name: r.name, phone: r.phone, email: r.email || "", status: "new", note: "", created: TODAY_S }; DB.clients.push(c); }
+  else if (c.status === "new" && DB.requests.some(x => x.client === c.id && x !== r && x.status !== "no")) c.status = "reg";   // second booking: regular client
+  if (!c.email && r.email) c.email = r.email;
+  r.client = c.id;
+  return c;
+}
+function addRequest(r){ r.id = ++DB.seq; r.status = "new"; r.created = TODAY_S; r.comment = ""; DB.requests.unshift(r); linkClient(r); save(); ev("generate_lead", { kind: r.type }); return r; }
 function doneHTML(r, prefix){
   const L = reqLines(r);
   return `<div class="ok"><div class="okc">✓</div><h3>${tr("ok_t")}</h3><p>${tr("ok_p")}</p><p class="small">${tr("ok_mail")}</p>

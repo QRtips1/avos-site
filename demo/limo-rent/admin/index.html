@@ -37,16 +37,20 @@
     <button type="submit" class="btn full" data-i18n="a_enter">Uđi</button>
   </form>
   <div id="app" hidden>
-    <div class="atabs" role="tablist"><button type="button" data-t="kalendar" aria-pressed="true" data-i18n="a_board">Kalendar</button><button type="button" data-t="vozila" aria-pressed="false" data-i18n="a_cars">Vozila</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button></div>
+    <div class="atabs" role="tablist"><button type="button" data-t="kalendar" aria-pressed="true" data-i18n="a_board">Kalendar</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button><button type="button" data-t="klijenti" aria-pressed="false" data-i18n="a_clients">Klijenti</button><button type="button" data-t="vozila" aria-pressed="false" data-i18n="a_cars">Vozila</button></div>
     <p class="dnote" style="margin:0 0 12px"><span data-i18n="a_note">Demo: promjene se čuvaju samo u ovom pregledaču. Na pravom sajtu odmah ih vide svi posjetioci.</span></p>
     <section id="p-kalendar"></section>
-    <section id="p-vozila" hidden></section>
     <section id="p-zahtjevi" hidden></section>
+    <section id="p-klijenti" hidden></section>
+    <section id="p-vozila" hidden></section>
     <p style="margin-top:28px"><button type="button" class="btn line sm" id="reset" data-i18n="a_reset">Vrati demo na početak</button></p>
   </div>
 </main>
 <div class="sheet" id="carform" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="carform-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="cf-body"></div><div class="foot" id="cf-foot"></div></div></div>
-<div class="sheet" id="reqsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="reqsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="rq-body"></div></div></div>
+<div class="sheet" id="reqsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="reqsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="rq-body"></div><div class="foot" id="rq-foot"></div></div></div>
+<div class="sheet" id="clsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="clsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="cl-body"></div><div class="foot" id="cl-foot"></div></div></div>
+<div class="sheet" id="daysheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="daysheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="ds-body"></div></div></div>
+<datalist id="pl"></datalist>
 <div class="toast" id="toast" hidden></div>
 <script src="../assets/data.js?v=1"></script>
 <script src="../assets/app.js?v=1"></script>
@@ -61,7 +65,7 @@ $("#logout").addEventListener("click", () => { try { sessionStorage.removeItem("
 let tt; function toast(m){ const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2600); }
 function persist(){ if (!save()) { toast(tr("a_full")); return false; } return true; }
 $(".atabs").addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (!b) return; TAB = b.dataset.t; history.replaceState(null, "", "#" + TAB); render(); });
-if (/^#(kalendar|vozila|zahtjevi)$/.test(location.hash)) TAB = location.hash.slice(1);
+if (/^#(kalendar|zahtjevi|klijenti|vozila)$/.test(location.hash)) TAB = location.hash.slice(1);
 
 function row(c){
   return `<div class="arow"><div class="pic${c.cat === "limo" ? " dk" : ""}">${carPic(c)}</div>
@@ -143,7 +147,34 @@ function saveForm(){
   closeSheet(); render(); toast(tr("a_saved"));
 }
 
-/* booking calendar: every car by day, limo and rent together */
+/* ---------- client types and their colours */
+const CS = ["new", "reg", "vip", "regvip", "bad"];
+const clientOf = r => r && DB.clients.find(c => c.id === r.client);
+const clientReqs = c => DB.requests.filter(r => r.client === c.id);
+const csOf = r => { const c = clientOf(r); return c ? c.status : "new"; };
+const cbadge = st => `<span class="cbadge cs-${st}">${tr("cs_" + st)}</span>`;
+const reqPrice = r => (r.type === "rent" ? r.total : r.est) || 0;
+const ST = { new: "st_new", ok: "st_ok", no: "st_no" };
+function nthOf(r){   // which booking of this client it is, counting from the first
+  const c = clientOf(r); if (!c) return 1;
+  const list = clientReqs(c).filter(x => x.status !== "no").sort((a, b) => (a.d1 + a.time).localeCompare(b.d1 + b.time));
+  const i = list.indexOf(r); return i < 0 ? list.length + 1 : i + 1;
+}
+const nthText = n => n > 1 ? tr("bf_nth", { n }) : tr("bf_first");
+function legend(){
+  let open = true; try { open = localStorage.getItem("limo-legend") !== "0"; } catch (e) {}
+  return `<details class="legend"${open ? " open" : ""}><summary>${tr("lg_t")}</summary>
+    <p class="lgh">${tr("lg_clients")}</p>${CS.map(s => `<div class="lgr">${cbadge(s)}<span>${tr("csd_" + s)}</span></div>`).join("")}
+    <p class="lgh">${tr("lg_booking")}</p>
+    <div class="lgr"><i class="sw2 cs-reg"></i><span>${tr("lgx_ok")}</span></div>
+    <div class="lgr"><i class="sw2 cs-reg nw"></i><span>${tr("lgx_new")}</span></div>
+    <div class="lgr"><i class="sw2 sh"></i><span>${tr("lgx_shut")}</span></div></details>`;
+}
+document.addEventListener("toggle", e => { if (e.target.classList && e.target.classList.contains("legend")) { try { localStorage.setItem("limo-legend", e.target.open ? "1" : "0"); } catch (er) {} } }, true);
+function swapSheet(id){ if (openId) $("#" + openId).hidden = true; openSheet(id); }   // one sheet to another, one history entry
+const showSheet = id => (openId ? swapSheet : openSheet)(id);
+
+/* ---------- booking calendar: every car by day, limo and rent together */
 const DAYS = 14;
 let BSTART = 0, BFIL = "all";
 function bookingOn(c, s){
@@ -156,6 +187,7 @@ function bookingOn(c, s){
   return best;
 }
 const wd = s => WD[lang][(fromIso(s).getDay() + 6) % 7];
+const fmtR = (a, z) => { const x = fromIso(a), y = fromIso(z); return x.getMonth() === y.getMonth() ? `${x.getDate()}.–${fmtD(z)}` : `${fmtD(a)}–${fmtD(z)}`; };
 const dayLabel = s => s === TODAY_S ? tr("b_today") : s === iso(addD(TODAY, 1)) ? tr("tomorrow") : `${wd(s)} ${fmtD(s)}`;
 function agenda(){
   const end = iso(addD(TODAY, 6)), ev = [], inW = s => s && s >= TODAY_S && s <= end;
@@ -172,8 +204,10 @@ function agenda(){
   if (!ev.length) return `<p class="mut">${tr("ag_empty")}</p>`;
   let h = "", last = "";
   for (const e of ev) {
+    const st = csOf(e.r);
     if (e.d !== last) { last = e.d; h += `<p class="agd">${dayLabel(e.d)}</p>`; }
-    h += `<button type="button" class="agi ${e.r.type}" data-r="${e.r.id}"><span class="agt">${escH(e.r.time)}</span><span class="agx"><b>${tr(e.k)} · ${escH(e.nm)}</b><small>${escH(e.what)} · ${escH(e.r.name)}</small></span>${e.r.status === "new" ? `<span class="st new">${tr("st_new")}</span>` : ""}</button>`;
+    h += `<button type="button" class="agi cs-${st}" data-r="${e.r.id}"><span class="agt">${escH(e.r.time)}</span><span class="agx"><b>${tr(e.k)} · ${escH(e.nm)}</b><small>${escH(e.what)} · ${escH(e.r.name)}</small></span>
+      <span class="tags">${st !== "new" ? cbadge(st) : ""}${e.r.status === "new" ? `<span class="st new">${tr("st_new")}</span>` : ""}</span></button>`;
   }
   return h;
 }
@@ -181,73 +215,263 @@ function pBoard(){
   const days = []; for (let i = 0; i < DAYS; i++) days.push(iso(addD(TODAY, BSTART + i)));
   const cars = DB.cars.filter(c => BFIL === "all" || c.cat === BFIL);
   const head = days.map(s => `<th class="${s === TODAY_S ? "td" : ""}"><small>${wd(s)}</small>${fmtD(s)}</th>`).join("");
-  const cell = (c, s, i, blocked) => {
+  const cell = (c, s, i, shut) => {
     const r = bookingOn(c, s), cls = s === TODAY_S ? ' class="td"' : "";
     if (r) {
-      const st = s === r.d1, en = s === (r.d2 || r.d1), lab = r.type === "limo" ? r.time : (st || i === 0 ? r.name : "");
-      return `<td${cls}><div class="bx"><button type="button" class="bc ${r.status}${st || i === 0 ? " st" : ""}${en ? " en" : ""}" data-r="${r.id}" title="${escH(r.name)}">${escH(lab)}</button></div></td>`;
+      const z = r.d2 || r.d1, st = s === r.d1 || i === 0, en = s === z;
+      let lab = "";
+      if (st) {   // the label sits on the first visible day and runs over the whole bar
+        const n = Math.min(Math.round((fromIso(z) - fromIso(s)) / 864e5) + 1, DAYS - i);
+        lab = `<span class="lab" style="--n:${n}">` + (r.type === "limo"
+          ? `<span class="l1">${escH(r.time)}</span><span class="l2">${escH(r.name)}</span>`
+          : `<span class="l1">${escH(r.name)}</span><span class="l2">${escH(r.time)} · ${fmtR(r.d1, z)}</span>`) + "</span>";
+      }
+      return `<td${cls}><div class="bx"><button type="button" class="bc ${r.status} cs-${csOf(r)}${st ? " st" : ""}${en ? " en" : ""}" data-r="${r.id}" aria-label="${escH(r.name)} ${fmtD(r.d1)}">${lab}</button></div></td>`;
     }
-    return `<td${cls}><div class="bx"><button type="button" class="bc${blocked.has(s) ? " shut" : ""}" data-car="${c.id}" data-d="${s}"${s < TODAY_S ? " disabled" : ""} aria-label="${escH(c.name)} ${fmtD(s)}"></button></div></td>`;
+    return `<td${cls}><div class="bx"><button type="button" class="bc${shut.has(s) ? " shut" : ""}" data-car="${c.id}" data-d="${s}"${s < TODAY_S ? " disabled" : ""} aria-label="${escH(c.name)} ${fmtD(s)}"></button></div></td>`;
   };
   const grp = cat => {
     const list = cars.filter(c => c.cat === cat); if (!list.length) return "";
     return `<tr class="gr"><th colspan="${DAYS + 1}"><span>${tr(cat === "limo" ? "a_limo_list" : "a_rent_list")}</span></th></tr>` +
-      list.map(c => { const b = busySet(c); return `<tr><th class="cn">${escH(c.name)}</th>${days.map((s, i) => cell(c, s, i, b)).join("")}</tr>`; }).join("");
+      list.map(c => { const m = manualSet(c); return `<tr><th class="cn">${escH(c.name)}</th>${days.map((s, i) => cell(c, s, i, m)).join("")}</tr>`; }).join("");
   };
   const chips = [["all", "b_all"], ["limo", "nav_limo"], ["rent", "nav_rent"]].map(([k, t]) => `<button type="button" data-bf="${k}" aria-pressed="${BFIL === k}">${tr(t)}</button>`).join("");
-  $("#p-kalendar").innerHTML = `<div class="bhead"><div class="chips">${chips}</div>
-      <div class="bnav"><button type="button" data-bn="-${DAYS}" aria-label="‹">‹</button><button type="button" data-bn="0">${tr("b_today")}</button><button type="button" data-bn="${DAYS}" aria-label="›">›</button><b>${fmtD(days[0])} – ${fmtD(days[DAYS - 1])}</b></div></div>
+  $("#p-kalendar").innerHTML = `<div class="btop"><button type="button" class="btn gold sm" data-newbk>${tr("bf_add")}</button><div class="chips">${chips}</div></div>
+    <div class="bhead"><div class="bnav"><button type="button" data-bn="-${DAYS}" aria-label="‹">‹</button><button type="button" data-bn="0">${tr("b_today")}</button><button type="button" data-bn="${DAYS}" aria-label="›">›</button><b>${fmtD(days[0])} – ${fmtD(days[DAYS - 1])}</b></div></div>
     <div class="bwrap"><table class="board"><thead><tr><th class="cn"></th>${head}</tr></thead><tbody>${grp("limo")}${grp("rent")}</tbody></table></div>
-    <div class="lgd"><span><i class="ok"></i>${tr("lg_ok")}</span><span><i class="nw"></i>${tr("lg_new")}</span><span><i class="bl"></i>${tr("lg_block")}</span></div>
-    <p class="small" style="margin-top:6px">${tr("b_hint")}</p>
+    <p class="small" style="margin:8px 0 0">${tr("b_hint2")}</p>
+    ${legend()}
     <p class="agrp">${tr("ag_t")}</p>${agenda()}`;
 }
-function openReq(id){
-  const r = DB.requests.find(x => x.id === +id); if (!r) return;
-  $("#reqsheet-t").textContent = tr("a_details"); $("#rq-body").innerHTML = reqCard(r); openSheet("reqsheet");
-}
+function keepScroll(fn){ const w = $("#p-kalendar .bwrap"), x = w ? w.scrollLeft : 0; fn(); const w2 = $("#p-kalendar .bwrap"); if (w2) w2.scrollLeft = x; }
 $("#p-kalendar").addEventListener("click", e => {
   const n = e.target.closest("[data-bn]"); if (n) { BSTART = +n.dataset.bn === 0 ? 0 : BSTART + +n.dataset.bn; pBoard(); return; }
   const f = e.target.closest("[data-bf]"); if (f) { BFIL = f.dataset.bf; pBoard(); return; }
-  const r = e.target.closest("[data-r]"); if (r) { openReq(r.dataset.r); return; }
-  const d = e.target.closest(".bc[data-car]"); if (!d || d.disabled) return;
-  const c = byId(d.dataset.car), b = busySet(c), day = d.dataset.d, on = !b.has(day);
-  if (on) b.add(day); else b.delete(day);
-  c.busy = [...b].sort();
-  if (persist()) toast(tr(on ? "b_blocked" : "b_freed"));
-  const x = $("#p-kalendar .bwrap").scrollLeft; pBoard(); $("#p-kalendar .bwrap").scrollLeft = x;
+  if (e.target.closest("[data-newbk]")) { openBk(null, { type: BFIL === "limo" ? "limo" : "rent" }); return; }
+  const r = e.target.closest("[data-r]"); if (r) { openBk(r.dataset.r); return; }
+  const d = e.target.closest(".bc[data-car]"); if (d && !d.disabled) openDay(+d.dataset.car, d.dataset.d);
 });
 
-/* requests */
-const ST = { new: "st_new", ok: "st_ok", no: "st_no" };
+/* ---------- a free day: add a booking there or close the day */
+let DS = null;
+function openDay(carId, s){
+  const c = byId(carId); if (!c) return;
+  DS = { c, s };
+  $("#daysheet-t").textContent = `${c.name} · ${wd(s)} ${fmtD(s)}`;
+  $("#ds-body").innerHTML = `<div class="dsb"><button type="button" class="btn gold full" data-ds="book">${tr("bf_add")}</button>
+    <button type="button" class="btn line full" data-ds="shut">${tr(manualSet(c).has(s) ? "bf_day_open" : "bf_day_close")}</button></div>`;
+  showSheet("daysheet");
+}
+$("#ds-body").addEventListener("click", e => {
+  const b = e.target.closest("[data-ds]"); if (!b || !DS) return;
+  const { c, s } = DS;
+  if (b.dataset.ds === "book") { openBk(null, { type: c.cat, car: c.id, d1: s }); return; }
+  const m = manualSet(c), on = !m.has(s);
+  if (on) m.add(s); else m.delete(s);
+  c.busy = [...m].sort();
+  closeSheet();
+  if (persist()) toast(tr(on ? "b_blocked" : "b_freed"));
+  keepScroll(pBoard);
+});
+
+/* ---------- one booking: every field can be edited, plus the owner's own comment */
+let BK = null;
+function recalc(b, force){
+  const c = byId(b.car); if (!c) return;
+  if (b.type === "rent") { if (b.d2 && b.d2 > b.d1) { b.days = nDays(b.d1, b.d2); if (force || !b.manualPrice) b.total = b.days * c.price; } }
+  else if (b.mode === "hourly" && (force || !b.manualPrice)) b.est = c.price * +b.hours;
+}
+function openBk(id, preset){
+  const r = id != null ? DB.requests.find(x => x.id === +id) : null;
+  if (r) BK = JSON.parse(JSON.stringify(r));
+  else {
+    const p = preset || {}, type = p.type || "rent", d1 = p.d1 || TODAY_S;
+    BK = { id: null, type, car: p.car || (DB.cars.find(c => c.cat === type) || {}).id, d1, d2: type === "rent" ? iso(addD(fromIso(d1), 3)) : null, time: "10:00", place: "tgd",
+      mode: "transfer", p1: "", p2: "", hours: 3, pax: 2, name: "", phone: "", email: "", note: "", comment: "", status: "ok", total: 0, est: 0, days: 0 };
+    recalc(BK, true);
+  }
+  BK.err = ""; BK.manualPrice = false;
+  renderBk(); showSheet("reqsheet");
+}
+function renderBk(){
+  const b = BK, isNew = !b.id, c = byId(b.car), orig = b.id ? DB.requests.find(x => x.id === b.id) : null, cl = orig ? clientOf(orig) : null;
+  $("#reqsheet-t").textContent = isNew ? tr("bf_new") : `${tr("a_details")} · ${c ? c.name : b.carName}`;
+  const f = (k, inner, w) => `<label class="fld${w ? " wide" : ""}"><span>${tr(k)}</span>${inner}</label>`;
+  const inp = (k, type, extra) => `<input class="inp" type="${type || "text"}" data-k="${k}" value="${escH(b[k] == null ? "" : b[k])}"${extra || ""}>`;
+  const sel = (k, opts) => `<select class="inp" data-k="${k}">${opts.map(([v, t]) => `<option value="${escH(v)}"${String(b[k]) === String(v) ? " selected" : ""}>${escH(t)}</option>`).join("")}</select>`;
+  const tel = String(b.phone || "").replace(/[^+\d]/g, "");
+  let top = "";
+  if (isNew) top = `<div class="radios" style="margin-bottom:12px"><label><input type="radio" name="bktype" value="limo"${b.type === "limo" ? " checked" : ""}>${tr("nav_limo")}</label><label><input type="radio" name="bktype" value="rent"${b.type === "rent" ? " checked" : ""}>${tr("nav_rent")}</label></div>`;
+  if (cl) top += `<div class="clbox cs-${cl.status}"><div class="clrow">${cbadge(cl.status)}<b>${escH(cl.name)}</b><small>${nthText(nthOf(orig))}</small></div>
+      ${cl.status === "bad" ? `<p class="warn">${tr("bf_bad_warn")}${cl.note ? " " + escH(cl.note) : ""}</p>` : cl.note ? `<p class="small" style="margin:6px 0 0">${escH(cl.note)}</p>` : ""}
+      <div class="clacts"><select class="inp sm" data-cs="${cl.id}" aria-label="${tr("bf_client")}">${CS.map(s => `<option value="${s}"${s === cl.status ? " selected" : ""}>${tr("cs_" + s)}</option>`).join("")}</select><button type="button" class="btn line sm" data-opencl="${cl.id}">${tr("bf_open_client")}</button></div></div>`;
+  if (tel && !isNew) top += `<div class="ab" style="margin-bottom:6px"><a class="btn line sm" href="tel:${tel}">${icon("phone")}${tr("a_call")}</a><a class="btn line sm" href="https://wa.me/${tel.replace("+", "")}" target="_blank" rel="noopener">${icon("wa")}WhatsApp</a></div>`;
+  const trip = b.type === "rent"
+    ? f("f_pick", inp("d1", "date")) + f("f_ret", inp("d2", "date")) + f("f_time", inp("time", "time")) + f("f_place", sel("place", PLACES.map(p => [p[0], p[1 + LI()]])))
+    : f("f_date", inp("d1", "date")) + f("f_time", inp("time", "time")) +
+      `<div class="tabs wide" role="group" id="bk-mode"><button type="button" data-mode="transfer" aria-pressed="${b.mode === "transfer"}">${tr("t_transfer")}</button><button type="button" data-mode="hourly" aria-pressed="${b.mode === "hourly"}">${tr("t_hourly")}</button></div>` +
+      (b.mode === "transfer" ? f("f_from", inp("p1", "text", ' list="pl"')) + f("f_to", inp("p2", "text", ' list="pl"'))
+        : f("f_start", inp("p1", "text", ' list="pl"')) + f("f_hours", sel("hours", [1, 2, 3, 4, 5, 6, 8, 10, 12].map(n => [n, n])))) +
+      f("f_pax", sel("pax", [1, 2, 3, 4, 5, 6, 7, 8].map(n => [n, n])));
+  const pk = b.type === "rent" ? "total" : "est";
+  $("#rq-body").innerHTML = `${top}
+    <div class="fg two" style="margin-top:12px">${f("bf_car", sel("car", DB.cars.filter(x => x.cat === b.type).map(x => [x.id, x.name])), 1)}${trip}
+      ${f("bf_price", `<input class="inp" type="number" inputmode="decimal" min="0" data-k="${pk}" value="${escH(b[pk] || "")}">`)}${f("bf_status", sel("status", [["new", tr("st_new")], ["ok", tr("st_ok")], ["no", tr("st_no")]]))}</div>
+    <p class="h3" style="margin-top:18px">${tr("bf_client")}</p>
+    <div class="fg two">${f("f_name", inp("name"))}${f("f_phone_s", inp("phone", "tel"))}${f("f_email", inp("email", "email"), 1)}
+      ${f("bf_note_c", `<textarea class="inp" data-k="note">${escH(b.note || "")}</textarea>`, 1)}${f("bf_comment", `<textarea class="inp" data-k="comment">${escH(b.comment || "")}</textarea>`, 1)}</div>
+    ${b.id ? `<p class="small" style="margin-top:8px">${tr("a_received", { d: fmtD(b.created) })}</p>` : ""}`;
+  $("#rq-foot").innerHTML = `${b.err ? `<p class="err">${escH(b.err)}</p>` : ""}<div class="fbtns"><button type="button" class="btn line" data-close>${tr("a_cancel")}</button><button type="button" class="btn" id="bk-save">${tr("a_save")}</button></div>`;
+  $("#bk-save").onclick = saveBk;
+}
+$("#rq-body").addEventListener("input", e => {
+  const t = e.target;
+  if (t.name === "bktype") {
+    BK.type = t.value; BK.car = (DB.cars.find(c => c.cat === BK.type) || {}).id; BK.d2 = BK.type === "rent" ? iso(addD(fromIso(BK.d1), 3)) : null;
+    BK.manualPrice = false; recalc(BK, true); renderBk(); return;
+  }
+  if (t.dataset.cs) { const c = DB.clients.find(x => x.id === +t.dataset.cs); if (c) { c.status = t.value; if (persist()) toast(tr("a_saved")); renderBk(); } return; }
+  const k = t.dataset.k; if (!k) return;
+  BK[k] = k === "car" ? +t.value : t.value;
+  if (k === "total" || k === "est") { BK.manualPrice = true; return; }
+  if (k === "d1" || k === "d2" || k === "car" || k === "hours") {
+    recalc(BK);
+    const pf = $(`#rq-body [data-k="${BK.type === "rent" ? "total" : "est"}"]`); if (pf) pf.value = (BK.type === "rent" ? BK.total : BK.est) || "";
+  }
+});
+$("#rq-body").addEventListener("click", e => {
+  const m = e.target.closest("#bk-mode [data-mode]"); if (m) { BK.mode = m.dataset.mode; recalc(BK); renderBk(); return; }
+  const oc = e.target.closest("[data-opencl]"); if (oc) openCl(+oc.dataset.opencl);
+});
+function conflictFor(b){   // confirmed bookings and closed days of the same car that overlap
+  const c = byId(b.car); if (!c) return false;
+  const z = b.d2 || b.d1, m = manualSet(c);
+  for (let d = fromIso(b.d1); iso(d) <= z; d = addD(d, 1)) if (m.has(iso(d))) return true;
+  return DB.requests.some(r => r.id !== b.id && r.car === b.car && r.status === "ok" && !(r.d1 > z || (r.d2 || r.d1) < b.d1));
+}
+function saveBk(){
+  const b = BK;
+  b.name = String(b.name || "").trim(); b.phone = String(b.phone || "").trim();
+  if (!b.name || !b.phone || !b.d1 || !b.time) { b.err = tr("bf_err"); renderBk(); return; }
+  if (b.type === "rent" && !(b.d2 > b.d1)) { b.err = tr("bf_err_dates"); renderBk(); return; }
+  b.car = +b.car; b.hours = +b.hours || 0; b.pax = +b.pax || 1;
+  if (b.type === "rent") { b.days = nDays(b.d1, b.d2); b.total = +b.total || 0; } else { b.d2 = null; b.est = +b.est || 0; if (b.mode !== "transfer") b.p2 = ""; }
+  if (b.status === "ok" && conflictFor(b)) { b.err = tr("bf_conflict"); renderBk(); return; }
+  const { err, manualPrice, ...r } = b, car = byId(r.car), backup = JSON.stringify(DB);
+  r.carName = car ? car.name : r.carName;
+  if (r.id) { const old = DB.requests.find(x => x.id === r.id); Object.assign(old, r); if (!old.client) linkClient(old); }
+  else { r.id = ++DB.seq; r.created = TODAY_S; DB.requests.unshift(r); linkClient(r); }
+  if (!save()) { DB = JSON.parse(backup); b.err = tr("a_full"); renderBk(); return; }
+  closeSheet(); render(); toast(tr("a_saved"));
+}
+
+/* ---------- requests list */
 function reqCard(r){
-  const L = reqLines(r), tel = r.phone.replace(/[^+\d]/g, "");
-  return `<div class="req"><span class="st ${r.status}">${tr(ST[r.status])}</span><b>${escH(L[0])}</b><pre>${escH(L.slice(1).join("\n"))}</pre><small class="mut">${tr("a_received", { d: fmtD(r.created) })}</small>
+  const L = reqLines(r), tel = r.phone.replace(/[^+\d]/g, ""), cl = clientOf(r), st = cl ? cl.status : "new";
+  return `<div class="req cs-${st}"><div class="rtop"><span class="st ${r.status}">${tr(ST[r.status])}</span>${cbadge(st)}<small class="mut">${nthText(nthOf(r))}</small></div>
+      <b>${escH(L[0])}</b><pre>${escH(L.slice(1).join("\n"))}</pre>
+      ${r.comment ? `<p class="cmt"><b>${tr("bf_comment_s")}:</b> ${escH(r.comment)}</p>` : ""}
+      ${st === "bad" ? `<p class="warn">${tr("bf_bad_warn")}${cl && cl.note ? " " + escH(cl.note) : ""}</p>` : ""}
+      <small class="mut">${tr("a_received", { d: fmtD(r.created) })}</small>
       <div class="ab">${r.status === "new" ? `<button type="button" class="btn sm" data-ok="${r.id}">${tr("a_confirm")}</button><button type="button" class="btn line sm" data-no="${r.id}">${tr("a_decline")}</button>` : ""}
+        <button type="button" class="btn line sm" data-edit-r="${r.id}">${tr("a_edit")}</button>
         <a class="btn line sm" href="tel:${tel}">${icon("phone")}${tr("a_call")}</a><a class="btn line sm" href="https://wa.me/${tel.replace("+", "")}" target="_blank" rel="noopener">${icon("wa")}WhatsApp</a></div></div>`;
 }
 function pReq(){
-  const list = DB.requests.slice().sort((a, b) => (a.status === "new" ? 0 : 1) - (b.status === "new" ? 0 : 1) || (b.created > a.created ? 1 : -1));
+  const list = DB.requests.slice().sort((a, b) => (a.status === "new" ? 0 : 1) - (b.status === "new" ? 0 : 1) || (b.created > a.created ? 1 : b.created < a.created ? -1 : b.id - a.id));
   $("#p-zahtjevi").innerHTML = list.length ? list.map(reqCard).join("") : `<p class="mut">${tr("a_req_empty")}</p>`;
 }
 document.addEventListener("click", e => {
+  const ed = e.target.closest("[data-edit-r]"); if (ed) { openBk(ed.dataset.editR); return; }
   const ok = e.target.closest(".req [data-ok]"), no = e.target.closest(".req [data-no]"); if (!ok && !no) return;
   const r = DB.requests.find(x => x.id === +(ok || no).dataset[ok ? "ok" : "no"]); if (!r) return;
+  if (ok && conflictFor(r)) { toast(tr("bf_conflict")); return; }
   r.status = ok ? "ok" : "no";
-  if (ok) { const c = byId(r.car); if (c) { const b = busySet(c); for (let d = fromIso(r.d1); iso(d) <= (r.d2 || r.d1); d = addD(d, 1)) b.add(iso(d)); c.busy = [...b].sort(); } }
-  if (openId === "reqsheet") closeSheet();
   persist(); render(); toast(tr("a_saved"));
 });
+
+/* ---------- clients */
+let CQ = "", CF = "all", CL = null;
+function clStats(c){
+  const rs = clientReqs(c).filter(r => r.status !== "no");
+  return { n: rs.length, sum: rs.filter(r => r.status === "ok").reduce((a, r) => a + reqPrice(r), 0), last: rs.map(r => r.d1).sort().pop() };
+}
+function clList(){
+  const q = CQ.trim().toLowerCase(), qt = normTel(CQ);
+  const list = DB.clients.filter(c => (CF === "all" || c.status === CF) && (!q || c.name.toLowerCase().includes(q) || (qt.length > 2 && normTel(c.phone).includes(qt))))
+    .map(c => ({ c, s: clStats(c) })).sort((a, b) => String(b.s.last || b.c.created).localeCompare(String(a.s.last || a.c.created)));
+  $("#cl-list").innerHTML = list.length ? list.map(({ c, s }) => `<button type="button" class="clr cs-${c.status}" data-cl="${c.id}">
+      <span class="clm"><b>${escH(c.name)}</b><small>${escH(c.phone)}</small>${c.note ? `<small class="cln">${escH(c.note)}</small>` : ""}</span>
+      <span class="cls">${cbadge(c.status)}<small>${tr("cl_count", { n: s.n })}${s.sum ? " · " + eur(s.sum) : ""}</small>${s.last ? `<small>${tr("cl_last", { d: fmtD(s.last) })}</small>` : ""}</span></button>`).join("")
+    : `<p class="mut">${tr("cl_none")}</p>`;
+}
+function pClients(){
+  const cnt = k => k === "all" ? DB.clients.length : DB.clients.filter(c => c.status === k).length;
+  const chips = [["all", tr("cl_all")], ...CS.map(s => [s, tr("cs_" + s)])].map(([k, t]) => `<button type="button" data-cf="${k}" aria-pressed="${CF === k}"${k !== "all" ? ` class="cs-${k}"` : ""}>${escH(t)} <span class="cnt">${cnt(k)}</span></button>`).join("");
+  $("#p-klijenti").innerHTML = `<div class="btop"><input class="inp" type="search" id="cl-q" placeholder="${escH(tr("cl_search"))}" value="${escH(CQ)}" autocomplete="off"><button type="button" class="btn gold sm" data-newcl>${tr("cl_add")}</button></div>
+    <div class="chips cchips">${chips}</div>
+    <p class="small" style="margin:0 0 10px">${tr("cl_auto")}</p>
+    <div id="cl-list"></div>${legend()}`;
+  clList();
+}
+$("#p-klijenti").addEventListener("input", e => { if (e.target.id === "cl-q") { CQ = e.target.value; clList(); } });
+$("#p-klijenti").addEventListener("click", e => {
+  const f = e.target.closest("[data-cf]"); if (f) { CF = f.dataset.cf; pClients(); return; }
+  if (e.target.closest("[data-newcl]")) { openCl(null); return; }
+  const c = e.target.closest("[data-cl]"); if (c) openCl(+c.dataset.cl);
+});
+function openCl(id){
+  const c = id ? DB.clients.find(x => x.id === +id) : null;
+  CL = c ? JSON.parse(JSON.stringify(c)) : { id: null, name: "", phone: "", email: "", status: "new", note: "", created: TODAY_S };
+  CL.err = ""; renderCl(); showSheet("clsheet");
+}
+function renderCl(){
+  const c = CL, tel = String(c.phone || "").replace(/[^+\d]/g, "");
+  const f = (k, inner, w) => `<label class="fld${w ? " wide" : ""}"><span>${tr(k)}</span>${inner}</label>`;
+  const inp = (k, type) => `<input class="inp" type="${type || "text"}" data-c="${k}" value="${escH(c[k] || "")}">`;
+  const hist = c.id ? DB.requests.filter(r => r.client === c.id).sort((a, b) => b.d1.localeCompare(a.d1)) : [];
+  const s = c.id ? clStats(DB.clients.find(x => x.id === c.id)) : null;
+  $("#clsheet-t").textContent = c.id ? c.name : tr("cl_new_t");
+  $("#cl-body").innerHTML = `${c.id && tel ? `<div class="ab" style="margin-bottom:12px"><a class="btn line sm" href="tel:${tel}">${icon("phone")}${tr("a_call")}</a><a class="btn line sm" href="https://wa.me/${tel.replace("+", "")}" target="_blank" rel="noopener">${icon("wa")}WhatsApp</a></div>` : ""}
+    <div class="csel" role="radiogroup">${CS.map(x => `<label class="cs-${x}"><input type="radio" name="clst" value="${x}"${c.status === x ? " checked" : ""}><span>${tr("cs_" + x)}</span></label>`).join("")}</div>
+    <p class="small" style="margin:8px 0 14px">${tr("csd_" + c.status)}</p>
+    <div class="fg two">${f("f_name", inp("name"))}${f("f_phone_s", inp("phone", "tel"))}${f("f_email", inp("email", "email"), 1)}
+      ${f("cl_note", `<textarea class="inp" data-c="note" placeholder="${escH(tr("cl_ph_note"))}">${escH(c.note || "")}</textarea>`, 1)}</div>
+    ${c.id ? `<p class="h3" style="margin-top:18px">${tr("cl_hist")}: ${s.n}${s.sum ? " · " + eur(s.sum) : ""}</p>` + hist.map(r => `<button type="button" class="agi cs-${c.status}" data-r="${r.id}"><span class="agt">${fmtD(r.d1)}</span>
+      <span class="agx"><b>${tr(r.type === "rent" ? "nav_rent" : "nav_limo")} · ${escH((byId(r.car) || {}).name || r.carName)}</b><small>${escH(reqLines(r)[1])}</small>${r.comment ? `<small>${escH(r.comment)}</small>` : ""}</span>
+      <span class="tags"><span class="st ${r.status}">${tr(ST[r.status])}</span></span></button>`).join("") : ""}`;
+  $("#cl-foot").innerHTML = `${c.err ? `<p class="err">${escH(c.err)}</p>` : ""}<div class="fbtns"><button type="button" class="btn line" data-close>${tr("a_cancel")}</button><button type="button" class="btn" id="cl-save">${tr("a_save")}</button></div>`;
+  $("#cl-save").onclick = saveCl;
+}
+$("#cl-body").addEventListener("input", e => {
+  const t = e.target;
+  if (t.name === "clst") { CL.status = t.value; renderCl(); return; }
+  if (t.dataset.c) CL[t.dataset.c] = t.value;
+});
+$("#cl-body").addEventListener("click", e => { const r = e.target.closest("[data-r]"); if (r) openBk(r.dataset.r); });
+function saveCl(){
+  const c = CL; c.name = String(c.name || "").trim(); c.phone = String(c.phone || "").trim();
+  if (!c.name || !c.phone) { c.err = tr("cl_err"); renderCl(); return; }
+  if (DB.clients.some(x => x.id !== c.id && normTel(x.phone) === normTel(c.phone))) { c.err = tr("cl_exists"); renderCl(); return; }
+  const { err, ...rec } = c;
+  if (rec.id) Object.assign(DB.clients.find(x => x.id === rec.id), rec); else { rec.id = ++DB.seq; DB.clients.push(rec); }
+  if (!persist()) return;
+  closeSheet(); render(); toast(tr("a_saved"));
+}
+
 $("#reset").addEventListener("click", () => { if (!confirm(tr("a_reset_q"))) return; try { localStorage.removeItem(KEY); } catch (e) {} load(); render(); toast(tr("a_saved")); });
 
 function render(){
   show();
   if (!signed()) return;
   $$(".atabs [data-t]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === TAB)));
-  ["kalendar", "vozila", "zahtjevi"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
+  ["kalendar", "zahtjevi", "klijenti", "vozila"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
   const n = DB.requests.filter(r => r.status === "new").length; $("#req-n").textContent = n; $("#req-n").hidden = !n;
-  if (TAB === "kalendar") pBoard(); else if (TAB === "vozila") pCars(); else pReq();
+  $("#pl").innerHTML = PLACES_L.map(p => `<option value="${escH(p[LI()])}">`).join("");
+  if (TAB === "kalendar") keepScroll(pBoard); else if (TAB === "zahtjevi") pReq(); else if (TAB === "klijenti") pClients(); else pCars();
   if (openId === "carform" && F) renderForm();
+  if (openId === "reqsheet" && BK) renderBk();
+  if (openId === "clsheet" && CL) renderCl();
 }
 
 startLang();
