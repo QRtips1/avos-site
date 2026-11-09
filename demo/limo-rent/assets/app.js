@@ -32,7 +32,7 @@ function defaults(){
     cars: DEF_CARS.map(c => { const x = JSON.parse(JSON.stringify(c)); x.busy = x.off.flatMap(span); delete x.off; x.photos = []; return x; }),
     requests: DEF_REQ.map(r => { const x = Object.assign({}, r); x.d1 = iso(addD(TODAY, r.a)); x.d2 = r.b != null ? iso(addD(TODAY, r.b)) : null; x.created = iso(addD(TODAY, r.c));
       delete x.a; delete x.b; delete x.c; const car = DEF_CARS.find(c => c.id === r.car); x.carName = car.name;
-      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = 0; return x; }),
+      if (x.type === "rent") { x.days = nDays(x.d1, x.d2); x.total = x.days * car.price; } else x.est = x.mode === "hourly" ? car.price * x.hours : 0; return x; }),
     seq: 100
   };
 }

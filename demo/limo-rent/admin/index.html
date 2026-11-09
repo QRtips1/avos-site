@@ -37,22 +37,23 @@
     <button type="submit" class="btn full" data-i18n="a_enter">Uđi</button>
   </form>
   <div id="app" hidden>
-    <div class="atabs" role="tablist"><button type="button" data-t="vozila" aria-pressed="true" data-i18n="a_cars">Vozila</button><button type="button" data-t="zauzetost" aria-pressed="false" data-i18n="a_cal">Zauzetost</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button></div>
+    <div class="atabs" role="tablist"><button type="button" data-t="kalendar" aria-pressed="true" data-i18n="a_board">Kalendar</button><button type="button" data-t="vozila" aria-pressed="false" data-i18n="a_cars">Vozila</button><button type="button" data-t="zahtjevi" aria-pressed="false"><span data-i18n="a_req">Zahtjevi</span><span class="n" id="req-n" hidden></span></button></div>
     <p class="dnote" style="margin:0 0 12px"><span data-i18n="a_note">Demo: promjene se čuvaju samo u ovom pregledaču. Na pravom sajtu odmah ih vide svi posjetioci.</span></p>
-    <section id="p-vozila"></section>
-    <section id="p-zauzetost" hidden></section>
+    <section id="p-kalendar"></section>
+    <section id="p-vozila" hidden></section>
     <section id="p-zahtjevi" hidden></section>
     <p style="margin-top:28px"><button type="button" class="btn line sm" id="reset" data-i18n="a_reset">Vrati demo na početak</button></p>
   </div>
 </main>
 <div class="sheet" id="carform" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="carform-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="cf-body"></div><div class="foot" id="cf-foot"></div></div></div>
+<div class="sheet" id="reqsheet" role="dialog" aria-modal="true" hidden><div class="panel"><div class="top"><b id="reqsheet-t"></b><button type="button" class="x" data-close data-i18n-aria="close" aria-label="Zatvori">×</button></div><div class="body" id="rq-body"></div></div></div>
 <div class="toast" id="toast" hidden></div>
 <script src="../assets/data.js?v=1"></script>
 <script src="../assets/app.js?v=1"></script>
 <script>
 const PAGE_TITLE = "t_admin", PREFIX = "../";
 
-let TAB = "vozila", CALCAR = null;
+let TAB = "kalendar";
 const signed = () => { try { return sessionStorage.getItem("limo-admin") === "1"; } catch (e) { return false; } };
 function show(){ $("#login").hidden = signed(); $("#app").hidden = !signed(); $("#logout").hidden = !signed(); }
 $("#login").addEventListener("submit", e => { e.preventDefault(); try { sessionStorage.setItem("limo-admin", "1"); } catch (er) {} show(); render(); ev("admin_login"); });
@@ -60,7 +61,7 @@ $("#logout").addEventListener("click", () => { try { sessionStorage.removeItem("
 let tt; function toast(m){ const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2600); }
 function persist(){ if (!save()) { toast(tr("a_full")); return false; } return true; }
 $(".atabs").addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (!b) return; TAB = b.dataset.t; history.replaceState(null, "", "#" + TAB); render(); });
-if (/^#(vozila|zauzetost|zahtjevi)$/.test(location.hash)) TAB = location.hash.slice(1);
+if (/^#(kalendar|vozila|zahtjevi)$/.test(location.hash)) TAB = location.hash.slice(1);
 
 function row(c){
   return `<div class="arow"><div class="pic${c.cat === "limo" ? " dk" : ""}">${carPic(c)}</div>
@@ -142,35 +143,99 @@ function saveForm(){
   closeSheet(); render(); toast(tr("a_saved"));
 }
 
-/* busy days */
-function pCal(){
-  if (!CALCAR || !byId(CALCAR)) CALCAR = (DB.cars[0] || {}).id;
-  const c = byId(CALCAR);
-  $("#p-zauzetost").innerHTML = `<p class="small" style="margin:0 0 10px">${tr("a_cal_hint")}</p>
-    <div class="chips">${DB.cars.map(x => `<button type="button" data-cc="${x.id}" aria-pressed="${x.id === CALCAR}">${escH(x.name)}</button>`).join("")}</div>
-    ${c ? `<div class="cal two" id="a-cal"></div><div class="lgd"><span><i class="b"></i>${tr("lg_busy")}</span><span><i></i>${tr("lg_free")}</span></div>` : `<p class="mut">${tr("no_cars")}</p>`}`;
-  if (!c) return;
-  const o = { busy: busySet(c), mode: "toggle", onChange: () => { c.busy = [...o.busy].sort(); if (persist()) toast(tr("a_saved")); } };
-  Cal($("#a-cal"), o);
+/* booking calendar: every car by day, limo and rent together */
+const DAYS = 14;
+let BSTART = 0, BFIL = "all";
+function bookingOn(c, s){
+  let best = null;
+  for (const r of DB.requests) {
+    if (r.car !== c.id || r.status === "no" || s < r.d1 || s > (r.d2 || r.d1)) continue;
+    if (r.status === "ok") return r;
+    if (!best) best = r;
+  }
+  return best;
 }
-$("#p-zauzetost").addEventListener("click", e => { const b = e.target.closest("[data-cc]"); if (b) { CALCAR = +b.dataset.cc; pCal(); } });
+const wd = s => WD[lang][(fromIso(s).getDay() + 6) % 7];
+const dayLabel = s => s === TODAY_S ? tr("b_today") : s === iso(addD(TODAY, 1)) ? tr("tomorrow") : `${wd(s)} ${fmtD(s)}`;
+function agenda(){
+  const end = iso(addD(TODAY, 6)), ev = [], inW = s => s && s >= TODAY_S && s <= end;
+  for (const r of DB.requests) {
+    if (r.status === "no") continue;
+    const c = byId(r.car), nm = c ? c.name : r.carName;
+    if (r.type === "limo") { if (inW(r.d1)) ev.push({ d: r.d1, k: "ev_ride", r, nm, what: r.mode === "transfer" ? `${r.p1} → ${r.p2}` : `${tr("t_hourly")} ${r.hours} ${tr("h_short")} · ${r.p1}` }); }
+    else {
+      if (inW(r.d1)) ev.push({ d: r.d1, k: "ev_pick", r, nm, what: placeName(r.place) });
+      if (inW(r.d2)) ev.push({ d: r.d2, k: "ev_ret", r, nm, what: placeName(r.place) });
+    }
+  }
+  ev.sort((a, b) => (a.d + a.r.time).localeCompare(b.d + b.r.time));
+  if (!ev.length) return `<p class="mut">${tr("ag_empty")}</p>`;
+  let h = "", last = "";
+  for (const e of ev) {
+    if (e.d !== last) { last = e.d; h += `<p class="agd">${dayLabel(e.d)}</p>`; }
+    h += `<button type="button" class="agi ${e.r.type}" data-r="${e.r.id}"><span class="agt">${escH(e.r.time)}</span><span class="agx"><b>${tr(e.k)} · ${escH(e.nm)}</b><small>${escH(e.what)} · ${escH(e.r.name)}</small></span>${e.r.status === "new" ? `<span class="st new">${tr("st_new")}</span>` : ""}</button>`;
+  }
+  return h;
+}
+function pBoard(){
+  const days = []; for (let i = 0; i < DAYS; i++) days.push(iso(addD(TODAY, BSTART + i)));
+  const cars = DB.cars.filter(c => BFIL === "all" || c.cat === BFIL);
+  const head = days.map(s => `<th class="${s === TODAY_S ? "td" : ""}"><small>${wd(s)}</small>${fmtD(s)}</th>`).join("");
+  const cell = (c, s, i, blocked) => {
+    const r = bookingOn(c, s), cls = s === TODAY_S ? ' class="td"' : "";
+    if (r) {
+      const st = s === r.d1, en = s === (r.d2 || r.d1), lab = r.type === "limo" ? r.time : (st || i === 0 ? r.name : "");
+      return `<td${cls}><div class="bx"><button type="button" class="bc ${r.status}${st || i === 0 ? " st" : ""}${en ? " en" : ""}" data-r="${r.id}" title="${escH(r.name)}">${escH(lab)}</button></div></td>`;
+    }
+    return `<td${cls}><div class="bx"><button type="button" class="bc${blocked.has(s) ? " shut" : ""}" data-car="${c.id}" data-d="${s}"${s < TODAY_S ? " disabled" : ""} aria-label="${escH(c.name)} ${fmtD(s)}"></button></div></td>`;
+  };
+  const grp = cat => {
+    const list = cars.filter(c => c.cat === cat); if (!list.length) return "";
+    return `<tr class="gr"><th colspan="${DAYS + 1}"><span>${tr(cat === "limo" ? "a_limo_list" : "a_rent_list")}</span></th></tr>` +
+      list.map(c => { const b = busySet(c); return `<tr><th class="cn">${escH(c.name)}</th>${days.map((s, i) => cell(c, s, i, b)).join("")}</tr>`; }).join("");
+  };
+  const chips = [["all", "b_all"], ["limo", "nav_limo"], ["rent", "nav_rent"]].map(([k, t]) => `<button type="button" data-bf="${k}" aria-pressed="${BFIL === k}">${tr(t)}</button>`).join("");
+  $("#p-kalendar").innerHTML = `<div class="bhead"><div class="chips">${chips}</div>
+      <div class="bnav"><button type="button" data-bn="-${DAYS}" aria-label="‹">‹</button><button type="button" data-bn="0">${tr("b_today")}</button><button type="button" data-bn="${DAYS}" aria-label="›">›</button><b>${fmtD(days[0])} – ${fmtD(days[DAYS - 1])}</b></div></div>
+    <div class="bwrap"><table class="board"><thead><tr><th class="cn"></th>${head}</tr></thead><tbody>${grp("limo")}${grp("rent")}</tbody></table></div>
+    <div class="lgd"><span><i class="ok"></i>${tr("lg_ok")}</span><span><i class="nw"></i>${tr("lg_new")}</span><span><i class="bl"></i>${tr("lg_block")}</span></div>
+    <p class="small" style="margin-top:6px">${tr("b_hint")}</p>
+    <p class="agrp">${tr("ag_t")}</p>${agenda()}`;
+}
+function openReq(id){
+  const r = DB.requests.find(x => x.id === +id); if (!r) return;
+  $("#reqsheet-t").textContent = tr("a_details"); $("#rq-body").innerHTML = reqCard(r); openSheet("reqsheet");
+}
+$("#p-kalendar").addEventListener("click", e => {
+  const n = e.target.closest("[data-bn]"); if (n) { BSTART = +n.dataset.bn === 0 ? 0 : BSTART + +n.dataset.bn; pBoard(); return; }
+  const f = e.target.closest("[data-bf]"); if (f) { BFIL = f.dataset.bf; pBoard(); return; }
+  const r = e.target.closest("[data-r]"); if (r) { openReq(r.dataset.r); return; }
+  const d = e.target.closest(".bc[data-car]"); if (!d || d.disabled) return;
+  const c = byId(d.dataset.car), b = busySet(c), day = d.dataset.d, on = !b.has(day);
+  if (on) b.add(day); else b.delete(day);
+  c.busy = [...b].sort();
+  if (persist()) toast(tr(on ? "b_blocked" : "b_freed"));
+  const x = $("#p-kalendar .bwrap").scrollLeft; pBoard(); $("#p-kalendar .bwrap").scrollLeft = x;
+});
 
 /* requests */
-function pReq(){
-  const st = { new: "st_new", ok: "st_ok", no: "st_no" };
-  const list = DB.requests.slice().sort((a, b) => (a.status === "new" ? 0 : 1) - (b.status === "new" ? 0 : 1) || (b.created > a.created ? 1 : -1));
-  $("#p-zahtjevi").innerHTML = list.length ? list.map(r => {
-    const L = reqLines(r), tel = r.phone.replace(/[^+\d]/g, "");
-    return `<div class="req"><span class="st ${r.status}">${tr(st[r.status])}</span><b>${escH(L[0])}</b><pre>${escH(L.slice(1).join("\n"))}</pre><small class="mut">${tr("a_received", { d: fmtD(r.created) })}</small>
+const ST = { new: "st_new", ok: "st_ok", no: "st_no" };
+function reqCard(r){
+  const L = reqLines(r), tel = r.phone.replace(/[^+\d]/g, "");
+  return `<div class="req"><span class="st ${r.status}">${tr(ST[r.status])}</span><b>${escH(L[0])}</b><pre>${escH(L.slice(1).join("\n"))}</pre><small class="mut">${tr("a_received", { d: fmtD(r.created) })}</small>
       <div class="ab">${r.status === "new" ? `<button type="button" class="btn sm" data-ok="${r.id}">${tr("a_confirm")}</button><button type="button" class="btn line sm" data-no="${r.id}">${tr("a_decline")}</button>` : ""}
         <a class="btn line sm" href="tel:${tel}">${icon("phone")}${tr("a_call")}</a><a class="btn line sm" href="https://wa.me/${tel.replace("+", "")}" target="_blank" rel="noopener">${icon("wa")}WhatsApp</a></div></div>`;
-  }).join("") : `<p class="mut">${tr("a_req_empty")}</p>`;
 }
-$("#p-zahtjevi").addEventListener("click", e => {
-  const ok = e.target.closest("[data-ok]"), no = e.target.closest("[data-no]"); if (!ok && !no) return;
+function pReq(){
+  const list = DB.requests.slice().sort((a, b) => (a.status === "new" ? 0 : 1) - (b.status === "new" ? 0 : 1) || (b.created > a.created ? 1 : -1));
+  $("#p-zahtjevi").innerHTML = list.length ? list.map(reqCard).join("") : `<p class="mut">${tr("a_req_empty")}</p>`;
+}
+document.addEventListener("click", e => {
+  const ok = e.target.closest(".req [data-ok]"), no = e.target.closest(".req [data-no]"); if (!ok && !no) return;
   const r = DB.requests.find(x => x.id === +(ok || no).dataset[ok ? "ok" : "no"]); if (!r) return;
   r.status = ok ? "ok" : "no";
   if (ok) { const c = byId(r.car); if (c) { const b = busySet(c); for (let d = fromIso(r.d1); iso(d) <= (r.d2 || r.d1); d = addD(d, 1)) b.add(iso(d)); c.busy = [...b].sort(); } }
+  if (openId === "reqsheet") closeSheet();
   persist(); render(); toast(tr("a_saved"));
 });
 $("#reset").addEventListener("click", () => { if (!confirm(tr("a_reset_q"))) return; try { localStorage.removeItem(KEY); } catch (e) {} load(); render(); toast(tr("a_saved")); });
@@ -179,9 +244,9 @@ function render(){
   show();
   if (!signed()) return;
   $$(".atabs [data-t]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === TAB)));
-  ["vozila", "zauzetost", "zahtjevi"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
+  ["kalendar", "vozila", "zahtjevi"].forEach(t => { $("#p-" + t).hidden = t !== TAB; });
   const n = DB.requests.filter(r => r.status === "new").length; $("#req-n").textContent = n; $("#req-n").hidden = !n;
-  if (TAB === "vozila") pCars(); else if (TAB === "zauzetost") pCal(); else pReq();
+  if (TAB === "kalendar") pBoard(); else if (TAB === "vozila") pCars(); else pReq();
   if (openId === "carform" && F) renderForm();
 }
 
