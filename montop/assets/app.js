@@ -478,7 +478,7 @@
     $("#perks").innerHTML = [["card", "biz.p1"], ["pin", "biz.p2"], ["leaf", "biz.p3"]].map(function (p) { return "<li>" + icon(p[0]) + "<span>" + esc(t(p[1])) + "</span></li>"; }).join("");
   }
   function renderKnow() {
-    $("#know").innerHTML = S.know.map(function (k) { return '<div class="panel"><b>' + esc(k.b) + "</b><span>" + esc(L(k.s)) + "</span></div>"; }).join("");
+    $("#know-grid").innerHTML = S.know.map(function (k) { return '<div class="panel"><b>' + esc(k.b) + "</b><span>" + esc(L(k.s)) + "</span></div>"; }).join("");
   }
   function renderCredits() {
     var ps = D.photos || {}, seen = {}, items = [];

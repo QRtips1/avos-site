@@ -394,3 +394,5 @@ a.card, a.pick, a.listing, .scroll-cue, .brand { text-decoration: none; color: i
 #now .head .eyebrow { color: var(--mist); }
 .season-tabs button:not([aria-pressed="true"]) .cur { color: var(--resin); }
 html[data-season="winter"] .pick .ph, html[data-season="winter"] .card .ph { filter: saturate(.6) brightness(1.04); }
+.hero .indep { align-self: flex-start; margin: 10px 0 0; padding: 6px 10px; border-radius: 8px; font-size: 13px; line-height: 1.4; color: var(--mist-2); background: rgba(8, 20, 14, .45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); max-width: 100%; }
+.hero .indep a { color: var(--snow); text-decoration: underline; text-underline-offset: 2px; }
