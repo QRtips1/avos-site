@@ -1,8 +1,14 @@
-/* MonTop — Durmitor page logic. No framework. */
+/* MonTop: park page logic shared by every park. No framework. */
 (function () {
   "use strict";
-  var D = window.MT_DATA, I = window.MT_I18N, S = window.MT_SEASONS;
-  var ZAB = { lat: 43.15505, lon: 19.12087 };
+  var D = window.MT_DATA, I = window.MT_I18N, P = window.MT_PARK || {}, S = {};
+  Object.keys(window.MT_SEASONS).forEach(function (k) { S[k] = window.MT_SEASONS[k]; });
+  Object.keys(P.seasons || {}).forEach(function (k) {
+    if (k === "gear") Object.keys(P.seasons.gear).forEach(function (s) { S.gear[s] = Object.assign({}, S.gear[s], P.seasons.gear[s]); });
+    else S[k] = P.seasons[k];
+  });
+  Object.keys(P.i18n || {}).forEach(function (l) { if (I[l]) Object.keys(P.i18n[l]).forEach(function (k) { I[l][k] = P.i18n[l][k]; }); });
+  var ZAB = P.wx || { lat: D.center[0], lon: D.center[1] };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var store = {
@@ -48,10 +54,15 @@
     try { return +new Intl.DateTimeFormat("en-GB", { hour: "2-digit", hour12: false, timeZone: "Europe/Podgorica" }).format(date); }
     catch (e) { return date.getHours(); }
   }
+  var MODES = ["auto", "day", "night"];
+  var mode = MODES.indexOf(store.get("mt-mode")) > -1 ? store.get("mt-mode") : "auto";
   function setPhase() {
     var d = new Date(), a = sunAlt(d, ZAB.lat, ZAB.lon), ph = "day";
     if (a < -6) ph = "night"; else if (a < 5) ph = localHour(d) < 12 ? "dawn" : "dusk";
+    if (mode === "day") ph = "day"; else if (mode === "night") ph = "night";
     document.documentElement.setAttribute("data-phase", ph);
+    document.documentElement.setAttribute("data-mode", mode);
+    var mb = $("#mode-name"); if (mb) mb.textContent = t("mode." + mode);
     particles.retune();
   }
 
@@ -125,11 +136,12 @@
         if (season === "autumn") m.push("leaves");
         if (season === "summer" && ph === "night") m.push("flies");
       }
+      if (P.birds && ph !== "night" && kind !== "rain" && kind !== "snow") m.push("birds");
       return m.filter(Boolean);
     }
     function spawn(kind) {
       var small = W < 700;
-      var n = { snow: small ? 70 : 140, rain: small ? 80 : 160, leaves: small ? 10 : 18, flies: small ? 16 : 30 }[kind] || 0, out = [];
+      var n = { snow: small ? 70 : 140, rain: small ? 80 : 160, leaves: small ? 10 : 18, flies: small ? 16 : 30, birds: small ? 3 : 5 }[kind] || 0, out = [];
       for (var i = 0; i < n; i++) out.push(make(kind, true));
       return out;
     }
@@ -139,6 +151,7 @@
       if (kind === "rain") { p.l = 10 + p.s * 14; p.vy = 520 + p.s * 300; p.vx = -60; }
       if (kind === "leaves") { p.r = 4 + p.s * 5; p.vy = 22 + p.s * 30; p.vx = 10 + Math.random() * 30; p.rot = Math.random() * 6; p.vr = -1.5 + Math.random() * 3; p.c = ["#c8892f", "#a8572b", "#d9b04a", "#8b3f22"][i4()]; }
       if (kind === "flies") { p.y = H * (0.45 + Math.random() * 0.5); p.ph = Math.random() * 6; p.vx = -10 + Math.random() * 20; p.vy = -6 + Math.random() * 12; }
+      if (kind === "birds") { p.x = init ? Math.random() * W : -60; p.y = H * (0.1 + Math.random() * 0.28); p.r = 7 + p.s * 9; p.vx = 14 + p.s * 18; p.ph = Math.random() * 6; p.f = 0.6 + Math.random() * 0.5; }
       return p;
     }
     function i4() { return Math.floor(Math.random() * 4); }
@@ -161,6 +174,15 @@
         else if (p.k === "rain") { p.y += p.vy * dt; p.x += p.vx * dt; ctx.globalAlpha = 0.25 + p.s * 0.25; ctx.strokeStyle = "#cfe0ea"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x + p.vx * 0.02, p.y + p.l); ctx.stroke(); }
         else if (p.k === "leaves") { p.y += p.vy * dt; p.x += (p.vx + Math.sin(tm * 1.7 + p.s * 9) * 25) * dt; p.rot += p.vr * dt; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(1, 0.55 + 0.45 * Math.sin(tm * 3 + p.s * 7)); ctx.globalAlpha = 0.85; ctx.fillStyle = p.c; ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
         else if (p.k === "flies") { p.x += (p.vx + Math.sin(tm + p.ph) * 8) * dt; p.y += (p.vy + Math.cos(tm * 0.8 + p.ph) * 6) * dt; var a = 0.3 + 0.7 * Math.max(0, Math.sin(tm * 2 + p.ph)); ctx.globalAlpha = a; ctx.fillStyle = "#e8f59a"; ctx.shadowColor = "#e8f59a"; ctx.shadowBlur = 8; ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0; if (p.x < -10 || p.x > W + 10 || p.y < H * 0.3 || p.y > H + 10) { parts[j] = make("flies", true); } continue; }
+        else if (p.k === "birds") {
+          p.x += p.vx * dt; p.y += Math.sin(tm * 0.4 + p.ph) * 4 * dt;
+          var fl = Math.sin(tm * p.f * 3.2 + p.ph) * 0.45, r = p.r;
+          ctx.globalAlpha = 0.7; ctx.strokeStyle = "rgba(30, 40, 46, .75)"; ctx.lineWidth = 1.6; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(p.x - r, p.y - r * fl); ctx.quadraticCurveTo(p.x - r * 0.4, p.y - r * 0.35 - r * fl * 0.4, p.x, p.y);
+          ctx.quadraticCurveTo(p.x + r * 0.4, p.y - r * 0.35 - r * fl * 0.4, p.x + r, p.y - r * fl); ctx.stroke();
+          if (p.x > W + 60) parts[j] = make("birds", false);
+          continue;
+        }
         if (p.y > H + 20 || p.x < -40 || p.x > W + 40) { parts[j] = make(p.k, false); parts[j].x = Math.random() * W; }
       }
       ctx.globalAlpha = 1;
@@ -214,7 +236,12 @@
     leaf: '<path d="M5 19c0-9 5-14 15-15-1 10-6 15-15 15z"/><path d="M5 19l8-8"/>',
     nav: '<path d="M3 11l18-8-8 18-2-8z"/>',
     dl: '<path d="M12 3v12M7 10l5 5 5-5M4 20h16"/>',
-    print: '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/>'
+    print: '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/>',
+    boat: '<path d="M3 15h18l-3 5H6z"/><path d="M12 3v12M12 4l6 8h-6"/>',
+    hat: '<path d="M3 16c3 2 15 2 18 0"/><path d="M6 16c0-5 2-9 6-9s6 4 6 9"/>',
+    bino: '<circle cx="7" cy="15" r="4"/><circle cx="17" cy="15" r="4"/><path d="M5 11l2-6h3l1 6M19 11l-2-6h-3l-1 6M11 13h2"/>',
+    bug: '<ellipse cx="12" cy="14" rx="4" ry="6"/><path d="M12 8V5M8 11L4 9M16 11l4-2M8 15H3M16 15h5M8 19l-3 2M16 19l3 2"/>',
+    swim: '<path d="M2 18c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0M2 14c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0"/><circle cx="15" cy="6" r="2"/><path d="M6 12l4-5 4 3"/>'
   };
   function icon(n) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICON[n] || ICON.leaf) + "</svg>"; }
   var KNAFELC = '<svg class="marker" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#cc3a30"/><circle cx="10" cy="10" r="4.2" fill="#fff"/></svg>';
@@ -255,6 +282,8 @@
     document.title = t("meta.title");
     $$("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
     $$(".langs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
+    var mb = $("#mode-name"); if (mb) mb.textContent = t("mode." + mode);
+    var mt = $("[data-mode-cycle]"); if (mt) mt.title = t("mode.title");
   }
 
   /* ---------- season UI ---------- */
@@ -417,7 +446,7 @@
   }
 
   /* ---------- drives ---------- */
-  var curDrive = "ring", dmap = null, dLayer = null;
+  var curDrive = D.drives[0].id, dmap = null, dLayer = null;
   function renderDrives() {
     $("#drive-tabs").innerHTML = D.drives.map(function (d) { return '<button type="button" class="chip" data-d="' + d.id + '" aria-pressed="' + (d.id === curDrive) + '">' + esc(L(d.name)) + "</button>"; }).join("");
     var d = drive(curDrive), m = now.getMonth();
@@ -430,7 +459,7 @@
       (stat.length ? '<div class="stats">' + stat.join("") + "</div>" : "") + (d.id !== "arrive" ? '<div><h4 class="eyebrow" style="margin:6px 0">' + esc(t("roads.season")) + "</h4>" + monthsHtml(d.season) + "</div>" : "") + "</div>" + btns +
       (d.stops.length ? '<ol class="stops">' + d.stops.map(function (s) { return "<li><span><b>" + esc(L(s.n)) + "</b><small>" + esc(L(s.d)) + '</small></span><a target="_blank" rel="noopener" href="' + gmapsPt(s.p) + '">' + esc(t("roads.pt")) + "</a></li>"; }).join("") + "</ol>" : "") +
       '<ul class="notes">' + d.notes.map(function (n) { return "<li>" + esc(L(n)) + "</li>"; }).join("") + "</ul>" +
-      (d.src ? '<p class="src">' + 'Wikipedia: <a href="' + d.src + '" target="_blank" rel="noopener">Durmitor Ring</a>, mnevillage.gov.me</p>' : "") + "</div>" +
+      (d.src ? '<p class="src">' + esc(t("roads.src")) + ' <a href="' + d.src.u + '" target="_blank" rel="noopener">' + esc(d.src.t) + "</a></p>" : "") + "</div>" +
       '<div class="dmap"><div class="map" id="dmap"></div></div>';
     if (L_) {
       if (dmap) { dmap.remove(); dmap = null; }
@@ -447,7 +476,7 @@
       L_.marker(s.p, { icon: L_.divIcon({ className: "", html: '<div class="num-marker">' + (i + 1) + "</div>", iconSize: [24, 24] }) }).bindPopup("<b>" + esc(L(s.n)) + "</b><br>" + esc(L(s.d))).addTo(dmap);
       b.push(s.p);
     });
-    if (!b.length) b = [[42.44, 19.26], [43.155, 19.12]];
+    if (!b.length) b = [D.center, D.center];
     dmap.fitBounds(b, { padding: [28, 28] });
   }
 
@@ -497,7 +526,7 @@
       var btn = $("button[type=submit]", f); btn.disabled = true; btn.textContent = t("biz.sending");
       var type = t("cats")[+$("#f-type").value] || "";
       fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: "5394e22e-e672-40e2-8707-bd712abeac95", subject: "MonTop Durmitor: " + type + " · " + name, from_name: "MonTop Durmitor",
+        body: JSON.stringify({ access_key: "5394e22e-e672-40e2-8707-bd712abeac95", subject: "MonTop " + (P.name || "") + ": " + type + " · " + name, from_name: "MonTop " + (P.name || ""),
           type: type, name: name, place: $("#f-where").value.trim(), contact: contact, message: $("#f-msg").value.trim(), language: lang }) })
         .then(function (r) { return r.json(); }).then(function (j) {
           if (!j.success) throw 0;
@@ -510,10 +539,11 @@
   /* ---------- events ---------- */
   function bind() {
     document.addEventListener("click", function (e) {
-      var el = e.target.closest("[data-lang],[data-season],[data-f],[data-d],[data-gs],[data-gl],[data-close],[data-print],[data-copy],[data-map-toggle],[data-season-cycle],.pick[data-drive]");
+      var el = e.target.closest("[data-mode-cycle],[data-lang],[data-season],[data-f],[data-d],[data-gs],[data-gl],[data-close],[data-print],[data-copy],[data-map-toggle],[data-season-cycle],.pick[data-drive]");
       if (!el) return;
       if (el.hasAttribute("data-lang")) { lang = el.getAttribute("data-lang"); store.set("mt-lang", lang); renderAll(); if (!$("#sheet").hidden) route(); }
       else if (el.hasAttribute("data-season") && el.tagName === "BUTTON") { setSeason(el.getAttribute("data-season")); }
+      else if (el.hasAttribute("data-mode-cycle")) { mode = MODES[(MODES.indexOf(mode) + 1) % 3]; store.set("mt-mode", mode); setPhase(); }
       else if (el.hasAttribute("data-season-cycle")) { var o = S.order; setSeason(o[(o.indexOf(season) + 1) % 4]); }
       else if (el.hasAttribute("data-f")) { filter = el.getAttribute("data-f"); renderFilters(); renderTrails(); }
       else if (el.hasAttribute("data-d")) { curDrive = el.getAttribute("data-d"); renderDrives(); }

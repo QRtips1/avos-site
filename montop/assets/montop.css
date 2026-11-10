@@ -59,7 +59,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Scene ---------- */
 .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--pine-950); }
 .sky { position: absolute; inset: 0; background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 48%, var(--sky-3) 72%); transition: filter 1.2s, opacity 1.2s; }
-.sky-night { position: absolute; inset: 0; background: linear-gradient(180deg, #03080d 0%, #0a1520 45%, #18283a 75%); opacity: 0; transition: opacity 1.5s; }
+.sky-night { position: absolute; inset: 0; background: linear-gradient(180deg, #172744 0%, #2b4069 42%, #52699a 70%, #8193b5 86%); opacity: 0; transition: opacity 1.5s; }
+.moon { position: absolute; left: 76%; top: 15%; width: 9vmin; height: 9vmin; border-radius: 50%; opacity: 0; transition: opacity 1.5s;
+  background: radial-gradient(circle at 42% 40%, #fffdf3 0%, #f1ecd6 55%, #d9d3bc 100%);
+  box-shadow: 0 0 40px 12px rgba(235, 238, 255, .35), 0 0 160px 60px rgba(190, 205, 255, .18); }
+html[data-phase="night"] .moon { opacity: .95; }
 .sky-dusk { position: absolute; inset: 0; background: linear-gradient(180deg, #2a3756 0%, #8e5f73 38%, #e39a6b 62%, #f3c27c 74%); opacity: 0; transition: opacity 1.5s; }
 .sun { position: absolute; left: 68%; top: 18%; width: 46vmax; height: 46vmax; transform: translate(-50%, -50%); border-radius: 50%;
   background: radial-gradient(circle, rgba(var(--glow), var(--glow-op)) 0%, rgba(var(--glow), 0) 62%); }
@@ -77,7 +81,8 @@ html[data-cloud="1"] .sun { opacity: .3; }
 .l-fb { top: calc(93vh - .82 * var(--lh)); } .l-ff { top: calc(106vh - .93 * var(--lh)); }
 .l-far .skirt { background: var(--far-2); } .l-mid .skirt { background: var(--mid-2); } .l-near .skirt { background: var(--near-2); }
 .l-fb .skirt { background: var(--fb); } .l-ff .skirt { background: var(--ff); }
-html[data-phase="night"] .layer, html[data-phase="night"] .fog { filter: brightness(.36) saturate(.55); }
+html[data-phase="night"] .layer { filter: brightness(.66) saturate(.55) sepia(.3) hue-rotate(178deg); }
+html[data-phase="night"] .fog { filter: blur(8px) brightness(.75) sepia(.3) hue-rotate(178deg); }
 html[data-phase="dusk"] .layer, html[data-phase="dawn"] .layer { filter: brightness(.78) sepia(.18); }
 .peak-label { position: absolute; transform: translate(-50%, -100%); font: 500 10px/1.1 var(--f-data); color: rgba(20, 28, 24, .72);
   letter-spacing: .04em; text-align: center; white-space: nowrap; padding-bottom: 14px; }
@@ -396,3 +401,16 @@ a.card, a.pick, a.listing, .scroll-cue, .brand { text-decoration: none; color: i
 html[data-season="winter"] .pick .ph, html[data-season="winter"] .card .ph { filter: saturate(.6) brightness(1.04); }
 .hero .indep { align-self: flex-start; margin: 10px 0 0; padding: 6px 10px; border-radius: 8px; font-size: 13px; line-height: 1.4; color: var(--mist-2); background: rgba(8, 20, 14, .45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); max-width: 100%; }
 .hero .indep a { color: var(--snow); text-decoration: underline; text-underline-offset: 2px; }
+/* day / night switch */
+.pill.mode svg { width: 16px; height: 16px; }
+html[data-mode="day"] .pill.mode .i-moon, html[data-mode="night"] .pill.mode .i-sun, html[data-mode="auto"] .pill.mode .i-sun { display: none; }
+html[data-mode="auto"] .pill.mode .i-moon { display: none; }
+html:not([data-mode="auto"]) .pill.mode .i-auto { display: none; }
+@media (max-width: 520px) { .pill.mode span { display: none; } .pill.mode { padding-inline: 9px; } }
+/* water keeps its blue at night instead of the warm sepia used for rock and forest */
+html[data-phase="night"] .l-water { filter: brightness(.5) saturate(.75); }
+@media (max-width: 520px) { .brand .reg { display: none; } .topbar .in { gap: 10px; } }
+footer .fparks { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 2px 0 4px; }
+footer .fparks a { color: var(--mist-2); text-decoration: none; font: 600 19px/1.2 var(--f-display); }
+footer .fparks a:hover { color: var(--snow); }
+footer .fparks a[aria-current] { color: var(--emerald-hi); }

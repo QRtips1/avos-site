@@ -1,283 +1,896 @@
-/* MonTop UI strings: me (Montenegrin, Latin), en, ru */
+/* MonTop: interface strings (ME / EN / RU) and season-wide gear lists shared by every park. */
 window.MT_I18N = {
-  me: {
-    "meta.title": "Durmitor: staze, putevi, smještaj · MonTop",
-    "nav.now": "Sada", "nav.trails": "Staze", "nav.roads": "Putevi", "nav.gear": "Oprema", "nav.stay": "Smještaj", "nav.biz": "Za biznis",
-    "hero.eyebrow": "Nacionalni park · UNESCO · 2523 m",
-    "hero.go": "Gdje pješke", "hero.drive": "Gdje autom",
-    "hero.cue": "Spustite se u šumu",
-    "now.live": "Žabljak sada", "now.loading": "Učitavam vrijeme…", "now.fail": "Vrijeme trenutno nije dostupno",
-    "now.eyebrow": "Sada u planinama", "now.title": "Gdje je najljepše sada",
-    "now.feels": "Osjeća se", "now.wind": "Vjetar", "now.snow": "Snijeg", "now.sunrise": "Izlazak sunca", "now.sunset": "Zalazak sunca", "now.clouds": "Oblačnost",
-    "now.place": "Žabljak, 1456 m · podaci Open-Meteo",
-    "now.today": "Danas", "now.tomorrow": "Sutra",
-    "season.winter": "Zima", "season.spring": "Proljeće", "season.summer": "Ljeto", "season.autumn": "Jesen", "season.now": "sada",
-    "kind.hike": "Pješke", "kind.drive": "Autom", "kind.info": "Aktivnost",
-    "trails.eyebrow": "Pješačke staze", "trails.title": "Izaberite stazu po snazi i sezoni",
-    "trails.lede": "Tragovi su složeni po stazama iz OpenStreetMap. Vrijeme je računato po DIN 33466, bez pauza.",
-    "f.all": "Sve", "f.easy": "Lake", "f.mid": "Srednje", "f.hard": "Teške", "f.now": "Dobro sada", "f.kids": "Sa djecom",
-    "map.show": "Karta", "map.hide": "Sakrij kartu",
-    "u.km": "km", "u.h": "h", "u.m": "m", "u.kmh": "km/h", "u.cm": "cm", "hero.h1": "Durmitor", "hero.indep": "Nezavisni vodič, nije zvanični sajt parka.", "hero.official": "Zvanični sajt: nparkovi.me", "u.up": "uspon", "u.top": "najviša tačka", "u.time": "vrijeme", "u.len": "dužina",
-    "u.loop": "krug", "u.out": "tamo i nazad", "u.oneway": "u jednom smjeru",
-    "d1": "lako", "d2": "umjereno", "d3": "zahtjevno", "d4": "teško",
-    "r.goodnow": "Dobro sada", "r.notnow": "Nije sezona",
-    "r.start": "Start", "r.nav": "Navigacija do starta", "r.gpx": "Preuzmi GPX", "r.print": "PDF / štampa", "r.copy": "Kopiraj", "r.copied": "Kopirano",
-    "r.profile": "Visinski profil", "r.wear": "Šta obući sada", "r.know": "Dobro je znati", "r.months": "Kada ići", "r.map": "Karta staze",
-    "r.disclaimer": "Planina je opasna. Provjerite vrijeme i stanje staze prije polaska.",
-    "months": ["J","F","M","A","M","J","J","A","S","O","N","D"],
-    "monthsLong": ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar"],
-    "roads.eyebrow": "Autom", "roads.title": "Putevi sa tačkama za navigaciju",
-    "roads.lede": "Jedno dugme otvara cijelu rutu u Google Maps, sa svim tačkama.",
-    "roads.open": "Otvori rutu u Google Maps", "roads.pt": "Na kartu",
-    "roads.km": "km", "roads.season": "Sezona",
-    "gear.eyebrow": "Oprema", "gear.title": "Šta obući i čime voziti",
-    "gear.easy": "Lake staze", "gear.hard": "Zahtjevne i teške",
-    "tyre.title": "Gume i auto",
-    "tyre.on": "Zimska oprema je obavezna sada", "tyre.off": "Zimska oprema: od 15. novembra do 31. marta",
-    "tyre.src": "Izvor: naredba MUP-a, paragraf.me. Datumi se mogu mijenjati, provjerite prije puta.",
-    "stay.eyebrow": "Smještaj", "stay.title": "Gdje odsjesti",
-    "stay.lede": "Pet krajeva oko Durmitora. Uskoro ovdje kuće, apartmani i hoteli sa direktnim kontaktom.",
-    "stay.example": "Primjer", "stay.ctaT": "Ovdje može biti vaš objekat", "stay.ctaB": "Postavite objekat",
-    "biz.eyebrow": "Za biznis", "biz.title": "Vaš objekat na MonTop",
-    "biz.lede": "Gost bira stazu, pa traži gdje da spava, jede i iznajmi opremu. Tada vidi vas.",
-    "biz.p1": "Kartica sa fotografijama, cijenom i dugmetom za WhatsApp",
-    "biz.p2": "Prikaz pored staza i puteva koji su blizu vas",
-    "biz.p3": "Sezonsko mjesto u bloku „Gdje je najljepše sada“",
-    "biz.formT": "Prijava objekta", "biz.type": "Vrsta", "biz.name": "Naziv", "biz.where": "Mjesto", "biz.contact": "Telefon, WhatsApp ili e-mail", "biz.msg": "Poruka",
-    "biz.send": "Pošalji", "biz.sending": "Šaljem…", "biz.ok": "Hvala! Javićemo vam se u roku od jednog dana.", "biz.err": "Nije poslato. Provjerite internet i pokušajte ponovo.",
-    "biz.req": "Popunite naziv i kontakt.",
-    "cats": ["Smještaj","Hoteli","Spa","Ski centri","Kampovi","Rafting i ture","Rent opreme","Prodavnice","Kafići i restorani"],
-    "know.eyebrow": "Dobro je znati", "know.title": "Kratko i korisno",
-    "foot.tag": "Vodič kroz planine Crne Gore. Durmitor je prvi.",
-    "foot.credits": "Fotografije, karte i podaci", "foot.photos": "Fotografije (Wikimedia Commons)",
-    "foot.data": "Staze i tačke: © OpenStreetMap saradnici, ODbL. Karta: OpenTopoMap (CC-BY-SA). Vrijeme i visine: Open-Meteo (CC BY 4.0), Copernicus DEM.",
-    "foot.disc": "MonTop nije zvanični sajt nacionalnog parka. Podatke provjeravamo, ali planina se mijenja: prije polaska provjerite vrijeme, stanje puta i staze.",
-    "foot.soon": "Uskoro: Kolašin, Prokletije, primorje, rute za kampere, motore i bicikle."
-  },
-  en: {
-    "meta.title": "Durmitor: trails, drives, stays · MonTop",
-    "nav.now": "Now", "nav.trails": "Trails", "nav.roads": "Drives", "nav.gear": "Gear", "nav.stay": "Stay", "nav.biz": "For business",
-    "hero.eyebrow": "National park · UNESCO · 2523 m",
-    "hero.go": "Where to hike", "hero.drive": "Where to drive",
-    "hero.cue": "Down into the forest",
-    "now.live": "Žabljak now", "now.loading": "Loading weather…", "now.fail": "Weather is unavailable right now",
-    "now.eyebrow": "Now in the mountains", "now.title": "Where it is best right now",
-    "now.feels": "Feels like", "now.wind": "Wind", "now.snow": "Snow", "now.sunrise": "Sunrise", "now.sunset": "Sunset", "now.clouds": "Cloud cover",
-    "now.place": "Žabljak, 1456 m · data by Open-Meteo",
-    "now.today": "Today", "now.tomorrow": "Tomorrow",
-    "season.winter": "Winter", "season.spring": "Spring", "season.summer": "Summer", "season.autumn": "Autumn", "season.now": "now",
-    "kind.hike": "On foot", "kind.drive": "By car", "kind.info": "Activity",
-    "trails.eyebrow": "Hiking trails", "trails.title": "Pick a trail by fitness and season",
-    "trails.lede": "Tracks follow OpenStreetMap paths. Times follow DIN 33466, without breaks.",
-    "f.all": "All", "f.easy": "Easy", "f.mid": "Moderate", "f.hard": "Hard", "f.now": "Good now", "f.kids": "With kids",
-    "map.show": "Map", "map.hide": "Hide map",
-    "u.km": "km", "u.h": "h", "u.m": "m", "u.kmh": "km/h", "u.cm": "cm", "hero.h1": "Durmitor", "hero.indep": "Independent guide, not the park's official website.", "hero.official": "Official site: nparkovi.me", "u.up": "ascent", "u.top": "high point", "u.time": "time", "u.len": "distance",
-    "u.loop": "loop", "u.out": "out and back", "u.oneway": "one way",
-    "d1": "easy", "d2": "moderate", "d3": "demanding", "d4": "hard",
-    "r.goodnow": "Good now", "r.notnow": "Out of season",
-    "r.start": "Start", "r.nav": "Navigate to start", "r.gpx": "Download GPX", "r.print": "PDF / print", "r.copy": "Copy", "r.copied": "Copied",
-    "r.profile": "Elevation profile", "r.wear": "What to wear now", "r.know": "Good to know", "r.months": "When to go", "r.map": "Trail map",
-    "r.disclaimer": "Mountains are dangerous. Check the weather and trail conditions before you set off.",
-    "months": ["J","F","M","A","M","J","J","A","S","O","N","D"],
-    "monthsLong": ["January","February","March","April","May","June","July","August","September","October","November","December"],
-    "roads.eyebrow": "By car", "roads.title": "Drives with points for your navigator",
-    "roads.lede": "One button opens the whole route in Google Maps, with every stop.",
-    "roads.open": "Open route in Google Maps", "roads.pt": "Map",
-    "roads.km": "km", "roads.season": "Season",
-    "gear.eyebrow": "Gear", "gear.title": "What to wear and what to drive",
-    "gear.easy": "Easy trails", "gear.hard": "Demanding and hard",
-    "tyre.title": "Tyres and car",
-    "tyre.on": "Winter equipment is required now", "tyre.off": "Winter equipment: 15 November to 31 March",
-    "tyre.src": "Source: Interior Ministry order, paragraf.me. Dates can change, check before you go.",
-    "stay.eyebrow": "Stay", "stay.title": "Where to stay",
-    "stay.lede": "Five areas around Durmitor. Houses, apartments and hotels with direct contact are coming here.",
-    "stay.example": "Example", "stay.ctaT": "Your place could be here", "stay.ctaB": "List your place",
-    "biz.eyebrow": "For business", "biz.title": "Your place on MonTop",
-    "biz.lede": "Guests pick a trail, then look for a bed, a meal and gear to rent. That is when they see you.",
-    "biz.p1": "A card with photos, price and a WhatsApp button",
-    "biz.p2": "Shown next to the trails and drives near you",
-    "biz.p3": "A seasonal spot in “Where it is best right now”",
-    "biz.formT": "List your place", "biz.type": "Type", "biz.name": "Name", "biz.where": "Location", "biz.contact": "Phone, WhatsApp or email", "biz.msg": "Message",
-    "biz.send": "Send", "biz.sending": "Sending…", "biz.ok": "Thank you! We will reply within one day.", "biz.err": "Not sent. Check your connection and try again.",
-    "biz.req": "Please fill in the name and a contact.",
-    "cats": ["Stays","Hotels","Spa","Ski centres","Campsites","Rafting & tours","Gear rental","Shops","Cafés & restaurants"],
-    "know.eyebrow": "Good to know", "know.title": "Short and useful",
-    "foot.tag": "A guide to the mountains of Montenegro. Durmitor comes first.",
-    "foot.credits": "Photos, maps and data", "foot.photos": "Photos (Wikimedia Commons)",
-    "foot.data": "Trails and points: © OpenStreetMap contributors, ODbL. Map: OpenTopoMap (CC-BY-SA). Weather and elevation: Open-Meteo (CC BY 4.0), Copernicus DEM.",
-    "foot.disc": "MonTop is not the official national park website. We check our data, but mountains change: check the weather, road and trail before you go.",
-    "foot.soon": "Coming next: Kolašin, Prokletije, the coast, routes for campervans, motorbikes and bicycles."
-  },
-  ru: {
-    "meta.title": "Дурмитор: тропы, дороги, жильё · MonTop",
-    "nav.now": "Сейчас", "nav.trails": "Тропы", "nav.roads": "Дороги", "nav.gear": "Снаряжение", "nav.stay": "Жильё", "nav.biz": "Бизнесу",
-    "hero.eyebrow": "Национальный парк · ЮНЕСКО · 2523 м",
-    "hero.go": "Куда пойти", "hero.drive": "Куда поехать",
-    "hero.cue": "Вниз, в лес",
-    "now.live": "Жабляк сейчас", "now.loading": "Загружаю погоду…", "now.fail": "Погода сейчас недоступна",
-    "now.eyebrow": "Сейчас в горах", "now.title": "Где красивее всего сейчас",
-    "now.feels": "Ощущается", "now.wind": "Ветер", "now.snow": "Снег", "now.sunrise": "Восход", "now.sunset": "Закат", "now.clouds": "Облачность",
-    "now.place": "Жабляк, 1456 м · данные Open-Meteo",
-    "now.today": "Сегодня", "now.tomorrow": "Завтра",
-    "season.winter": "Зима", "season.spring": "Весна", "season.summer": "Лето", "season.autumn": "Осень", "season.now": "сейчас",
-    "kind.hike": "Пешком", "kind.drive": "На машине", "kind.info": "Занятие",
-    "trails.eyebrow": "Пешие маршруты", "trails.title": "Выберите тропу по силам и сезону",
-    "trails.lede": "Треки проложены по тропам OpenStreetMap. Время по стандарту DIN 33466, без привалов.",
-    "f.all": "Все", "f.easy": "Лёгкие", "f.mid": "Средние", "f.hard": "Сложные", "f.now": "Хорошо сейчас", "f.kids": "С детьми",
-    "map.show": "Карта", "map.hide": "Скрыть карту",
-    "u.km": "км", "u.h": "ч", "u.m": "м", "u.kmh": "км/ч", "u.cm": "см", "hero.h1": "Дурмитор", "hero.indep": "Независимый гид, не официальный сайт парка.", "hero.official": "Официальный сайт: nparkovi.me", "u.up": "набор", "u.top": "высшая точка", "u.time": "время", "u.len": "длина",
-    "u.loop": "круг", "u.out": "туда и обратно", "u.oneway": "в одну сторону",
-    "d1": "легко", "d2": "умеренно", "d3": "трудно", "d4": "сложно",
-    "r.goodnow": "Хорошо сейчас", "r.notnow": "Не сезон",
-    "r.start": "Старт", "r.nav": "Навигатор до старта", "r.gpx": "Скачать GPX", "r.print": "PDF / печать", "r.copy": "Копировать", "r.copied": "Скопировано",
-    "r.profile": "Профиль высот", "r.wear": "Что надеть сейчас", "r.know": "Важно знать", "r.months": "Когда идти", "r.map": "Карта маршрута",
-    "r.disclaimer": "Горы опасны. Перед выходом проверьте погоду и состояние тропы.",
-    "months": ["Я","Ф","М","А","М","И","И","А","С","О","Н","Д"],
-    "monthsLong": ["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],
-    "roads.eyebrow": "На машине", "roads.title": "Дороги с точками для навигатора",
-    "roads.lede": "Одна кнопка открывает весь маршрут в Google Maps, со всеми точками.",
-    "roads.open": "Открыть маршрут в Google Maps", "roads.pt": "На карту",
-    "roads.km": "км", "roads.season": "Сезон",
-    "gear.eyebrow": "Снаряжение", "gear.title": "Что надеть и на чём ехать",
-    "gear.easy": "Лёгкие тропы", "gear.hard": "Трудные и сложные",
-    "tyre.title": "Резина и машина",
-    "tyre.on": "Зимняя резина сейчас обязательна", "tyre.off": "Зимняя резина: с 15 ноября по 31 марта",
-    "tyre.src": "Источник: приказ МВД, paragraf.me. Даты могут меняться, проверьте перед поездкой.",
-    "stay.eyebrow": "Жильё", "stay.title": "Где остановиться",
-    "stay.lede": "Пять районов вокруг Дурмитора. Скоро здесь появятся дома, апартаменты и отели с прямыми контактами.",
-    "stay.example": "Пример", "stay.ctaT": "Здесь может быть ваш объект", "stay.ctaB": "Разместить объект",
-    "biz.eyebrow": "Бизнесу", "biz.title": "Ваш объект на MonTop",
-    "biz.lede": "Гость выбирает тропу, а потом ищет, где спать, поесть и взять снаряжение. В этот момент он видит вас.",
-    "biz.p1": "Карточка с фото, ценой и кнопкой WhatsApp",
-    "biz.p2": "Показ рядом с тропами и дорогами возле вас",
-    "biz.p3": "Сезонное место в блоке «Где красивее всего сейчас»",
-    "biz.formT": "Заявка на размещение", "biz.type": "Тип", "biz.name": "Название", "biz.where": "Где", "biz.contact": "Телефон, WhatsApp или e-mail", "biz.msg": "Сообщение",
-    "biz.send": "Отправить", "biz.sending": "Отправляю…", "biz.ok": "Спасибо! Ответим в течение дня.", "biz.err": "Не отправилось. Проверьте интернет и попробуйте ещё раз.",
-    "biz.req": "Заполните название и контакт.",
-    "cats": ["Жильё","Отели","Спа","Горнолыжные центры","Кемпинги","Рафтинг и туры","Прокат снаряжения","Магазины","Кафе и рестораны"],
-    "know.eyebrow": "Полезно знать", "know.title": "Коротко и по делу",
-    "foot.tag": "Гид по горам Черногории. Дурмитор первый.",
-    "foot.credits": "Фото, карты и данные", "foot.photos": "Фото (Wikimedia Commons)",
-    "foot.data": "Тропы и точки: © участники OpenStreetMap, ODbL. Карта: OpenTopoMap (CC-BY-SA). Погода и высоты: Open-Meteo (CC BY 4.0), Copernicus DEM.",
-    "foot.disc": "MonTop не официальный сайт национального парка. Мы проверяем данные, но горы меняются: перед выходом проверьте погоду, дорогу и тропу.",
-    "foot.soon": "Дальше: Колашин, Проклетие, побережье, маршруты для автодомов, мотоциклов и велосипедов."
-  }
+ "me": {
+  "nav.now": "Sada",
+  "nav.trails": "Staze",
+  "nav.roads": "Putevi",
+  "nav.gear": "Oprema",
+  "nav.stay": "Smještaj",
+  "nav.biz": "Za biznis",
+  "hero.go": "Gdje pješke",
+  "hero.drive": "Gdje autom",
+  "now.loading": "Učitavam vrijeme…",
+  "now.fail": "Vrijeme trenutno nije dostupno",
+  "now.eyebrow": "Sada u planinama",
+  "now.title": "Gdje je najljepše sada",
+  "now.feels": "Osjeća se",
+  "now.wind": "Vjetar",
+  "now.snow": "Snijeg",
+  "now.sunrise": "Izlazak sunca",
+  "now.sunset": "Zalazak sunca",
+  "now.clouds": "Oblačnost",
+  "now.today": "Danas",
+  "now.tomorrow": "Sutra",
+  "season.winter": "Zima",
+  "season.spring": "Proljeće",
+  "season.summer": "Ljeto",
+  "season.autumn": "Jesen",
+  "season.now": "sada",
+  "kind.hike": "Pješke",
+  "kind.drive": "Autom",
+  "kind.info": "Aktivnost",
+  "trails.eyebrow": "Pješačke staze",
+  "trails.title": "Izaberite stazu po snazi i sezoni",
+  "trails.lede": "Tragovi su složeni po stazama iz OpenStreetMap. Vrijeme je računato po DIN 33466, bez pauza.",
+  "f.all": "Sve",
+  "f.easy": "Lake",
+  "f.mid": "Srednje",
+  "f.hard": "Teške",
+  "f.now": "Dobro sada",
+  "f.kids": "Sa djecom",
+  "map.show": "Karta",
+  "map.hide": "Sakrij kartu",
+  "u.km": "km",
+  "u.h": "h",
+  "u.m": "m",
+  "u.kmh": "km/h",
+  "u.cm": "cm",
+  "hero.indep": "Nezavisni vodič, nije zvanični sajt parka.",
+  "hero.official": "Zvanični sajt: nparkovi.me",
+  "u.up": "uspon",
+  "u.top": "najviša tačka",
+  "u.time": "vrijeme",
+  "u.len": "dužina",
+  "u.loop": "krug",
+  "u.out": "tamo i nazad",
+  "u.oneway": "u jednom smjeru",
+  "d1": "lako",
+  "d2": "umjereno",
+  "d3": "zahtjevno",
+  "d4": "teško",
+  "r.goodnow": "Dobro sada",
+  "r.notnow": "Nije sezona",
+  "r.start": "Start",
+  "r.nav": "Navigacija do starta",
+  "r.gpx": "Preuzmi GPX",
+  "r.print": "PDF / štampa",
+  "r.copy": "Kopiraj",
+  "r.copied": "Kopirano",
+  "r.profile": "Visinski profil",
+  "r.wear": "Šta obući sada",
+  "r.know": "Dobro je znati",
+  "r.months": "Kada ići",
+  "r.map": "Karta staze",
+  "r.disclaimer": "Planina je opasna. Provjerite vrijeme i stanje staze prije polaska.",
+  "months": [
+   "J",
+   "F",
+   "M",
+   "A",
+   "M",
+   "J",
+   "J",
+   "A",
+   "S",
+   "O",
+   "N",
+   "D"
+  ],
+  "monthsLong": [
+   "januar",
+   "februar",
+   "mart",
+   "april",
+   "maj",
+   "jun",
+   "jul",
+   "avgust",
+   "septembar",
+   "oktobar",
+   "novembar",
+   "decembar"
+  ],
+  "roads.eyebrow": "Autom",
+  "roads.title": "Putevi sa tačkama za navigaciju",
+  "roads.lede": "Jedno dugme otvara cijelu rutu u Google Maps, sa svim tačkama.",
+  "roads.open": "Otvori rutu u Google Maps",
+  "roads.pt": "Na kartu",
+  "roads.km": "km",
+  "roads.season": "Sezona",
+  "roads.src": "Izvor:",
+  "gear.eyebrow": "Oprema",
+  "gear.title": "Šta obući i čime voziti",
+  "gear.easy": "Lake staze",
+  "gear.hard": "Zahtjevne i teške",
+  "tyre.title": "Gume i auto",
+  "tyre.on": "Zimska oprema je obavezna sada",
+  "tyre.off": "Zimska oprema: od 15. novembra do 31. marta",
+  "tyre.src": "Izvor: naredba MUP-a, paragraf.me. Datumi se mogu mijenjati, provjerite prije puta.",
+  "stay.eyebrow": "Smještaj",
+  "stay.title": "Gdje odsjesti",
+  "stay.example": "Primjer",
+  "stay.ctaT": "Ovdje može biti vaš objekat",
+  "stay.ctaB": "Postavite objekat",
+  "biz.eyebrow": "Za biznis",
+  "biz.title": "Vaš objekat na MonTop",
+  "biz.lede": "Gost bira stazu, pa traži gdje da spava, jede i iznajmi opremu. Tada vidi vas.",
+  "biz.p1": "Kartica sa fotografijama, cijenom i dugmetom za WhatsApp",
+  "biz.p2": "Prikaz pored staza i puteva koji su blizu vas",
+  "biz.p3": "Sezonsko mjesto u bloku „Gdje je najljepše sada“",
+  "biz.formT": "Prijava objekta",
+  "biz.type": "Vrsta",
+  "biz.name": "Naziv",
+  "biz.where": "Mjesto",
+  "biz.contact": "Telefon, WhatsApp ili e-mail",
+  "biz.msg": "Poruka",
+  "biz.send": "Pošalji",
+  "biz.sending": "Šaljem…",
+  "biz.ok": "Hvala! Javićemo vam se u roku od jednog dana.",
+  "biz.err": "Nije poslato. Provjerite internet i pokušajte ponovo.",
+  "biz.req": "Popunite naziv i kontakt.",
+  "cats": [
+   "Smještaj",
+   "Hoteli",
+   "Spa",
+   "Ski centri",
+   "Kampovi",
+   "Rafting i ture",
+   "Rent opreme",
+   "Prodavnice",
+   "Kafići i restorani"
+  ],
+  "know.eyebrow": "Dobro je znati",
+  "know.title": "Kratko i korisno",
+  "foot.tag": "Vodič kroz nacionalne parkove i planine Crne Gore.",
+  "foot.credits": "Fotografije, karte i podaci",
+  "foot.photos": "Fotografije (Wikimedia Commons)",
+  "foot.data": "Staze i tačke: © OpenStreetMap saradnici, ODbL. Karta: OpenTopoMap (CC-BY-SA). Vrijeme i visine: Open-Meteo (CC BY 4.0), Copernicus DEM.",
+  "foot.disc": "MonTop nije zvanični sajt nacionalnog parka. Podatke provjeravamo, ali planina se mijenja: prije polaska provjerite vrijeme, stanje puta i staze.",
+  "foot.soon": "Uskoro: Kolašin, primorje, rute za kampere, motore i bicikle.",
+  "mode.auto": "Auto",
+  "mode.day": "Dan",
+  "mode.night": "Noć",
+  "mode.title": "Dan i noć",
+  "nav.parks": "Parkovi"
+ },
+ "en": {
+  "nav.now": "Now",
+  "nav.trails": "Trails",
+  "nav.roads": "Drives",
+  "nav.gear": "Gear",
+  "nav.stay": "Stay",
+  "nav.biz": "For business",
+  "hero.go": "Where to hike",
+  "hero.drive": "Where to drive",
+  "now.loading": "Loading weather…",
+  "now.fail": "Weather is unavailable right now",
+  "now.eyebrow": "Now in the mountains",
+  "now.title": "Where it is best right now",
+  "now.feels": "Feels like",
+  "now.wind": "Wind",
+  "now.snow": "Snow",
+  "now.sunrise": "Sunrise",
+  "now.sunset": "Sunset",
+  "now.clouds": "Cloud cover",
+  "now.today": "Today",
+  "now.tomorrow": "Tomorrow",
+  "season.winter": "Winter",
+  "season.spring": "Spring",
+  "season.summer": "Summer",
+  "season.autumn": "Autumn",
+  "season.now": "now",
+  "kind.hike": "On foot",
+  "kind.drive": "By car",
+  "kind.info": "Activity",
+  "trails.eyebrow": "Hiking trails",
+  "trails.title": "Pick a trail by fitness and season",
+  "trails.lede": "Tracks follow OpenStreetMap paths. Times follow DIN 33466, without breaks.",
+  "f.all": "All",
+  "f.easy": "Easy",
+  "f.mid": "Moderate",
+  "f.hard": "Hard",
+  "f.now": "Good now",
+  "f.kids": "With kids",
+  "map.show": "Map",
+  "map.hide": "Hide map",
+  "u.km": "km",
+  "u.h": "h",
+  "u.m": "m",
+  "u.kmh": "km/h",
+  "u.cm": "cm",
+  "hero.indep": "Independent guide, not the park's official website.",
+  "hero.official": "Official site: nparkovi.me",
+  "u.up": "ascent",
+  "u.top": "high point",
+  "u.time": "time",
+  "u.len": "distance",
+  "u.loop": "loop",
+  "u.out": "out and back",
+  "u.oneway": "one way",
+  "d1": "easy",
+  "d2": "moderate",
+  "d3": "demanding",
+  "d4": "hard",
+  "r.goodnow": "Good now",
+  "r.notnow": "Out of season",
+  "r.start": "Start",
+  "r.nav": "Navigate to start",
+  "r.gpx": "Download GPX",
+  "r.print": "PDF / print",
+  "r.copy": "Copy",
+  "r.copied": "Copied",
+  "r.profile": "Elevation profile",
+  "r.wear": "What to wear now",
+  "r.know": "Good to know",
+  "r.months": "When to go",
+  "r.map": "Trail map",
+  "r.disclaimer": "Mountains are dangerous. Check the weather and trail conditions before you set off.",
+  "months": [
+   "J",
+   "F",
+   "M",
+   "A",
+   "M",
+   "J",
+   "J",
+   "A",
+   "S",
+   "O",
+   "N",
+   "D"
+  ],
+  "monthsLong": [
+   "January",
+   "February",
+   "March",
+   "April",
+   "May",
+   "June",
+   "July",
+   "August",
+   "September",
+   "October",
+   "November",
+   "December"
+  ],
+  "roads.eyebrow": "By car",
+  "roads.title": "Drives with points for your navigator",
+  "roads.lede": "One button opens the whole route in Google Maps, with every stop.",
+  "roads.open": "Open route in Google Maps",
+  "roads.pt": "Map",
+  "roads.km": "km",
+  "roads.season": "Season",
+  "roads.src": "Source:",
+  "gear.eyebrow": "Gear",
+  "gear.title": "What to wear and what to drive",
+  "gear.easy": "Easy trails",
+  "gear.hard": "Demanding and hard",
+  "tyre.title": "Tyres and car",
+  "tyre.on": "Winter equipment is required now",
+  "tyre.off": "Winter equipment: 15 November to 31 March",
+  "tyre.src": "Source: Interior Ministry order, paragraf.me. Dates can change, check before you go.",
+  "stay.eyebrow": "Stay",
+  "stay.title": "Where to stay",
+  "stay.example": "Example",
+  "stay.ctaT": "Your place could be here",
+  "stay.ctaB": "List your place",
+  "biz.eyebrow": "For business",
+  "biz.title": "Your place on MonTop",
+  "biz.lede": "Guests pick a trail, then look for a bed, a meal and gear to rent. That is when they see you.",
+  "biz.p1": "A card with photos, price and a WhatsApp button",
+  "biz.p2": "Shown next to the trails and drives near you",
+  "biz.p3": "A seasonal spot in “Where it is best right now”",
+  "biz.formT": "List your place",
+  "biz.type": "Type",
+  "biz.name": "Name",
+  "biz.where": "Location",
+  "biz.contact": "Phone, WhatsApp or email",
+  "biz.msg": "Message",
+  "biz.send": "Send",
+  "biz.sending": "Sending…",
+  "biz.ok": "Thank you! We will reply within one day.",
+  "biz.err": "Not sent. Check your connection and try again.",
+  "biz.req": "Please fill in the name and a contact.",
+  "cats": [
+   "Stays",
+   "Hotels",
+   "Spa",
+   "Ski centres",
+   "Campsites",
+   "Rafting & tours",
+   "Gear rental",
+   "Shops",
+   "Cafés & restaurants"
+  ],
+  "know.eyebrow": "Good to know",
+  "know.title": "Short and useful",
+  "foot.tag": "A guide to the national parks and mountains of Montenegro.",
+  "foot.credits": "Photos, maps and data",
+  "foot.photos": "Photos (Wikimedia Commons)",
+  "foot.data": "Trails and points: © OpenStreetMap contributors, ODbL. Map: OpenTopoMap (CC-BY-SA). Weather and elevation: Open-Meteo (CC BY 4.0), Copernicus DEM.",
+  "foot.disc": "MonTop is not the official national park website. We check our data, but mountains change: check the weather, road and trail before you go.",
+  "foot.soon": "Coming next: Kolašin, the coast, routes for campervans, motorbikes and bicycles.",
+  "mode.auto": "Auto",
+  "mode.day": "Day",
+  "mode.night": "Night",
+  "mode.title": "Day and night",
+  "nav.parks": "Parks"
+ },
+ "ru": {
+  "nav.now": "Сейчас",
+  "nav.trails": "Тропы",
+  "nav.roads": "Дороги",
+  "nav.gear": "Снаряжение",
+  "nav.stay": "Жильё",
+  "nav.biz": "Бизнесу",
+  "hero.go": "Куда пойти",
+  "hero.drive": "Куда поехать",
+  "now.loading": "Загружаю погоду…",
+  "now.fail": "Погода сейчас недоступна",
+  "now.eyebrow": "Сейчас в горах",
+  "now.title": "Где красивее всего сейчас",
+  "now.feels": "Ощущается",
+  "now.wind": "Ветер",
+  "now.snow": "Снег",
+  "now.sunrise": "Восход",
+  "now.sunset": "Закат",
+  "now.clouds": "Облачность",
+  "now.today": "Сегодня",
+  "now.tomorrow": "Завтра",
+  "season.winter": "Зима",
+  "season.spring": "Весна",
+  "season.summer": "Лето",
+  "season.autumn": "Осень",
+  "season.now": "сейчас",
+  "kind.hike": "Пешком",
+  "kind.drive": "На машине",
+  "kind.info": "Занятие",
+  "trails.eyebrow": "Пешие маршруты",
+  "trails.title": "Выберите тропу по силам и сезону",
+  "trails.lede": "Треки проложены по тропам OpenStreetMap. Время по стандарту DIN 33466, без привалов.",
+  "f.all": "Все",
+  "f.easy": "Лёгкие",
+  "f.mid": "Средние",
+  "f.hard": "Сложные",
+  "f.now": "Хорошо сейчас",
+  "f.kids": "С детьми",
+  "map.show": "Карта",
+  "map.hide": "Скрыть карту",
+  "u.km": "км",
+  "u.h": "ч",
+  "u.m": "м",
+  "u.kmh": "км/ч",
+  "u.cm": "см",
+  "hero.indep": "Независимый гид, не официальный сайт парка.",
+  "hero.official": "Официальный сайт: nparkovi.me",
+  "u.up": "набор",
+  "u.top": "высшая точка",
+  "u.time": "время",
+  "u.len": "длина",
+  "u.loop": "круг",
+  "u.out": "туда и обратно",
+  "u.oneway": "в одну сторону",
+  "d1": "легко",
+  "d2": "умеренно",
+  "d3": "трудно",
+  "d4": "сложно",
+  "r.goodnow": "Хорошо сейчас",
+  "r.notnow": "Не сезон",
+  "r.start": "Старт",
+  "r.nav": "Навигатор до старта",
+  "r.gpx": "Скачать GPX",
+  "r.print": "PDF / печать",
+  "r.copy": "Копировать",
+  "r.copied": "Скопировано",
+  "r.profile": "Профиль высот",
+  "r.wear": "Что надеть сейчас",
+  "r.know": "Важно знать",
+  "r.months": "Когда идти",
+  "r.map": "Карта маршрута",
+  "r.disclaimer": "Горы опасны. Перед выходом проверьте погоду и состояние тропы.",
+  "months": [
+   "Я",
+   "Ф",
+   "М",
+   "А",
+   "М",
+   "И",
+   "И",
+   "А",
+   "С",
+   "О",
+   "Н",
+   "Д"
+  ],
+  "monthsLong": [
+   "январь",
+   "февраль",
+   "март",
+   "апрель",
+   "май",
+   "июнь",
+   "июль",
+   "август",
+   "сентябрь",
+   "октябрь",
+   "ноябрь",
+   "декабрь"
+  ],
+  "roads.eyebrow": "На машине",
+  "roads.title": "Дороги с точками для навигатора",
+  "roads.lede": "Одна кнопка открывает весь маршрут в Google Maps, со всеми точками.",
+  "roads.open": "Открыть маршрут в Google Maps",
+  "roads.pt": "На карту",
+  "roads.km": "км",
+  "roads.season": "Сезон",
+  "roads.src": "Источник:",
+  "gear.eyebrow": "Снаряжение",
+  "gear.title": "Что надеть и на чём ехать",
+  "gear.easy": "Лёгкие тропы",
+  "gear.hard": "Трудные и сложные",
+  "tyre.title": "Резина и машина",
+  "tyre.on": "Зимняя резина сейчас обязательна",
+  "tyre.off": "Зимняя резина: с 15 ноября по 31 марта",
+  "tyre.src": "Источник: приказ МВД, paragraf.me. Даты могут меняться, проверьте перед поездкой.",
+  "stay.eyebrow": "Жильё",
+  "stay.title": "Где остановиться",
+  "stay.example": "Пример",
+  "stay.ctaT": "Здесь может быть ваш объект",
+  "stay.ctaB": "Разместить объект",
+  "biz.eyebrow": "Бизнесу",
+  "biz.title": "Ваш объект на MonTop",
+  "biz.lede": "Гость выбирает тропу, а потом ищет, где спать, поесть и взять снаряжение. В этот момент он видит вас.",
+  "biz.p1": "Карточка с фото, ценой и кнопкой WhatsApp",
+  "biz.p2": "Показ рядом с тропами и дорогами возле вас",
+  "biz.p3": "Сезонное место в блоке «Где красивее всего сейчас»",
+  "biz.formT": "Заявка на размещение",
+  "biz.type": "Тип",
+  "biz.name": "Название",
+  "biz.where": "Где",
+  "biz.contact": "Телефон, WhatsApp или e-mail",
+  "biz.msg": "Сообщение",
+  "biz.send": "Отправить",
+  "biz.sending": "Отправляю…",
+  "biz.ok": "Спасибо! Ответим в течение дня.",
+  "biz.err": "Не отправилось. Проверьте интернет и попробуйте ещё раз.",
+  "biz.req": "Заполните название и контакт.",
+  "cats": [
+   "Жильё",
+   "Отели",
+   "Спа",
+   "Горнолыжные центры",
+   "Кемпинги",
+   "Рафтинг и туры",
+   "Прокат снаряжения",
+   "Магазины",
+   "Кафе и рестораны"
+  ],
+  "know.eyebrow": "Полезно знать",
+  "know.title": "Коротко и по делу",
+  "foot.tag": "Гид по национальным паркам и горам Черногории.",
+  "foot.credits": "Фото, карты и данные",
+  "foot.photos": "Фото (Wikimedia Commons)",
+  "foot.data": "Тропы и точки: © участники OpenStreetMap, ODbL. Карта: OpenTopoMap (CC-BY-SA). Погода и высоты: Open-Meteo (CC BY 4.0), Copernicus DEM.",
+  "foot.disc": "MonTop не официальный сайт национального парка. Мы проверяем данные, но горы меняются: перед выходом проверьте погоду, дорогу и тропу.",
+  "foot.soon": "Дальше: Колашин, побережье, маршруты для автодомов, мотоциклов и велосипедов.",
+  "mode.auto": "Авто",
+  "mode.day": "День",
+  "mode.night": "Ночь",
+  "mode.title": "День и ночь",
+  "nav.parks": "Парки"
+ }
 };
-
-/* Seasonal content */
 window.MT_SEASONS = {
-  order: ["winter", "spring", "summer", "autumn"],
-  byMonth: ["winter","winter","winter","spring","spring","summer","summer","summer","summer","autumn","autumn","winter"],
-  tagline: {
-    winter: { me: "Dubok snijeg, zaleđeno Crno jezero i skijanje na Savinom kuku.", en: "Deep snow, a frozen Black Lake and skiing on Savin Kuk.", ru: "Глубокий снег, замёрзшее Чёрное озеро и лыжи на Савином Куке." },
-    spring: { me: "Snijeg se topi, vodopadi huče, Tara je puna vode.", en: "The snow melts, waterfalls roar, the Tara runs high.", ru: "Тает снег, шумят водопады, Тара полна воды." },
-    summer: { me: "Sve staze su otvorene: vrhovi, jezera, noći pod zvijezdama.", en: "Every trail is open: summits, lakes, nights under the stars.", ru: "Все тропы открыты: вершины, озёра, ночи под звёздами." },
-    autumn: { me: "Zlatne bukve, magla u dolinama i prvi snijeg na vrhovima.", en: "Golden beech woods, mist in the valleys, first snow on the peaks.", ru: "Золотые буки, туман в долинах и первый снег на вершинах." }
-  },
-  month: [
-    { me: "Dubok snijeg na visoravni, ski staze rade kad ima snijega. Crno jezero je zaleđeno.", en: "Deep snow on the plateau; the ski slopes run when there is snow. Black Lake is frozen.", ru: "Глубокий снег на плато, трассы работают, когда есть снег. Чёрное озеро во льду." },
-    { me: "Najhladniji dio zime. Krplje, skije i kratki dani.", en: "The coldest stretch of winter. Snowshoes, skis and short days.", ru: "Самая холодная часть зимы. Снегоступы, лыжи и короткие дни." },
-    { me: "Na visoravni još zima, ali dani su duži i sunčaniji.", en: "Still winter on the plateau, but the days are longer and brighter.", ru: "На плато ещё зима, но дни длиннее и солнечнее." },
-    { me: "Snijeg se topi niže dolje, rijeke su pune vode.", en: "Snow melts lower down and the rivers run full.", ru: "Внизу тает снег, реки полноводны." },
-    { me: "Livade zelene, visoke staze su još pod snijegom. Put preko Sedla se otvara kasnije.", en: "Meadows turn green; high trails are still under snow. The Sedlo road opens later.", ru: "Луга зеленеют, высокие тропы ещё под снегом. Дорога через Седло открывается позже." },
-    { me: "Cvjetaju livade, na visini ostaju snježna polja.", en: "Meadows bloom; snowfields linger up high.", ru: "Цветут луга, наверху ещё лежат снежники." },
-    { me: "Najbolje vrijeme za vrhove. Krenite rano, poslije podne su oluje.", en: "Prime time for summits. Start early: storms come in the afternoon.", ru: "Лучшее время для вершин. Выходите рано: после обеда грозы." },
-    { me: "Vrhunac sezone. Smještaj rezervišite unaprijed.", en: "Peak season. Book your stay early.", ru: "Пик сезона. Жильё бронируйте заранее." },
-    { me: "Manje ljudi, bistar vazduh, staze su još otvorene.", en: "Fewer people, clear air, trails still open.", ru: "Меньше людей, прозрачный воздух, тропы ещё открыты." },
-    { me: "Bukve žute, jutra su sa mrazem. Visoke staze do prvog snijega.", en: "Beeches turn gold, mornings bring frost. High trails until the first snow.", ru: "Буки желтеют, по утрам заморозки. Высокие тропы до первого снега." },
-    { me: "Prvi snijeg na vrhovima, visoke staze se zatvaraju. Od 15. novembra zimska oprema.", en: "First snow on the peaks; high trails close. Winter tyres from 15 November.", ru: "Первый снег на вершинах, высокие тропы закрываются. С 15 ноября зимняя резина." },
-    { me: "Snijeg stiže na visoravan. Ski sezona počinje kad ga ima dovoljno.", en: "Snow reaches the plateau. Ski season starts once there is enough.", ru: "Снег приходит на плато. Лыжный сезон начинается, когда его хватает." }
-  ],
-  picks: {
-    winter: [
-      { type: "hike", id: "crno-jezero", why: { me: "Šetnja oko zaleđenog jezera u zimskim cipelama.", en: "A walk round the frozen lake in winter boots.", ru: "Прогулка вокруг замёрзшего озера в зимних ботинках." } },
-      { type: "info", key: "ski", photo: "ski", name: { me: "Skijanje: Savin kuk i Javorovača", en: "Skiing: Savin Kuk and Javorovača", ru: "Лыжи: Савин Кук и Яворовача" }, why: { me: "Dva ski centra kod Žabljaka.", en: "Two ski areas next to Žabljak.", ru: "Два горнолыжных центра у Жабляка." }, href: "#stay" },
-      { type: "drive", id: "bridge", why: { me: "Put je otvoren i zimi, kanjon pod snijegom.", en: "The road stays open in winter; the canyon under snow.", ru: "Дорога открыта и зимой, каньон под снегом." } }
+ "order": [
+  "winter",
+  "spring",
+  "summer",
+  "autumn"
+ ],
+ "byMonth": [
+  "winter",
+  "winter",
+  "winter",
+  "spring",
+  "spring",
+  "summer",
+  "summer",
+  "summer",
+  "summer",
+  "autumn",
+  "autumn",
+  "winter"
+ ],
+ "gear": {
+  "summer": {
+   "easy": [
+    [
+     "shoe",
+     {
+      "me": "Patike sa dobrim đonom",
+      "en": "Trainers with good grip",
+      "ru": "Кроссовки с хорошей подошвой"
+     },
+     {
+      "me": "Staze su kamenite i kod jezera.",
+      "en": "Paths are stony even by the lakes.",
+      "ru": "Даже у озёр тропы каменистые."
+     }
     ],
-    spring: [
-      { type: "drive", id: "bridge", why: { me: "Tara je puna vode: početak rafting sezone.", en: "The Tara runs high: rafting season begins.", ru: "Тара полноводна: начинается сезон рафтинга." } },
-      { type: "hike", id: "zminje-jezero", why: { me: "Niska šumska staza, snijeg nestaje prvi.", en: "A low forest path where snow goes first.", ru: "Низкая лесная тропа, снег сходит первым." } },
-      { type: "hike", id: "crno-jezero", why: { me: "Jezero puno vode od topljenja snijega.", en: "The lake brims with snowmelt.", ru: "Озеро полно талой воды." } }
+    [
+     "sun",
+     {
+      "me": "Kapa i krema",
+      "en": "Cap and sunscreen",
+      "ru": "Кепка и крем от солнца"
+     },
+     {
+      "me": "U planini sunce jače prži.",
+      "en": "The sun burns harder up in the mountains.",
+      "ru": "В горах солнце жжёт сильнее."
+     }
     ],
-    summer: [
-      { type: "hike", id: "bobotov-kuk", why: { me: "Najviši vrh, staza bez snijega.", en: "The highest peak, the trail snow-free.", ru: "Высшая точка, тропа без снега." } },
-      { type: "hike", id: "skrcka-jezera", why: { me: "Duga tura do jezera u kotlini.", en: "A long day to lakes in a deep basin.", ru: "Длинный день к озёрам в котловине." } },
-      { type: "drive", id: "ring", why: { me: "Prsten je otvoren, Sedlo bez snijega.", en: "The ring road is open, Sedlo free of snow.", ru: "Кольцо открыто, на Седле нет снега." } }
+    [
+     "jacket",
+     {
+      "me": "Lagana jakna",
+      "en": "Light jacket",
+      "ru": "Лёгкая куртка"
+     },
+     {
+      "me": "Uveče zahladi i ljeti.",
+      "en": "Evenings get cool even in summer.",
+      "ru": "Вечером прохладно и летом."
+     }
     ],
-    autumn: [
-      { type: "hike", id: "crno-jezero", why: { me: "Zlatna šuma u odrazu jezera.", en: "Golden woods mirrored in the lake.", ru: "Золотой лес в отражении озера." } },
-      { type: "drive", id: "ring", why: { me: "Do prvog snijega. Provjerite put prije polaska.", en: "Until the first snow. Check the road before you go.", ru: "До первого снега. Проверьте дорогу перед поездкой." } },
-      { type: "hike", id: "zminje-jezero", why: { me: "Tiha šuma i magla nad vodom.", en: "A quiet forest and mist over the water.", ru: "Тихий лес и туман над водой." } }
+    [
+     "water",
+     {
+      "me": "Voda, 1 litar",
+      "en": "Water, 1 litre",
+      "ru": "Вода, 1 литр"
+     },
+     null
     ]
+   ],
+   "hard": [
+    [
+     "boot",
+     {
+      "me": "Planinarske cipele",
+      "en": "Hiking boots",
+      "ru": "Трекинговые ботинки"
+     },
+     {
+      "me": "Sa potporom za članak, kamen je oštar.",
+      "en": "With ankle support; the limestone is sharp.",
+      "ru": "С поддержкой голеностопа, известняк острый."
+     }
+    ],
+    [
+     "rain",
+     {
+      "me": "Nepromočiva jakna",
+      "en": "Waterproof jacket",
+      "ru": "Непромокаемая куртка"
+     },
+     {
+      "me": "Poslije podne česte oluje.",
+      "en": "Afternoon storms are common.",
+      "ru": "После обеда часто грозы."
+     }
+    ],
+    [
+     "layers",
+     {
+      "me": "Flis ili topli sloj",
+      "en": "Fleece or warm layer",
+      "ru": "Флиска или тёплый слой"
+     },
+     {
+      "me": "Na vrhu je hladnije i vjetrovito.",
+      "en": "It is colder and windy on top.",
+      "ru": "На вершине холоднее и ветрено."
+     }
+    ],
+    [
+     "water",
+     {
+      "me": "Voda, 2 litra i hrana",
+      "en": "Water, 2 litres, and food",
+      "ru": "Вода 2 литра и еда"
+     },
+     {
+      "me": "Izvora je malo.",
+      "en": "Springs are few.",
+      "ru": "Родников мало."
+     }
+    ],
+    [
+     "map",
+     {
+      "me": "GPX i karta offline",
+      "en": "GPX and offline map",
+      "ru": "GPX и офлайн-карта"
+     },
+     {
+      "me": "Signal se gubi.",
+      "en": "Signal drops out.",
+      "ru": "Связь пропадает."
+     }
+    ],
+    [
+     "lamp",
+     {
+      "me": "Čeona lampa",
+      "en": "Headlamp",
+      "ru": "Налобный фонарь"
+     },
+     null
+    ]
+   ]
   },
-  /* what to wear: [season][level] -> list of [icon, title, note] */
-  gear: {
-    summer: {
-      easy: [["shoe", { me: "Patike sa dobrim đonom", en: "Trainers with good grip", ru: "Кроссовки с хорошей подошвой" }, { me: "Staze su kamenite i kod jezera.", en: "Paths are stony even by the lakes.", ru: "Даже у озёр тропы каменистые." }],
-             ["sun", { me: "Kapa i krema", en: "Cap and sunscreen", ru: "Кепка и крем от солнца" }, { me: "Na 1500 m sunce jače prži.", en: "The sun burns harder at 1500 m.", ru: "На 1500 м солнце жжёт сильнее." }],
-             ["jacket", { me: "Lagana jakna", en: "Light jacket", ru: "Лёгкая куртка" }, { me: "Uveče zahladi i ljeti.", en: "Evenings get cool even in summer.", ru: "Вечером прохладно и летом." }],
-             ["water", { me: "Voda, 1 litar", en: "Water, 1 litre", ru: "Вода, 1 литр" }, null]],
-      hard: [["boot", { me: "Planinarske cipele", en: "Hiking boots", ru: "Трекинговые ботинки" }, { me: "Sa potporom za članak, kamen je oštar.", en: "With ankle support; the limestone is sharp.", ru: "С поддержкой голеностопа, известняк острый." }],
-             ["rain", { me: "Nepromočiva jakna", en: "Waterproof jacket", ru: "Непромокаемая куртка" }, { me: "Poslije podne česte oluje.", en: "Afternoon storms are common.", ru: "После обеда часто грозы." }],
-             ["layers", { me: "Flis ili topli sloj", en: "Fleece or warm layer", ru: "Флиска или тёплый слой" }, { me: "Na vrhu je hladnije i vjetrovito.", en: "It is colder and windy on top.", ru: "На вершине холоднее и ветрено." }],
-             ["water", { me: "Voda, 2 litra i hrana", en: "Water, 2 litres, and food", ru: "Вода 2 литра и еда" }, { me: "Izvora je malo.", en: "Springs are few.", ru: "Родников мало." }],
-             ["map", { me: "GPX i karta offline", en: "GPX and offline map", ru: "GPX и офлайн-карта" }, { me: "Signal se gubi.", en: "Signal drops out.", ru: "Связь пропадает." }],
-             ["lamp", { me: "Čeona lampa", en: "Headlamp", ru: "Налобный фонарь" }, null]]
-    },
-    autumn: {
-      easy: [["boot", { me: "Cipele koje ne propuštaju vodu", en: "Waterproof shoes", ru: "Непромокаемая обувь" }, { me: "Jutarnja rosa i blato.", en: "Morning dew and mud.", ru: "Утренняя роса и грязь." }],
-             ["layers", { me: "Topli džemper", en: "Warm sweater", ru: "Тёплый свитер" }, { me: "Jutra su ispod nule.", en: "Mornings drop below zero.", ru: "По утрам минус." }],
-             ["gloves", { me: "Kapa i rukavice", en: "Hat and gloves", ru: "Шапка и перчатки" }, null],
-             ["thermos", { me: "Termos sa čajem", en: "Thermos of tea", ru: "Термос с чаем" }, null]],
-      hard: [["warn", { me: "Provjerite snijeg na visini", en: "Check for snow up high", ru: "Проверьте снег наверху" }, { me: "Od oktobra vrhovi mogu biti pod snijegom.", en: "From October the peaks can be snowbound.", ru: "С октября вершины могут быть под снегом." }],
-             ["boot", { me: "Planinarske cipele", en: "Hiking boots", ru: "Трекинговые ботинки" }, null],
-             ["jacket", { me: "Topla jakna i flis", en: "Warm jacket and fleece", ru: "Тёплая куртка и флиска" }, null],
-             ["lamp", { me: "Čeona lampa", en: "Headlamp", ru: "Налобный фонарь" }, { me: "Dan je kratak: vratite se do mraka.", en: "Days are short: be back before dark.", ru: "День короткий: вернитесь до темноты." }]]
-    },
-    winter: {
-      easy: [["boot", { me: "Zimske cipele", en: "Winter boots", ru: "Зимние ботинки" }, { me: "Snijeg do koljena nije rijedak.", en: "Knee-deep snow is common.", ru: "Снег по колено не редкость." }],
-             ["spikes", { me: "Krplje ili dereze za cipele", en: "Snowshoes or microspikes", ru: "Снегоступы или ледоступы" }, { me: "Pitajte u rent-a-ski radnji u Žabljaku.", en: "Ask at a rental shop in Žabljak.", ru: "Спросите в прокате в Жабляке." }],
-             ["jacket", { me: "Topla jakna", en: "Warm jacket", ru: "Тёплая куртка" }, null],
-             ["gloves", { me: "Kapa, rukavice, termos", en: "Hat, gloves, thermos", ru: "Шапка, перчатки, термос" }, null]],
-      hard: [["warn", { me: "Samo sa vodičem ili iskustvom zimskog alpinizma", en: "Only with a guide or winter mountaineering experience", ru: "Только с гидом или опытом зимнего альпинизма" }, { me: "Lavine, led, kratki dani.", en: "Avalanches, ice, short days.", ru: "Лавины, лёд, короткий день." }],
-             ["spikes", { me: "Dereze i cepin", en: "Crampons and ice axe", ru: "Кошки и ледоруб" }, null],
-             ["map", { me: "Lavinska oprema", en: "Avalanche kit", ru: "Лавинное снаряжение" }, { me: "Primopredajnik, lopata, sonda.", en: "Transceiver, shovel, probe.", ru: "Датчик, лопата, щуп." }]]
-    },
-    spring: {
-      easy: [["boot", { me: "Cipele koje ne propuštaju vodu", en: "Waterproof boots", ru: "Непромокаемые ботинки" }, { me: "Blato i voda od snijega.", en: "Mud and snowmelt.", ru: "Грязь и талая вода." }],
-             ["rain", { me: "Kišna jakna", en: "Rain jacket", ru: "Дождевик" }, null],
-             ["layers", { me: "Slojevi", en: "Layers", ru: "Слои одежды" }, { me: "Sunce i snijeg u istom danu.", en: "Sun and snow on the same day.", ru: "Солнце и снег в один день." }]],
-      hard: [["warn", { me: "Snježna polja na visini", en: "Snowfields up high", ru: "Снежники наверху" }, { me: "Do juna visoke staze su često pod snijegom.", en: "Until June high trails are often under snow.", ru: "До июня высокие тропы часто под снегом." }],
-             ["spikes", { me: "Dereze za cipele i gamašne", en: "Microspikes and gaiters", ru: "Ледоступы и гамаши" }, null],
-             ["poles", { me: "Štapovi", en: "Trekking poles", ru: "Трекинговые палки" }, null]]
-    }
+  "autumn": {
+   "easy": [
+    [
+     "boot",
+     {
+      "me": "Cipele koje ne propuštaju vodu",
+      "en": "Waterproof shoes",
+      "ru": "Непромокаемая обувь"
+     },
+     {
+      "me": "Jutarnja rosa i blato.",
+      "en": "Morning dew and mud.",
+      "ru": "Утренняя роса и грязь."
+     }
+    ],
+    [
+     "layers",
+     {
+      "me": "Topli džemper",
+      "en": "Warm sweater",
+      "ru": "Тёплый свитер"
+     },
+     {
+      "me": "Jutra su ispod nule.",
+      "en": "Mornings drop below zero.",
+      "ru": "По утрам минус."
+     }
+    ],
+    [
+     "gloves",
+     {
+      "me": "Kapa i rukavice",
+      "en": "Hat and gloves",
+      "ru": "Шапка и перчатки"
+     },
+     null
+    ],
+    [
+     "thermos",
+     {
+      "me": "Termos sa čajem",
+      "en": "Thermos of tea",
+      "ru": "Термос с чаем"
+     },
+     null
+    ]
+   ],
+   "hard": [
+    [
+     "warn",
+     {
+      "me": "Provjerite snijeg na visini",
+      "en": "Check for snow up high",
+      "ru": "Проверьте снег наверху"
+     },
+     {
+      "me": "Od oktobra vrhovi mogu biti pod snijegom.",
+      "en": "From October the peaks can be snowbound.",
+      "ru": "С октября вершины могут быть под снегом."
+     }
+    ],
+    [
+     "boot",
+     {
+      "me": "Planinarske cipele",
+      "en": "Hiking boots",
+      "ru": "Трекинговые ботинки"
+     },
+     null
+    ],
+    [
+     "jacket",
+     {
+      "me": "Topla jakna i flis",
+      "en": "Warm jacket and fleece",
+      "ru": "Тёплая куртка и флиска"
+     },
+     null
+    ],
+    [
+     "lamp",
+     {
+      "me": "Čeona lampa",
+      "en": "Headlamp",
+      "ru": "Налобный фонарь"
+     },
+     {
+      "me": "Dan je kratak: vratite se do mraka.",
+      "en": "Days are short: be back before dark.",
+      "ru": "День короткий: вернитесь до темноты."
+     }
+    ]
+   ]
   },
-  tyres: [
-    { me: "Zimske gume na svim točkovima, ili na pogonskim plus lanci. Šara najmanje 4 mm.", en: "Winter tyres on all wheels, or on the driven wheels plus chains. Tread at least 4 mm.", ru: "Зимняя резина на всех колёсах или на ведущих плюс цепи. Протектор не меньше 4 мм." },
-    { me: "Lance držite u gepeku i van zime: na visini snijeg može pasti i u maju i oktobru.", en: "Keep chains in the boot outside winter too: snow can fall up high in May or October.", ru: "Цепи держите в багажнике и вне зимы: наверху снег бывает и в мае, и в октябре." },
-    { me: "Prevoj Sedlo i Durmitorski prsten zimi su zatvoreni.", en: "Sedlo pass and the Durmitor Ring are closed in winter.", ru: "Перевал Седло и Дурмиторское кольцо зимой закрыты." },
-    { me: "Ljeti je dovoljan svaki auto. Na prstenu: ne duže od 7 m.", en: "In summer any car will do. On the ring: no longer than 7 m.", ru: "Летом подойдёт любая машина. На кольце: не длиннее 7 м." },
-    { me: "Benzinska pumpa je samo u Žabljaku.", en: "The only fuel station is in Žabljak.", ru: "Заправка только в Жабляке." },
-    { me: "U tunelima kanjona Pive upalite svjetla i vozite polako.", en: "In the Piva canyon tunnels, lights on and drive slowly.", ru: "В тоннелях каньона Пивы включайте фары и едьте медленно." }
-  ],
-  areas: [
-    { n: { me: "Žabljak, centar", en: "Žabljak town", ru: "Жабляк, центр" }, d: { me: "Prodavnice, kafići, sve blizu. Oko 2 km do Crnog jezera.", en: "Shops and cafés close by. About 2 km to Black Lake.", ru: "Магазины и кафе рядом. Около 2 км до Чёрного озера." }, t: { me: ["porodice", "bez auta"], en: ["families", "no car"], ru: ["семьи", "без машины"] } },
-    { n: { me: "Razvršje i Motički gaj", en: "Razvršje and Motički Gaj", ru: "Разврше и Мотички Гай" }, d: { me: "Blizu žičare Savin kuk i jezera, mirnije od centra.", en: "Near the Savin Kuk lift and the lake, quieter than town.", ru: "Рядом с подъёмником Савин Кук и озером, тише центра." }, t: { me: ["skijaši", "šetnje"], en: ["skiers", "walks"], ru: ["лыжники", "прогулки"] } },
-    { n: { me: "Virak i Pošćenski kraj", en: "Virak and Pošćenski Kraj", ru: "Вирак и Пощенски Край" }, d: { me: "Sela na putu ka Sedlu: tišina i pogled na masiv.", en: "Villages on the road to Sedlo: silence and a view of the massif.", ru: "Сёла по дороге к Седлу: тишина и вид на массив." }, t: { me: ["planinari", "tišina"], en: ["hikers", "quiet"], ru: ["походы", "тишина"] } },
-    { n: { me: "Đurđevića Tara", en: "Đurđevića Tara", ru: "Джурджевича Тара" }, d: { me: "Kod mosta: rafting, zipline, kampovi.", en: "By the bridge: rafting, ziplines, campsites.", ru: "У моста: рафтинг, зиплайны, кемпинги." }, t: { me: ["rafting", "kamp"], en: ["rafting", "camping"], ru: ["рафтинг", "кемпинг"] } },
-    { n: { me: "Plužine", en: "Plužine", ru: "Плужине" }, d: { me: "Pivsko jezero i ulaz u kanjon Pive.", en: "Piva Lake and the gateway to the Piva canyon.", ru: "Пивское озеро и вход в каньон Пивы." }, t: { me: ["jezero", "kajak"], en: ["lake", "kayak"], ru: ["озеро", "каяк"] } }
-  ],
-  listings: [
-    { icon: "cabin", n: { me: "Drvena kuća kod šume", en: "Log house by the forest", ru: "Деревянный дом у леса" }, s: { me: "Razvršje · 6 gostiju · kamin", en: "Razvršje · 6 guests · fireplace", ru: "Разврше · 6 гостей · камин" } },
-    { icon: "flat", n: { me: "Apartman u centru Žabljaka", en: "Apartment in Žabljak town", ru: "Апартамент в центре Жабляка" }, s: { me: "Žabljak · 2–4 gosta · parking", en: "Žabljak · 2–4 guests · parking", ru: "Жабляк · 2–4 гостя · парковка" } }
-  ],
-  know: [
-    { b: "5 €", s: { me: "Ulaznica za nacionalni park, po osobi, dnevno", en: "National park ticket, per person per day", ru: "Билет в нацпарк, с человека в день" } },
-    { b: "10 €", s: { me: "Čamac na Crnom jezeru, sat vremena", en: "Rowing boat on Black Lake, per hour", ru: "Лодка на Чёрном озере, час" } },
-    { b: "3 €", s: { me: "Šator u parku, dnevno", en: "Tent pitch in the park, per day", ru: "Палатка в парке, в день" } },
-    { b: "112", s: { me: "Hitna pomoć i spasavanje", en: "Emergency and rescue", ru: "Экстренная помощь и спасатели" } },
-    { b: "GPX", s: { me: "Skinite stazu prije polaska: signal se gubi u planini", en: "Download the track before you go: signal drops in the mountains", ru: "Скачайте трек заранее: в горах пропадает связь" } },
-    { b: "1980", s: { me: "Durmitor je na UNESCO listi svjetske baštine", en: "Durmitor joined the UNESCO World Heritage list", ru: "Дурмитор в списке Всемирного наследия ЮНЕСКО" } }
-  ],
-  knowSrc: "nparkovi.me"
+  "winter": {
+   "easy": [
+    [
+     "boot",
+     {
+      "me": "Zimske cipele",
+      "en": "Winter boots",
+      "ru": "Зимние ботинки"
+     },
+     {
+      "me": "Snijeg do koljena nije rijedak.",
+      "en": "Knee-deep snow is common.",
+      "ru": "Снег по колено не редкость."
+     }
+    ],
+    [
+     "spikes",
+     {
+      "me": "Krplje ili dereze za cipele",
+      "en": "Snowshoes or microspikes",
+      "ru": "Снегоступы или ледоступы"
+     },
+     {
+      "me": "Pitajte u najbližoj rent-a-ski radnji.",
+      "en": "Ask at the nearest rental shop.",
+      "ru": "Спросите в ближайшем прокате."
+     }
+    ],
+    [
+     "jacket",
+     {
+      "me": "Topla jakna",
+      "en": "Warm jacket",
+      "ru": "Тёплая куртка"
+     },
+     null
+    ],
+    [
+     "gloves",
+     {
+      "me": "Kapa, rukavice, termos",
+      "en": "Hat, gloves, thermos",
+      "ru": "Шапка, перчатки, термос"
+     },
+     null
+    ]
+   ],
+   "hard": [
+    [
+     "warn",
+     {
+      "me": "Samo sa vodičem ili iskustvom zimskog alpinizma",
+      "en": "Only with a guide or winter mountaineering experience",
+      "ru": "Только с гидом или опытом зимнего альпинизма"
+     },
+     {
+      "me": "Lavine, led, kratki dani.",
+      "en": "Avalanches, ice, short days.",
+      "ru": "Лавины, лёд, короткий день."
+     }
+    ],
+    [
+     "spikes",
+     {
+      "me": "Dereze i cepin",
+      "en": "Crampons and ice axe",
+      "ru": "Кошки и ледоруб"
+     },
+     null
+    ],
+    [
+     "map",
+     {
+      "me": "Lavinska oprema",
+      "en": "Avalanche kit",
+      "ru": "Лавинное снаряжение"
+     },
+     {
+      "me": "Primopredajnik, lopata, sonda.",
+      "en": "Transceiver, shovel, probe.",
+      "ru": "Датчик, лопата, щуп."
+     }
+    ]
+   ]
+  },
+  "spring": {
+   "easy": [
+    [
+     "boot",
+     {
+      "me": "Cipele koje ne propuštaju vodu",
+      "en": "Waterproof boots",
+      "ru": "Непромокаемые ботинки"
+     },
+     {
+      "me": "Blato i voda od snijega.",
+      "en": "Mud and snowmelt.",
+      "ru": "Грязь и талая вода."
+     }
+    ],
+    [
+     "rain",
+     {
+      "me": "Kišna jakna",
+      "en": "Rain jacket",
+      "ru": "Дождевик"
+     },
+     null
+    ],
+    [
+     "layers",
+     {
+      "me": "Slojevi",
+      "en": "Layers",
+      "ru": "Слои одежды"
+     },
+     {
+      "me": "Sunce i snijeg u istom danu.",
+      "en": "Sun and snow on the same day.",
+      "ru": "Солнце и снег в один день."
+     }
+    ]
+   ],
+   "hard": [
+    [
+     "warn",
+     {
+      "me": "Snježna polja na visini",
+      "en": "Snowfields up high",
+      "ru": "Снежники наверху"
+     },
+     {
+      "me": "Do juna visoke staze su često pod snijegom.",
+      "en": "Until June high trails are often under snow.",
+      "ru": "До июня высокие тропы часто под снегом."
+     }
+    ],
+    [
+     "spikes",
+     {
+      "me": "Dereze za cipele i gamašne",
+      "en": "Microspikes and gaiters",
+      "ru": "Ледоступы и гамаши"
+     },
+     null
+    ],
+    [
+     "poles",
+     {
+      "me": "Štapovi",
+      "en": "Trekking poles",
+      "ru": "Трекинговые палки"
+     },
+     null
+    ]
+   ]
+  }
+ },
+ "knowSrc": "nparkovi.me"
 };
