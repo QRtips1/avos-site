@@ -172,7 +172,12 @@ function applyLang(l){
   history.replaceState(history.state, "", u);
   if (window.render) render();
 }
-$$(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+$$(".lang button").forEach(b => b.addEventListener("click", e => {
+  const g = b.closest(".lang");   // on phones the site header shows only the current language; the first tap opens the list
+  if (g.closest(".hdr") && matchMedia("(max-width:600px)").matches && !g.classList.contains("open")) { g.classList.add("open"); e.stopPropagation(); return; }
+  g.classList.remove("open"); applyLang(b.dataset.lang);
+}));
+document.addEventListener("click", e => { if (!e.target.closest(".lang")) $$(".lang.open").forEach(g => g.classList.remove("open")); });
 function startLang(){
   let s = new URLSearchParams(location.search).get("lang");
   if (!T[s]) { try { s = localStorage.getItem("limo-lang"); } catch (e) { s = null; } }
