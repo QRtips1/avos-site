@@ -155,7 +155,7 @@ function closeSheet(fromPop){
 window.addEventListener("popstate", () => { if (openId) closeSheet(true); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 document.addEventListener("click", e => { if (e.target.closest("[data-close]") || e.target.classList.contains("sheet")) closeSheet(); });
-if (/^#(book|carform)$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
+if (/^#(book|carform|dsheet)$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
 
 /* ---------- language */
 function applyLang(l){

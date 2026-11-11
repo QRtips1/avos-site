@@ -126,6 +126,21 @@ footer a{color:#D7DAE0;text-decoration:none}
 .dc p{margin:0;font-size:.88rem;color:rgba(255,255,255,.9);line-height:1.35}
 .dcta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .credit{font-size:.72rem;color:var(--mut);margin:14px 0 0}.credit a{color:inherit}
+/* landmark history: card button + sheet */
+.dc[data-dest]{cursor:pointer}
+.dc-more{display:inline-flex;align-items:center;gap:6px;margin-top:10px;min-height:36px;padding:0 13px;border-radius:99px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.16);color:#fff;font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dc:hover .dc-more{background:rgba(255,255,255,.3)}
+.dc-more:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.dgrid.one{grid-auto-columns:100%;margin-top:22px}
+.dc.wide{aspect-ratio:4/3}
+@media(min-width:760px){.dgrid.one{grid-template-columns:1fr}.dc.wide{aspect-ratio:21/9}.dc.wide .dc-t{max-width:600px;padding:26px}.dc.wide b{font-size:1.75rem}.dc.wide p{font-size:.98rem}}
+#dsheet .panel{height:auto;max-height:calc(100% - 28px);border-radius:20px 20px 0 0;overflow:hidden}
+@media(min-width:860px){#dsheet .panel{max-width:680px;border-radius:22px}}
+.dimg{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#2B5274,#0F1115);margin-bottom:14px}
+.dimg img{display:block;width:100%;height:100%;object-fit:cover}
+.dtag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#F3EBDD;color:#7A5A1E;padding:4px 9px;border-radius:99px}
+#dd-body p{margin:12px 0 0;font-size:1rem;line-height:1.62}
+.dfoot{grid-template-columns:1fr 1fr}.dfoot .btn{padding:0 10px;font-size:.92rem}
 .phero h1{font-size:clamp(2rem,7vw,3.2rem);line-height:1.02;margin:6px 0 8px;letter-spacing:-.02em}
 .phero p{margin:0 0 18px;max-width:38em;opacity:.85}
 .bk{background:#fff;color:var(--ink);border-radius:18px;padding:14px;display:grid;gap:12px;box-shadow:var(--sh)}
