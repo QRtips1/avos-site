@@ -4,10 +4,38 @@ const LANGS = ["me", "en", "ru", "de"], HTML_LANG = { me: "sr-Latn-ME", en: "en"
 let LANG = "me";
 const LS = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
-  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
   del(k) { try { localStorage.removeItem(k); } catch (e) {} },
 };
 const tr = k => { const v = T[k]; return v ? (v[LANGS.indexOf(LANG)] || v[0]) : k; };
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const ic = (n, s = 18) => `<svg width="${s}" height="${s}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+
+/* ---------- editable content: defaults from data.js, the admin's copy in this browser */
+const CONTENT_KEY = "mri-content-2";
+const clone = o => JSON.parse(JSON.stringify(o));
+function getContent() {
+  const c = LS.get(CONTENT_KEY, null);
+  return c && c.v === DEFAULT_CONTENT.v && Array.isArray(c.services) ? c : clone(DEFAULT_CONTENT);
+}
+const saveContent = c => LS.set(CONTENT_KEY, c);
+const tx = o => !o ? "" : typeof o === "string" ? o : (o[LANG] || o.me || "");
+const UNIT = { m2: "€/m²", m3: "€/m³", h: "€/h", m: "€/m" };
+const fmtN = n => Number(n).toLocaleString("de-DE");
+const hasPrice = v => v !== null && v !== undefined && v !== "" && !isNaN(Number(v));
+function unitText(u) { return u === "job" ? tr("u_job") : (UNIT[u] || "€"); }
+function priceText(from, unit) { return hasPrice(from) ? `${tr("p_from")} ${fmtN(from)} ${unitText(unit)}` : tr("p_req"); }
+function priceBig(from, unit) {
+  return hasPrice(from) ? `<span>${esc(tr("p_from"))}</span><b>${esc(fmtN(from))}</b><span>${esc(unitText(unit))}</span>` : `<b class="req">${esc(tr("p_req"))}</b>`;
+}
+function plural(n, key) {
+  const f = tr(key).split("|");
+  if (f.length === 2) return n === 1 ? f[0] : f[1];
+  const a = n % 10, b = n % 100;
+  return a === 1 && b !== 11 ? f[0] : a >= 2 && a <= 4 && (b < 12 || b > 14) ? f[1] : f[2];
+}
+const sizeText = p => hasPrice(p.size) ? `${fmtN(p.size)} ${p.su === "m3" ? "m³" : "m²"}` : "";
+const timeText = p => hasPrice(p.time) ? `${p.time} ${plural(Number(p.time), p.tu === "w" ? "tw" : "tm")}` : "";
 
 function applyLang(l) {
   if (!LANGS.includes(l)) l = "me";
@@ -21,10 +49,8 @@ function applyLang(l) {
     e.replaceChildren(...list.map(x => { const li = document.createElement("li"); li.textContent = x; return li; }));
   });
   $$(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
-  if (window.PAGE_TITLE) document.title = tr(window.PAGE_TITLE);
   document.dispatchEvent(new CustomEvent("langchange"));
 }
-
 function startLang() {
   const q = new URLSearchParams(location.search).get("lang");
   applyLang(q || LS.get("mri-lang", "me"));
@@ -63,15 +89,25 @@ const mediaAll = () => idbReq("readonly", s => s.getAll()).catch(() => []);
 const mediaPut = o => idbReq("readwrite", s => s.put(o));
 const mediaDel = id => idbReq("readwrite", s => s.delete(id));
 
-async function galleryItems() {
-  const user = (await mediaAll()).map(r => ({ id: r.id, cat: r.cat, type: r.type, blob: r.blob, ts: r.ts, rec: r }));
+/* gallery = uploads without a project + example photos, in the admin's order */
+function galleryItems(all) {
+  const user = all.filter(r => !r.proj).map(r => ({ id: r.id, cat: r.cat, type: r.type, blob: r.blob, ts: r.ts, rec: r }));
   const hidden = new Set(LS.get("mri-hidden", [])), catOv = LS.get("mri-cat", {});
-  const defs = DEFAULTS.filter(d => !hidden.has(d.id)).map((d, i) => ({ ...d, cat: catOv[d.id] || d.cat, idx: i }));
+  const defs = DEFAULTS.filter(d => !hidden.has(d.id)).map(d => ({ ...d, cat: catOv[d.id] || d.cat }));
   user.sort((a, b) => b.ts - a.ts);
-  const all = [...user, ...defs], order = LS.get("mri-order", []);
+  const list = [...user, ...defs], order = LS.get("mri-order", []);
   const pos = id => { const i = order.indexOf(id); return i < 0 ? Infinity : i; };
-  const base = new Map(all.map((it, i) => [it.id, i]));
-  return all.sort((a, b) => (pos(a.id) - pos(b.id)) || (base.get(a.id) - base.get(b.id)));
+  const base = new Map(list.map((it, i) => [it.id, i]));
+  return list.sort((a, b) => (pos(a.id) - pos(b.id)) || (base.get(a.id) - base.get(b.id)));
+}
+/* project photos: "u:<unsplash id>" or "m:<upload id>" */
+function projMedia(p, all) {
+  const byId = new Map(all.map(r => [r.id, r]));
+  return (p.photos || []).map(ref => {
+    if (ref.startsWith("u:")) return { id: ref, u: ref.slice(2), type: "image" };
+    const r = byId.get(ref.slice(2));
+    return r ? { id: r.id, type: r.type, blob: r.blob } : null;
+  }).filter(Boolean);
 }
 const _urls = new Map();
 function mediaURL(it, w) {
