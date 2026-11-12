@@ -213,7 +213,7 @@ function drawGal() {
   const g = $("#agrid");
   g.replaceChildren();
   ITEMS.forEach((it, i) => {
-    const th = el("div", { class: "th" }, el("span", { class: "tag", text: it.type === "video" ? "VIDEO" : it.u ? "PRIMJER" : "FOTO" }));
+    const th = el("div", { class: "th" }, el("span", { class: "tag", text: it.type === "video" ? "VIDEO" : it.u && !isLoc(it.u) ? "PRIMJER" : "FOTO" }));
     th.prepend(mediaEl(it, 500));
     const cat = el("select", { "aria-label": "Kategorija" }, C.services.map(s => el("option", { value: s.id, text: s.title.me })));
     cat.value = it.cat;

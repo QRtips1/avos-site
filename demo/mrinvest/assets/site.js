@@ -9,7 +9,7 @@ const svcURL = s => `${P}${s.slug}/`;
 
 /* images */
 function uimg(pid, widths, sizes, eager) {
-  const set = widths.map(w => `${UNS(pid, w)} ${w}w`).join(", ");
+  const set = srcsetOf(pid, widths);
   return `<img src="${UNS(pid, widths[widths.length - 1])}" srcset="${set}" sizes="${sizes}" alt=""${eager ? "" : ' loading="lazy"'} onerror="this.remove()">`;
 }
 function coverOf(s) {             // a service photo: the owner's upload or the example

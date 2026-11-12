@@ -63,7 +63,12 @@ function startLang() {
 }
 
 /* ---------- photos and videos: examples (Unsplash) + the owner's uploads (IndexedDB in the demo) */
-const UNS = (id, w, fit = "crop") => `https://images.unsplash.com/${id}?auto=format&fit=${fit}&w=${w}&q=72`;
+const ASSETS = new URL(".", document.currentScript ? document.currentScript.src : location.href).href;   // .../assets/
+const isLoc = id => String(id).startsWith("mr/");     // the owner's photos shipped with the site (assets/img)
+const UNS = (id, w, fit = "crop") => isLoc(id) ? `${ASSETS}img/${id.slice(3)}-${w <= 800 ? "s" : "l"}.jpg`
+  : `https://images.unsplash.com/${id}?auto=format&fit=${fit}&w=${w}&q=72`;
+const srcsetOf = (id, widths) => { if (!isLoc(id)) return widths.map(w => `${UNS(id, w)} ${w}w`).join(", ");
+  const z = (typeof LOCAL !== "undefined" && LOCAL[id.slice(3)]) || [800, 1600]; return `${UNS(id, 1)} ${z[0]}w, ${UNS(id, 9999)} ${z[1]}w`; };
 const IDB = { name: "mrinvest-demo", store: "media" };
 let _db = null;
 function idb() {
