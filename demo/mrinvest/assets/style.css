@@ -475,3 +475,9 @@ footer a:hover{color:#fff}
 @media(max-width:600px){.lg-tag{font-size:.56rem;letter-spacing:.1em;padding-left:9px}.logo{gap:9px}}
 .refs{display:flex;gap:12px;align-items:center;margin:22px 0 0;padding:16px 18px;border:1px solid var(--line);background:#fff;font-weight:600}
 .refs svg{color:var(--acc-d);flex:none}
+.mach{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mc{margin:0;background:#1C1F23;border:1px solid #2A2E34}
+.mc img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.mc figcaption{padding:14px 16px;font-weight:700;color:#fff}
+.dark .sec-h .muted{color:#A7ABB2}
+@media(max-width:800px){.mach{grid-template-columns:1fr 1fr;gap:8px}.mc figcaption{padding:10px 12px;font-size:.88rem}}
