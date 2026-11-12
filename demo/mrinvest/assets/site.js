@@ -49,6 +49,7 @@ const R = {
     const cat = box.dataset.cat || (box.hasAttribute("data-filter") && FILTER !== "all" ? FILTER : "");
     let list = C.projects.filter(p => p.show !== false && (!cat || p.cat === cat));
     if (box.dataset.limit) list = list.slice(0, +box.dataset.limit);
+    const sec = box.dataset.cat && box.closest("section"); if (sec) sec.hidden = !list.length;   // a service with no projects yet: no empty block
     if (!list.length) { box.innerHTML = `<p class="empty">${esc(tr("pj_empty"))}</p>`; return; }
     box.innerHTML = list.map(p => {
       const s = svcById(p.cat), n = (p.photos || []).length;
