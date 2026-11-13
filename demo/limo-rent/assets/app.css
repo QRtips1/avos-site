@@ -20,10 +20,10 @@ a{color:inherit}
 .lg-mark{width:46px;height:46px;border-radius:12px;border:1.5px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:.9rem;flex:none}
 .lg-t{display:grid;font-weight:800;letter-spacing:.14em;font-size:1.08rem;line-height:1.15;white-space:nowrap}
 .lg-t small{font-weight:600;letter-spacing:.08em;font-size:.72rem;color:#A9ADB5}
-.lg-img{display:block;height:60px;width:auto}
+.lg-img{display:block;height:64px;width:auto}
 .hdr .logo{height:80px}
-@media(min-width:860px){.hdr .lg-img{height:74px}.hdr .logo{height:96px}}
-.ahdr .lg-img{height:40px}
+@media(min-width:860px){.hdr .lg-img{height:84px}.hdr .logo{height:96px}}
+.ahdr .lg-img{height:44px}
 .lang{grid-area:lang;display:flex;gap:2px;border:1px solid #34373E;border-radius:10px;padding:2px}
 .lang button{border:0;background:none;color:#A9ADB5;font-weight:800;font-size:.76rem;padding:6px 9px;border-radius:8px;cursor:pointer}
 .lang button[aria-pressed=true]{background:#fff;color:var(--ink)}
