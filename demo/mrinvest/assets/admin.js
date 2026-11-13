@@ -260,10 +260,10 @@ function drawLeads() {
   if (!leads.length) { box.innerHTML = `<p class="muted">Još nema upita. Pošaljite jedan sa <a href="../#kontakt" target="_blank" rel="noopener">sajta</a> i pojaviće se ovdje.</p>`; return; }
   box.innerHTML = leads.slice().reverse().map(l => {
     const cb = l.kind === "callback";
-    const rows = cb ? [] : [["Usluga", l.svc === "other" ? "nešto drugo" : svcName(l.svc)], ["Lokacija", l.place], ["Površina", ANS.area[l.area]], ["Projekat", ANS.yn[l.proj]],
-      ["Dozvola", ANS.yn[l.permit]], ["Početak", ANS.start[l.start]], ["E-mail", l.email], ["Poruka", l.msg], ["Fajlovi", (l.files || []).join(", ")]].filter(r => r[1]);
+    const rows = cb ? [] : [["Vrsta gradnje", l.svc === "other" ? "nešto drugo" : l.svc ? svcName(l.svc) : ""], ["Grad", l.place], ["Površina", ANS.area[l.area]], ["Projekat", ANS.yn[l.proj]],
+      ["Dozvola", ANS.yn[l.permit]], ["Početak", ANS.start[l.start]], ["E-mail", l.email], ["Opis", l.msg], ["Fajlovi", (l.files || []).join(", ")]].filter(r => r[1]);   // older requests also had area, design, permit, start
     return `<article class="lq${l.done ? " done" : ""}">
-      <div class="lq-h"><b>${esc(l.name)}</b><span class="pill">${cb ? "Zahtjev za poziv" : "Upit"}</span><time>${new Date(l.ts).toLocaleString("sr-Latn-ME", { dateStyle: "medium", timeStyle: "short" })}</time></div>
+      <div class="lq-h"><b>${esc(l.name)}</b><span class="pill">${cb ? "Zahtjev za poziv" : "Zahtjev za predračun"}</span><time>${new Date(l.ts).toLocaleString("sr-Latn-ME", { dateStyle: "medium", timeStyle: "short" })}</time></div>
       <p>${esc(l.phone)} · jezik: ${esc((l.lang || "me").toUpperCase())}</p>
       ${rows.length ? `<dl>${rows.map(r => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl>` : ""}
       <div class="lq-a"><a href="tel:${esc(String(l.phone).replace(/[^\d+]/g, ""))}">Pozovi</a><a href="https://wa.me/${esc(String(l.phone).replace(/\D/g, ""))}" target="_blank" rel="noopener">WhatsApp</a>

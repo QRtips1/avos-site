@@ -2,7 +2,7 @@
 const P = window.PREFIX || "./";
 const PAGE = document.body.dataset.page, PSVC = document.body.dataset.svc;
 const CHAIN = ["earth", "rough", "house"];          // the order of the work on site
-let C = getContent(), MEDIA = [], FILTER = "all", VIEW = [], CUR = 0;
+let C = getContent(), MEDIA = [], FILTER = new URLSearchParams(location.search).get("f") || "all", VIEW = [], CUR = 0;   // ?f=earth: a service page's "All projects" link
 const svcById = id => C.services.find(s => s.id === id);
 const visSvcs = () => C.services.filter(s => s.show !== false);
 const svcURL = s => `${P}${s.slug}/`;
@@ -47,7 +47,7 @@ const R = {
   others(box) { cardsDC(box, visSvcs().filter(s => s.id !== PSVC)); },
   projects(box) {
     const cat = box.dataset.cat || (box.hasAttribute("data-filter") && FILTER !== "all" ? FILTER : "");
-    let list = C.projects.filter(p => p.show !== false && (!cat || p.cat === cat));
+    let list = C.projects.filter(p => p.show !== false && (!cat || p.cat === cat || (p.also || []).includes(cat)));
     if (box.dataset.limit) list = list.slice(0, +box.dataset.limit);
     const sec = box.dataset.cat && box.closest("section"); if (sec) sec.hidden = !list.length;   // a service with no projects yet: no empty block
     if (!list.length) { box.innerHTML = `<p class="empty">${esc(tr("pj_empty"))}</p>`; return; }
@@ -78,6 +78,7 @@ const R = {
     });
   },
   filters(box) {
+    if (FILTER !== "all" && !visSvcs().some(s => s.id === FILTER)) FILTER = "all";
     const btn = (v, label) => `<button type="button" data-f="${v}" aria-pressed="${FILTER === v}">${esc(label)}</button>`;
     box.innerHTML = btn("all", tr("f_all")) + visSvcs().map(s => btn(s.id, tx(s.title))).join("");
     $$("button", box).forEach(b => b.addEventListener("click", () => { FILTER = b.dataset.f; renderAll(); }));
@@ -110,7 +111,7 @@ function renderAll() {
       document.title = `${tx(s.title)} · MR Invest Miljanić`;
     }
   } else if (window.PAGE_TITLE && T[window.PAGE_TITLE]) document.title = tr(window.PAGE_TITLE);
-  $$("[data-svc-title]").forEach(e => { const s = svcById(e.dataset.svcTitle); if (s) { e.textContent = tx(s.title); const l = e.closest("label, a"); if (l) l.hidden = s.show === false; } });
+  $$("[data-svc-title]").forEach(e => { const s = svcById(e.dataset.svcTitle); if (s) { e.textContent = tx(s.title); const l = e.closest("label, a, option"); if (l) { l.hidden = s.show === false; if (l.tagName === "OPTION") l.disabled = l.hidden; } } });
   bindPick();
   reveal();
 }
@@ -184,17 +185,9 @@ function openProject(pid) {
   openModal($("#pm"));
 }
 
-/* brief form: 3 steps */
+/* quote request: type of construction, town, description, contact (one step) */
 const bf = $("#brief");
-let BSTEP = 1;
-function showStep(n) {
-  BSTEP = n;
-  $$(".bstep", bf).forEach(f => { f.hidden = +f.dataset.step !== n; });
-  $$(".bsteps li", bf).forEach((li, i) => { li.classList.toggle("on", i + 1 === n); li.classList.toggle("done", i + 1 < n); });
-}
-$$("[data-next]", bf).forEach(b => b.addEventListener("click", () => showStep(BSTEP + 1)));
-$$("[data-back]", bf).forEach(b => b.addEventListener("click", () => showStep(BSTEP - 1)));
-function pick(id) { const r = $(`input[name=svc][value="${id}"]`, bf); if (r) { r.checked = true; showStep(1); } }
+function pick(id) { const o = $(`#btype option[value="${id}"]`, bf); if (o && !o.disabled) $("#btype", bf).value = id; }
 function bindPick() { $$("[data-pick]:not([data-bound])").forEach(a => { a.dataset.bound = "1"; a.addEventListener("click", () => { pick(a.dataset.pick); if (a.closest(".modal")) closeModal(a.closest(".modal")); }); }); }
 function saveLead(o) {
   const leads = LS.get("mri-leads", []);
@@ -210,10 +203,14 @@ bf.addEventListener("submit", e => {
   delete d.files;
   saveLead({ kind: "brief", ...d, files });
   m.className = "msg"; m.textContent = "";
-  $$(".bstep, .bsteps", bf).forEach(x => { x.hidden = true; });
+  $(".bfields", bf).hidden = true;
   $(".bdone", bf).hidden = false;
 });
-$("[data-again]", bf).addEventListener("click", () => { bf.reset(); $(".bdone", bf).hidden = true; $(".bsteps", bf).hidden = false; if (PSVC) pick(PSVC); showStep(1); });
+$("[data-again]", bf).addEventListener("click", () => { bf.reset(); $(".bdone", bf).hidden = true; $(".bfields", bf).hidden = false; if (PSVC) pick(PSVC); });
+
+/* awards: full size in the lightbox */
+const AW = typeof AWARDS !== "undefined" ? AWARDS.map((u, i) => ({ id: "aw" + i, u, type: "image" })) : [];
+$$("[data-aw]").forEach(b => b.addEventListener("click", () => openLb(AW, +b.dataset.aw)));
 
 /* callback */
 $$("[data-callback]").forEach(b => b.addEventListener("click", () => { $("#cbm").className = "msg"; openModal($("#cb")); setTimeout(() => $("#cbn").focus(), 50); }));
