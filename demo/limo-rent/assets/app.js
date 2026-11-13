@@ -1,5 +1,5 @@
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const KEY = "limo-rent-demo-v3";
+const KEY = "limo-rent-demo-v4";
 let lang = "me";
 const LOC = { me: "sr-Latn-ME", en: "en-GB", ru: "ru-RU", de: "de-DE" }, HTML_LANG = { me: "sr-Latn-ME", en: "en", ru: "ru", de: "de" };
 const LANGS = ["me", "en", "ru", "de"], LI = () => Math.max(0, LANGS.indexOf(lang));
