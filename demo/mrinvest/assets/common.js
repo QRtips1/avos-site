@@ -105,11 +105,12 @@ function galleryItems(all) {
   const base = new Map(list.map((it, i) => [it.id, i]));
   return list.sort((a, b) => (pos(a.id) - pos(b.id)) || (base.get(a.id) - base.get(b.id)));
 }
-/* project photos: "u:<unsplash id>" or "m:<upload id>" */
+/* project media: "u:<photo id>", "v:<shipped video name>" (assets/video) or "m:<upload id>" */
 function projMedia(p, all) {
   const byId = new Map(all.map(r => [r.id, r]));
   return (p.photos || []).map(ref => {
     if (ref.startsWith("u:")) return { id: ref, u: ref.slice(2), type: "image" };
+    if (ref.startsWith("v:")) { const n = ref.slice(2); return { id: ref, type: "video", src: `video/${n}.mp4`, poster: `video/${n}.jpg` }; }
     const r = byId.get(ref.slice(2));
     return r ? { id: r.id, type: r.type, blob: r.blob } : null;
   }).filter(Boolean);
@@ -117,6 +118,7 @@ function projMedia(p, all) {
 const _urls = new Map();
 function mediaURL(it, w) {
   if (it.u) return w === "full" ? UNS(it.u, 1800, "max") : UNS(it.u, w || 800);
+  if (it.src) return ASSETS + it.src;   // a video shipped with the site
   if (!_urls.has(it.id)) _urls.set(it.id, URL.createObjectURL(it.blob));
   return _urls.get(it.id);
 }
@@ -124,8 +126,9 @@ function mediaEl(it, w, opts = {}) {
   if (it.type === "video") {
     const v = document.createElement("video");
     v.playsInline = true; v.preload = "metadata"; v.muted = !opts.controls;
+    if (it.poster) { v.poster = ASSETS + it.poster; if (!opts.controls) v.preload = "none"; }
     if (opts.controls) { v.controls = true; v.autoplay = true; }
-    else v.addEventListener("loadedmetadata", () => { try { v.currentTime = Math.min(0.5, v.duration / 2 || 0); } catch (e) {} }, { once: true });
+    else if (!it.poster) v.addEventListener("loadedmetadata", () => { try { v.currentTime = Math.min(0.5, v.duration / 2 || 0); } catch (e) {} }, { once: true });
     v.src = mediaURL(it);
     return v;
   }

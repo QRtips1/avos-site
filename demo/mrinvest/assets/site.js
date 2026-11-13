@@ -53,7 +53,8 @@ const R = {
     if (!list.length) { box.innerHTML = `<p class="empty">${esc(tr("pj_empty"))}</p>`; return; }
     box.innerHTML = list.map(p => {
       const s = svcById(p.cat), n = (p.photos || []).length;
-      return `<button type="button" class="pc rv" data-pid="${esc(p.id)}"><div class="pc-i" data-pcover="${esc(p.id)}">${s ? `<span class="pc-tag">${esc(tx(s.title))}</span>` : ""}${n > 1 ? `<span class="pc-n">${n} ${ic("right", 12)}</span>` : ""}</div>
+      const vid = (p.photos || []).some(r => r.startsWith("v:") || (r.startsWith("m:") && (MEDIA.find(x => x.id === r.slice(2)) || {}).type === "video"));
+      return `<button type="button" class="pc rv" data-pid="${esc(p.id)}"><div class="pc-i" data-pcover="${esc(p.id)}">${s ? `<span class="pc-tag">${esc(tx(s.title))}</span>` : ""}${vid ? `<span class="pc-v">${ic("play", 13)}${esc(tr("vd_eyebrow"))}</span>` : ""}${n > 1 ? `<span class="pc-n">${n} ${ic("right", 12)}</span>` : ""}</div>
         <div class="pc-t"><h3>${esc(tx(p.title))}</h3><div class="meta">${p.place ? `<span>${ic("pin", 15)}${esc(p.place)}</span>` : ""}${sizeText(p) ? `<span><b>${esc(sizeText(p))}</b></span>` : ""}${timeText(p) ? `<span>${esc(timeText(p))}</span>` : ""}</div></div></button>`;
     }).join("");
     $$("[data-pcover]", box).forEach(el => { const p = C.projects.find(x => x.id === el.dataset.pcover), m = projMedia(p, MEDIA)[0]; if (m) put(el, m, [600, 900], "(max-width:600px) 100vw, 33vw"); });
@@ -64,7 +65,7 @@ const R = {
   },
   media(box) {
     const cat = box.dataset.cat || (box.hasAttribute("data-filter") && FILTER !== "all" ? FILTER : "");
-    const list = galleryItems(MEDIA).filter(i => !cat || i.cat === cat);
+    const list = galleryItems(MEDIA).filter(i => (!cat || i.cat === cat) && !(i.type === "video" && "photos" in box.dataset));   // data-photos: videos have their own block
     box.replaceChildren();
     if (!list.length) { box.innerHTML = `<p class="empty">${esc(tr("pj_empty"))}</p>`; return; }
     list.forEach((it, i) => {
@@ -73,6 +74,23 @@ const R = {
       const s = svcById(it.cat); b.setAttribute("aria-label", s ? tx(s.title) : "");
       b.append(mediaEl(it, 600));
       if (it.type === "video") b.insertAdjacentHTML("beforeend", `<span class="play">${ic("play", 22)}</span>`);
+      b.addEventListener("click", () => openLb(list, i));
+      box.append(b);
+    });
+  },
+  videos(box) {
+    const cat = box.hasAttribute("data-filter") && FILTER !== "all" ? FILTER : "";
+    let list = galleryItems(MEDIA).filter(i => i.type === "video" && (!cat || i.cat === cat));
+    if (box.dataset.limit) list = list.slice(0, +box.dataset.limit);
+    const sec = box.closest("section"); if (sec) sec.hidden = !list.length;
+    box.replaceChildren();
+    list.forEach((it, i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "vt rv";
+      const fr = document.createElement("span"); fr.className = "vt-i";
+      fr.append(mediaEl(it, 900)); fr.insertAdjacentHTML("beforeend", `<span class="play">${ic("play", 26)}</span>`);
+      const s = svcById(it.cat), t = tx(it.title) || (s ? tx(s.title) : "");
+      b.append(fr); b.insertAdjacentHTML("beforeend", `<span class="vt-t">${esc(t)}</span>`);
       b.addEventListener("click", () => openLb(list, i));
       box.append(b);
     });
@@ -137,7 +155,8 @@ const lb = $("#lb");
 function drawLb() {
   const it = VIEW[CUR], s = svcById(it.cat);
   $("#lbm").replaceChildren(mediaEl(it, "full", { controls: true, eager: true }));
-  $("#lbc").textContent = `${s ? tx(s.title) + " · " : ""}${CUR + 1} / ${VIEW.length}`;
+  const t = tx(it.title) || (s ? tx(s.title) : "");
+  $("#lbc").textContent = `${t ? t + " · " : ""}${CUR + 1} / ${VIEW.length}`;
 }
 function openLb(list, i) { VIEW = list; CUR = i; lb.hidden = false; document.body.style.overflow = "hidden"; drawLb(); }
 function closeLb() { lb.hidden = true; document.body.style.overflow = ""; $("#lbm").replaceChildren(); }
@@ -177,7 +196,7 @@ function openProject(pid) {
     main.replaceChildren(mediaEl(ms[i], "full", { controls: ms[i].type === "video", eager: true }));
     $$("button", th).forEach((b, j) => b.setAttribute("aria-current", String(i === j)));
   };
-  ms.forEach((m, i) => { const b = document.createElement("button"); b.type = "button"; b.append(mediaEl(m, 200)); b.addEventListener("click", () => show(i)); th.append(b); });
+  ms.forEach((m, i) => { const b = document.createElement("button"); b.type = "button"; b.append(mediaEl(m, 200)); if (m.type === "video") b.insertAdjacentHTML("beforeend", `<span class="play">${ic("play", 14)}</span>`); b.addEventListener("click", () => show(i)); th.append(b); });
   if (ms.length) show(0);
   if (ms.length < 2) th.hidden = true;
   main.addEventListener("click", e => { if (ms.length && e.target.tagName !== "VIDEO") openLb(ms.map(m => ({ ...m, cat: p.cat })), cur); });

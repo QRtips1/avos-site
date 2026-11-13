@@ -218,7 +218,7 @@ function drawGal() {
     const cat = el("select", { "aria-label": "Kategorija" }, C.services.map(s => el("option", { value: s.id, text: s.title.me })));
     cat.value = it.cat;
     cat.addEventListener("change", async () => {
-      if (it.u) { const m = LS.get("mri-cat", {}); m[it.id] = cat.value; LS.set("mri-cat", m); }
+      if (it.u || it.src) { const m = LS.get("mri-cat", {}); m[it.id] = cat.value; LS.set("mri-cat", m); }   // shipped photo or video
       else await mediaPut({ ...it.rec, cat: cat.value });
       MEDIA = await mediaAll();
     });
@@ -227,7 +227,7 @@ function drawGal() {
       iconBtn("down", "Pomjeri nazad", () => reorder(i, 1), { disabled: i === ITEMS.length - 1 }),
       iconBtn("trash", "Obriši", async () => {
         if (!confirm("Obrisati " + (it.type === "video" ? "ovaj video" : "ovu fotografiju") + " sa sajta?")) return;
-        if (it.u) LS.set("mri-hidden", [...new Set([...LS.get("mri-hidden", []), it.id])]);
+        if (it.u || it.src) LS.set("mri-hidden", [...new Set([...LS.get("mri-hidden", []), it.id])]);
         else await mediaDel(it.id);
         LS.set("mri-order", ITEMS.map(x => x.id).filter(x => x !== it.id));
         MEDIA = await mediaAll(); drawGal();
