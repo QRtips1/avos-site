@@ -107,6 +107,7 @@ input[aria-invalid=true]{border-color:#B42318}
 .t-sum b{font-weight:800;font-size:2.2rem;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-top:4px}
 .t-sum p:last-child{justify-self:end;text-align:right}
 .t-sum p:last-child b{font-size:2.6rem}
+.t-sum p:last-child b.t-txt{font-size:1.6rem;padding:.45rem 0 .2rem}
 .t-sum b.tick{animation:tick .35s ease}
 @keyframes tick{from{opacity:.35;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .t-note{font-size:15px;margin:8px 0 14px}

@@ -1,78 +1,77 @@
 (function () {
   "use strict";
   var WA = "38269457717";
-  // Example tariff until the client sends theirs: total price for 1..7 days, then +3 € per day.
-  var TABLE = [5, 9, 12, 15, 18, 21, 25];
-  var EXTRA = 3;
-  function priceFor(days) {
-    if (days <= TABLE.length) return TABLE[days - 1];
-    return TABLE[TABLE.length - 1] + (days - TABLE.length) * EXTRA;
-  }
+  // Client's tariff (2026-11-18): 3 € per started 24 h; a month or more is agreed by phone.
+  var DAY = 3;
+  var MONTH_DAYS = 30;
+  function priceFor(days) { return days >= MONTH_DAYS ? null : days * DAY; }
 
   var T = {
     me: {
-      demo: "Demo koncept sajta, izradio", demo2: "Naziv, cijene, tekstovi i fotografije su primjer.",
+      demo: "Demo koncept sajta, izradio", demo2: "Fotografije su za sada primjer.",
       brand_sub: "Aerodrom Podgorica", nav_prices: "Cijene", nav_how: "Kako radi", nav_where: "Lokacija",
       call_aria: "Pozovite nas", bar_aria: "Brzi kontakt",
       h1: "Parking kod Aerodroma Podgorica",
-      lead: "Ostavite auto kod nas, a do terminala vas vozimo besplatno.",
-      f_open: "Otvoreno 0–24", f_term: "3 min do terminala", f_price: "od {p} dnevno",
+      lead: "Ostavite auto kod nas, a do aerodroma i nazad vozimo vas besplatno.",
+      f_price: "{p} za 24 sata", f_term: "Besplatan prevoz do aerodroma", f_cam: "Video nadzor",
       btn_wa: "Rezerviši na WhatsApp", btn_call: "Pozovi",
       hero_alt: "Parkirani automobili kod Aerodroma Podgorica",
       t_title: "Koliko košta?", t_in: "Ostavljate auto", t_out: "Preuzimate auto", t_date: "Datum", t_time: "Vrijeme",
       t_err: "Preuzimanje mora biti poslije dolaska.", t_pax: "Putnika", t_plate: "Tablice", t_opt: "(nije obavezno)",
-      t_days: "Broj dana", t_price: "Cijena", t_note: "Prevoz do terminala i nazad je uključen.",
-      t_send: "Pošalji rezervaciju na WhatsApp", t_sending: "Otvaramo WhatsApp…", t_alt: "Radije zovete?",
-      how_h: "Kako radi", how_lead: "Od parkinga do aviona za nekoliko minuta, bez traženja mjesta ispred terminala.",
-      s1_h: "Dođete na parking", s1_p: "Parkirate auto na ograđenom prostoru pod video nadzorom.",
-      s2_h: "Vozimo vas do terminala", s2_p: "Naš kombi vas sa prtljagom vozi do ulaza za oko 3 minuta.",
-      s3_h: "Po povratku nas pozovite", s3_p: "Kad sletite, javite se. Čekamo vas ispred izlaza i vozimo do auta.",
-      pr_h: "Cijene", pr_lead: "Jedna cijena za cijeli boravak, sa prevozom do terminala i nazad za sve putnike.",
-      pr_cap: "Cijene parkinga po broju dana", pr_more: "Ostavljate auto na mjesec ili duže? Pišite nam i dogovorićemo cijenu.",
-      day1: "1 dan", dayN: "{n} dana", extra: "Svaki dan preko 7",
-      in_h: "Uključeno u cijenu", in1: "Prevoz do terminala i nazad", in2: "Video nadzor 0–24", in3: "Ograđen i osvijetljen prostor",
-      in4: "Ključ ostaje kod vas", in5: "Čekamo vas i kad let kasni", pr_btn: "Izračunaj cijenu",
-      wh_h: "Gdje smo", wh_addr: "Golubovci, 1,5 km od Aerodroma Podgorica", wh_hours: "Otvoreno 0–24, svaki dan",
-      wh_map: "Otvori u Google mapama", term_alt: "Terminal Aerodroma Podgorica", map_title: "Mapa: Aerodrom Podgorica",
+      t_days: "Broj dana", t_price: "Cijena", t_note: "Prevoz do aerodroma i nazad je besplatan.",
+      t_month: "Po dogovoru",
+      t_send: "Rezerviši na WhatsApp", t_sending: "Otvaramo WhatsApp…", t_alt: "Radije zovete?",
+      how_h: "Kako radi", how_lead: "Ostavite auto kod nas, a mi vas vozimo do aviona i nazad, bez traženja mjesta ispred terminala.",
+      s1_h: "Dođete na parking", s1_p: "Ostavite auto na parkingu pod video nadzorom.",
+      s2_h: "Vozimo vas do aerodroma", s2_p: "Prevoz do terminala je besplatan.",
+      s3_h: "Po povratku nas pozovite", s3_p: "Kad sletite, javite se i besplatno vas vozimo do auta.",
+      pr_h: "Cijene", pr_lead: "3 € za svaka 24 sata, sa besplatnim prevozom do aerodroma i nazad.",
+      pr_cap: "Cijene parkinga", pr_more: "Ostavljate auto na mjesec dana ili duže? Pišite nam i dogovorićemo cijenu.",
+      r_day: "24 sata", r_week: "7 dana", r_month: "Mjesec dana",
+      in_h: "Šta dobijate", in1: "Besplatan prevoz do aerodroma i nazad", in2: "Video nadzor", in3: "Mogućnost noćenja u apartmanu",
+      in4: "Plaćanje gotovinom", pr_btn: "Izračunaj cijenu",
+      wh_h: "Gdje smo", wh_addr: "47 ulica, Podgorica, kod Aerodroma",
+      wh_map: "Otvori u Google mapama", term_alt: "Terminal Aerodroma Podgorica", map_title: "Mapa: Parking Aerodrom Delić",
       faq_h: "Pitanja",
-      q1: "Moram li unaprijed rezervisati?", a1: "Nije obavezno, ali sa rezervacijom vam čuvamo mjesto i znamo kada da vas čekamo.",
-      q2: "Šta ako mi let kasni?", a2: "Kad sletite, samo nas pozovite. Čekamo vas bez doplate.",
-      q3: "Kako se plaća?", a3: "Na parkingu, gotovinom ili karticom.",
-      q4: "Koliko ljudi i prtljaga staje u kombi?", a4: "Do 8 putnika sa koferima. Za veću grupu javite nam unaprijed.",
+      q1: "Kako da rezervišem mjesto?", a1: "Pišite nam na WhatsApp ili pozovite i recite kada dolazite i kada se vraćate.",
+      q2: "Kako se plaća?", a2: "Gotovinom.",
+      q3: "Koliko košta mjesec dana?", a3: "Cijenu za mjesec dana dogovaramo. Pišite nam na WhatsApp.",
+      q4: "Mogu li prenoćiti prije ranog leta?", a4: "Da, kod nas možete prenoćiti u apartmanu. Pišite nam za slobodne termine i cijenu.",
       credits: "Fotografije (primjer):", made: "Sajt:",
       wa_hi: "Zdravo! Zanima me parking kod aerodroma.",
       wa_book: "Zdravo! Želim da rezervišem parking.", wa_in: "Ostavljam auto", wa_out: "Preuzimam auto", wa_at: "u",
       wa_days: "Broj dana", wa_pax: "Putnika", wa_plate: "Tablice", wa_price: "Cijena sa sajta"
     },
     en: {
-      demo: "Website demo concept by", demo2: "The name, prices, texts and photos are examples.",
+      demo: "Website demo concept by", demo2: "Photos are examples for now.",
       brand_sub: "Podgorica Airport", nav_prices: "Prices", nav_how: "How it works", nav_where: "Location",
       call_aria: "Call us", bar_aria: "Quick contact",
       h1: "Parking at Podgorica Airport",
-      lead: "Leave your car with us and we drive you to the terminal for free.",
-      f_open: "Open 24/7", f_term: "3 min to the terminal", f_price: "from {p} a day",
+      lead: "Leave your car with us and we drive you to the airport and back for free.",
+      f_price: "{p} per 24 hours", f_term: "Free airport shuttle", f_cam: "Video surveillance",
       btn_wa: "Book on WhatsApp", btn_call: "Call",
       hero_alt: "Parked cars at Podgorica Airport",
       t_title: "What will it cost?", t_in: "Drop-off", t_out: "Pick-up", t_date: "Date", t_time: "Time",
       t_err: "Pick-up must be after drop-off.", t_pax: "Passengers", t_plate: "Licence plate", t_opt: "(optional)",
-      t_days: "Days", t_price: "Price", t_note: "The shuttle to the terminal and back is included.",
-      t_send: "Send booking on WhatsApp", t_sending: "Opening WhatsApp…", t_alt: "Prefer to call?",
-      how_h: "How it works", how_lead: "From our lot to your flight in minutes, without hunting for a space at the terminal.",
-      s1_h: "Drive in", s1_p: "Park your car in our fenced lot under 24/7 video surveillance.",
-      s2_h: "We drive you to the terminal", s2_p: "Our van takes you and your luggage to the entrance in about 3 minutes.",
-      s3_h: "Call us when you're back", s3_p: "Once you land, give us a call. We meet you outside arrivals and drive you to your car.",
-      pr_h: "Prices", pr_lead: "One price for the whole stay, with the shuttle both ways for all passengers.",
-      pr_cap: "Parking prices by number of days", pr_more: "Leaving the car for a month or longer? Message us and we'll agree a price.",
-      day1: "1 day", dayN: "{n} days", extra: "Each day after 7",
-      in_h: "Included in the price", in1: "Shuttle to the terminal and back", in2: "24/7 video surveillance", in3: "Fenced, well-lit lot",
-      in4: "You keep your keys", in5: "We wait if your flight is late", pr_btn: "Check your price",
-      wh_h: "Where we are", wh_addr: "Golubovci, 1.5 km from Podgorica Airport", wh_hours: "Open 24/7, every day",
-      wh_map: "Open in Google Maps", term_alt: "Podgorica Airport terminal", map_title: "Map: Podgorica Airport",
+      t_days: "Days", t_price: "Price", t_note: "The shuttle to the airport and back is free.",
+      t_month: "By agreement",
+      t_send: "Book on WhatsApp", t_sending: "Opening WhatsApp…", t_alt: "Prefer to call?",
+      how_h: "How it works", how_lead: "Leave your car with us and we drive you to your flight and back, no hunting for a space at the terminal.",
+      s1_h: "Drive in", s1_p: "Leave your car in our lot under video surveillance.",
+      s2_h: "We drive you to the airport", s2_p: "The ride to the terminal is free.",
+      s3_h: "Call us when you're back", s3_p: "Once you land, give us a call and we drive you to your car for free.",
+      pr_h: "Prices", pr_lead: "€3 for every 24 hours, with a free shuttle to the airport and back.",
+      pr_cap: "Parking prices", pr_more: "Leaving the car for a month or longer? Message us and we'll agree a price.",
+      r_day: "24 hours", r_week: "7 days", r_month: "One month",
+      in_h: "What you get", in1: "Free shuttle to the airport and back", in2: "Video surveillance", in3: "Overnight stay in our apartment",
+      in4: "Cash payment", pr_btn: "Check your price",
+      wh_h: "Where we are", wh_addr: "47 ulica, Podgorica, near the airport",
+      wh_map: "Open in Google Maps", term_alt: "Podgorica Airport terminal", map_title: "Map: Parking Aerodrom Delić",
       faq_h: "Questions",
-      q1: "Do I need to book ahead?", a1: "It isn't required, but with a booking we hold a space for you and know when to expect you.",
-      q2: "What if my flight is late?", a2: "Just call us when you land. Waiting is free.",
-      q3: "How do I pay?", a3: "At the parking, in cash or by card.",
-      q4: "How many people and bags fit in the van?", a4: "Up to 8 passengers with suitcases. For a larger group, let us know in advance.",
+      q1: "How do I book a space?", a1: "Message us on WhatsApp or call, and tell us when you arrive and when you fly back.",
+      q2: "How do I pay?", a2: "In cash.",
+      q3: "How much is a month?", a3: "We agree the monthly price with you. Message us on WhatsApp.",
+      q4: "Can I stay overnight before an early flight?", a4: "Yes, you can stay in our apartment. Message us for free dates and the price.",
       credits: "Photos (examples):", made: "Website:",
       wa_hi: "Hello! I'm interested in airport parking.",
       wa_book: "Hello! I'd like to book parking.", wa_in: "Drop-off", wa_out: "Pick-up", wa_at: "at",
@@ -92,13 +91,10 @@
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 
   function renderTable() {
-    var rows = [[1, priceFor(1)], [3, priceFor(3)], [7, priceFor(7)], [14, priceFor(14)]];
-    var html = rows.map(function (r) {
-      var label = r[0] === 1 ? t("day1") : t("dayN").replace("{n}", r[0]);
-      return "<tr><th scope=\"row\">" + label + "</th><td>" + money(r[1]) + "</td></tr>";
+    var rows = [[t("r_day"), money(DAY)], [t("r_week"), money(7 * DAY)], [t("r_month"), t("t_month")]];
+    document.getElementById("ptable").innerHTML = rows.map(function (r) {
+      return "<tr><th scope=\"row\">" + r[0] + "</th><td>" + r[1] + "</td></tr>";
     }).join("");
-    html += "<tr><th scope=\"row\">" + t("extra") + "</th><td>" + money(EXTRA) + "</td></tr>";
-    document.getElementById("ptable").innerHTML = html;
   }
 
   function setLang(l) {
@@ -107,7 +103,7 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var k = el.getAttribute("data-i18n");
       var v = t(k);
-      if (k === "f_price") v = v.replace("{p}", money(EXTRA));
+      if (k === "f_price") v = v.replace("{p}", money(DAY));
       el.textContent = v;
     });
     document.querySelectorAll("[data-i18n-alt]").forEach(function (el) { el.alt = t(el.getAttribute("data-i18n-alt")); });
@@ -115,10 +111,10 @@
     document.querySelectorAll("[data-i18n-title]").forEach(function (el) { el.title = t(el.getAttribute("data-i18n-title")); });
     document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     document.querySelectorAll(".js-wa").forEach(function (a) { a.href = waLink(t("wa_hi")); });
-    document.title = lang === "en" ? "TGD Parking · Parking at Podgorica Airport" : "TGD Parking · Parking kod Aerodroma Podgorica";
+    document.title = lang === "en" ? "Parking Aerodrom Delić · Parking at Podgorica Airport" : "Parking Aerodrom Delić · Parking kod Aerodroma Podgorica";
     renderTable();
     calc(false);
-    store("tgd-lang", lang);
+    store("delic-lang", lang);
   }
 
   // ticket
@@ -158,7 +154,8 @@
     var changed = days !== state.days;
     state = { days: days, price: price, ok: true, a: a, b: b };
     oDays.textContent = days;
-    oPrice.textContent = money(price);
+    oPrice.textContent = price === null ? t("t_month") : money(price);
+    oPrice.classList.toggle("t-txt", price === null);
     if (animate && changed) {
       [oDays, oPrice].forEach(function (el) { el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick"); });
     }
@@ -197,7 +194,7 @@
     ];
     var pl = plate.value.trim();
     if (pl) lines.push(t("wa_plate") + ": " + pl.toUpperCase());
-    lines.push(t("wa_price") + ": " + money(state.price));
+    lines.push(t("wa_price") + ": " + (state.price === null ? t("t_month") : money(state.price)));
     var url = waLink(lines.join("\n"));
     var btn = form.querySelector("button[type=submit] span");
     var label = btn.textContent;
@@ -223,6 +220,6 @@
     }).observe(hb);
   } else document.body.classList.add("past-hero");
 
-  var initial = location.hash === "#en" ? "en" : location.hash === "#me" ? "me" : (read("tgd-lang") || "me");
+  var initial = location.hash === "#en" ? "en" : location.hash === "#me" ? "me" : (read("delic-lang") || "me");
   setLang(initial);
 })();
