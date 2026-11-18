@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="./img/hero-m.jpg" media="(max-width: 959px)">
-<link rel="stylesheet" href="./style.css?v=4">
+<link rel="stylesheet" href="./style.css?v=5">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -171,33 +171,34 @@
 <section class="sec stay" id="nocenje" aria-labelledby="h-stay">
   <div class="wrap">
     <h2 id="h-stay" data-i18n="stay_h">Noćenje prije ranog leta</h2>
-    <p class="sec-lead" data-i18n="stay_lead">Na istoj adresi imamo tri apartmana. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom.</p>
+    <p class="sec-lead" data-i18n="stay_lead">Na istoj adresi imamo tri apartmana. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom. Rezervišite direktno kod nas.</p>
     <div class="apts">
       <article class="apt">
         <img src="./img/apt-1.jpg" width="366" height="274" loading="lazy" alt="Spavaća soba, Apartmani Delic">
         <div class="apt-b">
           <h3 translate="no">Apartmani Delic</h3>
-          <p class="score"><b data-num="8,3">8,3</b><span><span data-i18n="apt_on">na Booking.com</span>, 68 <span data-i18n="apt_rev">recenzija</span></span></p>
-          <a class="btn btn-o" href="https://www.booking.com/searchresults.html?ss=Apartmani+Delic%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_btn">Pogledaj na Bookingu</span></a>
+          <p class="score"><b data-num="8,3">8,3</b><a href="https://www.booking.com/searchresults.html?ss=Apartmani+Delic%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_on">na Booking.com</span>, 68 <span data-i18n="apt_rev">recenzija</span></a></p>
+          <a class="btn btn-d js-apt" data-apt="Apartmani Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
         </div>
       </article>
       <article class="apt">
         <img src="./img/apt-2.jpg" width="531" height="398" loading="lazy" alt="Spavaća soba, Airport apartment Delic">
         <div class="apt-b">
           <h3 translate="no">Airport apartment Delic</h3>
-          <p class="score"><b data-num="7,3">7,3</b><span><span data-i18n="apt_on">na Booking.com</span>, 55 <span data-i18n="apt_rev">recenzija</span></span></p>
-          <a class="btn btn-o" href="https://www.booking.com/searchresults.html?ss=Airport+apartment+Deli%C4%87%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_btn">Pogledaj na Bookingu</span></a>
+          <p class="score"><b data-num="7,3">7,3</b><a href="https://www.booking.com/searchresults.html?ss=Airport+apartment+Deli%C4%87%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_on">na Booking.com</span>, 55 <span data-i18n="apt_rev">recenzija</span></a></p>
+          <a class="btn btn-d js-apt" data-apt="Airport apartment Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
         </div>
       </article>
       <article class="apt">
         <img src="./img/apt-3.jpg" width="537" height="403" loading="lazy" alt="Detalj enterijera, Studio apartman Delic">
         <div class="apt-b">
           <h3 translate="no">Studio apartman Delic</h3>
-          <p class="score"><b data-num="7,1">7,1</b><span><span data-i18n="apt_on">na Booking.com</span>, 16 <span data-i18n="apt_rev">recenzija</span></span></p>
-          <a class="btn btn-o" href="https://www.booking.com/searchresults.html?ss=Studio+apartman+Delic%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_btn">Pogledaj na Bookingu</span></a>
+          <p class="score"><b data-num="7,1">7,1</b><a href="https://www.booking.com/searchresults.html?ss=Studio+apartman+Delic%2C+Golubovci" target="_blank" rel="noopener"><span data-i18n="apt_on">na Booking.com</span>, 16 <span data-i18n="apt_rev">recenzija</span></a></p>
+          <a class="btn btn-d js-apt" data-apt="Studio apartman Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
         </div>
       </article>
     </div>
+    <p class="apt-call"><span data-i18n="apt_call">Rezervacije apartmana, poziv i WhatsApp:</span> <a href="tel:+38269457717" translate="no">+382 69 457 717</a></p>
   </div>
 </section>
 
@@ -230,7 +231,7 @@
     <details><summary data-i18n="q1">Kako da rezervišem mjesto?</summary><p data-i18n="a1">Pišite nam na WhatsApp ili pozovite i recite kada dolazite i kada se vraćate.</p></details>
     <details><summary data-i18n="q2">Kako se plaća?</summary><p data-i18n="a2">Gotovinom.</p></details>
     <details><summary data-i18n="q3">Koliko košta mjesec dana?</summary><p data-i18n="a3">Cijenu za mjesec dana dogovaramo. Pišite nam na WhatsApp.</p></details>
-    <details><summary data-i18n="q4">Mogu li prenoćiti prije ranog leta?</summary><p data-i18n="a4">Da, na istoj adresi imamo tri apartmana. Rezervišu se preko Booking.com.</p></details>
+    <details><summary data-i18n="q4">Mogu li prenoćiti prije ranog leta?</summary><p data-i18n="a4">Da, na istoj adresi imamo tri apartmana. Rezervišite direktno kod nas, pozivom ili na WhatsApp.</p></details>
   </div>
 </section>
 </main>
@@ -254,6 +255,6 @@
   <a class="bar-wa js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=4"></script>
+<script src="./app.js?v=5"></script>
 </body>
 </html>

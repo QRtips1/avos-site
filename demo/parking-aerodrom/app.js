@@ -31,14 +31,15 @@
       in_h: "Šta dobijate", in1: "Besplatan prevoz do aerodroma i nazad", in2: "Video nadzor", in3: "Mogućnost noćenja u apartmanu",
       in4: "Plaćanje gotovinom", pr_btn: "Izračunaj cijenu",
       wh_h: "Gdje smo", wh_addr: "47 ulica, Golubovci, kod Aerodroma Podgorica",
-      stay_h: "Noćenje prije ranog leta", stay_lead: "Na istoj adresi imamo tri apartmana. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom.",
-      apt_on: "na Booking.com", apt_rev: "recenzija", apt_btn: "Pogledaj na Bookingu",
+      stay_h: "Noćenje prije ranog leta", stay_lead: "Na istoj adresi imamo tri apartmana. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom. Rezervišite direktno kod nas.",
+      apt_on: "na Booking.com", apt_rev: "recenzija", apt_wa: "Pitaj za termin", apt_call: "Rezervacije apartmana, poziv i WhatsApp:",
+      wa_apt: "Zdravo! Zanima me noćenje u apartmanu \"{n}\". Datum: ",
       wh_map: "Otvori u Google mapama", term_alt: "Terminal Aerodroma Podgorica", map_title: "Mapa: Parking Aerodrom Delic",
       faq_h: "Pitanja",
       q1: "Kako da rezervišem mjesto?", a1: "Pišite nam na WhatsApp ili pozovite i recite kada dolazite i kada se vraćate.",
       q2: "Kako se plaća?", a2: "Gotovinom.",
       q3: "Koliko košta mjesec dana?", a3: "Cijenu za mjesec dana dogovaramo. Pišite nam na WhatsApp.",
-      q4: "Mogu li prenoćiti prije ranog leta?", a4: "Da, na istoj adresi imamo tri apartmana. Rezervišu se preko Booking.com.",
+      q4: "Mogu li prenoćiti prije ranog leta?", a4: "Da, na istoj adresi imamo tri apartmana. Rezervišite direktno kod nas, pozivom ili na WhatsApp.",
       credits: "Fotografija terminala:", made: "Sajt:",
       wa_hi: "Zdravo! Zanima me parking kod aerodroma.",
       wa_book: "Zdravo! Želim da rezervišem parking.", wa_in: "Ostavljam auto", wa_out: "Preuzimam auto", wa_at: "u",
@@ -68,14 +69,15 @@
       in_h: "What you get", in1: "Free shuttle to the airport and back", in2: "Video surveillance", in3: "Overnight stay in our apartments",
       in4: "Cash payment", pr_btn: "Check your price",
       wh_h: "Where we are", wh_addr: "47 ulica, Golubovci, near Podgorica Airport",
-      stay_h: "Stay the night before an early flight", stay_lead: "We have three apartments at the same address. Stay overnight, leave the car with us and we drive you to the airport in the morning.",
-      apt_on: "on Booking.com", apt_rev: "reviews", apt_btn: "View on Booking.com",
+      stay_h: "Stay the night before an early flight", stay_lead: "We have three apartments at the same address. Stay overnight, leave the car with us and we drive you to the airport in the morning. Book directly with us.",
+      apt_on: "on Booking.com", apt_rev: "reviews", apt_wa: "Ask for dates", apt_call: "Apartment bookings, call or WhatsApp:",
+      wa_apt: "Hello! I'm interested in a night at \"{n}\". Date: ",
       wh_map: "Open in Google Maps", term_alt: "Podgorica Airport terminal", map_title: "Map: Parking Aerodrom Delic",
       faq_h: "Questions",
       q1: "How do I book a space?", a1: "Message us on WhatsApp or call, and tell us when you arrive and when you fly back.",
       q2: "How do I pay?", a2: "In cash.",
       q3: "How much is a month?", a3: "We agree the monthly price with you. Message us on WhatsApp.",
-      q4: "Can I stay overnight before an early flight?", a4: "Yes, we have three apartments at the same address. They are booked on Booking.com.",
+      q4: "Can I stay overnight before an early flight?", a4: "Yes, we have three apartments at the same address. Book directly with us by phone or WhatsApp.",
       credits: "Terminal photo:", made: "Website:",
       wa_hi: "Hello! I'm interested in airport parking.",
       wa_book: "Hello! I'd like to book parking.", wa_in: "Drop-off", wa_out: "Pick-up", wa_at: "at",
@@ -116,6 +118,7 @@
     document.querySelectorAll("[data-num]").forEach(function (el) { var n = el.getAttribute("data-num"); el.textContent = lang === "en" ? n.replace(",", ".") : n; });
     document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     document.querySelectorAll(".js-wa").forEach(function (a) { a.href = waLink(t("wa_hi")); });
+    document.querySelectorAll(".js-apt").forEach(function (a) { a.href = waLink(t("wa_apt").replace("{n}", a.dataset.apt)); });
     document.title = lang === "en" ? "Parking Aerodrom Delic · Parking at Podgorica Airport" : "Parking Aerodrom Delic · Parking kod Aerodroma Podgorica";
     renderTable();
     calc(false);
