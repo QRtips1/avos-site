@@ -15,7 +15,7 @@
       lead: "Ostavite auto kod nas, a do aerodroma i nazad vozimo vas besplatno.",
       f_price: "{p} za 24 sata", f_term: "Besplatan prevoz do aerodroma", f_cam: "Video nadzor",
       btn_wa: "Rezerviši na WhatsApp", btn_call: "Pozovi",
-      hero_alt: "Automobili na parkingu Aerodrom Delić",
+      hero_alt: "Automobili na parkingu Aerodrom Delic",
       t_title: "Koliko košta?", t_in: "Ostavljate auto", t_out: "Preuzimate auto", t_date: "Datum", t_time: "Vrijeme",
       t_err: "Preuzimanje mora biti poslije dolaska.", t_pax: "Putnika", t_plate: "Tablice", t_opt: "(nije obavezno)",
       t_days: "Broj dana", t_price: "Cijena", t_note: "Prevoz do aerodroma i nazad je besplatan.",
@@ -31,7 +31,7 @@
       in_h: "Šta dobijate", in1: "Besplatan prevoz do aerodroma i nazad", in2: "Video nadzor", in3: "Mogućnost noćenja u apartmanu",
       in4: "Plaćanje gotovinom", pr_btn: "Izračunaj cijenu",
       wh_h: "Gdje smo", wh_addr: "47 ulica, Podgorica, kod Aerodroma",
-      wh_map: "Otvori u Google mapama", term_alt: "Terminal Aerodroma Podgorica", map_title: "Mapa: Parking Aerodrom Delić",
+      wh_map: "Otvori u Google mapama", term_alt: "Terminal Aerodroma Podgorica", map_title: "Mapa: Parking Aerodrom Delic",
       faq_h: "Pitanja",
       q1: "Kako da rezervišem mjesto?", a1: "Pišite nam na WhatsApp ili pozovite i recite kada dolazite i kada se vraćate.",
       q2: "Kako se plaća?", a2: "Gotovinom.",
@@ -50,7 +50,7 @@
       lead: "Leave your car with us and we drive you to the airport and back for free.",
       f_price: "{p} per 24 hours", f_term: "Free airport shuttle", f_cam: "Video surveillance",
       btn_wa: "Book on WhatsApp", btn_call: "Call",
-      hero_alt: "Cars at Parking Aerodrom Delić",
+      hero_alt: "Cars at Parking Aerodrom Delic",
       t_title: "What will it cost?", t_in: "Drop-off", t_out: "Pick-up", t_date: "Date", t_time: "Time",
       t_err: "Pick-up must be after drop-off.", t_pax: "Passengers", t_plate: "Licence plate", t_opt: "(optional)",
       t_days: "Days", t_price: "Price", t_note: "The shuttle to the airport and back is free.",
@@ -66,7 +66,7 @@
       in_h: "What you get", in1: "Free shuttle to the airport and back", in2: "Video surveillance", in3: "Overnight stay in our apartment",
       in4: "Cash payment", pr_btn: "Check your price",
       wh_h: "Where we are", wh_addr: "47 ulica, Podgorica, near the airport",
-      wh_map: "Open in Google Maps", term_alt: "Podgorica Airport terminal", map_title: "Map: Parking Aerodrom Delić",
+      wh_map: "Open in Google Maps", term_alt: "Podgorica Airport terminal", map_title: "Map: Parking Aerodrom Delic",
       faq_h: "Questions",
       q1: "How do I book a space?", a1: "Message us on WhatsApp or call, and tell us when you arrive and when you fly back.",
       q2: "How do I pay?", a2: "In cash.",
@@ -111,7 +111,7 @@
     document.querySelectorAll("[data-i18n-title]").forEach(function (el) { el.title = t(el.getAttribute("data-i18n-title")); });
     document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     document.querySelectorAll(".js-wa").forEach(function (a) { a.href = waLink(t("wa_hi")); });
-    document.title = lang === "en" ? "Parking Aerodrom Delić · Parking at Podgorica Airport" : "Parking Aerodrom Delić · Parking kod Aerodroma Podgorica";
+    document.title = lang === "en" ? "Parking Aerodrom Delic · Parking at Podgorica Airport" : "Parking Aerodrom Delic · Parking kod Aerodroma Podgorica";
     renderTable();
     calc(false);
     store("delic-lang", lang);
