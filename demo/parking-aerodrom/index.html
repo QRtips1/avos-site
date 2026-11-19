@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="./img/hero-m.jpg" media="(max-width: 959px)">
-<link rel="stylesheet" href="./style.css?v=10">
+<link rel="stylesheet" href="./style.css?v=11">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -130,11 +130,25 @@
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in1">Besplatan prevoz do aerodroma i nazad</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in2">Video nadzor</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in3">Noćenje u apartmanu na istoj adresi</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><a href="#nocenje" data-i18n="in3">Noćenje u apartmanu na istoj adresi</a></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in4">Plaćanje gotovinom</span></li>
         </ul>
       </div>
       <a class="btn btn-y js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="btn_wa">Rezerviši na WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec stay" id="nocenje" aria-labelledby="h-stay">
+  <div class="wrap stay-grid">
+    <div>
+      <h2 id="h-stay" data-i18n="stay_h">Noćenje prije ranog leta</h2>
+      <p class="sec-lead" data-i18n="stay_lead">Na istoj adresi imamo apartmane. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom.</p>
+      <p class="stay-bk" data-i18n="stay_bk">Apartmane ćete naći na Booking.com pod imenom Apartmani Delic.</p>
+    </div>
+    <div class="stay-ph">
+      <img src="./img/soba-1.jpg" width="720" height="960" loading="lazy" alt="Spavaća soba u apartmanu" data-i18n-alt="stay_alt1">
+      <img src="./img/soba-2.jpg" width="720" height="960" loading="lazy" alt="Bračni krevet u apartmanu" data-i18n-alt="stay_alt2">
     </div>
   </div>
 </section>
@@ -193,6 +207,6 @@
   <a class="bar-wa js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=10"></script>
+<script src="./app.js?v=11"></script>
 </body>
 </html>

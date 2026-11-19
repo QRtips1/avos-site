@@ -146,6 +146,12 @@ button,input,select{font:inherit;color:inherit}
   .pr-foot .btn{width:auto;padding:0 28px}
 }
 
+/* overnight stay */
+.stay-grid{display:grid;gap:24px}
+.stay-bk{margin-top:12px;font-weight:600}
+.stay-ph{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stay-ph img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r)}
+@media (min-width:960px){.stay-grid{grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}.stay-ph{gap:16px}}
 .where{background:var(--papir);border-top:1px solid var(--rub)}
 
 /* where */
