@@ -104,21 +104,52 @@ button,input,select{font:inherit;color:inherit}
   .steps li:not(:last-child)::before{left:56px;right:-28px;top:21px;bottom:auto;border-left:0;border-top:2px dashed #AEB4B0}
 }
 
-/* prices */
-.prices{background:var(--papir);border-block:1px solid var(--rub)}
-.pr-grid{display:grid;gap:40px}
-.ptable{width:100%;border-collapse:collapse;margin-top:28px;font-size:18px}
-.ptable th,.ptable td{text-align:left;padding:14px 0;border-bottom:1px solid var(--rub);font-weight:400}
-.ptable td{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:16px}
-.ptable tr:last-child th{color:var(--siva)}
-.pr-more{margin-top:18px;color:var(--siva)}
-.incl{background:var(--beton);border-radius:var(--r);padding:24px;align-self:start}
-.incl h3{font-size:1.3rem;font-weight:800}
-.incl ul{list-style:none;margin:14px 0 22px;padding:0}
-.incl li{display:flex;gap:12px;align-items:flex-start;padding:7px 0}
-.incl svg{color:var(--znak);margin-top:1px}
-.incl .btn{width:100%}
-@media (min-width:960px){.pr-grid{grid-template-columns:1.15fr .85fr;gap:72px;align-items:start}.incl{margin-top:8px;padding:32px}}
+/* prices: parking tickets on asphalt */
+.prices{position:relative;background:var(--asfalt);color:#fff;overflow:hidden}
+.prices::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 4px,transparent 4px 132px);pointer-events:none}
+.prices .sec-lead{color:#C3C9CF}
+.tix{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:14px}
+.tk{display:flex;filter:drop-shadow(0 12px 24px rgba(0,0,0,.35))}
+.tk-a,.tk-b{background:var(--papir);color:var(--asfalt)}
+.tk-a{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;padding:16px 16px 16px 18px;border-radius:var(--r) 0 0 var(--r);
+  -webkit-mask:radial-gradient(circle at 100% 0,#0000 11px,#000 11.5px) top/100% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 11.5px) bottom/100% 51% no-repeat;mask:radial-gradient(circle at 100% 0,#0000 11px,#000 11.5px) top/100% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 11.5px) bottom/100% 51% no-repeat}
+.tk-b{position:relative;width:52%;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:14px 16px 14px 20px;border-radius:0 var(--r) var(--r) 0;
+  -webkit-mask:radial-gradient(circle at 0 0,#0000 11px,#000 11.5px) top/100% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 11px,#000 11.5px) bottom/100% 51% no-repeat;mask:radial-gradient(circle at 0 0,#0000 11px,#000 11.5px) top/100% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 11px,#000 11.5px) bottom/100% 51% no-repeat}
+.tk-b::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;border-left:2px dashed rgba(28,33,39,.35)}
+.sign-s{width:30px;height:30px;font-size:19px;border-radius:6px;flex:none}
+.tk-l{font-weight:800;font-size:1.25rem;line-height:1.1}
+.tk-badge{background:var(--znak);color:#fff;font-size:13px;font-weight:700;line-height:1;padding:6px 9px 5px;border-radius:999px;white-space:nowrap}
+.tk-p{font-weight:800;font-size:2.5rem;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tk-p.tk-txt{font-size:1.45rem;letter-spacing:-.01em;line-height:1.15;white-space:normal}
+.tk-s{font-size:14px;line-height:1.3;color:var(--siva)}
+.tk-hot .tk-b{background:var(--linija)}
+.tk-hot .tk-s{color:var(--asfalt)}
+.pr-foot{display:grid;gap:20px;margin-top:28px}
+.incl{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:20px}
+.incl h3{font-size:1.2rem;font-weight:800}
+.incl ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px 28px}
+.incl li{display:flex;gap:12px;align-items:flex-start;padding:6px 0;color:#E6E8EA}
+.incl svg{color:var(--linija);margin-top:1px}
+.incl li a{color:#fff;text-decoration:underline;text-decoration-color:var(--linija);text-underline-offset:3px}
+.pr-foot .btn{width:100%}
+@media (min-width:600px) and (max-width:959px){.tix{max-width:560px}.incl ul{grid-template-columns:1fr 1fr}.pr-foot .btn{width:auto;justify-self:start;padding:0 28px}}
+@media (min-width:960px){
+  .tix{grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;margin-top:40px}
+  .tk{flex-direction:column}
+  .tk-a{flex:none;flex-direction:row;justify-content:flex-start;align-items:center;gap:10px;padding:18px 22px 20px;border-radius:var(--r) var(--r) 0 0;
+    -webkit-mask:radial-gradient(circle at 0 100%,#0000 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 11.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 100%,#0000 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 11.5px) right/51% 100% no-repeat}
+  .tk-badge{margin-left:auto}
+  .tk-b{flex:1;width:auto;justify-content:flex-start;gap:8px;padding:24px 22px 26px;border-radius:0 0 var(--r) var(--r);
+    -webkit-mask:radial-gradient(circle at 0 0,#0000 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 0,#0000 11px,#000 11.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 0,#0000 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 0,#0000 11px,#000 11.5px) right/51% 100% no-repeat}
+  .tk-b::before{left:22px;right:22px;top:-1px;bottom:auto;border-left:0;border-top:2px dashed rgba(28,33,39,.35)}
+  .tk-p{font-size:clamp(3.2rem,5vw,4.4rem)}
+  .tk-p.tk-txt{font-size:clamp(2rem,2.8vw,2.5rem);padding-top:.35em}
+  .tk-s{font-size:15px}
+  .tk-hot{transform:translateY(-10px)}
+  .pr-foot{grid-template-columns:1fr auto;align-items:center;gap:32px;margin-top:36px}
+  .incl ul{grid-template-columns:1fr 1fr}
+  .pr-foot .btn{width:auto;padding:0 28px}
+}
 
 /* apartments */
 .apts{display:grid;gap:20px;margin-top:28px}
@@ -136,7 +167,6 @@ button,input,select{font:inherit;color:inherit}
 .apt-ig{margin-top:6px;font-size:17px}
 .apt-ig a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--znak);font-weight:700;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--rub);text-underline-offset:3px}
 .apt-ig svg{width:20px;height:20px;flex:none}
-.incl li a{color:inherit;text-decoration:underline;text-decoration-color:var(--znak);text-underline-offset:3px}
 @media (max-width:767px){
   .apts{gap:12px}
   .apt{display:grid;grid-template-columns:118px 1fr}

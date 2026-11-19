@@ -20,8 +20,8 @@
       s2_h: "Vozimo vas do aerodroma", s2_p: "Prevoz do terminala je besplatan.",
       s3_h: "Po povratku nas pozovite", s3_p: "Kad sletite, javite se i besplatno vas vozimo do auta.",
       pr_h: "Cijene", pr_lead: "3 € za svaka 24 sata, sa besplatnim prevozom do aerodroma i nazad.",
-      pr_cap: "Cijene parkinga", pr_more: "Ostavljate auto na mjesec dana ili duže? Pišite nam i dogovorićemo cijenu.",
-      r_day: "24 sata", r_week: "7 dana", r_month: "Mjesec dana",
+      r_day: "24 sata", r_week: "7 dana", r_month: "Mjesec dana", r_pop: "Najčešći izbor",
+      r_day_s: "Prevoz do aerodroma uključen", r_week_s: "{d} po danu", r_month_s: "Pišite nam na WhatsApp",
       in_h: "Šta dobijate", in1: "Besplatan prevoz do aerodroma i nazad", in2: "Video nadzor", in3: "Mogućnost noćenja u apartmanu",
       in4: "Plaćanje gotovinom",
       wh_h: "Gdje smo", wh_addr: "47 ulica, Golubovci, kod Aerodroma Podgorica",
@@ -52,8 +52,8 @@
       s2_h: "We drive you to the airport", s2_p: "The ride to the terminal is free.",
       s3_h: "Call us when you're back", s3_p: "Once you land, give us a call and we drive you to your car for free.",
       pr_h: "Prices", pr_lead: "€3 for every 24 hours, with a free shuttle to the airport and back.",
-      pr_cap: "Parking prices", pr_more: "Leaving the car for a month or longer? Message us and we'll agree a price.",
-      r_day: "24 hours", r_week: "7 days", r_month: "One month",
+      r_day: "24 hours", r_week: "7 days", r_month: "One month", r_pop: "Most popular",
+      r_day_s: "Airport shuttle included", r_week_s: "{d} a day", r_month_s: "Message us on WhatsApp",
       in_h: "What you get", in1: "Free shuttle to the airport and back", in2: "Video surveillance", in3: "Overnight stay in our apartments",
       in4: "Cash payment",
       wh_h: "Where we are", wh_addr: "47 ulica, Golubovci, near Podgorica Airport",
@@ -82,12 +82,8 @@
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 
-  function renderTable() {
-    var rows = [[t("r_day"), money(DAY)], [t("r_week"), money(7 * DAY)], [t("r_month"), t("t_month")]];
-    document.getElementById("ptable").innerHTML = rows.map(function (r) {
-      return "<tr><th scope=\"row\">" + r[0] + "</th><td>" + r[1] + "</td></tr>";
-    }).join("");
-  }
+  // whole euros for the big ticket prices: 21 € / €21
+  function eur(v) { return lang === "en" ? "€" + v : v + "\u00a0€"; }
 
   function setLang(l) {
     lang = T[l] ? l : "me";
@@ -95,7 +91,7 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var k = el.getAttribute("data-i18n");
       var v = t(k);
-      if (k === "f_price") v = v.replace("{p}", money(DAY));
+      v = v.replace("{p}", money(DAY)).replace("{d}", eur(DAY));
       el.textContent = v;
     });
     document.querySelectorAll("[data-i18n-alt]").forEach(function (el) { el.alt = t(el.getAttribute("data-i18n-alt")); });
@@ -106,7 +102,7 @@
     document.querySelectorAll(".js-wa").forEach(function (a) { a.href = waLink(t("wa_hi")); });
     document.querySelectorAll(".js-apt").forEach(function (a) { a.href = waLink(t("wa_apt").replace("{n}", a.dataset.apt)); });
     document.title = lang === "en" ? "Parking Aerodrom Delic · Parking at Podgorica Airport" : "Parking Aerodrom Delic · Parking kod Aerodroma Podgorica";
-    renderTable();
+    document.querySelectorAll("[data-eur]").forEach(function (el) { el.textContent = eur(+el.getAttribute("data-eur")); });
     store("delic-lang", lang);
   }
 

@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="./img/hero-m.jpg" media="(max-width: 959px)">
-<link rel="stylesheet" href="./style.css?v=7">
+<link rel="stylesheet" href="./style.css?v=8">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -107,25 +107,34 @@
 </section>
 
 <section class="sec prices" id="cijene" aria-labelledby="h-pr">
-  <div class="wrap pr-grid">
-    <div>
-      <h2 id="h-pr" data-i18n="pr_h">Cijene</h2>
-      <p class="sec-lead" data-i18n="pr_lead">3 € za svaka 24 sata, sa besplatnim prevozom do aerodroma i nazad.</p>
-      <table class="ptable">
-        <caption class="sr" data-i18n="pr_cap">Cijene parkinga po broju dana</caption>
-        <tbody id="ptable"><tr><th scope="row">24 sata</th><td>3,00&nbsp;€</td></tr><tr><th scope="row">7 dana</th><td>21,00&nbsp;€</td></tr><tr><th scope="row">Mjesec dana</th><td>Po dogovoru</td></tr></tbody>
-      </table>
-      <p class="pr-more" data-i18n="pr_more">Ostavljate auto na mjesec dana ili duže? Pišite nam i dogovorićemo cijenu.</p>
-    </div>
-    <div class="incl">
-      <h3 data-i18n="in_h">Šta dobijate</h3>
-      <ul>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in1">Besplatan prevoz do aerodroma i nazad</span></li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in2">Video nadzor</span></li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><a href="#nocenje" data-i18n="in3">Mogućnost noćenja u apartmanu</a></li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in4">Plaćanje gotovinom</span></li>
-      </ul>
-      <a class="btn btn-d js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="btn_wa">Rezerviši na WhatsApp</span></a>
+  <div class="wrap">
+    <h2 id="h-pr" data-i18n="pr_h">Cijene</h2>
+    <p class="sec-lead" data-i18n="pr_lead">3 € za svaka 24 sata, sa besplatnim prevozom do aerodroma i nazad.</p>
+    <ul class="tix">
+      <li class="tk">
+        <div class="tk-a"><span class="sign sign-s" aria-hidden="true">P</span><span class="tk-l" data-i18n="r_day">24 sata</span></div>
+        <div class="tk-b"><b class="tk-p" data-eur="3">3&nbsp;€</b><span class="tk-s" data-i18n="r_day_s">Prevoz do aerodroma uključen</span></div>
+      </li>
+      <li class="tk tk-hot">
+        <div class="tk-a"><span class="sign sign-s" aria-hidden="true">P</span><span class="tk-l" data-i18n="r_week">7 dana</span><span class="tk-badge" data-i18n="r_pop">Najčešći izbor</span></div>
+        <div class="tk-b"><b class="tk-p" data-eur="21">21&nbsp;€</b><span class="tk-s" data-i18n="r_week_s">3 € po danu</span></div>
+      </li>
+      <li class="tk">
+        <div class="tk-a"><span class="sign sign-s" aria-hidden="true">P</span><span class="tk-l" data-i18n="r_month">Mjesec dana</span></div>
+        <div class="tk-b"><b class="tk-p tk-txt" data-i18n="t_month">Po dogovoru</b><span class="tk-s" data-i18n="r_month_s">Pišite nam na WhatsApp</span></div>
+      </li>
+    </ul>
+    <div class="pr-foot">
+      <div class="incl">
+        <h3 data-i18n="in_h">Šta dobijate</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in1">Besplatan prevoz do aerodroma i nazad</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in2">Video nadzor</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><a href="#nocenje" data-i18n="in3">Mogućnost noćenja u apartmanu</a></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in4">Plaćanje gotovinom</span></li>
+        </ul>
+      </div>
+      <a class="btn btn-y js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="btn_wa">Rezerviši na WhatsApp</span></a>
     </div>
   </div>
 </section>
@@ -219,6 +228,6 @@
   <a class="bar-wa js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=7"></script>
+<script src="./app.js?v=8"></script>
 </body>
 </html>
