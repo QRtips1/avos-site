@@ -153,6 +153,9 @@ button,input,select{font:inherit;color:inherit}
 .apt-b{display:flex;flex-direction:column;gap:10px;flex:1;padding:16px 18px 18px}
 .apt h3{font-size:1.2rem;font-weight:800}
 .apt .btn{margin-top:auto;width:100%}
+.bk{font-size:15px}
+.bk a{display:inline-block;padding:2px 0;color:var(--siva);text-decoration:underline;text-decoration-color:var(--rub);text-underline-offset:3px}
+.bk a:hover{color:var(--znak)}
 .apt-call{margin-top:20px;font-size:17px}
 .apt-call a{color:var(--asfalt);font-weight:700;white-space:nowrap}
 .apt-ig{margin-top:6px;font-size:17px}
