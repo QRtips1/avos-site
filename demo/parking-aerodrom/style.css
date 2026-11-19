@@ -146,12 +146,27 @@ button,input,select{font:inherit;color:inherit}
   .pr-foot .btn{width:auto;padding:0 28px}
 }
 
-/* overnight stay */
-.stay-grid{display:grid;gap:24px}
-.stay-bk{margin-top:12px;font-weight:600}
-.stay-ph{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stay-ph img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r)}
-@media (min-width:960px){.stay-grid{grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}.stay-ph{gap:16px}}
+/* apartments */
+.apts{display:grid;gap:20px;margin-top:28px}
+.apt{display:flex;flex-direction:column;background:var(--papir);border:1px solid var(--rub);border-radius:var(--r);overflow:hidden}
+.apt img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.apt-b{display:flex;flex-direction:column;gap:10px;flex:1;padding:16px 18px 18px}
+.apt h3{font-size:1.2rem;font-weight:800}
+.apt .btn{margin-top:auto;width:100%}
+.apt-call{margin-top:20px;font-size:17px}
+.apt-call a{color:var(--asfalt);font-weight:700;white-space:nowrap}
+.apt-ig{margin-top:6px;font-size:17px}
+.apt-ig a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--znak);font-weight:700;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--rub);text-underline-offset:3px}
+.apt-ig svg{width:20px;height:20px;flex:none}
+@media (max-width:767px){
+  .apts{gap:12px}
+  .apt{display:grid;grid-template-columns:118px 1fr}
+  .apt img{height:100%;aspect-ratio:auto;min-height:118px}
+  .apt-b{padding:12px 14px 14px;gap:8px}
+  .apt h3{font-size:1.05rem}
+  .apt .btn{min-height:44px;padding:0 10px;font-size:15px}
+}
+@media (min-width:768px){.apts{grid-template-columns:repeat(3,1fr)}}
 .where{background:var(--papir);border-top:1px solid var(--rub)}
 
 /* where */

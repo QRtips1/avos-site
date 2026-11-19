@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="./img/hero-m.jpg" media="(max-width: 959px)">
-<link rel="stylesheet" href="./style.css?v=11">
+<link rel="stylesheet" href="./style.css?v=12">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -140,16 +140,34 @@
 </section>
 
 <section class="sec stay" id="nocenje" aria-labelledby="h-stay">
-  <div class="wrap stay-grid">
-    <div>
-      <h2 id="h-stay" data-i18n="stay_h">Noćenje prije ranog leta</h2>
-      <p class="sec-lead" data-i18n="stay_lead">Na istoj adresi imamo apartmane. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom.</p>
-      <p class="stay-bk" data-i18n="stay_bk">Apartmane ćete naći na Booking.com pod imenom Apartmani Delic.</p>
+  <div class="wrap">
+    <h2 id="h-stay" data-i18n="stay_h">Noćenje prije ranog leta</h2>
+    <p class="sec-lead" data-i18n="stay_lead">Na istoj adresi imamo tri apartmana. Prenoćite, auto ostaje kod nas, a ujutru vas vozimo na aerodrom. Rezervišite direktno kod nas.</p>
+    <div class="apts">
+      <article class="apt">
+        <img src="./img/apt-1.jpg" width="800" height="600" loading="lazy" alt="Spavaća soba, Apartmani Delic" data-i18n-alt="apt_alt1">
+        <div class="apt-b">
+          <h3 translate="no">Apartmani Delic</h3>
+          <a class="btn btn-d js-apt" data-apt="Apartmani Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
+        </div>
+      </article>
+      <article class="apt">
+        <img src="./img/apt-2.jpg" width="800" height="600" loading="lazy" alt="Spavaća soba, Airport apartment Delic" data-i18n-alt="apt_alt2">
+        <div class="apt-b">
+          <h3 translate="no">Airport apartment Delic</h3>
+          <a class="btn btn-d js-apt" data-apt="Airport apartment Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
+        </div>
+      </article>
+      <article class="apt">
+        <img src="./img/apt-3.jpg" width="537" height="403" loading="lazy" alt="Detalj enterijera, Studio apartman Delic" data-i18n-alt="apt_alt3">
+        <div class="apt-b">
+          <h3 translate="no">Studio apartman Delic</h3>
+          <a class="btn btn-d js-apt" data-apt="Studio apartman Delic" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="apt_wa">Pitaj za termin</span></a>
+        </div>
+      </article>
     </div>
-    <div class="stay-ph">
-      <img src="./img/soba-1.jpg" width="720" height="960" loading="lazy" alt="Spavaća soba u apartmanu" data-i18n-alt="stay_alt1">
-      <img src="./img/soba-2.jpg" width="720" height="960" loading="lazy" alt="Bračni krevet u apartmanu" data-i18n-alt="stay_alt2">
-    </div>
+    <p class="apt-call"><span data-i18n="apt_call">Rezervacije apartmana, poziv i WhatsApp:</span> <a href="tel:+38269457717" translate="no">+382 69 457 717</a></p>
+    <p class="apt-ig"><span data-i18n="apt_ig">Više fotografija na Instagramu:</span> <a href="https://www.instagram.com/parking.apartmani.delic/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span translate="no">@parking.apartmani.delic</span></a></p>
   </div>
 </section>
 
@@ -182,7 +200,7 @@
     <details><summary data-i18n="q1">Kako da rezervišem mjesto?</summary><p data-i18n="a1">Pišite nam na WhatsApp ili pozovite i recite kada dolazite i kada se vraćate.</p></details>
     <details><summary data-i18n="q2">Kako se plaća?</summary><p data-i18n="a2">Gotovinom.</p></details>
     <details><summary data-i18n="q3">Koliko košta mjesec dana?</summary><p data-i18n="a3">Cijenu za mjesec dana dogovaramo. Pišite nam na WhatsApp.</p></details>
-    <details><summary data-i18n="q4">Mogu li prenoćiti prije ranog leta?</summary><p data-i18n="a4">Da, na istoj adresi imamo tri apartmana. Naći ćete ih na Booking.com pod imenom Apartmani Delic.</p></details>
+    <details><summary data-i18n="q4">Mogu li prenoćiti prije ranog leta?</summary><p data-i18n="a4">Da, na istoj adresi imamo tri apartmana. Rezervišite direktno kod nas, pozivom ili na WhatsApp.</p></details>
   </div>
 </section>
 </main>
@@ -207,6 +225,6 @@
   <a class="bar-wa js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=11"></script>
+<script src="./app.js?v=12"></script>
 </body>
 </html>
