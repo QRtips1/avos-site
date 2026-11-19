@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="./img/hero-m.jpg" media="(max-width: 959px)">
-<link rel="stylesheet" href="./style.css?v=6">
+<link rel="stylesheet" href="./style.css?v=7">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -79,45 +79,6 @@
         <a class="btn btn-w" href="tel:+38269457717"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="btn_call">Pozovi</span></a>
       </div>
     </div>
-
-    <form class="ticket" id="ticket" novalidate aria-labelledby="t-title">
-      <div class="t-top">
-        <div class="t-head">
-          <span class="sign sign-s" aria-hidden="true">P</span>
-          <h2 id="t-title" data-i18n="t_title">Koliko košta?</h2>
-        </div>
-        <fieldset>
-          <legend data-i18n="t_in">Ostavljate auto</legend>
-          <div class="row2">
-            <label><span data-i18n="t_date">Datum</span><input type="date" id="d1" required></label>
-            <label><span data-i18n="t_time">Vrijeme</span><input type="time" id="h1t" value="07:00" step="900" required></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend data-i18n="t_out">Preuzimate auto</legend>
-          <div class="row2">
-            <label><span data-i18n="t_date">Datum</span><input type="date" id="d2" required aria-describedby="err2"></label>
-            <label><span data-i18n="t_time">Vrijeme</span><input type="time" id="h2t" value="19:00" step="900" required></label>
-          </div>
-          <p class="err" id="err2" hidden data-i18n="t_err">Preuzimanje mora biti poslije dolaska.</p>
-        </fieldset>
-        <div class="row2">
-          <label><span data-i18n="t_pax">Putnika</span>
-            <select id="pax"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
-          </label>
-          <label><span><span data-i18n="t_plate">Tablice</span> <small data-i18n="t_opt">(nije obavezno)</small></span><input type="text" id="plate" autocomplete="off" autocapitalize="characters" maxlength="12" placeholder="PG AB123"></label>
-        </div>
-      </div>
-      <div class="t-stub">
-        <div class="t-sum" aria-live="polite">
-          <p><span data-i18n="t_days">Broj dana</span><b id="o-days">7</b></p>
-          <p><span data-i18n="t_price">Cijena</span><b id="o-price">25,00&nbsp;€</b></p>
-        </div>
-        <p class="t-note" data-i18n="t_note">Prevoz do aerodroma i nazad je besplatan.</p>
-        <button class="btn btn-d" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="t_send">Rezerviši na WhatsApp</span></button>
-        <p class="t-alt"><span data-i18n="t_alt">Radije zovete?</span> <a href="tel:+38269457717" translate="no">+382 69 457 717</a></p>
-      </div>
-    </form>
   </div>
 </section>
 
@@ -164,7 +125,7 @@
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><a href="#nocenje" data-i18n="in3">Mogućnost noćenja u apartmanu</a></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="in4">Plaćanje gotovinom</span></li>
       </ul>
-      <a class="btn btn-d js-book" href="#ticket"><span data-i18n="pr_btn">Izračunaj cijenu</span></a>
+      <a class="btn btn-d js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="btn_wa">Rezerviši na WhatsApp</span></a>
     </div>
   </div>
 </section>
@@ -258,6 +219,6 @@
   <a class="bar-wa js-wa" href="https://wa.me/38269457717" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=6"></script>
+<script src="./app.js?v=7"></script>
 </body>
 </html>
