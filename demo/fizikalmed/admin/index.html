@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fizikalmed · Uređivanje sajta</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E4F8F">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;1,700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./admin.css?v=2">
+</head>
+<body>
+
+<section class="login" id="login" hidden>
+  <form class="login-box" id="login-form">
+    <img src="../img/mark.png" width="54" height="58" alt="">
+    <h1 translate="no">Fizikalmed</h1>
+    <p data-u="login_sub">Uređivanje sajta</p>
+    <label for="pw" data-u="pw">Lozinka</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <p class="err" id="pw-err" hidden data-u="pw_err">Pogrešna lozinka.</p>
+    <button class="btn main" type="submit" data-u="enter">Uđi</button>
+    <p class="hint" data-u="pw_hint">Demo lozinka: fizikalmed</p>
+  </form>
+</section>
+
+<div class="app" id="app" hidden>
+  <header class="bar">
+    <div class="bar-in">
+      <a class="brand" href="../" translate="no"><img src="../img/mark.png" width="54" height="58" alt=""><b>Fizikalmed</b></a>
+      <div class="seg" role="group" aria-label="UI">
+        <button type="button" data-ui="sr" aria-pressed="true">SR</button>
+        <button type="button" data-ui="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn line" href="../" target="_blank" rel="noopener" data-u="open_site">Otvori sajt</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="note" data-u="demo_note">Demo: izmjene se čuvaju samo u ovom pregledaču. Na pravom sajtu čuvaju se na serveru i odmah ih vide svi posjetioci.</p>
+
+    <div class="row">
+      <div class="seg" role="group" aria-label="Jezik teksta">
+        <span class="seg-l" data-u="content_lang">Jezik teksta:</span>
+        <button type="button" data-cl="sr" aria-pressed="true">SR</button>
+        <button type="button" data-cl="en" aria-pressed="false">EN</button>
+        <button type="button" data-cl="ru" aria-pressed="false">RU</button>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+    </div>
+
+    <nav class="tabs" role="tablist">
+      <button type="button" role="tab" data-tab="texts" aria-selected="true" data-u="tab_texts">Tekstovi i portret</button>
+      <button type="button" role="tab" data-tab="treatments" aria-selected="false" data-u="tab_treat">Liječenje</button>
+      <button type="button" role="tab" data-tab="equipment" aria-selected="false" data-u="tab_equip">Oprema</button>
+      <button type="button" role="tab" data-tab="diplomas" aria-selected="false" data-u="tab_dipl">Diplome</button>
+      <button type="button" role="tab" data-tab="gallery" aria-selected="false" data-u="tab_gal">Fotografije</button>
+      <button type="button" role="tab" data-tab="contacts" aria-selected="false" data-u="tab_cont">Kontakti</button>
+    </nav>
+
+    <div id="panel" class="panel" role="tabpanel"></div>
+
+    <div class="foot">
+      <button type="button" class="btn danger" id="reset" data-u="reset">Vrati početni sadržaj</button>
+      <button type="button" class="btn line" id="logout" data-u="logout">Odjava</button>
+    </div>
+  </main>
+</div>
+
+<script src="../content.js?v=1"></script>
+<script src="./admin.js?v=1"></script>
+</body>
+</html>

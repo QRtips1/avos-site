@@ -19,7 +19,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S6Y27FR4XR');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;1,700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css?v=5">
+<link rel="stylesheet" href="./style.css?v=7">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -32,6 +32,10 @@
   <symbol id="i-plan" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 4V2.8h6V4M8.5 10h7M8.5 13.5h7M8.5 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5H16l.5-3h-3V8.8c0-.9.3-1.5 1.6-1.5h1.5V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.2H8v3h2.7V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M6 11h3l1.5-3 3 6 1.5-3h3M9 21h6M12 17v4"/></g></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
@@ -48,8 +52,8 @@
     <nav class="nav" aria-label="Meni" data-i18n-aria="nav_aria">
       <a href="#bol" data-i18n="nav_pain">Gdje boli</a>
       <a href="#lijecenje" data-i18n="nav_srv">Liječenje</a>
+      <a href="#ordinacija" data-i18n="nav_place">Ordinacija</a>
       <a href="#terapeut" data-i18n="nav_ther">Terapeut</a>
-      <a href="#pitanja" data-i18n="nav_faq">Pitanja</a>
       <a href="#kontakt" data-i18n="nav_cont">Kontakt</a>
     </nav>
     <div class="lang" role="group" aria-label="Jezik / Language / Язык">
@@ -65,23 +69,20 @@
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-in">
     <div class="hero-txt">
-      <h1 id="h1" data-i18n="h1">Fizikalna terapija u Podgorici</h1>
-      <p class="lead" data-i18n="lead">Bol u leđima, vratu ili zglobu? Pregled, terapija i program vježbi kod diplomiranog fizioterapeuta.</p>
+      <h1 id="h1" data-c="h1">Fizikalna terapija u Podgorici</h1>
+      <p class="lead" data-c="lead">Liječimo bol u leđima, vratu i zglobovima i pomažemo u oporavku poslije povreda i operacija.</p>
       <div class="cta">
         <a class="btn btn-main js-wa" href="https://wa.me/38264426864" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="btn_wa">Zakaži termin na WhatsApp</span></a>
-        <a class="btn btn-line" href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span translate="no">064 426 864</span></a>
+        <a class="btn btn-line js-tel" href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="js-tel-t" translate="no">064 426 864</span></a>
       </div>
     </div>
-    <figure class="hero-ph">
-      <img src="./img/hero.jpg" srcset="./img/hero-640.jpg 640w, ./img/hero.jpg 1000w" sizes="(min-width: 960px) 460px, 100vw" width="1000" height="1250" fetchpriority="high" alt="Aleksandar Vidić u ordinaciji Fizikalmed" data-i18n-alt="hero_alt">
-      <figcaption><b translate="no">Aleksandar Vidić</b><span data-i18n="role">fizioterapeut</span></figcaption>
-    </figure>
+    <div class="hero-ph" id="hero-ph"></div>
   </div>
   <div class="wrap">
     <ul class="trust">
       <li><svg aria-hidden="true"><use href="#i-cap"/></svg><span data-i18n="tr1">Diplomirani fizioterapeut, Medicinski fakultet UCG</span></li>
       <li><svg aria-hidden="true"><use href="#i-cert"/></svg><span data-i18n="tr2">Sertifikati iz dry needlinga, kuppinga i osteopatije</span></li>
-      <li><svg aria-hidden="true"><use href="#i-plan"/></svg><span data-i18n="tr3">Plan terapije i vježbe za kuću</span></li>
+      <li><svg aria-hidden="true"><use href="#i-plan"/></svg><span data-i18n="tr3">Individualan plan terapije za svakog pacijenta</span></li>
     </ul>
   </div>
 </section>
@@ -140,67 +141,8 @@
 <section class="treat" id="lijecenje" aria-labelledby="treat-h">
   <div class="wrap">
     <h2 id="treat-h" data-i18n="treat_h">Liječenje</h2>
-    <p class="sub" data-i18n="treat_sub">Tehnike biramo i kombinujemo poslije pregleda, tako da terapija odgovara upravo vašem problemu.</p>
-
-    <article class="tr">
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p1">Pacijent radi vježbu uz terapeuta</figcaption></figure>
-      <div class="tr-txt">
-        <h3 data-i18n="t1">Kineziterapija</h3>
-        <dl>
-          <dt data-i18n="what">Šta je</dt><dd data-i18n="w1">Program vježbi napravljen samo za vas. Prvo ih radimo zajedno u ordinaciji, a zatim ih nastavljate kod kuće.</dd>
-          <dt data-i18n="why">Za šta pomaže</dt><dd data-i18n="h1t">Vraća snagu, pokretljivost i stabilnost poslije povrede ili operacije. Smanjuje bol u leđima i vratu koji se stalno vraća.</dd>
-        </dl>
-        <p class="tags"><span data-i18n="k1a">Oporavak poslije operacije</span><span data-i18n="k1b">Hronični bol u leđima</span><span data-i18n="k1c">Sportske povrede</span></p>
-      </div>
-    </article>
-
-    <article class="tr">
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p2">Terapeut radi mobilizaciju vrata ili ramena</figcaption></figure>
-      <div class="tr-txt">
-        <h3 data-i18n="t2">Manuelna terapija i masaža</h3>
-        <dl>
-          <dt data-i18n="what">Šta je</dt><dd data-i18n="w2">Terapeut rukama radi na zglobovima i mišićima: mobilizacija, istezanje i medicinska masaža.</dd>
-          <dt data-i18n="why">Za šta pomaže</dt><dd data-i18n="h2t">Oslobađa ukočene zglobove i napete mišiće i vraća normalan pokret. Pomaže kod ukočenog vrata, bola u krstima i glavobolje od napetosti.</dd>
-        </dl>
-        <p class="tags"><span data-i18n="k2a">Ukočen vrat</span><span data-i18n="k2b">Bol u krstima</span><span data-i18n="k2c">Glavobolja od napetosti</span></p>
-      </div>
-    </article>
-
-    <article class="tr">
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p3">Igle na ramenu ili leđima, krupni plan</figcaption></figure>
-      <div class="tr-txt">
-        <h3 data-i18n="t3">Dry needling i elektroakupunktura</h3>
-        <dl>
-          <dt data-i18n="what">Šta je</dt><dd data-i18n="w3">Tanke sterilne igle postavljaju se u zategnute, bolne tačke u mišiću. Kod elektroakupunkture iglama se dodaje blaga električna stimulacija.</dd>
-          <dt data-i18n="why">Za šta pomaže</dt><dd data-i18n="h3t">Brzo opušta mišić koji drži bol i ograničava pokret. Koristi se kod bola u ramenu, vratu i leđima i kod sportskih povreda.</dd>
-        </dl>
-        <p class="tags"><span data-i18n="k3a">Bol u ramenu</span><span data-i18n="k3b">Bolne tačke u mišiću</span><span data-i18n="k3c">Sportske povrede</span></p>
-      </div>
-    </article>
-
-    <article class="tr">
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p4">Čašice na leđima pacijenta</figcaption></figure>
-      <div class="tr-txt">
-        <h3 data-i18n="t4">Kupping terapija</h3>
-        <dl>
-          <dt data-i18n="what">Šta je</dt><dd data-i18n="w4">Vakuum čašice postavljaju se na kožu i podižu tkivo ispod nje, pa se u tom dijelu pojačava protok krvi.</dd>
-          <dt data-i18n="why">Za šta pomaže</dt><dd data-i18n="h4t">Opušta napete i umorne mišiće i ubrzava oporavak. Pomaže kod bola u leđima i ramenima i poslije velikog sportskog napora.</dd>
-        </dl>
-        <p class="tags"><span data-i18n="k4a">Napeti mišići</span><span data-i18n="k4b">Bol u leđima</span><span data-i18n="k4c">Oporavak sportista</span></p>
-      </div>
-    </article>
-
-    <article class="tr">
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p5">Terapeut radi tehniku u predjelu trbuha</figcaption></figure>
-      <div class="tr-txt">
-        <h3 data-i18n="t5">Visceralna osteopatija</h3>
-        <dl>
-          <dt data-i18n="what">Šta je</dt><dd data-i18n="w5">Nježne manuelne tehnike kojima terapeut vraća pokretljivost tkivima u predjelu trbuha i grudnog koša.</dd>
-          <dt data-i18n="why">Za šta pomaže</dt><dd data-i18n="h5t">Koristi se kao dopuna terapiji kada bol u donjem dijelu leđa ili napetost u trbuhu ne prolaze samo uz vježbe i masažu.</dd>
-        </dl>
-        <p class="tags"><span data-i18n="k5a">Bol u donjem dijelu leđa</span><span data-i18n="k5b">Napetost u trbuhu</span></p>
-      </div>
-    </article>
+    <p class="sub" data-i18n="treat_sub">Poslije pregleda terapeut bira metode koje odgovaraju baš vama. Najbolji rezultat često daje njihova kombinacija.</p>
+    <div id="treat-list"></div>
   </div>
 </section>
 
@@ -212,24 +154,23 @@
     </div>
     <div class="band-cta">
       <a class="btn btn-white js-wa" href="https://wa.me/38264426864" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
-      <a class="btn btn-ghost" href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span translate="no">064 426 864</span></a>
+      <a class="btn btn-ghost js-tel" href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="js-tel-t" translate="no">064 426 864</span></a>
     </div>
   </div>
 </section>
 
 <section class="ther" id="terapeut" aria-labelledby="ther-h">
-  <div class="wrap ther-in">
-    <figure class="slot slot-tall"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p6">Aleksandar sa pacijentom tokom pregleda</figcaption></figure>
-    <div>
-      <h2 id="ther-h"><span translate="no">Aleksandar Vidić</span></h2>
-      <p class="sub" data-i18n="ther_sub">Diplomirani fizioterapeut, sa dodatnim edukacijama iz tehnika koje radi u ordinaciji.</p>
-      <ul class="cred">
-        <li><svg aria-hidden="true"><use href="#i-cap"/></svg><span data-i18n="c1">Primijenjena fizioterapija, Medicinski fakultet Univerziteta Crne Gore</span></li>
-        <li><svg aria-hidden="true"><use href="#i-cert"/></svg><span data-i18n="c2">Visceralna osteopatija, trodnevni program, Podgorica 2024.</span></li>
-        <li><svg aria-hidden="true"><use href="#i-cert"/></svg><span data-i18n="c3">Međunarodna diploma: elektroakupunktura i elektro dry needling</span></li>
-        <li><svg aria-hidden="true"><use href="#i-cert"/></svg><span data-i18n="c4">Kupping terapija, sertifikat s odlikom</span></li>
-      </ul>
+  <div class="wrap">
+    <div class="ther-in">
+      <div id="ther-ph"></div>
+      <div>
+        <h2 id="ther-h" data-c="ther_name" translate="no">Aleksandar Vidić</h2>
+        <p class="role" data-c="ther_role">fizioterapeut</p>
+        <p class="sub" data-c="ther_sub">Diplomirani fizioterapeut.</p>
+      </div>
     </div>
+    <h3 class="dipl-h" data-i18n="dipl_h">Diplome i sertifikati</h3>
+    <div class="dipl" id="dipl-list"></div>
   </div>
 </section>
 
@@ -244,16 +185,13 @@
   </div>
 </section>
 
-<section class="place" aria-labelledby="place-h">
+<section class="place" id="ordinacija" aria-labelledby="place-h">
   <div class="wrap">
-    <h2 id="place-h" data-i18n="place_h">Ordinacija</h2>
-    <p class="sub" data-i18n="place_sub">Ordinacija Fizikalmed je u Podgorici. Adresu i radno vrijeme pogledajte na Google mapama.</p>
-    <div class="gallery">
-      <figure class="slot slot-wide"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p7">Prostorija za terapiju, širi kadar</figcaption></figure>
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p8">Ulaz i natpis ordinacije</figcaption></figure>
-      <figure class="slot"><svg aria-hidden="true"><use href="#i-cam"/></svg><b data-i18n="slot">Mjesto za fotografiju</b><figcaption data-i18n="p9">Oprema i sto za terapiju</figcaption></figure>
-    </div>
-    <a class="btn btn-line rev" href="https://share.google/V35NkDGWnLo8R317i" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="rev">Recenzije pacijenata na Google-u</span></a>
+    <h2 id="place-h" data-i18n="place_h">Ordinacija i oprema</h2>
+    <p class="sub" data-c="place_sub">Ordinacija Fizikalmed u Podgorici opremljena je savremenom opremom za fizikalnu terapiju i rehabilitaciju.</p>
+    <div class="equip" id="equip-list"></div>
+    <div class="gallery" id="gallery"></div>
+    <a class="btn btn-line rev js-map" href="https://share.google/V35NkDGWnLo8R317i" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="rev">Recenzije pacijenata na Google-u</span></a>
   </div>
 </section>
 
@@ -275,12 +213,7 @@
       <h2 id="cont-h" data-i18n="cont_h">Kontakt</h2>
       <p class="sub" data-i18n="cont_sub">Najbrže je porukom na WhatsApp. Možete i pozvati.</p>
     </div>
-    <ul class="links">
-      <li><a class="js-wa" href="https://wa.me/38264426864" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span><b>WhatsApp</b><small translate="no">+382 64 426 864</small></span></a></li>
-      <li><a href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span><b data-i18n="call">Poziv</b><small translate="no">064 426 864</small></span></a></li>
-      <li><a href="https://share.google/V35NkDGWnLo8R317i" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg><span><b data-i18n="map">Google mape</b><small data-i18n="map_s">Adresa i radno vrijeme</small></span></a></li>
-      <li><a href="https://www.instagram.com/ordinacija_fizikalmed/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span><b>Instagram</b><small translate="no">@ordinacija_fizikalmed</small></span></a></li>
-    </ul>
+    <ul class="links" id="contact-list"></ul>
   </div>
 </section>
 </main>
@@ -288,15 +221,16 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <p class="brand-f" translate="no"><img src="./img/logo.png" width="40" height="40" alt=""><b>Fizikalmed</b></p>
-    <p class="credits"><span data-i18n="made">Sajt:</span> <a href="https://makesitefor.me/" translate="no">MakeSiteFor.me</a></p>
+    <p class="credits"><a href="./admin/" data-i18n="admin_link">Uređivanje sajta</a> · <span data-i18n="made">Sajt:</span> <a href="https://makesitefor.me/" translate="no">MakeSiteFor.me</a></p>
   </div>
 </footer>
 
 <nav class="bar" aria-label="Brzi kontakt" data-i18n-aria="bar_aria">
-  <a href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="call">Poziv</span></a>
+  <a class="js-tel" href="tel:+38264426864"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="call">Poziv</span></a>
   <a class="bar-wa js-wa" href="https://wa.me/38264426864" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="./app.js?v=3"></script>
+<script src="./content.js?v=1"></script>
+<script src="./app.js?v=5"></script>
 </body>
 </html>
