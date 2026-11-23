@@ -115,6 +115,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .nav{display:flex;gap:26px;margin-left:auto}
 .nav a{text-decoration:none;color:var(--muted);font-size:var(--t-sm)}
 .nav a:hover{color:var(--fg)}
+.nav a{white-space:nowrap}
+@media (max-width:1180px){.nav{gap:18px}.nav a[href="#how"],.nav a[href="#works"]{display:none}}
 .langs{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
 .langs button{border:0;background:transparent;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;padding:6px 10px;border-radius:999px;cursor:pointer;color:var(--muted)}
 .langs button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
@@ -439,6 +441,14 @@ button,input,select,textarea{font:inherit;color:inherit}
 .plan-wide .feat{border-top:0;padding:0 0 0 28px;border-left:1px solid var(--line);grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:12px}
 .badge-sea{background:color-mix(in srgb,var(--sea) 16%,transparent);color:var(--sea)}
 .feat li.gift b{color:var(--accent-text)}
+.price small{display:block;margin-top:4px;font-family:var(--f-body);font-size:var(--t-sm);font-weight:500;letter-spacing:0;color:var(--muted)}
+.pw-btns{display:flex;flex-wrap:wrap;gap:10px}
+.plan-h .badge{white-space:nowrap}
+.plan-wide .feat li.pv{grid-column:1 / -1}
+.feat li.soon{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Cpath d='M8 5v3.2l2 1.3' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
+.feat li.soon::before{background:var(--faint)}
+.feat li.soon b{color:var(--muted);font-weight:500}
+.plan-ai{border-color:color-mix(in srgb,var(--accent) 42%,transparent);background:color-mix(in srgb,var(--accent) 6%,var(--bg-2))}
 .tl-note{margin-top:16px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
 .support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:16px;padding:22px 26px;border-radius:20px;border:1px dashed var(--line-2)}
 .support b{font-family:var(--f-display);font-weight:500}
@@ -580,6 +590,7 @@ fieldset.field{border:0;margin:0;padding:0}
       <a href="#how" data-i18n="nav_how">Kako radimo</a>
       <a href="#demos" data-i18n="nav_demos">Primjeri</a>
       <a href="#pricing" data-i18n="nav_price">Cijene</a>
+      <a href="ai-asistent/" data-i18n="nav_ai">AI asistent</a>
       <a href="#faq" data-i18n="nav_faq">Pitanja</a>
     </nav>
     <div class="langs" role="group" aria-label="Language">
@@ -1101,6 +1112,48 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="n"><span data-i18n="row_print">Štampa kartica za stolove</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
         </article>
+        <article class="plan plan-wide" id="plan-crm">
+          <div class="pw-main">
+            <div class="plan-h"><b data-i18n="t6">Forme, online rezervacije i CRM</b><span class="badge badge-sea" data-i18n="crm_for">Za postojeći sajt</span></div>
+            <div class="price" data-i18n="pr5">od 79 €</div>
+            <p data-i18n="pl5d">Imate sajt, a upiti se gube u porukama i pozivima? Na vaš sadašnji sajt dodamo formu, online rezervaciju i CRM, pa svaki klijent dobije odgovor, a vi vidite sve upite na jednom mjestu.</p>
+            <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl5f">od 1 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl5u">3–10 dana</dd></div></dl>
+            <a class="btn btn-ghost" href="#order" data-pkg="crm" data-i18n="choose">Izaberi</a>
+          </div>
+          <ul class="feat">
+            <li class="v pv"><span data-i18n="row_fc">Forma za upite + CRM</span><b data-i18n="pv_fc">79 €</b></li>
+            <li class="v pv"><span data-i18n="row_fb">Online rezervacija ili zakazivanje termina</span><b data-i18n="pv_fb">od 149 €</b></li>
+            <li class="v pv"><span data-i18n="row_fall">Forma, rezervacije i CRM zajedno</span><b data-i18n="pv_fall">od 199 €</b></li>
+            <li class="y"><span data-i18n="row_fany">Radi na svakom sajtu: WordPress, Wix i drugim</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_fnow">Upit odmah stiže u Telegram, WhatsApp ili na e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_fslot">Klijent sam bira slobodan termin, bez poziva</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_fconf">Automatska potvrda i podsjetnik klijentu e-mailom</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_crm2">CRM: svi upiti na jednoj listi, sa statusom</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_fown">CRM i kalendar na vaše ime, u besplatnoj verziji</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_ftrain">Kratko uputstvo i 20 minuta obuke</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="n"><span data-i18n="row_fsms">SMS i WhatsApp podsjetnici</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+            <li class="n"><span data-i18n="row_fpay">Online plaćanje karticom</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
+          </ul>
+        </article>
+        <article class="plan plan-wide plan-ai" id="plan-ai">
+          <div class="pw-main">
+            <div class="plan-h"><b data-i18n="t7">AI asistent 24/7</b><span class="badge" data-i18n="new_b">Novo</span></div>
+            <div class="price"><span data-i18n="pr6">190 €</span><small data-i18n="pr6m">+ 19 € mjesečno · za klijente sa našim sajtom podešavanje 99 €</small></div>
+            <p data-i18n="pl6d">Asistent na vašem sajtu odgovara klijentima danju i noću, na njihovom jeziku, a vama šalje gotove upite sa imenom i telefonom.</p>
+            <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl6f">od 5 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl6u">1–2 sedmice</dd></div></dl>
+            <div class="pw-btns"><a class="btn btn-main" href="ai-asistent/" data-i18n="ai_more">Kako radi asistent</a><a class="btn btn-ghost" href="#order" data-pkg="ai" data-i18n="choose">Izaberi</a></div>
+          </div>
+          <ul class="feat">
+            <li class="y"><span data-i18n="row_a1">Odgovara 24/7, za nekoliko sekundi</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a2">Govori jezikom klijenta: ME, EN, RU, DE i drugim</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a3">Zna samo vaše podatke: cijene, usluge, uslove</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a4">Ne zna odgovor? Uzme kontakt i javi vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a5">Upit stiže u Telegram ili na e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a6">Svi razgovori sačuvani, možete ih pročitati</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_a7">Besplatna proba na vašim podacima prije plaćanja</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="soon"><span data-i18n="row_a8">WhatsApp i Instagram</span><b data-i18n="soon">uskoro</b></li>
+          </ul>
+        </article>
       </div>
       <p class="tl-note" data-i18n="tl_note">Kraći rok važi ako nam odmah pošaljete sve informacije, fotografije i logo ili pokažete sajt kakav želite, da napravimo isti takav; puni rok računamo od prve poruke do pokretanja, uključujući i vaše izmjene.</p>
       <div class="support">
@@ -1120,6 +1173,7 @@ fieldset.field{border:0;margin:0;padding:0}
       </div>
       <div class="faq">
         <details open><summary data-i18n="q1">Moram li da se razumijem u tehnologiju?</summary><p data-i18n="a1">Ne. Pitamo jednostavnim riječima i sve podešavamo mi. Vi kažete šta želite i odobrite rezultat.</p></details>
+        <details><summary data-i18n="q7">Već imam sajt. Možete li dodati samo formu, rezervacije ili asistenta?</summary><p data-i18n="a7">Da. Formu, online rezervaciju, CRM i AI asistenta dodajemo na postojeći sajt, bez izrade novog. Pošaljite nam link sajta i kažemo šta je moguće i koliko košta.</p></details>
         <details><summary data-i18n="q2">Nemam tekstove ni fotografije. Šta sad?</summary><p data-i18n="a2">Tekstove pišemo mi, na sva tri jezika, na osnovu vaših odgovora. Fotografije mogu biti sa telefona: reći ćemo vam šta i kako da snimite.</p></details>
         <details><summary data-i18n="q3">Šta je CRM i zašto mi treba?</summary><p data-i18n="a3">To je jedna lista svih upita: ko je pisao, šta želi i da li mu je neko odgovorio. Nijedan klijent se ne zaboravi. Koristimo besplatne verzije poznatih CRM sistema.</p></details>
         <details><summary data-i18n="q4">Šta ako poželim da odem od vas?</summary><p data-i18n="a4">Ništa se neće pokvariti. Sajt, e-mail i CRM su od početka vaši, a mi imamo samo pristup koji ste nam vi dali. Uklonite ga po uputstvu iz pasoša sajta i sve će raditi kao i do sada.</p></details>
@@ -1158,6 +1212,8 @@ fieldset.field{border:0;margin:0;padding:0}
               <option value="biz" data-i18n="fp2">Biznis · 249 €</option>
               <option value="pro" data-i18n="fp3">Pro · od 490 €</option>
               <option value="qr" data-i18n="fp4">QR meni · 79 €</option>
+              <option value="crm" data-i18n="fp5">Forme, rezervacije i CRM · od 79 €</option>
+              <option value="ai" data-i18n="fp6">AI asistent · 190 €</option>
             </select>
           </label>
           <fieldset class="field">
@@ -1245,6 +1301,23 @@ en: {
   flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
   f3v:"You're the owner", f3l:"of the site, domain, email and CRM", f4v:"Fixed price", f4l:"agreed before we start",
+  nav_ai:"AI assistant",
+  t6:"Forms, online booking and CRM", crm_for:"For your existing site", pr5:"from €79",
+  pl5d:"Have a website, but requests get lost in messages and calls? We add a form, online booking and a CRM to your current site, so every customer gets an answer and you see all requests in one place.",
+  tl5f:"from 1 day", tl5u:"3–10 days",
+  row_fc:"Request form + CRM", pv_fc:"€79", row_fb:"Online booking or appointment scheduling", pv_fb:"from €149", row_fall:"Form, booking and CRM together", pv_fall:"from €199",
+  row_fany:"Works on any site: WordPress, Wix and others", row_fnow:"Each request arrives instantly in Telegram, WhatsApp or by email",
+  row_fslot:"Customers pick a free slot themselves, no calls", row_fconf:"Automatic confirmation and reminder to the customer by email",
+  row_crm2:"CRM: all requests in one list, with a status", row_fown:"CRM and calendar in your name, on free plans", row_ftrain:"Short guide and 20 minutes of training",
+  row_fsms:"SMS and WhatsApp reminders", row_fpay:"Online card payment",
+  t7:"AI assistant 24/7", new_b:"New", pr6:"€190", pr6m:"+ €19 a month · setup €99 for clients with our website",
+  pl6d:"An assistant on your website answers customers day and night, in their language, and sends you ready requests with a name and phone number.",
+  tl6f:"from 5 days", tl6u:"1–2 weeks", ai_more:"How the assistant works",
+  row_a1:"Answers 24/7, within seconds", row_a2:"Speaks the customer's language: ME, EN, RU, DE and more", row_a3:"Knows only your data: prices, services, terms",
+  row_a4:"Doesn't know the answer? Takes the contact and tells you", row_a5:"Requests arrive in Telegram or by email", row_a6:"Every conversation is saved for you to read",
+  row_a7:"Free trial on your own data before you pay", row_a8:"WhatsApp and Instagram", soon:"coming soon",
+  fp5:"Forms, booking and CRM · from €79", fp6:"AI assistant · €190",
+  q7:"I already have a website. Can you add just a form, booking or the assistant?", a7:"Yes. We add a form, online booking, a CRM and the AI assistant to your existing site, without building a new one. Send us the link and we'll tell you what's possible and what it costs.",
   w_eye:"Our work",
   w_t:"Websites already working for our clients",
   w_s:"Real websites, not mock-ups. Open them and try them yourself.",
@@ -1436,6 +1509,23 @@ ru: {
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
   f3v:"Вы владелец", f3l:"сайта, домена, почты и CRM", f4v:"Фиксированная цена", f4l:"известна до начала работ",
+  nav_ai:"AI-ассистент",
+  t6:"Формы, онлайн-запись и CRM", crm_for:"Для вашего сайта", pr5:"от 79 €",
+  pl5d:"Сайт есть, а заявки теряются в сообщениях и звонках? Добавим на ваш нынешний сайт форму, онлайн-запись и CRM: каждый клиент получит ответ, а вы увидите все заявки в одном месте.",
+  tl5f:"от 1 дня", tl5u:"3–10 дней",
+  row_fc:"Форма заявки + CRM", pv_fc:"79 €", row_fb:"Онлайн-бронирование или запись на время", pv_fb:"от 149 €", row_fall:"Форма, запись и CRM вместе", pv_fall:"от 199 €",
+  row_fany:"Работает на любом сайте: WordPress, Wix и других", row_fnow:"Заявка сразу приходит в Telegram, WhatsApp или на почту",
+  row_fslot:"Клиент сам выбирает свободное время, без звонков", row_fconf:"Автоматическое подтверждение и напоминание клиенту на почту",
+  row_crm2:"CRM: все заявки одним списком, со статусом", row_fown:"CRM и календарь на ваше имя, в бесплатной версии", row_ftrain:"Короткая инструкция и 20 минут обучения",
+  row_fsms:"Напоминания по SMS и в WhatsApp", row_fpay:"Онлайн-оплата картой",
+  t7:"AI-ассистент 24/7", new_b:"Новое", pr6:"190 €", pr6m:"+ 19 € в месяц · для клиентов с нашим сайтом настройка 99 €",
+  pl6d:"Ассистент на вашем сайте отвечает клиентам днём и ночью, на их языке, а вам присылает готовые заявки с именем и телефоном.",
+  tl6f:"от 5 дней", tl6u:"1–2 недели", ai_more:"Как работает ассистент",
+  row_a1:"Отвечает 24/7, за несколько секунд", row_a2:"Говорит на языке клиента: ME, EN, RU, DE и других", row_a3:"Знает только ваши данные: цены, услуги, условия",
+  row_a4:"Не знает ответа? Возьмёт контакт и сообщит вам", row_a5:"Заявки приходят в Telegram или на почту", row_a6:"Все разговоры сохраняются, их можно прочитать",
+  row_a7:"Бесплатная проба на ваших данных до оплаты", row_a8:"WhatsApp и Instagram", soon:"скоро",
+  fp5:"Формы, запись и CRM · от 79 €", fp6:"AI-ассистент · 190 €",
+  q7:"Сайт у меня уже есть. Можно добавить только форму, запись или ассистента?", a7:"Да. Форму, онлайн-запись, CRM и AI-ассистента добавляем на ваш сайт, без создания нового. Пришлите ссылку на сайт, и мы скажем, что можно сделать и сколько это стоит.",
   w_eye:"Наши работы",
   w_t:"Сайты, которые уже работают на наших клиентов",
   w_s:"Настоящие сайты, а не макеты. Откройте и попробуйте сами.",
@@ -1801,6 +1891,7 @@ function updateCalc(){
 
 /* ---------- package buttons ---------- */
 $$("[data-pkg]").forEach(b => b.addEventListener("click", () => { $("#f-pkg").value = b.dataset.pkg; }));
+try { const pq = new URLSearchParams(location.search).get("p"); if (pq && $$("#f-pkg option").some(o => o.value === pq)) $("#f-pkg").value = pq; } catch (e) {}
 
 /* ---------- copy helpers ---------- */
 function copyText(text, btn){
