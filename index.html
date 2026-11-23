@@ -207,6 +207,20 @@ button,input,select,textarea{font:inherit;color:inherit}
 .gap-row.p p{color:var(--muted)}
 .gap-row.f p{font-weight:500}
 .gap hr{border:0;border-top:1px dashed var(--line-2);margin:0}
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.work{display:grid;grid-template-rows:auto 1fr;border-radius:var(--r);border:1px solid var(--line);background:var(--bg-2);overflow:hidden;min-width:0}
+.work-shot{display:block;aspect-ratio:16/10;background:var(--surface);border-bottom:1px solid var(--line);overflow:hidden}
+.work-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
+.work-shot:hover img{transform:scale(1.02)}
+.work-b{display:flex;flex-direction:column;gap:10px;padding:22px}
+.work-tag{color:var(--muted)}
+.work-b h3{font-family:var(--f-display);font-weight:500;font-size:1.2rem;letter-spacing:-.01em;line-height:1.2}
+.work-b p{color:var(--muted);line-height:1.5;margin-bottom:6px}
+.work-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line-2)}
+.work-t{color:var(--fg)}
+.work-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent-text);font-weight:600;text-decoration:none}
+.work-link:hover{text-decoration:underline}
+.nw{white-space:nowrap}
 
 /* ---------- process ---------- */
 .proc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:start}
@@ -510,6 +524,7 @@ fieldset.field{border:0;margin:0;padding:0}
   .fact:nth-child(3){padding-left:0;border-left:0}
   .fact:nth-child(n+3){padding-top:16px}
   .gaps{grid-template-columns:minmax(0,1fr)}
+  .works{grid-template-columns:minmax(0,1fr)}
 }
 .mbar{display:none}
 @media (max-width: 640px){
@@ -561,6 +576,7 @@ fieldset.field{border:0;margin:0;padding:0}
   <div class="wrap">
     <a class="logo" href="#top" aria-label="MakeSiteFor.me"><svg class="logo-svg" viewBox="0 0 1348 228" aria-hidden="true" focusable="false"><use href="#msf-logo"/></svg></a>
     <nav class="nav" aria-label="Menu">
+      <a href="#works" data-i18n="nav_works">Radovi</a>
       <a href="#how" data-i18n="nav_how">Kako radimo</a>
       <a href="#demos" data-i18n="nav_demos">Primjeri</a>
       <a href="#pricing" data-i18n="nav_price">Cijene</a>
@@ -652,6 +668,37 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="fact"><b>ME · EN · RU</b><span data-i18n="f2l">tri jezika za vaše goste</span></div>
         <div class="fact"><b data-i18n="f3v">Vi ste vlasnik</b><span data-i18n="f3l">sajta, domena, e-maila i CRM-a</span></div>
         <div class="fact"><b data-i18n="f4v">Fiksna cijena</b><span data-i18n="f4l">poznata prije početka rada</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="sec" id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono eyebrow" data-i18n="w_eye">Naši radovi</span>
+        <h2 data-i18n="w_t">Sajtovi koji već rade za naše klijente</h2>
+        <p data-i18n="w_s">Pravi sajtovi, a ne primjeri. Otvorite ih i probajte sami.</p>
+      </div>
+      <div class="works">
+        <article class="work">
+          <a class="work-shot" href="https://mteluxurymobility.me" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="work/mte-luxury-mobility.jpg" alt="" width="1200" height="750" loading="lazy"></a>
+          <div class="work-b">
+            <span class="mono work-tag" data-i18n="w1_tag">Limo servis i rent a car · Crna Gora</span>
+            <h3>MTE Luxury Mobility</h3>
+            <p data-i18n="w1_d">Rezervacija vozila sa vozačem i bez vozača, cijena se vidi odmah. 4 jezika i 4 aerodroma. Upiti stižu vlasniku na <span class="nw">e-mail</span>, a vozila i cijene mijenja sam u admin panelu.</p>
+            <div class="work-f"><span class="mono work-t" data-i18n="w1_t">Od prve poruke do pokretanja: 4&nbsp;dana</span><a class="work-link" href="https://mteluxurymobility.me" target="_blank" rel="noopener">mteluxurymobility.me <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+          </div>
+        </article>
+        <article class="work">
+          <a class="work-shot" href="https://mr-invest.me" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="work/mr-invest.jpg" alt="" width="1200" height="750" loading="lazy"></a>
+          <div class="work-b">
+            <span class="mono work-tag" data-i18n="w2_tag">Građevinska firma · Nikšić</span>
+            <h3>MR Invest Miljanić</h3>
+            <p data-i18n="w2_d">Usluge i cijene, projekti sa fotografijama i videom i forma za ponudu koja stiže vlasniku na <span class="nw">e-mail</span>. 4 jezika i admin panel za projekte.</p>
+            <div class="work-f"><span class="mono work-t" data-i18n="w2_t">Od prve poruke do pokretanja: 9&nbsp;dana</span><a class="work-link" href="https://mr-invest.me" target="_blank" rel="noopener">mr-invest.me <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1187,7 +1234,7 @@ const WA_TEXT = {
 const B = '<span class="brand-name"></span>';
 const T = {
 en: {
-  nav_how:"How it works", nav_demos:"Examples", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Order a site",
+  nav_works:"Our work", nav_how:"How it works", nav_demos:"Examples", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Order a site",
   h_eye:"Website design + CRM for small business · Podgorica",
   h_price:"<b>Website from 99 €</b>: one page in 1–2 languages with an enquiry form. <a href=\"#pricing\">All packages and prices</a>",
   h_demo:"First we build a free demo of your website. You pay the first part only once you approve it.",
@@ -1198,6 +1245,15 @@ en: {
   flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
   f3v:"You're the owner", f3l:"of the site, domain, email and CRM", f4v:"Fixed price", f4l:"agreed before we start",
+  w_eye:"Our work",
+  w_t:"Websites already working for our clients",
+  w_s:"Real websites, not mock-ups. Open them and try them yourself.",
+  w1_tag:"Limo service and car rental · Montenegro",
+  w1_d:"Book a car with or without a driver and see the price straight away. 4 languages and 4 airports. Requests reach the owner by email, and he edits cars and prices himself in the admin panel.",
+  w1_t:"From first message to launch: 4\u00a0days",
+  w2_tag:"Construction company · Nikšić",
+  w2_d:"Services and prices, projects with photos and video, and a quote form that reaches the owner by email. 4 languages and an admin panel for projects.",
+  w2_t:"From first message to launch: 9\u00a0days",
   g_eye:"Common problems",
   g_t:"Why you lose customers",
   g_s:"Here are four common reasons and how we fix them.",
@@ -1369,7 +1425,7 @@ en: {
   do12:"Online booking or calendar",
 },
 ru: {
-  nav_how:"Как работаем", nav_demos:"Примеры", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Заказать сайт",
+  nav_works:"Работы", nav_how:"Как работаем", nav_demos:"Примеры", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Заказать сайт",
   h_eye:"Создание сайтов + CRM для малого бизнеса · Подгорица",
   h_price:"<b>Сайт от 99 €</b>: одна страница на 1–2 языках и форма заявки. <a href=\"#pricing\">Все пакеты и цены</a>",
   h_demo:"Сначала бесплатно делаем демо вашего сайта. Первую часть вы платите, только когда его одобрите.",
@@ -1380,6 +1436,15 @@ ru: {
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
   f3v:"Вы владелец", f3l:"сайта, домена, почты и CRM", f4v:"Фиксированная цена", f4l:"известна до начала работ",
+  w_eye:"Наши работы",
+  w_t:"Сайты, которые уже работают на наших клиентов",
+  w_s:"Настоящие сайты, а не макеты. Откройте и попробуйте сами.",
+  w1_tag:"Лимо-сервис и прокат авто · Черногория",
+  w1_d:"Бронирование машины с водителем и без, цена видна сразу. 4 языка и 4 аэропорта. Заявки приходят владельцу на почту, а машины и цены он меняет сам в админке.",
+  w1_t:"От первого сообщения до запуска: 4\u00a0дня",
+  w2_tag:"Строительная компания · Никшич",
+  w2_d:"Услуги и цены, проекты с фото и видео и форма запроса цены, которая приходит владельцу на почту. 4 языка и админка для проектов.",
+  w2_t:"От первого сообщения до запуска: 9\u00a0дней",
   g_eye:"Частые проблемы",
   g_t:"Почему вы теряете клиентов",
   g_s:"Вот четыре частые причины и как мы это решаем.",
