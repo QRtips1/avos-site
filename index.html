@@ -133,6 +133,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero-price{font-size:var(--t-sm);color:var(--muted);max-width:54ch;padding:10px 14px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface)}
 .hero-price b{color:var(--fg);font-weight:600}
 .hero-price a{color:var(--accent-text);white-space:nowrap}
+.hero-demo{display:flex;gap:8px;align-items:flex-start;font-size:var(--t-sm);color:var(--fg);max-width:54ch;margin-top:-4px}
+.hero-demo::before{content:"";flex:none;width:8px;height:8px;margin-top:.5em;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--glow)}
 .does-box{grid-column:1 / -1;position:relative;z-index:1;padding:22px 24px 24px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 42%,transparent);background:color-mix(in srgb,var(--accent) 7%,var(--bg-2));box-shadow:0 30px 80px -50px var(--glow)}
 .does-t{font-family:var(--f-display);font-weight:500;font-size:1.15rem;letter-spacing:-.01em;margin:0 0 16px}
 .does{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 22px}
@@ -583,6 +585,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <h1 data-i18n="h_t">Sajt za vaš posao. <em>A brige prepustite nama.</em></h1>
           <p class="hero-sub" data-i18n="h_s">Vama ostaje samo da nam kažete šta vam treba. Sav tehnički posao preuzimamo mi: bez iskustva u njemu se lako izgubiti i potrošiti sedmice.</p>
           <p class="hero-price" data-i18n="h_price"><b>Sajt od 99 €</b>: jedna stranica na 1–2 jezika i forma za upite. <a href="#pricing">Svi paketi i cijene</a></p>
+          <p class="hero-demo" data-i18n="h_demo">Prvo besplatno napravimo demo vašeg sajta. Prvi dio plaćate tek kad ga odobrite.</p>
           <div class="hero-cta">
             <a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a>
             <a class="btn btn-ghost" href="#demos" data-i18n="h_c2">Pogledajte primjere</a>
@@ -699,7 +702,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <ol class="steps">
             <li class="step"><span class="s-n">1</span><div><h3 data-i18n="s1t">Pišete nam</h3><p data-i18n="s1d">WhatsApp ili forma na sajtu. Dovoljna je jedna rečenica.</p><span class="s-m mono" data-i18n="s1m">Vaše vrijeme: 1 min</span></div></li>
             <li class="step"><span class="s-n">2</span><div><h3 data-i18n="s2t">Kratak razgovor</h3><p data-i18n="s2d">Postavimo 10–15 jednostavnih pitanja: čime se bavite, ko su vaši klijenti, gdje da stižu upiti. Cijenu i rok znate prije početka.</p><span class="s-m mono" data-i18n="s2m">Vaše vrijeme: ~15 min</span></div></li>
-            <li class="step"><span class="s-n">3</span><div><h3 data-i18n="s3t">Prva verzija</h3><p data-i18n="s3d">Pošaljemo vam link sajta. Pogledate ga na telefonu i kažete šta da promijenimo, svojim riječima.</p><span class="s-m mono" data-i18n="s3m">Vaše vrijeme: ~10 min</span></div></li>
+            <li class="step"><span class="s-n">3</span><div><h3 data-i18n="s3t">Besplatna prva verzija</h3><p data-i18n="s3d">Pošaljemo vam link sajta. Pogledate ga na telefonu i kažete šta da promijenimo, svojim riječima. Prvi dio plaćate tek kad je odobrite.</p><span class="s-m mono" data-i18n="s3m">Vaše vrijeme: ~10 min</span></div></li>
             <li class="step"><span class="s-n">4</span><div><h3 data-i18n="s4t">Pokretanje</h3><p data-i18n="s4d">Podesimo domen, poštu i CRM i za 20 minuta pokažemo kako da vidite i vodite upite.</p><span class="s-m mono" data-i18n="s4m">Vaše vrijeme: ~20 min</span></div></li>
           </ol>
           <p class="total"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#msf-me"/></svg><span data-i18n="p_total">Ukupno od vas: manje od sat vremena.</span></p>
@@ -1187,6 +1190,7 @@ en: {
   nav_how:"How it works", nav_demos:"Examples", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Order a site",
   h_eye:"Website design + CRM for small business · Podgorica",
   h_price:"<b>Website from 99 €</b>: one page in 1–2 languages with an enquiry form. <a href=\"#pricing\">All packages and prices</a>",
+  h_demo:"First we build a free demo of your website. You pay the first part only once you approve it.",
   h_t:"A website for your business. <em>Leave the hassle to us.</em>",
   h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
   h_c1:"Message us", h_c2:"See examples", h_wa:"Or message us on WhatsApp right away:",
@@ -1211,7 +1215,7 @@ en: {
   p_s:"No technical knowledge and no long meetings. We ask in plain words, and you answer when it suits you, even by voice message.",
   s1t:"You message us", s1d:"WhatsApp or the form on this site. One sentence is enough.", s1m:"Your time: 1 min",
   s2t:"A short chat", s2d:"We ask 10–15 simple questions: what you do, who your customers are, where requests should go. You know the price and deadline before we start.", s2m:"Your time: ~15 min",
-  s3t:"First version", s3d:"We send you a link to the site. You look at it on your phone and tell us what to change, in your own words.", s3m:"Your time: ~10 min",
+  s3t:"Free first version", s3d:"We send you a link to the site. You look at it on your phone and tell us what to change, in your own words. You pay the first part only once you approve it.", s3m:"Your time: ~10 min",
   s4t:"Launch", s4d:"We set up the domain, email and CRM and show you in 20 minutes how to see and manage requests.", s4m:"Your time: ~20 min",
   p_total:"Total from you: under an hour.",
   chat_h:"· example chat",
@@ -1368,6 +1372,7 @@ ru: {
   nav_how:"Как работаем", nav_demos:"Примеры", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Заказать сайт",
   h_eye:"Создание сайтов + CRM для малого бизнеса · Подгорица",
   h_price:"<b>Сайт от 99 €</b>: одна страница на 1–2 языках и форма заявки. <a href=\"#pricing\">Все пакеты и цены</a>",
+  h_demo:"Сначала бесплатно делаем демо вашего сайта. Первую часть вы платите, только когда его одобрите.",
   h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
   h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
   h_c1:"Написать нам", h_c2:"Смотреть примеры", h_wa:"Или сразу напишите в WhatsApp:",
@@ -1392,7 +1397,7 @@ ru: {
   p_s:"Не нужны ни технические знания, ни долгие встречи. Мы спрашиваем простыми словами, а вы отвечаете, когда удобно, можно голосовым.",
   s1t:"Вы пишете нам", s1d:"WhatsApp или форма на сайте. Достаточно одного предложения.", s1m:"Ваше время: 1 мин",
   s2t:"Короткий разговор", s2d:"Задаём 10–15 простых вопросов: чем занимаетесь, кто ваши клиенты, куда присылать заявки. Цену и срок вы знаете до начала работ.", s2m:"Ваше время: ~15 мин",
-  s3t:"Первая версия", s3d:"Присылаем ссылку на сайт. Вы смотрите его с телефона и говорите, что поменять, своими словами.", s3m:"Ваше время: ~10 мин",
+  s3t:"Бесплатная первая версия", s3d:"Присылаем ссылку на сайт. Вы смотрите его с телефона и говорите, что поменять, своими словами. Первую часть вы платите, только когда её одобрите.", s3m:"Ваше время: ~10 мин",
   s4t:"Запуск", s4d:"Настраиваем домен, почту и CRM и за 20 минут показываем, как видеть и вести заявки.", s4m:"Ваше время: ~20 мин",
   p_total:"Всего от вас: меньше часа.",
   chat_h:"· пример переписки",
@@ -1786,6 +1791,8 @@ $$(".qx-langs button").forEach(b => b.addEventListener("click", () => setQR(b.da
 /* ---------- language switch + start ---------- */
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
 function detectLang(){
+  let q = ""; try { q = new URLSearchParams(location.search).get("l") || ""; } catch (e) {}
+  if (q === "me" || q === "en" || q === "ru") return q;
   const h = location.hash.replace("#", ""); if (h === "me" || h === "en" || h === "ru") return h;
   const saved = store.get("vitrina-lang"); if (saved === "me" || saved === "en" || saved === "ru") return saved;
   const navs = (navigator.languages || [navigator.language || ""]).map(x => String(x).toLowerCase());
