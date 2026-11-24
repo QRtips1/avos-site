@@ -417,7 +417,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .plan.hot{border-color:color-mix(in srgb,var(--accent) 70%,transparent);background:var(--surface);box-shadow:0 30px 80px -40px var(--glow)}
 .plan-h{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:26px}
 .plan-h b{font-family:var(--f-display);font-weight:500;font-size:1.05rem}
-.badge{padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-size:.72rem;font-weight:600}
+.badge{white-space:nowrap;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-size:.72rem;font-weight:600}
 .price{font-family:var(--f-display);font-weight:600;font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .plan > p{color:var(--muted)}
 .feat{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;align-content:start;font-size:var(--t-sm);line-height:1.4}
@@ -447,6 +447,20 @@ button,input,select,textarea{font:inherit;color:inherit}
 .feat li.soon{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Cpath d='M8 5v3.2l2 1.3' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
 .feat li.soon::before{background:var(--faint)}
 .feat li.soon b{color:var(--muted);font-weight:500}
+.plan-crm{grid-column:1 / -1;grid-template-rows:none;grid-template-columns:minmax(0,1fr);gap:22px}
+.pc-head{display:grid;gap:14px;max-width:760px}
+.pc-head > p{color:var(--muted)}
+.pk3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pk{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:10px;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--bg);min-width:0}
+.pk-hot{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.pk-t{display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:var(--f-display);font-weight:500;font-size:1rem}
+.pk-p{font-family:var(--f-display);font-weight:600;font-size:1.7rem;letter-spacing:-.02em}
+.pk-d{color:var(--muted);font-size:var(--t-sm)}
+.pk .feat{padding-top:12px}
+.pk .feat li{grid-template-columns:16px minmax(0,1fr)}
+.pk-tl{color:var(--sea)}
+.pk-note{color:var(--faint);font-size:var(--t-sm);max-width:90ch}
+@media (max-width:860px){.pk3{grid-template-columns:minmax(0,1fr)}}
 .plan-ai{border-color:color-mix(in srgb,var(--accent) 42%,transparent);background:color-mix(in srgb,var(--accent) 6%,var(--bg-2))}
 .tl-note{margin-top:16px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
 .support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:16px;padding:22px 26px;border-radius:20px;border:1px dashed var(--line-2)}
@@ -490,9 +504,9 @@ fieldset.field{border:0;margin:0;padding:0}
 .contacts{display:grid;gap:16px}
 .contacts h3{font-family:var(--f-display);font-weight:500;font-size:1.15rem}
 .c-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.c-item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2)}
-.c-item span{color:var(--faint);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase}
-.c-item a,.c-item output{font-weight:500;text-decoration:none;overflow-wrap:anywhere;min-width:0}
+.c-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2)}
+.c-item span{grid-column:1 / -1;color:var(--faint);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase}
+.c-item a,.c-item output{font-weight:500;text-decoration:none;overflow-wrap:break-word;min-width:0}
 .copy{border:1px solid var(--line-2);background:transparent;border-radius:8px;padding:6px 10px;font-size:var(--t-xs);cursor:pointer;color:var(--muted)}
 .copy:hover{color:var(--fg)}
 .c-note{color:var(--muted);font-size:var(--t-sm);display:grid;gap:4px}
@@ -807,7 +821,18 @@ function applyLang(l){
   $$("[data-wa]").forEach(a => { a.href = wa; a.target = "_blank"; a.rel = "noopener"; });
   $$("[data-order]").forEach(a => { a.href = "/?l=" + lang + "&p=ai#order"; });
   $$("[data-home]").forEach(a => { a.href = "/?l=" + lang; });
+  noBreakHyphens(document.body);
   store.set("vitrina-lang", lang);
+}
+function noBreakHyphens(root){
+  // keeps words like e-mail, QR-menu, AI-ассистент on one line (non-breaking hyphen, no layout change)
+  const re = /[\p{L}\p{N}]+(?:-[\p{L}\p{N}]+)+/gu, w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = w.nextNode())) {
+    if (!n.nodeValue.includes("-") || !n.parentElement || n.parentElement.closest("script,style,textarea,select,title")) continue;
+    const v = n.nodeValue.replace(re, m => m.replace(/-/g, "‑"));
+    if (v !== n.nodeValue) n.nodeValue = v;
+  }
 }
 $$(".langs button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
 applyLang(detectLang());

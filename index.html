@@ -418,7 +418,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .plan.hot{border-color:color-mix(in srgb,var(--accent) 70%,transparent);background:var(--surface);box-shadow:0 30px 80px -40px var(--glow)}
 .plan-h{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:26px}
 .plan-h b{font-family:var(--f-display);font-weight:500;font-size:1.05rem}
-.badge{padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-size:.72rem;font-weight:600}
+.badge{white-space:nowrap;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-size:.72rem;font-weight:600}
 .price{font-family:var(--f-display);font-weight:600;font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .plan > p{color:var(--muted)}
 .feat{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;align-content:start;font-size:var(--t-sm);line-height:1.4}
@@ -448,6 +448,20 @@ button,input,select,textarea{font:inherit;color:inherit}
 .feat li.soon{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Cpath d='M8 5v3.2l2 1.3' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
 .feat li.soon::before{background:var(--faint)}
 .feat li.soon b{color:var(--muted);font-weight:500}
+.plan-crm{grid-column:1 / -1;grid-template-rows:none;grid-template-columns:minmax(0,1fr);gap:22px}
+.pc-head{display:grid;gap:14px;max-width:760px}
+.pc-head > p{color:var(--muted)}
+.pk3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pk{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:10px;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--bg);min-width:0}
+.pk-hot{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.pk-t{display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:var(--f-display);font-weight:500;font-size:1rem}
+.pk-p{font-family:var(--f-display);font-weight:600;font-size:1.7rem;letter-spacing:-.02em}
+.pk-d{color:var(--muted);font-size:var(--t-sm)}
+.pk .feat{padding-top:12px}
+.pk .feat li{grid-template-columns:16px minmax(0,1fr)}
+.pk-tl{color:var(--sea)}
+.pk-note{color:var(--faint);font-size:var(--t-sm);max-width:90ch}
+@media (max-width:860px){.pk3{grid-template-columns:minmax(0,1fr)}}
 .plan-ai{border-color:color-mix(in srgb,var(--accent) 42%,transparent);background:color-mix(in srgb,var(--accent) 6%,var(--bg-2))}
 .tl-note{margin-top:16px;color:var(--faint);font-size:var(--t-sm);max-width:80ch}
 .support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:16px;padding:22px 26px;border-radius:20px;border:1px dashed var(--line-2)}
@@ -491,9 +505,9 @@ fieldset.field{border:0;margin:0;padding:0}
 .contacts{display:grid;gap:16px}
 .contacts h3{font-family:var(--f-display);font-weight:500;font-size:1.15rem}
 .c-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.c-item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2)}
-.c-item span{color:var(--faint);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase}
-.c-item a,.c-item output{font-weight:500;text-decoration:none;overflow-wrap:anywhere;min-width:0}
+.c-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2)}
+.c-item span{grid-column:1 / -1;color:var(--faint);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase}
+.c-item a,.c-item output{font-weight:500;text-decoration:none;overflow-wrap:break-word;min-width:0}
 .copy{border:1px solid var(--line-2);background:transparent;border-radius:8px;padding:6px 10px;font-size:var(--t-xs);cursor:pointer;color:var(--muted)}
 .copy:hover{color:var(--fg)}
 .c-note{color:var(--muted);font-size:var(--t-sm);display:grid;gap:4px}
@@ -653,7 +667,7 @@ fieldset.field{border:0;margin:0;padding:0}
               </div>
             </div>
           </div>
-          <p class="flow-cap" data-i18n="flow_cap">Demo: gost ostavi upit na sajtu, a vi ga odmah vidite u Telegramu i u CRM-u.</p>
+          <p class="flow-cap" data-i18n="flow_cap">Demo: gost ostavi upit na sajtu, a vi ga odmah dobijete u Telegram, WhatsApp ili na e-mail i vidite u CRM-u.</p>
         </div>
         <div class="does-box">
           <h2 class="does-t" data-i18n="do_t">Sve ovo radimo umjesto vas</h2>
@@ -663,7 +677,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <li data-i18n="do3">Dizajn za telefon i računar</li>
             <li data-i18n="do4">Tekstovi na tri jezika</li>
             <li data-i18n="do5">Priprema fotografija za sajt</li>
-            <li data-i18n="do6">Upiti u Telegram ili WhatsApp</li>
+            <li data-i18n="do6">Upiti u WhatsApp, Telegram ili na e-mail</li>
             <li data-i18n="do7">CRM za upite</li>
             <li data-i18n="do8">E-mail na vašem domenu</li>
             <li data-i18n="do9">Zaštita e-maila: SPF, DKIM, DMARC</li>
@@ -726,7 +740,7 @@ fieldset.field{border:0;margin:0;padding:0}
         <article class="gap">
           <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g1p">Poruka na Instagramu u 23:40 ostaje bez odgovora do jutra.</p></div>
           <hr>
-          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g1f">Forma na sajtu radi 24/7, a upit odmah stiže u Telegram.</p></div>
+          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g1f">Forma na sajtu radi 24/7, a upit odmah stiže gdje vam odgovara: u WhatsApp, Telegram ili na e-mail.</p></div>
         </article>
         <article class="gap">
           <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g2p">Telefon zvoni dok ste zauzeti gostima.</p></div>
@@ -1029,7 +1043,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv1">1</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv1">1–2</b></li>
             <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → WhatsApp, Telegram ili e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
@@ -1052,7 +1066,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv2">do 6</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
             <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → WhatsApp, Telegram ili e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
@@ -1075,7 +1089,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv3">do 10</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
             <li class="y"><span data-i18n="row_texts">Tekstove pišemo mi, na svim jezicima sajta</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_form">Forma za upit → Telegram ili WhatsApp</span><span class="sr" data-i18n="inc">uključeno</span></li>
+            <li class="y"><span data-i18n="row_form">Forma za upit → WhatsApp, Telegram ili e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_crm">CRM: svi upiti na jednoj listi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_own">Domen i hosting pripadaju vama</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_pass">Pasoš sajta pri predaji</span><span class="sr" data-i18n="inc">uključeno</span></li>
@@ -1112,28 +1126,51 @@ fieldset.field{border:0;margin:0;padding:0}
             <li class="n"><span data-i18n="row_print">Štampa kartica za stolove</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
           </ul>
         </article>
-        <article class="plan plan-wide" id="plan-crm">
-          <div class="pw-main">
+        <article class="plan plan-crm" id="plan-crm">
+          <div class="pc-head">
             <div class="plan-h"><b data-i18n="t6">Forme, online rezervacije i CRM</b><span class="badge badge-sea" data-i18n="crm_for">Za postojeći sajt</span></div>
-            <div class="price" data-i18n="pr5">od 79 €</div>
-            <p data-i18n="pl5d">Imate sajt, a upiti se gube u porukama i pozivima? Na vaš sadašnji sajt dodamo formu, online rezervaciju i CRM, pa svaki klijent dobije odgovor, a vi vidite sve upite na jednom mjestu.</p>
-            <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl5f">od 1 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl5u">3–10 dana</dd></div></dl>
-            <a class="btn btn-ghost" href="#order" data-pkg="crm" data-i18n="choose">Izaberi</a>
+            <p data-i18n="pl5d">Imate sajt, a upiti se gube u porukama i pozivima? Na vaš sadašnji sajt dodamo ono što vam treba: formu za upite, kalendar za zakazivanje ili oboje, sa CRM-om u kojem vidite sve klijente.</p>
+            <div class="pw-btns"><a class="btn btn-main" href="rezervacije-crm/" data-i18n="crm_see">Pogledajte kako izgleda</a><a class="btn btn-ghost" href="#order" data-pkg="crm" data-i18n="choose">Izaberi</a></div>
           </div>
-          <ul class="feat">
-            <li class="v pv"><span data-i18n="row_fc">Forma za upite + CRM</span><b data-i18n="pv_fc">79 €</b></li>
-            <li class="v pv"><span data-i18n="row_fb">Online rezervacija ili zakazivanje termina</span><b data-i18n="pv_fb">od 149 €</b></li>
-            <li class="v pv"><span data-i18n="row_fall">Forma, rezervacije i CRM zajedno</span><b data-i18n="pv_fall">od 199 €</b></li>
-            <li class="y"><span data-i18n="row_fany">Radi na svakom sajtu: WordPress, Wix i drugim</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_fnow">Upit odmah stiže u Telegram, WhatsApp ili na e-mail</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_fslot">Klijent sam bira slobodan termin, bez poziva</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_fconf">Automatska potvrda i podsjetnik klijentu e-mailom</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_crm2">CRM: svi upiti na jednoj listi, sa statusom</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_fown">CRM i kalendar na vaše ime, u besplatnoj verziji</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="y"><span data-i18n="row_ftrain">Kratko uputstvo i 20 minuta obuke</span><span class="sr" data-i18n="inc">uključeno</span></li>
-            <li class="n"><span data-i18n="row_fsms">SMS i WhatsApp podsjetnici</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
-            <li class="n"><span data-i18n="row_fpay">Online plaćanje karticom</span><span class="sr" data-i18n="exc">nije uključeno</span></li>
-          </ul>
+          <div class="pk3">
+            <div class="pk">
+              <b class="pk-t" data-i18n="pk1t">Forma + CRM</b>
+              <div class="pk-p" data-i18n="pk1p">79 €</div>
+              <p class="pk-d" data-i18n="pk1d">Upiti sa sajta stižu vam odmah i nijedan se ne gubi.</p>
+              <ul class="feat">
+                <li class="y"><span data-i18n="pk1a">Forma za upit na vašem sajtu</span></li>
+                <li class="y"><span data-i18n="pk1b">Upit odmah stiže u Telegram, WhatsApp ili na e-mail</span></li>
+                <li class="y"><span data-i18n="pk1c">CRM: lista svih upita i klijenata, sa statusom</span></li>
+                <li class="y"><span data-i18n="pk1e">Podešavanje i 20 minuta obuke</span></li>
+              </ul>
+              <span class="pk-tl mono" data-i18n="pk1tl">Rok: 1–3 dana</span>
+            </div>
+            <div class="pk">
+              <b class="pk-t" data-i18n="pk2t">Online rezervacija</b>
+              <div class="pk-p" data-i18n="pk2p">od 149 €</div>
+              <p class="pk-d" data-i18n="pk2d">Klijent sam bira slobodan termin, bez poziva.</p>
+              <ul class="feat">
+                <li class="y"><span data-i18n="pk2a">Kalendar slobodnih termina na vašem sajtu</span></li>
+                <li class="y"><span data-i18n="pk2b">Potvrda klijentu i podsjetnik dan prije, e-mailom</span></li>
+                <li class="y"><span data-i18n="pk2c">Svi termini u vašem kalendaru na telefonu, bez duplih termina</span></li>
+                <li class="y"><span data-i18n="pk2e">Radno vrijeme, pauze i usluge mijenjate sami</span></li>
+              </ul>
+              <span class="pk-tl mono" data-i18n="pk2tl">Rok: 3–7 dana</span>
+            </div>
+            <div class="pk pk-hot">
+              <b class="pk-t"><span data-i18n="pk3t">Sve zajedno</span> <span class="badge" data-i18n="pk3s">−29 €</span></b>
+              <div class="pk-p" data-i18n="pk3p">od 199 €</div>
+              <p class="pk-d" data-i18n="pk3d">Forma, kalendar i CRM, povezani u jedan sistem.</p>
+              <ul class="feat">
+                <li class="y"><span data-i18n="pk3a">Sve iz paketa Forma + CRM i Online rezervacija</span></li>
+                <li class="y"><span data-i18n="pk3b">Upiti i termini stižu u isti CRM</span></li>
+                <li class="y"><span data-i18n="pk3c">Kartica svakog klijenta: telefon, posjete, potrošeno, napomene</span></li>
+                <li class="y"><span data-i18n="pk3e">Vidite ko je stalni klijent, a koga treba ponovo pozvati</span></li>
+              </ul>
+              <span class="pk-tl mono" data-i18n="pk3tl">Rok: 5–10 dana</span>
+            </div>
+          </div>
+          <p class="pk-note" data-i18n="pk_note">Zašto „od“: 149 € i 199 € važe za jedan kalendar (jedan radnik ili jedna prostorija) i do 10 usluga. Za više radnika ili lokacija cijenu kažemo prije početka. Plaćate jednom, bez mjesečne pretplate. Nije uključeno: SMS i WhatsApp podsjetnici i online plaćanje.</p>
         </article>
         <article class="plan plan-wide plan-ai" id="plan-ai">
           <div class="pw-main">
@@ -1298,18 +1335,19 @@ en: {
   h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
   h_c1:"Message us", h_c2:"See examples", h_wa:"Or message us on WhatsApp right away:",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
-  flow_cap:"Demo: a guest leaves a request on the site, and you see it instantly in Telegram and in the CRM.",
+  flow_cap:"Demo: a guest leaves a request on the site, and you get it instantly in Telegram, WhatsApp or by email and see it in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
   f3v:"You're the owner", f3l:"of the site, domain, email and CRM", f4v:"Fixed price", f4l:"agreed before we start",
   nav_ai:"AI assistant",
-  t6:"Forms, online booking and CRM", crm_for:"For your existing site", pr5:"from €79",
-  pl5d:"Have a website, but requests get lost in messages and calls? We add a form, online booking and a CRM to your current site, so every customer gets an answer and you see all requests in one place.",
-  tl5f:"from 1 day", tl5u:"3–10 days",
-  row_fc:"Request form + CRM", pv_fc:"€79", row_fb:"Online booking or appointment scheduling", pv_fb:"from €149", row_fall:"Form, booking and CRM together", pv_fall:"from €199",
-  row_fany:"Works on any site: WordPress, Wix and others", row_fnow:"Each request arrives instantly in Telegram, WhatsApp or by email",
-  row_fslot:"Customers pick a free slot themselves, no calls", row_fconf:"Automatic confirmation and reminder to the customer by email",
-  row_crm2:"CRM: all requests in one list, with a status", row_fown:"CRM and calendar in your name, on free plans", row_ftrain:"Short guide and 20 minutes of training",
-  row_fsms:"SMS and WhatsApp reminders", row_fpay:"Online card payment",
+  t6:"Forms, online booking and CRM", crm_for:"For your existing site", crm_see:"See how it looks",
+  pl5d:"Have a website, but requests get lost in messages and calls? We add what you need to your current site: a request form, a booking calendar or both, with a CRM where you see all your customers.",
+  pk1t:"Form + CRM", pk1p:"€79", pk1d:"Requests from your site reach you instantly and none get lost.",
+  pk1a:"Request form on your website", pk1b:"Each request arrives instantly in Telegram, WhatsApp or by email", pk1c:"CRM: a list of all requests and customers, with a status", pk1e:"Setup and 20 minutes of training", pk1tl:"Time: 1–3 days",
+  pk2t:"Online booking", pk2p:"from €149", pk2d:"Customers pick a free slot themselves, no calls.",
+  pk2a:"Calendar of free slots on your website", pk2b:"Confirmation and a reminder the day before, by email", pk2c:"All bookings in your calendar on your phone, no double bookings", pk2e:"You change opening hours, breaks and services yourself", pk2tl:"Time: 3–7 days",
+  pk3t:"Everything together", pk3s:"−€29", pk3p:"from €199", pk3d:"Form, calendar and CRM linked into one system.",
+  pk3a:"Everything from Form + CRM and Online booking", pk3b:"Requests and bookings land in the same CRM", pk3c:"A card for every customer: phone, visits, spend, notes", pk3e:"See who your regulars are and who to invite back", pk3tl:"Time: 5–10 days",
+  pk_note:"Why “from”: €149 and €199 cover one calendar (one staff member or one room) and up to 10 services. For more staff or locations we quote the price before we start. You pay once, no monthly fee. Not included: SMS and WhatsApp reminders and online payment.",
   t7:"AI assistant 24/7", new_b:"New", pr6:"€190", pr6m:"+ €19 a month · setup €99 for clients with our website",
   pl6d:"An assistant on your website answers customers day and night, in their language, and sends you ready requests with a name and phone number.",
   tl6f:"from 5 days", tl6u:"1–2 weeks", ai_more:"How the assistant works",
@@ -1332,7 +1370,7 @@ en: {
   g_s:"Here are four common reasons and how we fix them.",
   k_bad:"Problem", k_good:"Fix",
   g1p:"An Instagram message at 23:40 sits unanswered until morning.",
-  g1f:"The site form works 24/7, and the request lands in Telegram instantly.",
+  g1f:"The site form works 24/7, and each request instantly reaches you where it suits you: WhatsApp, Telegram or email.",
   g2p:"The phone rings while you are busy with guests.",
   g2f:"Guests book on their own, and you confirm when you have a minute.",
   g3p:"Tourists can't find you on Google or can't read the language.",
@@ -1419,7 +1457,7 @@ en: {
   row_pages:"Number of pages",
   row_lang:"Site languages",
   row_texts:"We write the texts in all site languages",
-  row_form:"Request form → Telegram or WhatsApp",
+  row_form:"Request form → WhatsApp, Telegram or email",
   row_crm:"CRM: all requests in one list",
   row_mail:"Business email",
   row_google:"Google profile and map listing",
@@ -1489,7 +1527,7 @@ en: {
   do3:"Design for phone and desktop",
   do4:"Texts in three languages",
   do5:"Photo preparation for the site",
-  do6:"Requests to Telegram or WhatsApp",
+  do6:"Requests to WhatsApp, Telegram or email",
   do7:"CRM for requests",
   do8:"Email on your own domain",
   do9:"Email protection: SPF, DKIM, DMARC",
@@ -1506,18 +1544,19 @@ ru: {
   h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
   h_c1:"Написать нам", h_c2:"Смотреть примеры", h_wa:"Или сразу напишите в WhatsApp:",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
-  flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу видите её в Telegram и в CRM.",
+  flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу получаете её в Telegram, WhatsApp или на почту и видите в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
   f3v:"Вы владелец", f3l:"сайта, домена, почты и CRM", f4v:"Фиксированная цена", f4l:"известна до начала работ",
   nav_ai:"AI-ассистент",
-  t6:"Формы, онлайн-запись и CRM", crm_for:"Для вашего сайта", pr5:"от 79 €",
-  pl5d:"Сайт есть, а заявки теряются в сообщениях и звонках? Добавим на ваш нынешний сайт форму, онлайн-запись и CRM: каждый клиент получит ответ, а вы увидите все заявки в одном месте.",
-  tl5f:"от 1 дня", tl5u:"3–10 дней",
-  row_fc:"Форма заявки + CRM", pv_fc:"79 €", row_fb:"Онлайн-бронирование или запись на время", pv_fb:"от 149 €", row_fall:"Форма, запись и CRM вместе", pv_fall:"от 199 €",
-  row_fany:"Работает на любом сайте: WordPress, Wix и других", row_fnow:"Заявка сразу приходит в Telegram, WhatsApp или на почту",
-  row_fslot:"Клиент сам выбирает свободное время, без звонков", row_fconf:"Автоматическое подтверждение и напоминание клиенту на почту",
-  row_crm2:"CRM: все заявки одним списком, со статусом", row_fown:"CRM и календарь на ваше имя, в бесплатной версии", row_ftrain:"Короткая инструкция и 20 минут обучения",
-  row_fsms:"Напоминания по SMS и в WhatsApp", row_fpay:"Онлайн-оплата картой",
+  t6:"Формы, онлайн-запись и CRM", crm_for:"Для вашего сайта", crm_see:"Посмотреть, как это выглядит",
+  pl5d:"Сайт есть, а заявки теряются в сообщениях и звонках? Добавим на ваш нынешний сайт то, что нужно: форму заявки, календарь записи или всё вместе, с CRM, где видны все ваши клиенты.",
+  pk1t:"Форма + CRM", pk1p:"79 €", pk1d:"Заявки с сайта приходят вам сразу, ни одна не теряется.",
+  pk1a:"Форма заявки на вашем сайте", pk1b:"Заявка сразу приходит в Telegram, WhatsApp или на почту", pk1c:"CRM: список всех заявок и клиентов, со статусом", pk1e:"Настройка и 20 минут обучения", pk1tl:"Срок: 1–3 дня",
+  pk2t:"Онлайн-запись", pk2p:"от 149 €", pk2d:"Клиент сам выбирает свободное время, без звонков.",
+  pk2a:"Календарь свободного времени на вашем сайте", pk2b:"Подтверждение клиенту и напоминание за день, на почту", pk2c:"Все записи в вашем календаре на телефоне, без двойных записей", pk2e:"Часы работы, перерывы и услуги меняете сами", pk2tl:"Срок: 3–7 дней",
+  pk3t:"Всё вместе", pk3s:"−29 €", pk3p:"от 199 €", pk3d:"Форма, календарь и CRM, связанные в одну систему.",
+  pk3a:"Всё из пакетов «Форма + CRM» и «Онлайн-запись»", pk3b:"Заявки и записи попадают в одну CRM", pk3c:"Карточка каждого клиента: телефон, визиты, сумма, заметки", pk3e:"Видно, кто постоянный клиент, а кого пора позвать снова", pk3tl:"Срок: 5–10 дней",
+  pk_note:"Почему «от»: 149 € и 199 € — это один календарь (один мастер или один кабинет) и до 10 услуг. Если мастеров или филиалов больше, цену скажем до начала работы. Платите один раз, без абонплаты. Не входит: напоминания по SMS и в WhatsApp и онлайн-оплата.",
   t7:"AI-ассистент 24/7", new_b:"Новое", pr6:"190 €", pr6m:"+ 19 € в месяц · для клиентов с нашим сайтом настройка 99 €",
   pl6d:"Ассистент на вашем сайте отвечает клиентам днём и ночью, на их языке, а вам присылает готовые заявки с именем и телефоном.",
   tl6f:"от 5 дней", tl6u:"1–2 недели", ai_more:"Как работает ассистент",
@@ -1540,7 +1579,7 @@ ru: {
   g_s:"Вот четыре частые причины и как мы это решаем.",
   k_bad:"Проблема", k_good:"Решение",
   g1p:"Сообщение в Instagram в 23:40 висит без ответа до утра.",
-  g1f:"Форма на сайте работает 24/7, а заявка сразу приходит в Telegram.",
+  g1f:"Форма на сайте работает 24/7, а заявка сразу приходит туда, где вам удобно: в WhatsApp, Telegram или на почту.",
   g2p:"Телефон звонит, пока вы заняты гостями.",
   g2f:"Гость сам оставляет бронь, а вы подтверждаете, когда освободитесь.",
   g3p:"Туристы не находят вас в Google или не понимают язык.",
@@ -1627,7 +1666,7 @@ ru: {
   row_pages:"Количество страниц",
   row_lang:"Языки сайта",
   row_texts:"Тексты пишем мы, на всех языках сайта",
-  row_form:"Форма заявки → Telegram или WhatsApp",
+  row_form:"Форма заявки → WhatsApp, Telegram или почта",
   row_crm:"CRM: все заявки в одном списке",
   row_mail:"Корпоративная почта",
   row_google:"Карточка в Google и на карте",
@@ -1697,7 +1736,7 @@ ru: {
   do3:"Дизайн под телефон и компьютер",
   do4:"Тексты на трёх языках",
   do5:"Подготовка фото для сайта",
-  do6:"Заявки в Telegram или WhatsApp",
+  do6:"Заявки в WhatsApp, Telegram или на почту",
   do7:"CRM для заявок",
   do8:"Почта на вашем домене",
   do9:"Защита почты: SPF, DKIM, DMARC",
@@ -1798,7 +1837,18 @@ function applyLang(l){
   document.title = PAGE_TITLE[lang];
   fillBrand(); fillContacts(); buildCalendar(); updateCalc(); setQR(lang); startFlow();
   $("#f-result").hidden = true; $("#f-err").hidden = true;
+  noBreakHyphens(document.body);
   store.set("vitrina-lang", lang);
+}
+function noBreakHyphens(root){
+  // keeps words like e-mail, QR-menu, AI-ассистент on one line (non-breaking hyphen, no layout change)
+  const re = /[\p{L}\p{N}]+(?:-[\p{L}\p{N}]+)+/gu, w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = w.nextNode())) {
+    if (!n.nodeValue.includes("-") || !n.parentElement || n.parentElement.closest("script,style,textarea,select,title")) continue;
+    const v = n.nodeValue.replace(re, m => m.replace(/-/g, "‑"));
+    if (v !== n.nodeValue) n.nodeValue = v;
+  }
 }
 
 /* ---------- live flow ---------- */
