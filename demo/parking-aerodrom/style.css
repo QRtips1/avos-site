@@ -129,7 +129,7 @@ button,input,select{font:inherit;color:inherit}
 .incl svg{color:var(--linija);margin-top:1px}
 .incl li a{color:#fff;text-decoration:underline;text-decoration-color:var(--linija);text-underline-offset:3px}
 .pr-foot .btn{width:100%}
-@media (min-width:600px) and (max-width:959px){.tix{max-width:560px}.incl ul{grid-template-columns:1fr 1fr}.pr-foot .btn{width:auto;justify-self:start;padding:0 28px}}
+@media (min-width:600px) and (max-width:959px){.tix{max-width:560px}.pr-foot .btn{width:auto;justify-self:start;padding:0 28px}}
 @media (min-width:960px){
   .tix{grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;margin-top:40px}
   .tk{flex-direction:column}
@@ -142,7 +142,7 @@ button,input,select{font:inherit;color:inherit}
   .tk-p.tk-txt{font-size:clamp(2rem,2.8vw,2.5rem);padding-top:.35em}
   .tk-s{font-size:15px}
   .pr-foot{grid-template-columns:1fr auto;align-items:center;gap:32px;margin-top:36px}
-  .incl ul{grid-template-columns:1fr 1fr}
+  .incl ul{grid-template-columns:repeat(3,1fr)}
   .pr-foot .btn{width:auto;padding:0 28px}
 }
 
