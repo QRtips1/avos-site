@@ -589,6 +589,32 @@ fieldset.field{border:0;margin:0;padding:0}
   .mx-nav{padding:12px 14px}
   .mx-nav span{display:none}
 }
+/* phones: shorter page (2026-11-26) */
+.hero-wa-btn,.hero-form-link,.feat-tg{display:none}
+.hero-wa-btn{gap:8px}
+.hero-form-link{margin-top:14px;font-size:var(--t-sm)}
+.hero-form-link a{color:var(--fg);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line-2)}
+.feat-tg{align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:44px;margin:4px 0 0;padding:10px 14px;border:1px solid var(--line-2);border-radius:12px;background:transparent;color:var(--fg);font:inherit;font-weight:600;cursor:pointer;touch-action:manipulation}
+.feat-tg::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.plan.open .feat-tg::after{transform:translateY(2px) rotate(-135deg)}
+.feat-tg .tg-less,.plan.open .feat-tg .tg-more{display:none}
+.plan.open .feat-tg .tg-less{display:inline}
+@media (max-width: 640px){
+  .hero-wa-btn{display:inline-flex}
+  .hero-form-link{display:block}
+  .hero-form-btn,.hero-main .hero-wa,.hero-main .flow-wrap,#how .chat,#own .passport,#pricing .tl-note{display:none}
+  .hero-wa-btn[hidden]{display:none}
+  .hero-wa-btn[hidden] ~ .hero-form-btn{display:inline-flex}
+  #pricing .feat-tg{display:flex}
+  #pricing .plan:not(.open) .feat,#pricing .plan-crm:not(.open) .pk-d,#pricing .plan-crm:not(.open) .pk-tl,#pricing .plan-crm:not(.open) .pk-note{display:none}
+  #pricing .plan-crm:not(.open) .pk3{gap:8px}
+  #pricing .plan-crm:not(.open) .pk{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 14px}
+  #pricing .plan-crm:not(.open) .pk-p{margin:0;font-size:1.25rem;white-space:nowrap}
+  #pricing .plan-crm:not(.open) .pk-t{flex-wrap:wrap;justify-content:flex-start}
+  #pricing .plan:not(.open) .tl{display:none}
+  #gaps .gap{gap:10px;padding:18px}
+  #gaps .gap-row{grid-template-columns:minmax(0,1fr);gap:6px}
+}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -618,7 +644,7 @@ fieldset.field{border:0;margin:0;padding:0}
 
 <main id="top">
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-main">
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
@@ -628,9 +654,11 @@ fieldset.field{border:0;margin:0;padding:0}
           <p class="hero-price" data-i18n="h_price"><b>Sajt od 99 €</b>: jedna stranica na 1–2 jezika i forma za upite. <a href="#pricing">Svi paketi i cijene</a></p>
           <p class="hero-demo" data-i18n="h_demo">Prvo besplatno napravimo demo vašeg sajta. Prvi dio plaćate tek kad ga odobrite.</p>
           <div class="hero-cta">
-            <a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a>
-            <a class="btn btn-ghost" href="#demos" data-i18n="h_c2">Pogledajte primjere</a>
+            <a class="btn btn-main hero-wa-btn" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
+            <a class="btn btn-main hero-form-btn" href="#order" data-i18n="h_c1">Napišite nam</a>
+            <a class="btn btn-ghost" href="#works" data-i18n="h_c2">Pogledajte naše radove</a>
           </div>
+          <p class="hero-form-link"><a href="#order" data-i18n="h_form">Ili ostavite upit u formi</a></p>
           <p class="hero-wa" data-show="phone"><span data-i18n="h_wa">Ili odmah pišite na WhatsApp:</span> <a data-wa data-wa-num><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span>+382 67 065 707</span></a></p>
         </div>
 
@@ -1039,6 +1067,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <div class="plan-h"><b>Start</b></div>
           <div class="price" data-i18n="pr1">99 €</div>
           <p data-i18n="pl1d">Jedna stranica preko koje vam pišu.</p>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <ul class="feat">
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv1">1</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv1">1–2</b></li>
@@ -1062,6 +1091,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <div class="plan-h"><b data-i18n="pkg_biz">Biznis</b><span class="badge" data-i18n="rec">Preporučujemo</span></div>
           <div class="price" data-i18n="pr2">249 €</div>
           <p data-i18n="pl2d">Kompletan sajt na tri jezika, sa poslovnim e-mailom i Google profilom.</p>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <ul class="feat">
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv2">do 6</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
@@ -1085,6 +1115,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <div class="plan-h"><b>Pro</b></div>
           <div class="price" data-i18n="pr3">od 490 €</div>
           <p data-i18n="pl3d">Sve iz paketa Biznis, a sajt uz to sam prima rezervacije i šalje poruke klijentima.</p>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <ul class="feat">
             <li class="v"><span data-i18n="row_pages">Broj stranica</span><b data-i18n="pv3">do 10</b></li>
             <li class="v"><span data-i18n="row_lang">Jezici sajta</span><b data-i18n="lv2">ME · EN · RU</b></li>
@@ -1112,6 +1143,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl4f">od 1 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl4u">3–7 dana</dd></div></dl>
             <a class="btn btn-ghost" href="#order" data-pkg="qr" data-i18n="choose">Izaberi</a>
           </div>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <ul class="feat">
             <li class="v"><span data-i18n="row_items">Broj stavki u meniju</span><b data-i18n="qv1">do 80</b></li>
             <li class="v"><span data-i18n="row_mlang">Jezici menija</span><b data-i18n="lv2">ME · EN · RU</b></li>
@@ -1170,6 +1202,7 @@ fieldset.field{border:0;margin:0;padding:0}
               <span class="pk-tl mono" data-i18n="pk3tl">Rok: 5–10 dana</span>
             </div>
           </div>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <p class="pk-note" data-i18n="pk_note">Zašto „od“: 149 € i 199 € važe za jedan kalendar (jedan radnik ili jedna prostorija) i do 10 usluga. Za više radnika ili lokacija cijenu kažemo prije početka. Plaćate jednom, bez mjesečne pretplate. Nije uključeno: SMS i WhatsApp podsjetnici i online plaćanje.</p>
         </article>
         <article class="plan plan-wide plan-ai" id="plan-ai">
@@ -1180,6 +1213,7 @@ fieldset.field{border:0;margin:0;padding:0}
             <dl class="tl"><div><dt data-i18n="tl_fast">Ako sve pošaljete odmah</dt><dd data-i18n="tl6f">od 5 dana</dd></div><div><dt data-i18n="tl_full">Od prve poruke do pokretanja</dt><dd data-i18n="tl6u">1–2 sedmice</dd></div></dl>
             <div class="pw-btns"><a class="btn btn-main" href="ai-asistent/" data-i18n="ai_more">Kako radi asistent</a><a class="btn btn-ghost" href="#order" data-pkg="ai" data-i18n="choose">Izaberi</a></div>
           </div>
+          <button type="button" class="feat-tg" aria-expanded="false"><span class="tg-more" data-i18n="feat_more">Šta je uključeno</span><span class="tg-less" data-i18n="feat_less">Sakrij</span></button>
           <ul class="feat">
             <li class="y"><span data-i18n="row_a1">Odgovara 24/7, za nekoliko sekundi</span><span class="sr" data-i18n="inc">uključeno</span></li>
             <li class="y"><span data-i18n="row_a2">Govori jezikom klijenta: ME, EN, RU, DE i drugim</span><span class="sr" data-i18n="inc">uključeno</span></li>
@@ -1232,17 +1266,9 @@ fieldset.field{border:0;margin:0;padding:0}
         <form class="form" id="form" novalidate>
           <div class="f-row">
             <label class="field" for="f-name"><span data-i18n="fl_name">Vaše ime</span><input id="f-name" name="name" autocomplete="name"></label>
-            <label class="field" for="f-type"><span data-i18n="fl_type">Vaš biznis</span>
-              <select id="f-type" name="business">
-                <option value="restaurant" data-i18n="ft1">Restoran ili kafić</option>
-                <option value="apartments" data-i18n="t2">Apartmani</option>
-                <option value="rentacar" data-i18n="t3">Rent-a-car</option>
-                <option value="cleaning" data-i18n="t4">Čišćenje</option>
-                <option value="other" data-i18n="ft5">Nešto drugo</option>
-              </select>
-            </label>
+            <label class="field" for="f-contact"><span data-i18n="fl_contact2">WhatsApp, Telegram ili e-mail</span><input id="f-contact" name="contact" autocomplete="tel" data-i18n-ph="ph_contact2" placeholder="+382 …, @korisnik ili e-mail"></label>
           </div>
-          <label class="field" for="f-pkg"><span data-i18n="fl_pkg">Paket</span>
+          <label class="field f-pkg-wrap" for="f-pkg" hidden><span data-i18n="fl_pkg">Paket</span>
             <select id="f-pkg" name="package">
               <option value="unsure" data-i18n="fp0">Još ne znam</option>
               <option value="start" data-i18n="fp1">Start · 99 €</option>
@@ -1253,17 +1279,6 @@ fieldset.field{border:0;margin:0;padding:0}
               <option value="ai" data-i18n="fp6">AI asistent · 190 €</option>
             </select>
           </label>
-          <fieldset class="field">
-            <legend data-i18n="fl_ch">Kako da vas kontaktiramo?</legend>
-            <div class="chips">
-              <label for="ch-wa"><input type="radio" id="ch-wa" name="channel" value="WhatsApp" checked><span>WhatsApp</span></label>
-              <label for="ch-tg"><input type="radio" id="ch-tg" name="channel" value="Telegram"><span>Telegram</span></label>
-              <label for="ch-vb"><input type="radio" id="ch-vb" name="channel" value="Viber"><span>Viber</span></label>
-              <label for="ch-em"><input type="radio" id="ch-em" name="channel" value="E-mail"><span data-i18n="ch_em">E-mail</span></label>
-              <label for="ch-call"><input type="radio" id="ch-call" name="channel" value="Call"><span data-i18n="ch_call">Poziv</span></label>
-            </div>
-          </fieldset>
-          <label class="field" for="f-contact"><span data-i18n="fl_contact">Broj telefona ili korisničko ime</span><input id="f-contact" name="contact" autocomplete="tel" data-i18n-ph="ph_contact" placeholder="+382 … ili @korisnik"></label>
           <label class="field" for="f-msg"><span data-i18n="fl_msg">Šta želite? (nije obavezno)</span><textarea id="f-msg" name="message" data-i18n-ph="ph_msg" placeholder="Npr. sajt za konobu sa rezervacijama na tri jezika"></textarea></label>
           <p class="err" id="f-err" hidden></p>
           <div class="form-foot">
@@ -1281,7 +1296,7 @@ fieldset.field{border:0;margin:0;padding:0}
           <h3 data-i18n="ct_t">Ili pišite direktno</h3>
           <a class="btn btn-ghost" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
           <ul class="c-list">
-            <li class="c-item"><span data-i18n="ct_ph">Telefon · WhatsApp</span><a data-contact="phone" class="ph">+382 __ ___ ___</a><button class="copy" type="button" data-copy="phone" data-i18n="copy">Kopiraj</button></li>
+            <li class="c-item"><span>WhatsApp</span><a data-contact="phone" class="ph">+382 __ ___ ___</a><button class="copy" type="button" data-copy="phone" data-i18n="copy">Kopiraj</button></li>
             <li class="c-item"><span>Telegram</span><a data-contact="telegram" class="ph">@username</a><button class="copy" type="button" data-copy="telegram" data-i18n="copy">Kopiraj</button></li>
             <li class="c-item"><span data-i18n="ch_em">E-mail</span><a data-contact="email" class="ph">hello@makesitefor.me</a><button class="copy" type="button" data-copy="email" data-i18n="copy">Kopiraj</button></li>
           </ul>
@@ -1333,7 +1348,7 @@ en: {
   h_demo:"First we build a free demo of your website. You pay the first part only once you approve it.",
   h_t:"A website for your business. <em>Leave the hassle to us.</em>",
   h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
-  h_c1:"Message us", h_c2:"See examples", h_wa:"Or message us on WhatsApp right away:",
+  h_c1:"Message us", h_c2:"See our work", h_wa:"Or message us on WhatsApp right away:",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
   flow_cap:"Demo: a guest leaves a request on the site, and you get it instantly in Telegram, WhatsApp or by email and see it in the CRM.",
   f1v:"from 2 days", f1l:"to the first version of your site", f2l:"three languages for your guests",
@@ -1446,7 +1461,7 @@ en: {
   fl_ch:"How should we contact you?", ch_em:"Email", ch_call:"Call",
   fl_contact:"Phone number or username", fl_msg:"What would you like? (optional)",
   f_send:"Send request", f_priv:"We only use your details to reply to you.",
-  copy:"Copy", ct_t:"Or message us directly", ct_wa:"Message us on WhatsApp", ct_ph:"Phone · WhatsApp", ct_city:"Podgorica, Montenegro", ct_lang:"We speak Montenegrin, English and Russian.",
+  copy:"Copy", ct_t:"Or message us directly", ct_wa:"Message us on WhatsApp", h_form:"Or send a request via the form", feat_more:"What’s included", feat_less:"Hide", fl_contact2:"WhatsApp, Telegram or email", ph_contact2:"+382 …, @username or email", ct_ph:"Phone · WhatsApp", ct_city:"Podgorica, Montenegro", ct_lang:"We speak Montenegrin, English and Russian.",
   foot:"<span class=\"brand-name\"></span> is a small studio in Podgorica that builds websites with a CRM and business email for local businesses.",
   ph_contact:"+382 … or @username", ph_msg:"E.g. a site for my tavern with bookings in three languages",
   t5:"QR menu",
@@ -1542,7 +1557,7 @@ ru: {
   h_demo:"Сначала бесплатно делаем демо вашего сайта. Первую часть вы платите, только когда его одобрите.",
   h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
   h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
-  h_c1:"Написать нам", h_c2:"Смотреть примеры", h_wa:"Или сразу напишите в WhatsApp:",
+  h_c1:"Написать нам", h_c2:"Посмотреть наши работы", h_wa:"Или сразу напишите в WhatsApp:",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу получаете её в Telegram, WhatsApp или на почту и видите в CRM.",
   f1v:"от 2 дней", f1l:"до первой версии сайта", f2l:"три языка для ваших гостей",
@@ -1655,7 +1670,7 @@ ru: {
   fl_ch:"Как с вами связаться?", ch_em:"Почта", ch_call:"Звонок",
   fl_contact:"Телефон или ник", fl_msg:"Что хотите? (необязательно)",
   f_send:"Отправить заявку", f_priv:"Используем ваши данные только чтобы ответить вам.",
-  copy:"Копировать", ct_t:"Или напишите напрямую", ct_wa:"Написать в WhatsApp", ct_ph:"Телефон · WhatsApp", ct_city:"Подгорица, Черногория", ct_lang:"Говорим на черногорском, английском и русском.",
+  copy:"Копировать", ct_t:"Или напишите напрямую", ct_wa:"Написать в WhatsApp", h_form:"Или оставьте заявку через форму", feat_more:"Что входит", feat_less:"Скрыть", fl_contact2:"WhatsApp, Telegram или e-mail", ph_contact2:"+382 …, @ник или e-mail", ct_ph:"Телефон · WhatsApp", ct_city:"Подгорица, Черногория", ct_lang:"Говорим на черногорском, английском и русском.",
   foot:"<span class=\"brand-name\"></span> — небольшая студия из Подгорицы, которая делает сайты с CRM и корпоративной почтой для местного бизнеса.",
   ph_contact:"+382 … или @ник", ph_msg:"Например: сайт для ресторана с бронью на трёх языках",
   t5:"QR-меню",
@@ -1805,7 +1820,7 @@ function fillBrand(){ $$(".brand-name").forEach(n => n.textContent = CONFIG.bran
 function fillContacts(){
   const digits = CONFIG.phone.replace(/\D/g, "");
   const map = {
-    phone:   { text: CONFIG.phone,    href: "tel:+" + digits },
+    phone:   { text: CONFIG.phone,    href: "https://wa.me/" + digits },
     telegram:{ text: CONFIG.telegram, href: "https://t.me/" + CONFIG.telegram.replace(/^@/, "") },
     email:   { text: CONFIG.email,    href: "mailto:" + CONFIG.email },
   };
@@ -1940,8 +1955,13 @@ function updateCalc(){
 ["#calc-type","#calc-area","#calc-deep"].forEach(s => $(s).addEventListener("input", updateCalc));
 
 /* ---------- package buttons ---------- */
-$$("[data-pkg]").forEach(b => b.addEventListener("click", () => { $("#f-pkg").value = b.dataset.pkg; }));
-try { const pq = new URLSearchParams(location.search).get("p"); if (pq && $$("#f-pkg option").some(o => o.value === pq)) $("#f-pkg").value = pq; } catch (e) {}
+// the package box shows up once a package is picked (its button or ?p=)
+const pickPkg = v => { $("#f-pkg").value = v; $(".f-pkg-wrap").hidden = false; };
+$$("[data-pkg]").forEach(b => b.addEventListener("click", () => pickPkg(b.dataset.pkg)));
+try { const pq = new URLSearchParams(location.search).get("p"); if (pq && $$("#f-pkg option").some(o => o.value === pq)) pickPkg(pq); } catch (e) {}
+
+/* ---------- phones: package lists open on tap ---------- */
+$$(".feat-tg").forEach(b => b.addEventListener("click", () => { const pl = b.closest(".plan"), on = !pl.classList.contains("open"); pl.classList.toggle("open", on); b.setAttribute("aria-expanded", String(on)); }));
 
 /* ---------- copy helpers ---------- */
 function copyText(text, btn){
@@ -1960,10 +1980,10 @@ $("#form").addEventListener("submit", async e => {
   err.hidden = true; res.hidden = true;
   if (!name) { err.textContent = u.err_name; err.hidden = false; $("#f-name").focus(); return; }
   if (!contact) { err.textContent = u.err_contact; err.hidden = false; $("#f-contact").focus(); return; }
-  const channel = $('input[name="channel"]:checked').value;
+  const channel = /^@/.test(contact) ? "Telegram" : /\S@\S+\.\S/.test(contact) ? "E-mail" : "WhatsApp";
   const opt = s => $(s).selectedOptions[0].textContent;
   const msg = $("#f-msg").value.trim();
-  const text = [u.req[0] + " · " + CONFIG.brand, u.req[1] + ": " + name, u.req[2] + ": " + opt("#f-type"), u.req[3] + ": " + opt("#f-pkg"), u.req[4] + ": " + contact + " (" + channel + ")", msg ? u.req[5] + ": " + msg : ""].filter(Boolean).join("\n");
+  const text = [u.req[0] + " · " + CONFIG.brand, u.req[1] + ": " + name, u.req[3] + ": " + opt("#f-pkg"), u.req[4] + ": " + contact + " (" + channel + ")", msg ? u.req[5] + ": " + msg : ""].filter(Boolean).join("\n");
   const show = (cls, t, withText) => { res.className = "result" + (cls ? " " + cls : ""); $("#f-result-t").textContent = t; pre.textContent = text; pre.hidden = !withText; cp.hidden = !withText; res.hidden = false; };
   if (!CONFIG.formEndpoint) {
     if (IS_PLACEHOLDER(CONFIG.phone)) { show("", u.preview, true); return; }
@@ -1973,7 +1993,7 @@ $("#form").addEventListener("submit", async e => {
   const btn = $("#f-submit"), label = btn.innerHTML; btn.disabled = true; btn.textContent = u.sending;
   try {
     const r = await fetch(CONFIG.formEndpoint, { method:"POST", headers:{ "Content-Type":"application/json", Accept:"application/json" },
-      body: JSON.stringify({ access_key: CONFIG.formKey, subject: u.req[0] + " · " + CONFIG.brand, from_name: CONFIG.brand, name, business: opt("#f-type"), package: opt("#f-pkg"), channel, contact, message: msg, language: lang }) });
+      body: JSON.stringify({ access_key: CONFIG.formKey, subject: u.req[0] + " · " + CONFIG.brand, from_name: CONFIG.brand, name, package: opt("#f-pkg"), channel, contact, message: msg, language: lang }) });
     if (!r.ok) throw new Error(r.status);
     show("ok", u.ok, false);
     if (window.gtag) gtag("event", "generate_lead", { language: lang, package: opt("#f-pkg") }); // counted as a lead in Google Analytics

@@ -588,6 +588,32 @@ fieldset.field{border:0;margin:0;padding:0}
   .mx-nav{padding:12px 14px}
   .mx-nav span{display:none}
 }
+/* phones: shorter page (2026-11-26) */
+.hero-wa-btn,.hero-form-link,.feat-tg{display:none}
+.hero-wa-btn{gap:8px}
+.hero-form-link{margin-top:14px;font-size:var(--t-sm)}
+.hero-form-link a{color:var(--fg);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line-2)}
+.feat-tg{align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:44px;margin:4px 0 0;padding:10px 14px;border:1px solid var(--line-2);border-radius:12px;background:transparent;color:var(--fg);font:inherit;font-weight:600;cursor:pointer;touch-action:manipulation}
+.feat-tg::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.plan.open .feat-tg::after{transform:translateY(2px) rotate(-135deg)}
+.feat-tg .tg-less,.plan.open .feat-tg .tg-more{display:none}
+.plan.open .feat-tg .tg-less{display:inline}
+@media (max-width: 640px){
+  .hero-wa-btn{display:inline-flex}
+  .hero-form-link{display:block}
+  .hero-form-btn,.hero-main .hero-wa,.hero-main .flow-wrap,#how .chat,#own .passport,#pricing .tl-note{display:none}
+  .hero-wa-btn[hidden]{display:none}
+  .hero-wa-btn[hidden] ~ .hero-form-btn{display:inline-flex}
+  #pricing .feat-tg{display:flex}
+  #pricing .plan:not(.open) .feat,#pricing .plan-crm:not(.open) .pk-d,#pricing .plan-crm:not(.open) .pk-tl,#pricing .plan-crm:not(.open) .pk-note{display:none}
+  #pricing .plan-crm:not(.open) .pk3{gap:8px}
+  #pricing .plan-crm:not(.open) .pk{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 14px}
+  #pricing .plan-crm:not(.open) .pk-p{margin:0;font-size:1.25rem;white-space:nowrap}
+  #pricing .plan-crm:not(.open) .pk-t{flex-wrap:wrap;justify-content:flex-start}
+  #pricing .plan:not(.open) .tl{display:none}
+  #gaps .gap{gap:10px;padding:18px}
+  #gaps .gap-row{grid-template-columns:minmax(0,1fr);gap:6px}
+}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
