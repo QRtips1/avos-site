@@ -201,7 +201,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- gaps ---------- */
 .gaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .gap{display:grid;gap:14px;padding:22px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg-2)}
-.gap-row{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:12px;align-items:start}
+.gap-row{display:grid;grid-template-columns:8.6rem minmax(0,1fr);gap:12px;align-items:start}
 .gap-k{justify-self:start;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap}
 .gap-k.bad{color:var(--leak);background:color-mix(in srgb,var(--leak) 12%,transparent)}
 .gap-k.good{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
@@ -588,6 +588,16 @@ fieldset.field{border:0;margin:0;padding:0}
   .mx-nav{padding:12px 14px}
   .mx-nav span{display:none}
 }
+/* WhatsApp always in view (2026-11-26) */
+.btn-wa{background:#25D366;color:#06301A;box-shadow:0 10px 30px -12px rgba(37,211,102,.55)}
+.btn-wa:hover{background:#1FC05C;transform:translateY(-1px)}
+.btn-wa .wa-ico{width:20px;height:20px}
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:60;display:inline-flex;align-items:center;gap:8px;min-height:54px;padding:0 22px 0 18px;border-radius:999px;background:#25D366;color:#06301A;font-weight:600;text-decoration:none;box-shadow:0 12px 32px -10px rgba(0,0,0,.45);transition:transform .2s,background .2s;touch-action:manipulation}
+.wa-float:hover{background:#1FC05C;transform:translateY(-2px)}
+.wa-float:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.wa-float .wa-ico{width:24px;height:24px}
+@media (min-width: 641px){.foot{padding-bottom:110px}}
+@media (max-width: 640px){.wa-float{display:none}}
 /* phones: shorter page (2026-11-26) */
 .hero-wa-btn,.hero-form-link,.feat-tg{display:none}
 .hero-wa-btn{gap:8px}
@@ -981,7 +991,8 @@ fieldset.field{border:0;margin:0;padding:0}
     <small data-i18n="copy_r">© 2026 MakeSiteFor.me · Podgorica</small>
   </div>
 </footer>
-<div class="mbar" id="mbar"><a class="btn btn-ghost" data-wa><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg>WhatsApp</a><a class="btn btn-main" href="#kontakt" data-i18n="nav_cta">Napišite nam</a></div>
+<div class="mbar" id="mbar"><a class="btn btn-wa" data-wa><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg>WhatsApp</a><a class="btn btn-main" href="#kontakt" data-i18n="nav_cta">Napišite nam</a></div>
+<a class="wa-float" data-wa aria-label="WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span>WhatsApp</span></a>
 <script>
 const PHONE = "38267065707";
 const WA_TEXT = { me: "Zdravo! Zanima me online rezervacija i CRM za moj sajt.", en: "Hello! I'm interested in online booking and a CRM for my website.", ru: "Здравствуйте! Интересует онлайн-запись и CRM для моего сайта." };
@@ -1208,12 +1219,11 @@ document.addEventListener("click", e => {
   const a = e.target.closest('a[href^="https://wa.me/"], a[href^="tel:"]');
   if (a && window.gtag) gtag("event", a.href.startsWith("tel:") ? "contact_phone" : "contact_whatsapp", { language: lang, page: "rezervacije-crm", link_url: a.href.split("?")[0] });
 });
-// phone bar: shown once the first-screen buttons are out of view, hidden at the final contact block
+// phone bar: on screen whenever no other WhatsApp button is fully visible
 if ("IntersectionObserver" in window) {
-  const seen = { cta: true, end: false }, bar = document.getElementById("mbar");
-  const sync = () => bar.classList.toggle("on", !seen.cta && !seen.end);
-  new IntersectionObserver(es => { seen.cta = es[es.length - 1].isIntersecting; sync(); }).observe(document.querySelector(".cr-hero .hero-cta"));
-  new IntersectionObserver(es => { seen.end = es[es.length - 1].isIntersecting; sync(); }).observe(document.getElementById("kontakt"));
+  const bar = document.getElementById("mbar"), full = new Set();
+  const io = new IntersectionObserver(es => { es.forEach(e => { if (e.intersectionRatio > 0.98) full.add(e.target); else full.delete(e.target); }); bar.classList.toggle("on", full.size === 0); }, { threshold: [0, 0.5, 1] });
+  document.querySelectorAll("a[data-wa]").forEach(a => { if (!a.closest("#mbar") && !a.classList.contains("wa-float")) io.observe(a); });
 }
 </script>
 </body>

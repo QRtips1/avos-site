@@ -202,7 +202,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- gaps ---------- */
 .gaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .gap{display:grid;gap:14px;padding:22px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg-2)}
-.gap-row{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:12px;align-items:start}
+.gap-row{display:grid;grid-template-columns:8.6rem minmax(0,1fr);gap:12px;align-items:start}
 .gap-k{justify-self:start;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap}
 .gap-k.bad{color:var(--leak);background:color-mix(in srgb,var(--leak) 12%,transparent)}
 .gap-k.good{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
@@ -589,6 +589,16 @@ fieldset.field{border:0;margin:0;padding:0}
   .mx-nav{padding:12px 14px}
   .mx-nav span{display:none}
 }
+/* WhatsApp always in view (2026-11-26) */
+.btn-wa{background:#25D366;color:#06301A;box-shadow:0 10px 30px -12px rgba(37,211,102,.55)}
+.btn-wa:hover{background:#1FC05C;transform:translateY(-1px)}
+.btn-wa .wa-ico{width:20px;height:20px}
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:60;display:inline-flex;align-items:center;gap:8px;min-height:54px;padding:0 22px 0 18px;border-radius:999px;background:#25D366;color:#06301A;font-weight:600;text-decoration:none;box-shadow:0 12px 32px -10px rgba(0,0,0,.45);transition:transform .2s,background .2s;touch-action:manipulation}
+.wa-float:hover{background:#1FC05C;transform:translateY(-2px)}
+.wa-float:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.wa-float .wa-ico{width:24px;height:24px}
+@media (min-width: 641px){.foot{padding-bottom:110px}}
+@media (max-width: 640px){.wa-float{display:none}}
 /* phones: shorter page (2026-11-26) */
 .hero-wa-btn,.hero-form-link,.feat-tg{display:none}
 .hero-wa-btn{gap:8px}
@@ -650,11 +660,11 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="hero-copy">
           <span class="mono eyebrow" data-i18n="h_eye">Izrada sajtova + CRM za mali biznis · Podgorica</span>
           <h1 data-i18n="h_t">Sajt za vaš posao. <em>A brige prepustite nama.</em></h1>
-          <p class="hero-sub" data-i18n="h_s">Vama ostaje samo da nam kažete šta vam treba. Sav tehnički posao preuzimamo mi: bez iskustva u njemu se lako izgubiti i potrošiti sedmice.</p>
+          <p class="hero-sub" data-i18n="h_s">Klijenti vas prvo traže na internetu. Napravimo vam sajt na kojem vas lako nađu i odmah vam pišu, a vi nam samo kažete čime se bavite.</p>
           <p class="hero-price" data-i18n="h_price"><b>Sajt od 99 €</b>: jedna stranica na 1–2 jezika i forma za upite. <a href="#pricing">Svi paketi i cijene</a></p>
           <p class="hero-demo" data-i18n="h_demo">Prvo besplatno napravimo demo vašeg sajta. Prvi dio plaćate tek kad ga odobrite.</p>
           <div class="hero-cta">
-            <a class="btn btn-main hero-wa-btn" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
+            <a class="btn btn-wa hero-wa-btn" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
             <a class="btn btn-main hero-form-btn" href="#order" data-i18n="h_c1">Napišite nam</a>
             <a class="btn btn-ghost" href="#works" data-i18n="h_c2">Pogledajte naše radove</a>
           </div>
@@ -700,17 +710,17 @@ fieldset.field{border:0;margin:0;padding:0}
         <div class="does-box">
           <h2 class="does-t" data-i18n="do_t">Sve ovo radimo umjesto vas</h2>
           <ul class="does">
-            <li data-i18n="do1">Domen i DNS zapisi</li>
-            <li data-i18n="do2">Hosting i SSL sertifikat</li>
+            <li data-i18n="do1">Adresa sajta (domen i DNS)</li>
+            <li data-i18n="do2">Siguran rad sajta (hosting, SSL)</li>
             <li data-i18n="do3">Dizajn za telefon i računar</li>
             <li data-i18n="do4">Tekstovi na tri jezika</li>
             <li data-i18n="do5">Priprema fotografija za sajt</li>
             <li data-i18n="do6">Upiti u WhatsApp, Telegram ili na e-mail</li>
-            <li data-i18n="do7">CRM za upite</li>
-            <li data-i18n="do8">E-mail na vašem domenu</li>
-            <li data-i18n="do9">Zaštita e-maila: SPF, DKIM, DMARC</li>
+            <li data-i18n="do7">Lista svih upita (CRM)</li>
+            <li data-i18n="do8">Poslovni e-mail: info@firma.me</li>
+            <li data-i18n="do9">Mejlovi ne idu u spam (SPF, DKIM, DMARC)</li>
             <li data-i18n="do10">Google profil i lokacija na mapi</li>
-            <li data-i18n="do11">Osnovni SEO za pretragu na Googlu</li>
+            <li data-i18n="do11">Da vas nađu na Googlu (SEO)</li>
             <li data-i18n="do12">Online rezervacija ili kalendar</li>
           </ul>
         </div>
@@ -761,29 +771,29 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="wrap">
       <div class="sec-head">
         <span class="mono eyebrow" data-i18n="g_eye">Česti problemi</span>
-        <h2 data-i18n="g_t">Zašto gubite klijente</h2>
-        <p data-i18n="g_s">Evo četiri česta razloga i kako to rješavamo.</p>
+        <h2 data-i18n="g_t">Zašto vam treba sajt</h2>
+        <p data-i18n="g_s">Evo šta se dešava bez sajta i šta se mijenja kad ga imate.</p>
       </div>
       <div class="gaps">
         <article class="gap">
-          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g1p">Poruka na Instagramu u 23:40 ostaje bez odgovora do jutra.</p></div>
+          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Bez sajta</span><p data-i18n="g1p">Poruka na Instagramu u 23:40 ostaje bez odgovora do jutra.</p></div>
           <hr>
-          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g1f">Forma na sajtu radi 24/7, a upit odmah stiže gdje vam odgovara: u WhatsApp, Telegram ili na e-mail.</p></div>
+          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Sa sajtom</span><p data-i18n="g1f">Forma na sajtu radi 24/7, a upit odmah stiže gdje vam odgovara: u WhatsApp, Telegram ili na e-mail.</p></div>
         </article>
         <article class="gap">
-          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g2p">Telefon zvoni dok ste zauzeti gostima.</p></div>
+          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Bez sajta</span><p data-i18n="g2p">Telefon zvoni dok ste zauzeti gostima.</p></div>
           <hr>
-          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g2f">Gost sam ostavi rezervaciju, a vi je potvrdite kad stignete.</p></div>
+          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Sa sajtom</span><p data-i18n="g2f">Gost sam ostavi rezervaciju, a vi je potvrdite kad stignete.</p></div>
         </article>
         <article class="gap">
-          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g3p">Turisti vas ne nađu na Googlu ili ne razumiju jezik.</p></div>
+          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Bez sajta</span><p data-i18n="g3p">Turisti vas ne nađu na Googlu ili ne razumiju jezik.</p></div>
           <hr>
-          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g3f">Sajt na tri jezika i Google profil sa mapom i radnim vremenom.</p></div>
+          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Sa sajtom</span><p data-i18n="g3f">Sajt na tri jezika i Google profil sa mapom i radnim vremenom.</p></div>
         </article>
         <article class="gap">
-          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Problem</span><p data-i18n="g4p">Upiti su u tri aplikacije i niko ne zna ko je kome odgovorio.</p></div>
+          <div class="gap-row p"><span class="gap-k bad" data-i18n="k_bad">Bez sajta</span><p data-i18n="g4p">Upiti su u tri aplikacije i niko ne zna ko je kome odgovorio.</p></div>
           <hr>
-          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Rješenje</span><p data-i18n="g4f">Svi upiti na jednom mjestu, u CRM-u, sa statusom i podsjetnikom.</p></div>
+          <div class="gap-row f"><span class="gap-k good" data-i18n="k_good">Sa sajtom</span><p data-i18n="g4f">Svi upiti na jednoj listi (CRM), sa statusom i podsjetnikom.</p></div>
         </article>
       </div>
     </div>
@@ -1294,7 +1304,7 @@ fieldset.field{border:0;margin:0;padding:0}
 
         <aside class="contacts">
           <h3 data-i18n="ct_t">Ili pišite direktno</h3>
-          <a class="btn btn-ghost" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
+          <a class="btn btn-wa" data-wa data-show="phone"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span data-i18n="ct_wa">Pišite na WhatsApp</span></a>
           <ul class="c-list">
             <li class="c-item"><span>WhatsApp</span><a data-contact="phone" class="ph">+382 __ ___ ___</a><button class="copy" type="button" data-copy="phone" data-i18n="copy">Kopiraj</button></li>
             <li class="c-item"><span>Telegram</span><a data-contact="telegram" class="ph">@username</a><button class="copy" type="button" data-copy="telegram" data-i18n="copy">Kopiraj</button></li>
@@ -1307,7 +1317,9 @@ fieldset.field{border:0;margin:0;padding:0}
   </section>
 </main>
 
-<div class="mbar" id="mbar" data-show="phone"><a class="btn btn-ghost" data-wa><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg>WhatsApp</a><a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a></div>
+<div class="mbar" id="mbar" data-show="phone"><a class="btn btn-wa" data-wa><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg>WhatsApp</a><a class="btn btn-main" href="#order" data-i18n="h_c1">Napišite nam</a></div>
+
+<a class="wa-float" data-wa aria-label="WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A7.8 7.8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.3 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.5-.6c.2-.2.3-.2.6-.1l1.4.7c.2.1.3.3.3.5 0 .5-.2 1.1-.7 1.4-.5.3-1.2.4-2.1.1-1.6-.5-3.4-2-4.2-3.6-.5-.9-.6-1.8-.3-2.4z"/></svg><span>WhatsApp</span></a>
 
 <footer class="foot">
   <div class="wrap">
@@ -1347,7 +1359,7 @@ en: {
   h_price:"<b>Website from 99 €</b>: one page in 1–2 languages with an enquiry form. <a href=\"#pricing\">All packages and prices</a>",
   h_demo:"First we build a free demo of your website. You pay the first part only once you approve it.",
   h_t:"A website for your business. <em>Leave the hassle to us.</em>",
-  h_s:"All you do is tell us what you need. We handle all the technical work: without experience, it's easy to get lost in it and waste weeks.",
+  h_s:"Customers look for you online first. We build you a site where they find you easily and message you right away, and all you do is tell us what your business does.",
   h_c1:"Message us", h_c2:"See our work", h_wa:"Or message us on WhatsApp right away:",
   flow_tag:"Live demo", crm_h:"CRM · New requests",
   flow_cap:"Demo: a guest leaves a request on the site, and you get it instantly in Telegram, WhatsApp or by email and see it in the CRM.",
@@ -1381,9 +1393,9 @@ en: {
   w2_d:"Services and prices, projects with photos and video, and a quote form that reaches the owner by email. 4 languages and an admin panel for projects.",
   w2_t:"From first message to launch: 9\u00a0days",
   g_eye:"Common problems",
-  g_t:"Why you lose customers",
-  g_s:"Here are four common reasons and how we fix them.",
-  k_bad:"Problem", k_good:"Fix",
+  g_t:"Why your business needs a website",
+  g_s:"Here is what happens without a website and what changes once you have one.",
+  k_bad:"Without a site", k_good:"With a site",
   g1p:"An Instagram message at 23:40 sits unanswered until morning.",
   g1f:"The site form works 24/7, and each request instantly reaches you where it suits you: WhatsApp, Telegram or email.",
   g2p:"The phone rings while you are busy with guests.",
@@ -1391,7 +1403,7 @@ en: {
   g3p:"Tourists can't find you on Google or can't read the language.",
   g3f:"A site in three languages and a Google profile with map and opening hours.",
   g4p:"Requests are spread across three apps and nobody knows who replied to whom.",
-  g4f:"Every request in one place, in the CRM, with a status and a reminder.",
+  g4f:"Every request on one list (a CRM), with a status and a reminder.",
   p_eye:"How it works",
   p_t:"All we need from you is what you want. We do everything technical.",
   p_s:"No technical knowledge and no long meetings. We ask in plain words, and you answer when it suits you, even by voice message.",
@@ -1537,17 +1549,17 @@ en: {
   pkg_qr_pro:"QR menu or Pro",
   pkg_biz_qr:"Business + QR menu",
   do_t:"We do all of this for you",
-  do1:"Domain and DNS records",
-  do2:"Hosting and SSL certificate",
+  do1:"Your site address (domain, DNS)",
+  do2:"Secure, always-on site (hosting, SSL)",
   do3:"Design for phone and desktop",
   do4:"Texts in three languages",
   do5:"Photo preparation for the site",
   do6:"Requests to WhatsApp, Telegram or email",
-  do7:"CRM for requests",
-  do8:"Email on your own domain",
-  do9:"Email protection: SPF, DKIM, DMARC",
+  do7:"One list of all requests (CRM)",
+  do8:"Business email: info@company.me",
+  do9:"Emails stay out of spam (SPF, DKIM, DMARC)",
   do10:"Google profile and map pin",
-  do11:"Basic SEO for Google search",
+  do11:"Getting found on Google (SEO)",
   do12:"Online booking or calendar",
 },
 ru: {
@@ -1556,7 +1568,7 @@ ru: {
   h_price:"<b>Сайт от 99 €</b>: одна страница на 1–2 языках и форма заявки. <a href=\"#pricing\">Все пакеты и цены</a>",
   h_demo:"Сначала бесплатно делаем демо вашего сайта. Первую часть вы платите, только когда его одобрите.",
   h_t:"Сайт для вашего дела. <em>А хлопоты оставьте нам.</em>",
-  h_s:"Вам остаётся только рассказать, что нужно. Всю техническую часть, в которой без опыта легко запутаться и потерять недели, мы берём на себя.",
+  h_s:"Клиенты сначала ищут вас в интернете. Мы сделаем сайт, где вас легко найти и сразу вам написать, а от вас нужно только рассказать, чем вы занимаетесь.",
   h_c1:"Написать нам", h_c2:"Посмотреть наши работы", h_wa:"Или сразу напишите в WhatsApp:",
   flow_tag:"Живое демо", crm_h:"CRM · Новые заявки",
   flow_cap:"Демо: гость оставляет заявку на сайте, а вы сразу получаете её в Telegram, WhatsApp или на почту и видите в CRM.",
@@ -1590,9 +1602,9 @@ ru: {
   w2_d:"Услуги и цены, проекты с фото и видео и форма запроса цены, которая приходит владельцу на почту. 4 языка и админка для проектов.",
   w2_t:"От первого сообщения до запуска: 9\u00a0дней",
   g_eye:"Частые проблемы",
-  g_t:"Почему вы теряете клиентов",
-  g_s:"Вот четыре частые причины и как мы это решаем.",
-  k_bad:"Проблема", k_good:"Решение",
+  g_t:"Зачем вашему делу сайт",
+  g_s:"Вот что происходит без сайта и что меняется, когда он есть.",
+  k_bad:"Без сайта", k_good:"С сайтом",
   g1p:"Сообщение в Instagram в 23:40 висит без ответа до утра.",
   g1f:"Форма на сайте работает 24/7, а заявка сразу приходит туда, где вам удобно: в WhatsApp, Telegram или на почту.",
   g2p:"Телефон звонит, пока вы заняты гостями.",
@@ -1600,7 +1612,7 @@ ru: {
   g3p:"Туристы не находят вас в Google или не понимают язык.",
   g3f:"Сайт на трёх языках и карточка в Google с картой и часами работы.",
   g4p:"Заявки разбросаны по трём приложениям, и никто не знает, кто кому ответил.",
-  g4f:"Все заявки в одном месте, в CRM, со статусом и напоминанием.",
+  g4f:"Все заявки в одном списке (CRM), со статусом и напоминанием.",
   p_eye:"Как мы работаем",
   p_t:"От вас нужны только пожелания. Всё техническое делаем мы.",
   p_s:"Не нужны ни технические знания, ни долгие встречи. Мы спрашиваем простыми словами, а вы отвечаете, когда удобно, можно голосовым.",
@@ -1746,17 +1758,17 @@ ru: {
   pkg_qr_pro:"QR-меню или Pro",
   pkg_biz_qr:"Бизнес + QR-меню",
   do_t:"Всё это мы делаем за вас",
-  do1:"Домен и DNS-записи",
-  do2:"Хостинг и SSL-сертификат",
+  do1:"Адрес сайта (домен и DNS)",
+  do2:"Надёжная работа сайта (хостинг, SSL)",
   do3:"Дизайн под телефон и компьютер",
   do4:"Тексты на трёх языках",
   do5:"Подготовка фото для сайта",
   do6:"Заявки в WhatsApp, Telegram или на почту",
-  do7:"CRM для заявок",
-  do8:"Почта на вашем домене",
-  do9:"Защита почты: SPF, DKIM, DMARC",
+  do7:"Список всех заявок (CRM)",
+  do8:"Рабочая почта: info@firma.me",
+  do9:"Письма не попадают в спам (SPF, DKIM, DMARC)",
   do10:"Google-профиль и метка на карте",
-  do11:"Базовое SEO для поиска в Google",
+  do11:"Чтобы вас находили в Google (SEO)",
   do12:"Онлайн-бронь или календарь",
 }};
 
@@ -1914,12 +1926,12 @@ async function loop(id){
   }
 }
 if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => flowVisible = e.isIntersecting)).observe($("#flow"));
-// phone bar with WhatsApp and the order button: shown once the first-screen buttons are out of view, hidden while the order form is on screen
+// phone bar with WhatsApp and the order button: on screen whenever no other WhatsApp button is fully visible
 if ("IntersectionObserver" in window && $("#mbar")) {
-  const seen = { cta: true, order: false }, bar = $("#mbar");
-  const sync = () => bar.classList.toggle("on", !seen.cta && !seen.order);
-  new IntersectionObserver(es => { seen.cta = es[es.length - 1].isIntersecting; sync(); }).observe($(".hero-cta"));
-  new IntersectionObserver(es => { seen.order = es[es.length - 1].isIntersecting; sync(); }).observe($("#order"));
+  const seen = { hero: true, ct: false }, bar = $("#mbar");
+  const sync = () => bar.classList.toggle("on", !seen.hero && !seen.ct);
+  const watch = (el, k) => { if (el) new IntersectionObserver(es => { seen[k] = es[es.length - 1].intersectionRatio > 0.98; sync(); }, { threshold: [0, 0.5, 1] }).observe(el); };
+  watch($(".hero-wa-btn"), "hero"); watch($(".contacts [data-wa]"), "ct");
 }
 
 /* ---------- demo tabs ---------- */
